@@ -4,21 +4,33 @@ angular.module('evaluon', [
 'ui.router',
 'LocalStorageModule',
 'ngMaterial',
+'evaluon.auth',
 'evaluon.entity',
 'evaluon.evaluator',
-'evaluon.institution'
+'evaluon.institution',
+'evaluon.templates'
 ])
-.config(function($stateProvider, localStorageServiceProvider){
-  console.log('Load config');
+.config(function($stateProvider, $logProvider, $urlRouterProvider, $locationProvider, localStorageServiceProvider, routingConfigProvider){
+
+  //Debug mode
+  $logProvider.debugEnabled(true);
+
   //Routing config
+  $urlRouterProvider.otherwise('/404');
+  $locationProvider.html5Mode(false);
+
   //Public routes
   $stateProvider
     .state('public', {
         abstract: true,
         template: '<ui-view/>',
         data: {
-
+          access: routingConfigProvider.$get().accessLevels.public
         }
+    })
+    .state('public.404',{
+      url: '/404',
+      template: '<h1 style="text-align: center;">Error 4:04 Sleep not found</h1>'
     });
 
   //Local Storage Config
@@ -27,6 +39,6 @@ angular.module('evaluon', [
   .setStorageCookie(30, '/evaluon/dashboard')
   .setNotify(true, true);
 })
-.run(function(){
-
+.run(function($log){
+  $log.debug('app.js load');
 });

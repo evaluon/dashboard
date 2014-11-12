@@ -4,5 +4,8 @@ angular.module('evaluon.evaluator',[
 'ui.router'
 ])
 .config(function(){
-  console.log('Load evaluator');
+
+})
+.run(function($log){
+  $log.debug('evaluator load');
 });

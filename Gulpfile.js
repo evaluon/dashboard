@@ -69,10 +69,10 @@ gulp.task('templates', function(){
    gulp.src('./app/views/**/*.tpl.html')
    .pipe(templateCache({
          root: 'views/',
-         module: 'registro.templates',
+         module: 'evaluon.templates',
          standalone: true
    }))
-   .pipe(gulp.dest('./app/js'));
+   .pipe(gulp.dest('./app/js/templates'));
 });
 
 gulp.task('compress', function(){
@@ -102,7 +102,8 @@ gulp.task('uncss', function(){
 gulp.task('watch', function(){
     gulp.watch(['./app/**/*.{html,js,css}'], ['reload']);
     gulp.watch(['./app/js/**/*.js'], ['jshint']);
-    gulp.watch(['./bower.json', './app/js/**/*.js'], ['wiredep']);
+    gulp.watch(['./bower.json'], ['wiredep']);
+    gulp.watch(['./app/js/**/*.js'], ['wiredep']);
     gulp.watch(['./app/views/**/*.tpl.html'], ['templates']);
 });
 

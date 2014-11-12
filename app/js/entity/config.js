@@ -4,5 +4,8 @@ angular.module('evaluon.entity', [
 'ui.router'
 ])
 .config(function(){
-  console.log('Load entity');
+
+})
+.run(function($log){
+  $log.debug('entity load');
 });
