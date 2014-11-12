@@ -16,7 +16,8 @@ angular.module('evaluon.auth', [
       })
       .state('anon.login', {
         url:'/login',
-        templateUrl: 'views/auth/login.tpl.html'
+        templateUrl: 'views/auth/login.tpl.html',
+        controller: 'LoginCtrl'
       });
 })
 .run(function($log){
