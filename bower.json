@@ -1,0 +1,34 @@
+{
+  "name": "Dashboard Evaluon",
+  "version": "0.0.1",
+  "authors": [
+    "Sebastian Osorio <svzosorio@boolinc.co>"
+  ],
+  "description": "Dasboard para el control de Evaluon",
+  "main": "/app",
+  "moduleType": [
+    "globals"
+  ],
+  "keywords": [
+    "Evaluon",
+    "INCI",
+    "boolinc"
+  ],
+  "license": "MIT",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "app/lib",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular": "~1.3.2",
+    "jquery": "~2.1.1",
+    "angular-ui-router": "~0.2.11",
+    "angular-material": "~0.5.1",
+    "angular-local-storage": "~0.1.5"
+  }
+}
