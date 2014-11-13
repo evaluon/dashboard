@@ -52,7 +52,7 @@ angular.module('evaluon', [
         $rootScope.$on('$stateChangeStart', function(event, toState, toParams, fromState, fromParams) {
             /*event.preventDefault();
             console.log(toState);
-            $state.go(toState.name);/*
+            $state.go(toState.name);*/
         });
 
 });
