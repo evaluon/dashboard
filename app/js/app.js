@@ -17,11 +17,11 @@ angular.module('evaluon', [
     ){
 
         //Debug mode
-        $logProvider.debugEnabled(false);
+        $logProvider.debugEnabled(true);
 
         //Routing config
         $urlRouterProvider.otherwise('/404');
-        $locationProvider.html5Mode(false);
+        $locationProvider.html5Mode(true);
 
         //Public routes
         $stateProvider
