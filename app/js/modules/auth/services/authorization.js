@@ -7,7 +7,7 @@ var userRoles = {
     entity: 8
 };
 
-angular.module('evaluon.auth').provider('routingConfig', function(){
+angular.module('evaluon.auth').provider('authorization', function(){
 
     this.$get = function(){
 

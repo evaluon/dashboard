@@ -2,7 +2,7 @@
 
 angular.module('evaluon.auth', ['ui.router']).config(
 
-    function($stateProvider, routingConfigProvider){
+    function($stateProvider, authorizationProvider){
 
         // Manage routes
         $stateProvider
@@ -11,7 +11,7 @@ angular.module('evaluon.auth', ['ui.router']).config(
                 abstract: true,
                 template: '<ui-view/>',
                 data: {
-                    access: routingConfigProvider.$get().accessLevels.public
+                    access: authorizationProvider.$get().accessLevels.public
                 }
             }
         ).state(

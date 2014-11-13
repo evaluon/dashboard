@@ -10,7 +10,7 @@ angular.module('evaluon', [
 
     function(
         $stateProvider, $logProvider, $urlRouterProvider, $locationProvider,
-        localStorageServiceProvider, routingConfigProvider
+        localStorageServiceProvider, authorizationProvider
     ){
 
         //Debug mode
@@ -27,7 +27,7 @@ angular.module('evaluon', [
                 abstract: true,
                 template: '<ui-view/>',
                 data: {
-                    access: routingConfigProvider.$get().accessLevels.public
+                    access: authorizationProvider.$get().accessLevels.public
                 }
             }
         ).state(
@@ -44,4 +44,16 @@ angular.module('evaluon', [
             .setNotify(true, true);
     }
 
+).run(
+    function(Auth, access, localStorageService){
+
+        if(!localStorageService.get(CryptoJS.SHA1(access.tokens.client))){
+            Auth.clientCredentials().then(function(token){
+                localStorageService.set(
+                    CryptoJS.SHA1(access.tokens.client).toString(), token
+                );
+            });
+        }
+
+    }
 );
