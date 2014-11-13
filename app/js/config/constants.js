@@ -16,7 +16,7 @@ angular.module('evaluon')
     },
 
     token: function(){
-        return this.router('token');
+        return this.router('auth/token');
     }
 
 })
