@@ -46,8 +46,13 @@ angular.module('evaluon', [
         .setStorageCookie(30, '/evaluon/dashboard')
         .setNotify(true, true);
     }
-).run(
-    function($log){
+).run(function($rootScope, $state, $log){
         $log.debug('app.js load');
-    }
-);
+
+        $rootScope.$on('$stateChangeStart', function(event, toState, toParams, fromState, fromParams) {
+            /*event.preventDefault();
+            console.log(toState);
+            $state.go(toState.name);/*
+        });
+
+});
