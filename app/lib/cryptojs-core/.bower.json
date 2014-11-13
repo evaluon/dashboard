@@ -1,0 +1,14 @@
+{
+  "name": "cryptojs-core",
+  "_cacheHeaders": {
+    "ETag": "\"636//tags/3.1.2/build/components/core-min.js\"",
+    "Last-Modified": "Tue, 22 Jan 2013 17:44:44 GMT",
+    "Content-Length": "3298",
+    "Content-Type": "text/javascript"
+  },
+  "_release": "e-tag:636//tags",
+  "main": "index.js",
+  "_source": "http://crypto-js.googlecode.com/svn/tags/3.1.2/build/components/core-min.js",
+  "_target": "*",
+  "_originalSource": "http://crypto-js.googlecode.com/svn/tags/3.1.2/build/components/core-min.js"
+}
