@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('evaluon.auth').provider('routingConfig', function(){
+angular.module('evaluon.permissions').provider('permissionsConfig', function(){
 
     this.userRoles = {
         public: 1,
@@ -9,10 +9,11 @@ angular.module('evaluon.auth').provider('routingConfig', function(){
         entity: 8
     };
 
-    var that = this;
     this.accessLevels = {
-        public: this.userRoles.public | this.userRoles.evaluator |
-        this.userRoles.institution | this.userRoles.entity,
+        public: this.userRoles.public |
+                this.userRoles.evaluator |
+                this.userRoles.institution |
+                this.userRoles.entity,
         anon : this.userRoles.public,
         evaluator: this.userRoles.evaluator,
         institution: this.userRoles.institution,

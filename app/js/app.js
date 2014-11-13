@@ -9,12 +9,8 @@ angular.module('evaluon', [
 .config(
 
     function(
-        $stateProvider,
-        $logProvider,
-        $urlRouterProvider,
-        $locationProvider,
-        localStorageServiceProvider,
-        routingConfigProvider
+        $stateProvider, $logProvider, $urlRouterProvider, $locationProvider,
+        localStorageServiceProvider, permissionsConfigProvider
     ){
 
         //Debug mode
@@ -43,38 +39,9 @@ angular.module('evaluon', [
 
         //Local Storage Config
         localStorageServiceProvider
-        .setPrefix('dashboardEvaluon')
-        .setStorageCookie(30, '/evaluon/dashboard')
-        .setNotify(true, true);
+            .setPrefix('dashboardEvaluon')
+            .setStorageCookie(30, '/evaluon/dashboard')
+            .setNotify(true, true);
     }
 
-).run(
-
-    function($rootScope, $state, $log){
-
-        $rootScope.$on(
-            '$stateChangeStart',
-            function(event, toState, toParams, fromState, fromParams) {
-                event.preventDefault();
-
-                /*
-                var flightState = {
-                    from: {
-                        state: fromState,
-                        params: fromParams
-                    },
-                    to: {
-                        state: toState,
-                        params: toParams
-                    }
-                };
-
-                $log.debug(flightState);
-                $state.go('anon.auth', flightState);
-                */
-
-            }
-        );
-
-    }
 );
