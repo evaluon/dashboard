@@ -25,17 +25,20 @@ angular.module('evaluon', [
 
         //Public routes
         $stateProvider
-        .state('public', {
-            abstract: true,
-            template: '<ui-view/>',
-            data: {
-                access: routingConfigProvider.$get().accessLevels.public
+        .state(
+            'public', {
+                abstract: true,
+                template: '<ui-view/>',
+                data: {
+                    access: routingConfigProvider.$get().accessLevels.public
+                }
             }
-        })
-        .state('public.404',{
-            url: '/404',
-            template: '<h1 class="text-center">Error 4:04 Sleep not found</h1>'
-        });
+        ).state(
+            'public.404', {
+                url:'/404',
+                templateUrl: 'views/errors/404.tpl.html'
+            }
+        );
 
         //Local Storage Config
         localStorageServiceProvider

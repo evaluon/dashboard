@@ -102,7 +102,7 @@ gulp.task('uncss', function(){
 gulp.task('watch', function(){
     gulp.watch(['./app/**/*.{html,js,css}'], ['reload']);
     gulp.watch(['./bower.json'], ['wiredep', 'inject']);
-    gulp.watch(['./app/js/**/*.js'], ['inject']);
+    gulp.watch(['./app/js/**/*.js'], ['inject', 'wiredep']);
     gulp.watch(['./app/views/**/*.tpl.html'], ['templates']);
 });
 
