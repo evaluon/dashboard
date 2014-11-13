@@ -8,8 +8,8 @@ angular.module('evaluon.institution', [
   $stateProvider
     .state('institution', {
         abstract: true,
-        url: '/evaluator',
-        template: '<ui-view/>',
+        url: '/institution',
+        templateUrl: 'views/institution/institution.tpl.html',
         controller: 'InstitutionCtrl',
         data: {
             access: routingConfigProvider.$get().accessLevels.evaluator
@@ -17,8 +17,7 @@ angular.module('evaluon.institution', [
     })
   .state('institution.home', {
     url: '/home',
-    templateUrl: 'views/entity/home.tpl.html',
-    controller: ''
+    templateUrl: 'views/institution/home.tpl.html'
   });
 })
 .run(function($log){

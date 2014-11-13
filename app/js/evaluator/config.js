@@ -9,7 +9,7 @@ angular.module('evaluon.evaluator',[
     .state('evaluator', {
         abstract: true,
         url: '/evaluator',
-        template: '<ui-view/>',
+        templateUrl: 'views/evaluator/evaluator.tpl.html',
         controller: 'EvaluatorCtrl',
         data: {
             access: routingConfigProvider.$get().accessLevels.evaluator
@@ -17,8 +17,7 @@ angular.module('evaluon.evaluator',[
     })
   .state('evaluator.home', {
     url: '/home',
-    templateUrl: 'views/entity/home.tpl.html',
-    controller: ''
+    templateUrl: 'views/evaluator/home.tpl.html'
   });
 })
 .run(function($log){
