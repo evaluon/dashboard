@@ -8,7 +8,7 @@ angular.module('evaluon.auth').factory('Auth', function(api, access, $http){
 
             return $http({
                 method: 'post',
-                url: api.token(),
+                url: api.token,
                 headers: {
                     'Content-Type': 'application/x-www-form-urlencoded'
                 },
@@ -25,7 +25,7 @@ angular.module('evaluon.auth').factory('Auth', function(api, access, $http){
 
             return $http({
                 method: 'post',
-                url: api.token(),
+                url: api.token,
                 headers: {
                     'Content-Type': 'application/x-www-form-urlencoded',
                     Authorization: '{0} {1}'.format(tokenType, accessToken)
