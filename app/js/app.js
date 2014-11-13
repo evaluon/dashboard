@@ -1,6 +1,7 @@
 'use strict';
 
 angular.module('evaluon', [
+'angularjs-crypto',
 'ui.router',
 'LocalStorageModule',
 'ngMaterial',
