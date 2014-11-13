@@ -31,6 +31,8 @@
     "angular-material": "~0.5.1",
     "angular-local-storage": "~0.1.5",
     "string-formatter": "~0.0.1",
-    "underscore": "~1.7.0"
+    "underscore": "~1.7.0",
+    "cryptojs-core": "http://crypto-js.googlecode.com/svn/tags/3.1.2/build/components/core-min.js",
+    "cryptojs-sha1": "http://crypto-js.googlecode.com/svn/tags/3.1.2/build/rollups/sha1.js"
   }
 }
