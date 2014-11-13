@@ -8,7 +8,7 @@ angular.module('evaluon.entity', [
     .state('entity', {
         abstract: true,
         url: '/entity',
-        template: '<ui-view/>',
+        templateUrl: 'views/entity/entity.tpl.html',
         controller: 'EntityCtrl',
         data: {
             access: routingConfigProvider.$get().accessLevels.entity
@@ -16,8 +16,7 @@ angular.module('evaluon.entity', [
     })
     .state('entity.home', {
       url: '/home',
-      templateUrl: 'views/entity/home.tpl.html',
-      controller: ''
+      templateUrl: 'views/entity/home.tpl.html'
     });
 })
 .run(function($log){
