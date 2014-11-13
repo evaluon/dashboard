@@ -7,7 +7,7 @@
       </div>
     </md-toolbar>
     <md-content class="md-padding md-whiteframe-z5" md-theme="light-blue-dark" layout-padding layout-align="center">
-      <form layout="vertical" layout-align="center center">
+      <form layout="vertical" layout-align="center center" ng-submit="login($event)">
         <md-text-float label="Correo" type="email" ng-model="user.email" ng-required="true"> </md-text-float>
         <md-text-float label="Contraseña" type="password" ng-model="user.password" ng-required="true"> </md-text-float>
         <md-button type="submit" aria-label="Iniciar Sesion" md-theme="light-blue-dark" class="md-primary">

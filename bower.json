@@ -30,6 +30,7 @@
     "angular-ui-router": "~0.2.11",
     "angular-material": "~0.5.1",
     "angular-local-storage": "~0.1.5",
-    "string-formatter": "~0.0.1"
+    "string-formatter": "~0.0.1",
+    "underscore": "~1.7.0"
   }
 }
