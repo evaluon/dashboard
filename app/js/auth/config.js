@@ -8,22 +8,26 @@ angular.module('evaluon.auth', [
 
         //routing
         $stateProvider
-        .state('anon', {
-            abstract: true,
-            template: '<ui-view/>',
-            data: {
-                access: routingConfigProvider.$get().accessLevels.public
+        .state(
+            'anon', {
+                abstract: true,
+                template: '<ui-view/>',
+                data: {
+                    access: routingConfigProvider.$get().accessLevels.public
+                }
             }
-        })
-        .state('anon.login', {
-            url:'/login',
-            templateUrl: 'views/auth/login.tpl.html',
-            controller: 'LoginCtrl'
-        });
-        
-    }
-).run(
-    function($log){
-        $log.debug('auth load');
+        ).state(
+            'anon.auth', {
+                url:'/',
+                controller: 'AuthCtrl'
+            }
+        ).state(
+            'anon.login', {
+                url:'/login',
+                templateUrl: 'views/auth/login.tpl.html',
+                controller: 'LoginCtrl'
+            }
+        );
+
     }
 );

@@ -1,33 +1,29 @@
 'use strict';
 
-angular.module('evaluon.auth')
-.provider('routingConfig', function(){
+angular.module('evaluon.auth').provider('routingConfig', function(){
 
-  this.userRoles = {
-    public: 1,
-    evaluator: 2,
-    institution: 4,
-    entity: 8
-  };
-
-  var that = this;
-  this.accessLevels = {
-      public: that.userRoles.public |
-              that.userRoles.evaluator |
-              that.userRoles.institution |
-              that.userRoles.entity,
-      anon : that.userRoles.public,
-      evaluator: that.userRoles.evaluator,
-      institution: that.userRoles.institution,
-      entity: that.userRoles.entity
-  };
-
-  this.$get = function(){
-    var that = this;
-    return {
-      userRoles: that.userRoles,
-      accessLevels: that.accessLevels
+    this.userRoles = {
+        public: 1,
+        evaluator: 2,
+        institution: 4,
+        entity: 8
     };
-  };
+
+    var that = this;
+    this.accessLevels = {
+        public: this.userRoles.public | this.userRoles.evaluator |
+        this.userRoles.institution | this.userRoles.entity,
+        anon : this.userRoles.public,
+        evaluator: this.userRoles.evaluator,
+        institution: this.userRoles.institution,
+        entity: this.userRoles.entity
+    };
+
+    this.$get = function(){
+        return {
+            userRoles: this.userRoles,
+            accessLevels: this.accessLevels
+        };
+    };
 
 });

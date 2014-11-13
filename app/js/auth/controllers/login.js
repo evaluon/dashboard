@@ -1,7 +1,6 @@
 'use strict';
 
-angular.module('evaluon.auth')
-.controller('LoginCtrl', function($scope, Auth){
+angular.module('evaluon.auth').controller('LoginCtrl', function($scope, Auth){
 
     $scope.user = {
         email: 'nombre@correo.co',
