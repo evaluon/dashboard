@@ -7,6 +7,7 @@ angular.module('evaluon', [
 'evaluon.institution', 'evaluon.templates'
 ])
 .config(
+
     function(
         $stateProvider,
         $logProvider,
@@ -46,13 +47,34 @@ angular.module('evaluon', [
         .setStorageCookie(30, '/evaluon/dashboard')
         .setNotify(true, true);
     }
-).run(function($rootScope, $state, $log){
-        $log.debug('app.js load');
 
-        $rootScope.$on('$stateChangeStart', function(event, toState, toParams, fromState, fromParams) {
-            /*event.preventDefault();
-            console.log(toState);
-            $state.go(toState.name);*/
-        });
+).run(
 
-});
+    function($rootScope, $state, $log){
+
+        $rootScope.$on(
+            '$stateChangeStart',
+            function(event, toState, toParams, fromState, fromParams) {
+                event.preventDefault();
+
+                /*
+                var flightState = {
+                    from: {
+                        state: fromState,
+                        params: fromParams
+                    },
+                    to: {
+                        state: toState,
+                        params: toParams
+                    }
+                };
+
+                $log.debug(flightState);
+                $state.go('anon.auth', flightState);
+                */
+
+            }
+        );
+
+    }
+);

@@ -1,9 +1,7 @@
 'use strict';
 
-angular.module('evaluon.auth', [
-'ui.router'
-])
-.config(
+angular.module('evaluon.auth', ['ui.router']).config(
+
     function($stateProvider, routingConfigProvider){
 
         //routing
@@ -30,4 +28,5 @@ angular.module('evaluon.auth', [
         );
 
     }
+    
 );
