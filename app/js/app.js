@@ -10,7 +10,7 @@ angular.module('evaluon', [
 
     function(
         $stateProvider, $logProvider, $urlRouterProvider, $locationProvider,
-        localStorageServiceProvider, permissionsConfigProvider
+        localStorageServiceProvider, routingConfigProvider
     ){
 
         //Debug mode

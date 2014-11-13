@@ -11,7 +11,7 @@ angular.module('evaluon.auth', ['ui.router']).config(
                 abstract: true,
                 template: '<ui-view/>',
                 data: {
-                    access: permissionsConfigProvider.$get().accessLevels.public
+                    access: routingConfigProvider.$get().accessLevels.public
                 }
             }
         ).state(
