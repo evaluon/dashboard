@@ -2,9 +2,23 @@
 
 angular.module('evaluon')
 .constant('api', {
+
+    url: {
+        protocol: 'http',
+        host: 'evaluon.boolinc.co'
+    },
+    router: function(path){
+        var url = this.url;
+        return '{0}://{1}/{2}'.format(url.protocol, url.host, path);
+    },
     id: function(id){
         return '/'+id;
+    },
+
+    token: function(){
+        return this.router('token');
     }
+
 })
 .constant('access', {
     client: {

@@ -12,33 +12,33 @@ angular.module('evaluon', [
 ])
 .config(function($stateProvider, $logProvider, $urlRouterProvider, $locationProvider, localStorageServiceProvider, routingConfigProvider){
 
-  //Debug mode
-  $logProvider.debugEnabled(true);
+    //Debug mode
+    $logProvider.debugEnabled(false);
 
-  //Routing config
-  $urlRouterProvider.otherwise('/404');
-  $locationProvider.html5Mode(false);
+    //Routing config
+    $urlRouterProvider.otherwise('/404');
+    $locationProvider.html5Mode(false);
 
-  //Public routes
-  $stateProvider
+    //Public routes
+    $stateProvider
     .state('public', {
         abstract: true,
         template: '<ui-view/>',
         data: {
-          access: routingConfigProvider.$get().accessLevels.public
+            access: routingConfigProvider.$get().accessLevels.public
         }
     })
     .state('public.404',{
-      url: '/404',
-      template: '<h1 style="text-align: center;">Error 4:04 Sleep not found</h1>'
+        url: '/404',
+        template: '<h1 class="text-center">Error 4:04 Sleep not found</h1>'
     });
 
-  //Local Storage Config
-  localStorageServiceProvider
-  .setPrefix('dashboardEvaluon')
-  .setStorageCookie(30, '/evaluon/dashboard')
-  .setNotify(true, true);
+    //Local Storage Config
+    localStorageServiceProvider
+    .setPrefix('dashboardEvaluon')
+    .setStorageCookie(30, '/evaluon/dashboard')
+    .setNotify(true, true);
 })
 .run(function($log){
-  $log.debug('app.js load');
+    $log.debug('app.js load');
 });
