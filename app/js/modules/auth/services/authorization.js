@@ -15,9 +15,9 @@ angular.module('evaluon.auth').provider('authorization', function(){
             userRoles: userRoles,
             accessLevels: {
                 public: userRoles.public |
-                userRoles.evaluator |
-                userRoles.institution |
-                userRoles.entity,
+                    userRoles.evaluator |
+                    userRoles.institution |
+                    userRoles.entity,
                 anon : userRoles.public,
                 evaluator: userRoles.evaluator,
                 institution: userRoles.institution,
