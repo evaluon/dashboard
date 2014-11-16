@@ -1,10 +1,15 @@
 'use strict';
 
 angular.module('evaluon.auth').controller(
-    'AuthCtrl', function($state){
+    'AuthCtrl', function($state, access, localStorageService){
 
-        // TODO: Add the logic to check if an user is logged in
-        $state.go('anon.login', { redirected: true });
+        if(!localStorageService.get(CryptoJS.SHA1(access.tokens.client))){
+            $state.go('anon.login');
+        } else {
+            // TODO: Add the logic to check if an user is logged in
+            $state.go('evaluator.home');
+        }
+
 
     }
 );

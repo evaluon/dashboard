@@ -14,7 +14,7 @@ uncss = require('gulp-uncss');
 gulp.task('webserver', function(){
     connect.server({
         root:'./app',
-        hostname: 'localhost',
+        hostname: '0.0.0.0',
         port: 9000,
         liveReload: true,
         middleware: function(connect, opt) {
@@ -26,7 +26,7 @@ gulp.task('webserver', function(){
 gulp.task('dist-server', function(){
     connect.server({
         root: './dist',
-        hostname: 'localhost',
+        hostname: '0.0.0.0',
         port: 9002,
         liveReload: true,
         middleware: function(connect, opt) {
@@ -107,4 +107,4 @@ gulp.task('watch', function(){
 });
 
 gulp.task('default', ['wiredep', 'inject', 'webserver', 'watch']);
-gulp.task('build', ['templates', 'compress', 'copy']);
+gulp.task('build', ['templates', 'compress', 'copy', 'dist-server']);

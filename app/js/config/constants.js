@@ -10,7 +10,8 @@ angular.module('evaluon')
         },
         tokens: {
             client: 'dlav4218f',
-            user: 'ial83lcv'
+            user: 'ial83lcv',
+            redirect: 'a34rafas'
         }
     }
 );
