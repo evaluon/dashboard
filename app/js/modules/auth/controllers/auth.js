@@ -14,9 +14,7 @@ angular.module('evaluon.auth').controller(
             var userRole = user.role,
             userHome = (userRole == 2 ?
                 'evaluator' : (userRole == 4 ?
-                    'institution' : (userRole == 8 ?
-                        'entity'  : 'anon'
-                    )
+                    'institution' : 'entity'
                 )
             );
             if(userRole == 1) $state.go('anon.logout');
