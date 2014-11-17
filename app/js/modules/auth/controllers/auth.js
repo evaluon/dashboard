@@ -4,8 +4,9 @@ angular.module('evaluon.auth').controller(
     'AuthCtrl', function($state, Auth, tokens, localStorageService){
 
         var rtoken = CryptoJS.SHA1(tokens.redirect).toString(),
+            utoken = CryptoJS.SHA1(tokens.user).toString(),
             redirect = localStorageService.get(rtoken),
-            user = Auth.userLogged;
+            user = localStorageService.get(utoken);
 
         if(
             (redirect.name == "anon.auth") ||

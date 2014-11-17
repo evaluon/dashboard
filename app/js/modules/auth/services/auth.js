@@ -5,8 +5,6 @@ function(
     api, headers, tokens, access, User, $rootScope, $http, localStorageService
 ){
 
-    var uToken = localStorageService.get(CryptoJS.SHA1(tokens.user).toString());
-
     return {
 
         clientCredentials: function(){
@@ -36,8 +34,7 @@ function(
         },
         logout: function(){
             localStorageService.remove(CryptoJS.SHA1(tokens.user).toString());
-        },
-        userLogged: uToken
+        }
 
     };
 

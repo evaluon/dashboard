@@ -57,7 +57,10 @@ angular.module('evaluon', [
         $rootScope.$on('$stateChangeStart', function(e, toState){
 
             var ctoken = CryptoJS.SHA1(tokens.client).toString(),
-                rtoken = CryptoJS.SHA1(tokens.redirect).toString();
+                rtoken = CryptoJS.SHA1(tokens.redirect).toString(),
+                utoken = CryptoJS.SHA1(tokens.user).toString();
+
+            var user = localStorageService.get(utoken);
 
             if(!localStorageService.get(ctoken)){
                 Auth.clientCredentials().then(function(token){
@@ -66,7 +69,7 @@ angular.module('evaluon', [
             }
 
             if(toState.name != 'anon.login'){
-                if(Auth.userLogged){
+                if(user){
                     var redirection = localStorageService.get(rtoken);
                     if(!redirection){
                         e.preventDefault();

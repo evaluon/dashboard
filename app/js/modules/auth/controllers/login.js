@@ -15,17 +15,18 @@ angular.module('evaluon.auth').controller(
             var token = localStorageService.get(
                 CryptoJS.SHA1(tokens.client).toString()
             );
+            var uToken = {};
 
             Auth.password(
                 token.token_type, token.access_token,
                 $scope.user.email, $scope.user.password
             ).then(function(token){
-                token = token;
+                uToken = token;
                 return User.getUser(token.token_type, token.access_token);
             }).then(function(user){
-                token.role = user.role;
+                uToken.role = user.role;
                 localStorageService.set(
-                    CryptoJS.SHA1(tokens.user).toString(), token
+                    CryptoJS.SHA1(tokens.user).toString(), uToken
                 );
                 $state.go('anon.auth');
             }).catch(function(error){
