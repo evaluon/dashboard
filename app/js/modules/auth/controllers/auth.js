@@ -22,7 +22,6 @@ angular.module('evaluon.auth').controller(
             if(userRole == 1) $state.go('anon.logout');
             else $state.go('{0}.home'.format(userHome));
         } else if(redirect.data.access & user.role){
-            console.log(user.id, "Goes to", redirect.name);
             $state.go(redirect.name);
         } else {
             $state.go('public.403');

@@ -23,7 +23,6 @@ angular.module('evaluon.auth').controller(
                 token = token;
                 return User.getUser(token.token_type, token.access_token);
             }).then(function(user){
-                console.log(user);
                 token.role = user.role;
                 localStorageService.set(
                     CryptoJS.SHA1(tokens.user).toString(), token
