@@ -2,9 +2,12 @@
 
 var apiRouter = {
 
+    images: function(container, path){
+        return 'http://cdn.boolinc.co/{0}/{1}'.format(container, path);
+    },
     url: {
         protocol: 'http',
-        host: 'localhost:3004'
+        host: 'evaluon.boolinc.co'
     },
     route: function(path){
         var url = this.url;
@@ -16,11 +19,17 @@ var apiRouter = {
 
 };
 
-angular.module('evaluon').constant('api', {
+angular.module('evaluon').constant(
+    'api', {
 
-    token: apiRouter.route('auth/token'),
-    user: apiRouter.route('user'),
-    institution: apiRouter.route('institution'),
-    evaluee: apiRouter.route('evaluee'),
+        token: apiRouter.route('auth/token'),
+        user: apiRouter.route('user'),
+        institution: apiRouter.route('institution'),
+        evaluee: apiRouter.route('evaluee'),
 
-});
+    }
+).constant(
+    'images', {
+        evaluon: function(path) { return apiRouter.images('evaluon', path); }
+    }
+);

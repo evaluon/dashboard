@@ -3,18 +3,20 @@
   <md-content>
     <md-subheader class="md-sticky-no-effect">Agregar Institución</md-subheader>
     <form style="padding: 20px;">
-      <md-text-float label="Company" ng-model="user.company" disabled> </md-text-float>
       <div class="row">
-          <md-text-float label="FirstName" ng-model="user.firstName"> </md-text-float>
-          <md-text-float label="LastName" ng-model="user.lastName" class="long"> </md-text-float>
+          <md-text-float label="NIT" ng-model="institution.id" required> </md-text-float>
+          <md-text-float label="Nombre" ng-model="institution.name" required> </md-text-float>
       </div>
-      <md-text-float label="Address" ng-model="user.address"> </md-text-float>
+      <md-text-float label="Dirección" ng-model="institution.address" required> </md-text-float>
       <div class="row">
-        <md-text-float label="City" ng-model="user.city"> </md-text-float>
-        <md-text-float label="State" ng-model="user.state"> </md-text-float>
-        <md-text-float label="Postal Code" ng-model="user.postalCode"> </md-text-float>
+        <md-text-float label="Correo Electrónico" ng-model="institution.mail" required> </md-text-float>
+        <md-text-float label="Número Teléfono" ng-model="institution.phone_number" required> </md-text-float>
+        </div>
+      <div class="row">
+          <md-button ng-file-select="onFile($files)" >Agregar Archivo</md-button>
+          <md-text-float label="Descripción" ng-model="institution.description" required></md-text-float>
       </div>
-      <md-text-float label="Country" ng-model="user.country" disabled> </md-text-float>
+      <md-button ng-click="send()" class="md-primary">Enviar</md-button>
     </form>
   </md-content>
 
