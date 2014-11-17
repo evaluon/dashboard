@@ -4,6 +4,7 @@ angular.module('evaluon')
 .constant(
     'headers', {
         urlencoded: 'application/x-www-form-urlencoded',
+        json: 'application/json',
         authorization: function(t, k) { return '{0} {1}'.format(t, k) }
     }
 )

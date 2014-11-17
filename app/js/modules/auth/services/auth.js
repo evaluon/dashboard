@@ -34,7 +34,17 @@ function(
         },
         logout: function(){
             localStorageService.remove(CryptoJS.SHA1(tokens.user).toString());
-        }
+        },
+        userLogged: (function(){
+            return localStorageService.get(
+                CryptoJS.SHA1(tokens.user).toString()
+            );
+        })(),
+        client: (function(){
+            return localStorageService.get(
+                CryptoJS.SHA1(tokens.client).toString()
+            );
+        })()
 
     };
 

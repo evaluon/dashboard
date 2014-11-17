@@ -19,6 +19,8 @@ var apiRouter = {
 angular.module('evaluon').constant('api', {
 
     token: apiRouter.route('auth/token'),
-    user: apiRouter.route('user')
+    user: apiRouter.route('user'),
+    institution: apiRouter.route('institution'),
+    evaluee: apiRouter.route('evaluee'),    
 
 });
