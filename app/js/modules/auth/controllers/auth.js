@@ -1,15 +1,32 @@
 'use strict';
 
 angular.module('evaluon.auth').controller(
-    'AuthCtrl', function($state, access, localStorageService){
+    'AuthCtrl', function($state, Auth, tokens, localStorageService){
 
-        if(!localStorageService.get(CryptoJS.SHA1(access.tokens.client))){
-            $state.go('anon.login');
+        var rtoken = CryptoJS.SHA1(tokens.redirect).toString(),
+            redirect = localStorageService.get(rtoken),
+            user = Auth.userLogged;
+
+        if(
+            (redirect.name == "anon.auth") ||
+            (redirect.name ==  "anon.login" && user)
+        ) {
+            var userRole = user.role,
+            userHome = (userRole == 2 ?
+                'evaluator' : (userRole == 4 ?
+                    'institution' : (userRole == 8 ?
+                        'entity'  : 'anon'
+                    )
+                )
+            );
+            if(userRole == 1) $state.go('anon.logout');
+            else $state.go('{0}.home'.format(userHome));
+        } else if(redirect.data.access & user.role){
+            console.log(user.id, "Goes to", redirect.name);
+            $state.go(redirect.name);
         } else {
-            // TODO: Add the logic to check if an user is logged in
-            $state.go('evaluator.home');
+            $state.go('public.403');
         }
-
 
     }
 );

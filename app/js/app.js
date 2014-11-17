@@ -1,5 +1,7 @@
 'use strict';
 
+var c = 0;
+
 angular.module('evaluon', [
 'ui.router', 'LocalStorageModule', 'ngMaterial',
 
@@ -31,6 +33,11 @@ angular.module('evaluon', [
                 }
             }
         ).state(
+            'public.403', {
+                url:'/403',
+                templateUrl: 'views/errors/403.tpl.html'
+            }
+        ).state(
             'public.404', {
                 url:'/404',
                 templateUrl: 'views/errors/404.tpl.html'
@@ -45,15 +52,38 @@ angular.module('evaluon', [
     }
 
 ).run(
-    function(Auth, access, localStorageService){
+    function(
+        $state, $rootScope, Auth, tokens, localStorageService
+    ){
 
-        if(!localStorageService.get(CryptoJS.SHA1(access.tokens.client))){
-            Auth.clientCredentials().then(function(token){
-                localStorageService.set(
-                    CryptoJS.SHA1(access.tokens.client).toString(), token
-                );
-            });
-        }
+        $rootScope.$on('$stateChangeStart', function(e, toState){
+
+            var ctoken = CryptoJS.SHA1(tokens.client).toString(),
+                rtoken = CryptoJS.SHA1(tokens.redirect).toString();
+
+            if(!localStorageService.get(ctoken)){
+                Auth.clientCredentials().then(function(token){
+                    localStorageService.set(ctoken, token);
+                });
+            }
+
+            if(toState.name != 'anon.login'){
+                if(Auth.userLogged){
+                    var redirection = localStorageService.get(rtoken);
+                    if(!redirection){
+                        e.preventDefault();
+                        localStorageService.set(rtoken, toState);
+                        $state.go('anon.auth');
+                    } else if(toState.name != 'anon.auth') {
+                        localStorageService.remove(rtoken);
+                    }
+                } else {
+                    e.preventDefault();
+                    $state.go('anon.login');
+                }
+            }
+
+        });
 
     }
 );

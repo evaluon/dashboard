@@ -14,13 +14,19 @@ angular.module('evaluon.auth').provider('authorization', function(){
         return {
             userRoles: userRoles,
             accessLevels: {
+                anon: userRoles.public |
+                    userRoles.evaluator |
+                    userRoles.institution |
+                    userRoles.entity,
                 public: userRoles.public |
                     userRoles.evaluator |
                     userRoles.institution |
                     userRoles.entity,
-                anon : userRoles.public,
-                evaluator: userRoles.evaluator,
-                institution: userRoles.institution,
+                evaluator: userRoles.evaluator |
+                    userRoles.institution |
+                    userRoles.entity,
+                institution: userRoles.institution |
+                    userRoles.entity,
                 entity: userRoles.entity
             }
         };

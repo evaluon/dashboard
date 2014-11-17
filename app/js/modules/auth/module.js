@@ -17,15 +17,18 @@ angular.module('evaluon.auth', ['ui.router']).config(
         ).state(
             'anon.auth', {
                 url:'/',
-                params: [ 'redirected', 'toState' ],
                 controller: 'AuthCtrl'
             }
         ).state(
             'anon.login', {
                 url:'/login',
-                params: [ 'redirected', 'toState' ],
                 templateUrl: 'views/auth/login.tpl.html',
                 controller: 'LoginCtrl'
+            }
+        ).state(
+            'anon.logout', {
+                url:'/logout',
+                controller: 'LogoutCtrl'
             }
         );
 

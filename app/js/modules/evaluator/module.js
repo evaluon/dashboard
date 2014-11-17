@@ -10,7 +10,7 @@ angular.module('evaluon.evaluator',['ui.router']).config(
                 url: '/evaluator',
                 templateUrl: 'views/evaluator/evaluator.tpl.html',
                 controller: 'EvaluatorCtrl',
-                data: {
+                data:{
                     access: authorizationProvider.$get().accessLevels.evaluator
                 }
             }

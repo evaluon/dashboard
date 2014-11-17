@@ -11,7 +11,7 @@ angular.module('evaluon.institution', ['ui.router']).config(
                 templateUrl: 'views/institution/institution.tpl.html',
                 controller: 'InstitutionCtrl',
                 data: {
-                    access: authorizationProvider.$get().accessLevels.evaluator
+                    access: authorizationProvider.$get().accessLevels.institution
                 }
             }
         ).state(
