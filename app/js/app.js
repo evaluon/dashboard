@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('evaluon', [
-'ui.router', 'LocalStorageModule', 'ngMaterial',
+'ui.router', 'LocalStorageModule', 'ngMaterial', 'angularFileUpload',
 
 'evaluon.auth', 'evaluon.entity', 'evaluon.evaluator',
 'evaluon.institution', 'evaluon.templates'

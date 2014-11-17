@@ -1,7 +1,8 @@
 'use strict';
 
 angular.module('evaluon.institution').factory(
-    'Institution', function(Auth, api, headers, $http, localStorageService){
+    'Institution',
+    function(Auth, api, headers, $http, $upload, localStorageService){
 
         var utoken = CryptoJS.SHA1(),
             user = Auth.userLogged;
@@ -24,24 +25,23 @@ angular.module('evaluon.institution').factory(
 
             },
 
-            createInstitution: function(institution){
+            createInstitution: function(institution, file){
 
-                return $http({
+                return $upload.upload({
                     method: 'post',
                     url: api.institution,
                     headers: {
                         Authorization: headers.authorization(
                             user.token_type, user.access_token
-                        ),
-                        'Content-Type': header.json
+                        )
                     },
-                    data: institution
+                    data: institution,
+                    file: file
                 }).then(function(result){
                     return result.data.data;
                 });
 
             }
-
 
         }
 
