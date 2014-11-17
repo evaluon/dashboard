@@ -106,5 +106,5 @@ gulp.task('watch', function(){
     gulp.watch(['./app/views/**/*.tpl.html'], ['templates']);
 });
 
-gulp.task('default', ['wiredep', 'inject', 'webserver', 'watch']);
+gulp.task('default', ['wiredep', 'inject', 'webserver', 'watch', 'templates']);
 gulp.task('build', ['templates', 'compress', 'copy', 'dist-server']);
