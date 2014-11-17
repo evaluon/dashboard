@@ -1,23 +1,19 @@
 'use strict';
 
 angular.module('evaluon.entity').controller(
-    'EntityCtrl', function($scope, $upload, Institution){
+    'EntityCtrl', function($scope, $mdDialog, Institution){
 
-        Institution.listInstitutions().then(function(institutions){
-            $scope.institutions = institutions;
-        });
+        $scope.institutions = [];
 
-        $scope.institution = {
-            id: '',
-            name: '',
-            address: '',
-            phone_number: '',
-            image: {
-                description: ''
-            }
+        var getInstitutions = function(){
+            Institution.listInstitutions().then(function(institutions){
+                $scope.institutions = institutions.data;
+            });
         };
 
-        
+        getInstitutions();
+
+
 
     }
 );
