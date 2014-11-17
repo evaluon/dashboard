@@ -4,13 +4,13 @@ angular.module('evaluon', [
 'ui.router', 'LocalStorageModule', 'ngMaterial', 'angularFileUpload',
 
 'evaluon.auth', 'evaluon.entity', 'evaluon.evaluator',
-'evaluon.institution', 'evaluon.templates'
+'evaluon.institution', 'evaluon.templates', 'blockUI'
 ])
 .config(
 
     function(
         $stateProvider, $logProvider, $urlRouterProvider, $locationProvider,
-        localStorageServiceProvider, authorizationProvider
+        localStorageServiceProvider, authorizationProvider, blockUIConfig
     ){
 
         //Debug mode
@@ -47,7 +47,14 @@ angular.module('evaluon', [
             .setPrefix('dashboardEvaluon')
             .setStorageCookie(30, '/evaluon/dashboard')
             .setNotify(true, true);
+
+
+        //Block UI
+        blockUIConfig.message = 'Cargando...';
+        blockUIConfig.autoBlock = true;
+
     }
+
 
 ).run(
     function(
