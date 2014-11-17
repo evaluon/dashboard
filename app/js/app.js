@@ -1,7 +1,5 @@
 'use strict';
 
-var c = 0;
-
 angular.module('evaluon', [
 'ui.router', 'LocalStorageModule', 'ngMaterial',
 
