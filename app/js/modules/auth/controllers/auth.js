@@ -10,7 +10,7 @@ angular.module('evaluon.auth').controller(
 
         if(
             (redirect.name == "anon.auth") ||
-            (redirect.name ==  "anon.login" && user)
+            (redirect.name == "anon.login" && user)
         ) {
             var userRole = user.role,
             userHome = (userRole == 2 ?
