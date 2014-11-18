@@ -1,6 +1,6 @@
 <div layout="horizontal" layout-padding layout-align="center" >
     <div flex= "90" layout-fill>
-        <md-toolbar md-theme="default">
+        <md-toolbar class="md-default-theme md-whiteframe-z2" md-theme="default">
             <h1 class="md-toolbar-tools">
                 <span flex>Evaluadores</span>
                 <md-button class="md-fab md-primary" aria-label="refresh" ng-click="getEvaluators()">
@@ -12,25 +12,34 @@
             </h1>
         </md-toolbar>
         <md-content flex layout="vertical" md-theme="default" class="md-whiteframe-z1" style="height: 65vh;">
+            <md-list>
+                <md-item ng-repeat="item in evaluators">
+                    <md-card>
+                        <md-item-content >
+                            <div class="md-tile-content">
+                                <h3>{{item.first_name}} {{item.middle_name}} {{item.last_name}}</h3>
+                                <h4>{{item.id}}</h4>
+                                <h4>{{item.area}}</h4>
+                                <h4>{{item.mail}}</h4>
+                                <h4>{{item.phone_number}}</h4>
+                            </div>
+                            <md-button class="md-fab md-fab-bottom-right" ng-click="period($event, item.id)">
+                                <md-tooltip>
+                                    Periodo
+                                </md-tooltip>
+                                <md-icon icon="img/icons/restore.svg"></md-icon>
+                            </md-button>
+                        </md-item-content>
+                    </md-card>
+
+                </md-item>
+            </md-list>
             <md-button class="md-primary md-fab md-fab-bottom-right" md-theme="red" ng-click="addEvaluator()" style="position: fixed;">
                 <md-tooltip>
                     Agregar evaluador
                 </md-tooltip>
                 <md-icon icon="img/icons/add.svg"></md-icon>
             </md-button>
-            <md-list>
-                <md-whiteframe class="md-whiteframe-z2" ng-repeat="item in evaluators">
-                    <md-item-content>
-                        <div class="md-tile-content">
-                            <h3>{{item.first_name}} {{item.middle_name}} {{item.last_name}}</h3>
-                            <h4>{{item.id}}</h4>
-                            <h4>{{item.area}}</h4>
-                            <h4>{{item.mail}}</h4>
-                            <h4>{{item.phone_number}}</h4>
-                        </div>
-                    </md-item-content>
-                </md-whiteframe>
-            </md-list>
         </md-content>
     </div>
 </div>

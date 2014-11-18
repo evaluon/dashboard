@@ -4,26 +4,29 @@
         <md-card>
             <md-subheader class="md-sticky-no-effect"><h2>Evaluados Grupo {{group}}</h2></md-subheader>
             <md-item ng-repeat="item in evaluees">
-                <md-item-content>
-                    <div class="md-tile-left">
+                <md-card>
+                    <md-item-content>
+                        <div class="md-tile-left">
 
-                    </div>
-                    <div class="md-tile-content">
-                        <h3>{{item.first_name}} {{item.last_name}}</h3>
-                        <h4>{{item.id}}</h4>
-                        <h4>{{item.institution}}</h4>
-                        <h4>{{item.mail}}</h4>
-                        <h4>{{item.phone_number}}</h4>
-                        <br>
+                        </div>
+                        <div class="md-tile-content">
+                            <h3>{{item.first_name}} {{item.last_name}}</h3>
+                            <h4>{{item.id}}</h4>
+                            <h4>{{item.institution}}</h4>
+                            <h4>{{item.mail}}</h4>
+                            <h4>{{item.phone_number}}</h4>
+                            <br>
 
-                        <md-button class="md-fab md-fab-bottom-right" ng-click="delete($event, item.id)" >
-                            <md-tooltip>
-                                Eliminar
-                            </md-tooltip>
-                            <md-icon icon="img/icons/delete.svg"></md-icon>
-                        </md-button>
-                    </div>
-                </md-item-content>
+                            <md-button class="md-fab md-fab-bottom-right" ng-click="delete($event, item.id)" >
+                                <md-tooltip>
+                                    Eliminar
+                                </md-tooltip>
+                                <md-icon icon="img/icons/delete.svg"></md-icon>
+                            </md-button>
+                        </div>
+                    </md-item-content>
+                </md-card>
+
             </md-item>
             <md-item>
                 <md-item-content>

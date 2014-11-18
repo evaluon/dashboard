@@ -1,4 +1,4 @@
-'use strict';
+ 'use strict';
 
 angular.module('evaluon.evaluator',['ui.router']).config(
     function($stateProvider, authorizationProvider ){
@@ -15,19 +15,20 @@ angular.module('evaluon.evaluator',['ui.router']).config(
             }
         ).state(
             'evaluator.home', {
-                url: '/',                
+                url: '/',
                 controller: 'EvaluatorCtrl',
                 templateUrl: 'views/evaluator/home.tpl.html'
             }
         ).state(
-            'evaluator.tests', {
-                url:'/test/:groupId',
-                templateUrl: 'views/evaluator/tests.tpl.html'
+            'evaluator.test', {
+                url:'/test/:id',
+                templateUrl: 'views/evaluator/tests.tpl.html',
+                controller: 'TestCtrl'
             }
         ).state (
             'evaluator.addTest', {
-                url:'/test/add/:groupId',
-                templateUrl: 'views/evaluators/addTests.tpl.html'
+                url:'/test/add/:id',
+                templateUrl: 'views/evaluator/addTest.tpl.html'
             }
         ).state(
             'evaluator.questionBank', {
