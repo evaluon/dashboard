@@ -67,6 +67,20 @@ angular.module('evaluon.evaluator').factory(
                     return data.data.data;
                 });
 
+            },
+
+            groupEvaluees: function(group){
+
+                return $http({
+                    method: 'get',
+                    url: api.groupEvaluees(group),
+                    headers: {
+                        Authorization: headers.authorization(tokenType, token),
+                    }
+                }).then(function(data){
+                    return data.data.data;
+                });
+
             }
 
         }
