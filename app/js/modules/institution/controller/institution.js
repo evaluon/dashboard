@@ -7,7 +7,6 @@ angular.module('evaluon.institution').controller(
 
         function getEvaluators(){
             Evaluator.evaluatorList().then(function(evaluators){
-                console.log(evaluators);
                 $scope.evaluators = evaluators;
             }).catch(function(error){
                 console.error(error);

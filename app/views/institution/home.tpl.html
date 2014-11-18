@@ -4,7 +4,7 @@
          <div class="md-toolbar-tools">
             <span>Evaluadores</span>
             <span flex></span>
-            <md-button class="md-fab md-primary button-toolbar" aria-label="Recargar" ng-click="getInstitutions()">
+            <md-button class="md-fab md-primary button-toolbar" aria-label="Recargar" ng-click="getEvaluators()">
              <md-tooltip>
                 Recargar
              </md-tooltip>
@@ -13,23 +13,19 @@
           </div>
       </md-toolbar>
       <md-content flex layout="vertical" class="md-default-theme md-whiteframe-z1" style="height: 500px;">
-            <md-button class="md-primary md-fab md-fab-bottom-right" md-theme="red" ng-click="addInstitution()" style="position: fixed;">
+            <md-button class="md-primary md-fab md-fab-bottom-right" md-theme="red" ng-click="addEvaluator()" style="position: fixed;">
                <md-tooltip>
                  Agregar evaluador
                </md-tooltip>
                <md-icon icon="img/icons/add.svg"></md-icon>
             </md-button>
             <md-list>
-               <md-item ng-repeat="item in institutions">
+               <md-item ng-repeat="item in evaluators">
                   <md-item-content>
-                     <div class="md-tile-left">
-                        <img ng-src="{{item.image.location}}" class="face" alt="{{item.image.description}}">
-                     </div>
                      <div class="md-tile-content">
-                        <h3>{{item.name}}</h3>
-                        <h4>{{item.address}}</h4>
+                        <h3>{{item.first_name}} {{item.last_name}}</h3>
                         <h4>{{item.mail}}</h4>
-                        <h4>{{item.phone_number}}</h4>
+                        <h4>{{item.area}}</h4>
                      </div>
                   </md-item-content>
                </md-item>
