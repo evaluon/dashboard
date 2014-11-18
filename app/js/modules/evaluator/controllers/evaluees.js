@@ -1,6 +1,23 @@
 'use strict';
 
 angular.module('evaluon.evaluator').controller(
-    'EvalueesCtrl', function($scope, groupId){
-        console.log(groupId);
+    'EvalueesCtrl', function($scope, groupId, Group){
+        $scope.evaluees= [];
+
+        $scope.getEvaluees = function(){
+            Group.groupEvaluees(groupId).then(function(success){
+                $scope.evaluees = success;
+            });
+        };
+        $scope.getEvaluees();
+
+
+        $scope.delete = function($event, id){
+            console.log(id);
+        };
+
+        $scope.add = function($event, id){
+
+        };
+
     });
