@@ -23,7 +23,7 @@ angular.module('evaluon.evaluator').factory(
 
             },
 
-            addGroup: function(){
+            addGroup: function(group){
 
                 return $http({
                     method: 'post',
@@ -33,7 +33,8 @@ angular.module('evaluon.evaluator').factory(
                             user.token_type, user.access_token
                         ),
                         'Content-Type': headers.json
-                    }
+                    },
+                    data: group
                 }).then(function(data){
                     return data.data.data;
                 });
