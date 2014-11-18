@@ -87,6 +87,8 @@ gulp.task('copy', function(){
     gulp.src('./app/index.html')
     .pipe(useref())
     .pipe(gulp.dest('./dist'));
+    gulp.src('./app/img/**')
+    .pipe(gulp.dest('./dist/img'));
 });
 
 gulp.task('uncss', function(){
@@ -107,4 +109,4 @@ gulp.task('watch', function(){
 });
 
 gulp.task('default', ['wiredep', 'inject', 'webserver', 'templates', 'watch']);
-gulp.task('build', ['templates', 'compress', 'copy', 'dist-server']);
+gulp.task('build', ['templates', 'compress', 'copy']);
