@@ -86,7 +86,7 @@ angular.module('evaluon.evaluator').factory(
             addEvaluee: function(group, evaluees){
 
                 return $http({
-                    method: 'post',
+                    method: 'put',
                     url: api.groupEvaluees(group),
                     headers: {
                         Authorization: headers.authorization(tokenType, token),

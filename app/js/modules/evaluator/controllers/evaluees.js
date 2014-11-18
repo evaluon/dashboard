@@ -18,7 +18,7 @@ angular.module('evaluon.evaluator').controller(
         };
 
         $scope.add = function($event, id){
-            Group.addEvaluee(groupId, [id]).then(function(success){
+            Group.addEvaluee(groupId, [id]).then(function(){
                 $scope.getEvaluees();
             });
         };
