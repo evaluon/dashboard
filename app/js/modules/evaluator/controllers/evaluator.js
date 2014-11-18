@@ -25,7 +25,7 @@ angular.module('evaluon.evaluator').controller(
             });
         };
 
-        $scope.periode= function($event, groupId){
+        $scope.period= function($event, groupId){
             Period.setPeriod(groupId).then(function(success){
                 alert('Periodo seleccionado');
             });

@@ -1,7 +1,7 @@
 'use strict';
 
-angular.module('evaluon.evaluator').controller(
-    'PeriodeCtrl', function($scope, $mdDialog, groupId, Period){
+angular.module('evaluon.institution').controller(
+    'PeriodCtrl', function($scope, $mdDialog, groupId, Period){
 
         $scope.add = function($event, group){
             console.log(group);
