@@ -1,10 +1,11 @@
 'use strict';
 
 angular.module('evaluon.evaluator').controller(
-    'PeriodeCtrl', function($scope, $mdDialog, groupId, Group){
+    'PeriodeCtrl', function($scope, $mdDialog, groupId, Period){
 
-        $scope.add = function($event, id){
-            Group.addEvaluee(groupId, [id]).then(function(){
+        $scope.add = function($event, group){
+            console.log(group);
+            Period.setPeriod(groupId, [id]).then(function(){
                 $scope.getEvaluees();
             });
         };

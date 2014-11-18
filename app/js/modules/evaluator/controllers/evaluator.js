@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('evaluon.evaluator').controller(
-    'EvaluatorCtrl', function($scope, $mdDialog, Group){
+    'EvaluatorCtrl', function($scope, $mdDialog, Group, Period){
 
         $scope.groups = [];
 
@@ -26,13 +26,17 @@ angular.module('evaluon.evaluator').controller(
         };
 
         $scope.periode= function($event, groupId){
+            Period.setPeriod(groupId).then(function(success){
+                alert('Periodo seleccionado');
+            });
+            /*
             $mdDialog.show({
                 targetEvent: $event,
                 templateUrl: 'views/evaluator/periode.tpl.html',
                 controller: 'PeriodeCtrl',
                 onComplete: $scope.getGroups(),
                 locals: { groupId: groupId }
-            });
+            });*/
         };
     }
 );

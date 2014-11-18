@@ -10,11 +10,11 @@
                     <div class="md-tile-content">
                         <h3>Asignar Periodo</h3>
                         <br>
-                        <form ng-submit="add($event, evaluee.id)">
+                        <form ng-submit="add($event, evaluee)">
                             <h5>Fecha de inicio:</h5>
-                            <md-text-float  ng-model="evaluee.fechaInicio" type="date" class="md-fab-bottom-left" required> </md-text-float>
+                            <md-text-float  ng-model="group.fechaInicio" type="date" class="md-fab-bottom-left" required> </md-text-float>
                             <h5>Fecha final:</h5>
-                            <md-text-float  ng-model="evaluee.fechaFinal" type="date" class="md-fab-bottom-left" required> </md-text-float>
+                            <md-text-float  ng-model="group.fechaFinal" type="date" class="md-fab-bottom-left" required> </md-text-float>
                             <md-button type="submit" aria-label="Iniciar Sesion" class="md-fab md-primary md-fab-bottom-right" md-theme="red">
                                 <md-tooltip>
                                     Agregar
