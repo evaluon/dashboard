@@ -81,6 +81,23 @@ angular.module('evaluon.evaluator').factory(
                     return data.data.data;
                 });
 
+            },
+
+            addEvaluee: function(group, evaluees){
+
+                return $http({
+                    method: 'post',
+                    url: api.groupEvaluees(group),
+                    headers: {
+                        Authorization: headers.authorization(tokenType, token),
+                    },
+                    data: {
+                        users: evaluees
+                    }
+                }).then(function(data){
+                    return data.data.data;
+                });
+
             }
 
         }
