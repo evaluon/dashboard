@@ -4,7 +4,7 @@
          <div class="md-toolbar-tools">
             <span>Grupos</span>
             <span flex></span>
-            <md-button class="md-fab md-primary button-toolbar" aria-label="Recargar" ng-click="getInstitutions()">
+            <md-button class="md-fab md-primary button-toolbar" aria-label="Recargar" ng-click="getGroups()">
              <md-tooltip>
                 Recargar
              </md-tooltip>
@@ -26,10 +26,9 @@
                         <img ng-src="{{item.image.location}}" class="face" alt="{{item.image.description}}">
                      </div>
                      <div class="md-tile-content">
-                        <h3>{{item.name}}</h3>
-                        <h4>{{item.address}}</h4>
-                        <h4>{{item.mail}}</h4>
-                        <h4>{{item.phone_number}}</h4>
+                        <h3>{{item.id}}</h3>
+                        <h4>{{item.institution_id}}</h4>
+                        <h4>{{item.evaluator_id}}</h4>
                      </div>
                   </md-item-content>
                </md-item>
