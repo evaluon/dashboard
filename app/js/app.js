@@ -92,6 +92,9 @@ angular.module('evaluon', [
                         }
                         $state.go('anon.auth');
                     } else if(toState.name != 'anon.auth') {
+                        if(localStorageService.get(ptoken)){
+                            localStorageService.remove(ptoken);
+                        }
                         localStorageService.remove(rtoken);
                     }
                 } else {
