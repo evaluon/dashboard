@@ -22,12 +22,22 @@ var apiRouter = {
 angular.module('evaluon').constant(
     'api', {
 
+        // Authorization Module
         token: apiRouter.route('auth/token'),
+
+        // Users Module
         user: apiRouter.route('user'),
+
+        // Institutions Module
         institution: apiRouter.route('institution'),
-        evaluee: apiRouter.route('evaluee'),
+
+        // Evaluators Module
         evaluator: apiRouter.route('evaluator'),
-        evaluatorGroup: apiRouter.route('evaluator/group')
+        evaluatorGroup: apiRouter.route('evaluator/group'),
+
+        // Evaluees Module
+        evaluee: apiRouter.route('evaluee'),
+        evalueeDescription: apiRouter.route('evaluee/description')
 
     }
 ).constant(
