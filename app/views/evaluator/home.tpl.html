@@ -15,37 +15,38 @@
         <md-content flex layout="vertical" class="md-default-theme md-whiteframe-z1" style="height: 500px;">
             <md-list>
                 <md-item ng-repeat="item in groups">
-                    <md-item-content class="md-whiteframe-z1">
-                        <div class="md-tile-left">
-                            <img ng-src="{{item.image.location}}" class="face" alt="{{item.image.description}}">
-                        </div>
-                        <div class="md-tile-content">
-                            <h3>Grupo {{item.id}}: {{item.user.first_name}} {{item.user.last_name}}</h3>
-                            <h4>{{item.institution.name}}</h4>
-                            <h4>{{item.institution.address}}</h4>
-                            <br>
-                            <!-- md-fab md-fab-bottom-right-->
-                            <md-button class="md-fab md-fab-top-right" ng-click="evaluees($event, item.id)">
-                                <md-tooltip>
-                                    Evaluados
-                                </md-tooltip>
-                                <md-icon icon="img/icons/group.svg"></md-icon>
-                            </md-button>
-                            <md-button class="" ng-click="periode($event, item.id)">
-                                <md-tooltip>
-                                    Recargar Periodo
-                                </md-tooltip>
-                                <md-icon icon="img/icons/restore.svg"></md-icon>
-                            </md-button>
-                            <md-button ui-sref="evaluator.test({id: {{item.id}}})">
-                                <md-tooltip>
-                                    Evaluaciones
-                                </md-tooltip>
-                                <md-icon icon="img/icons/filter_9_plus.svg"></md-icon>
-                            </md-button>
-                        </div>
-                    </md-item-content>
-
+                    <md-card>
+                        <md-item-content>
+                            <div class="md-tile-left">
+                                <img ng-src="{{item.image.location}}" class="face" alt="{{item.image.description}}">
+                            </div>
+                            <div class="md-tile-content">
+                                <h3>Grupo {{item.id}}: {{item.user.first_name}} {{item.user.last_name}}</h3>
+                                <h4>{{item.institution.name}}</h4>
+                                <h4>{{item.institution.address}}</h4>
+                                <br>
+                                <!-- md-fab md-fab-bottom-right-->
+                                <md-button class="md-fab md-fab-top-right" ng-click="evaluees($event, item.id)">
+                                    <md-tooltip>
+                                        Evaluados
+                                    </md-tooltip>
+                                    <md-icon icon="img/icons/group.svg"></md-icon>
+                                </md-button>
+                                <md-button class="" ng-click="periode($event, item.id)">
+                                    <md-tooltip>
+                                        Recargar Periodo
+                                    </md-tooltip>
+                                    <md-icon icon="img/icons/restore.svg"></md-icon>
+                                </md-button>
+                                <md-button ui-sref="evaluator.test({id: {{item.id}}})">
+                                    <md-tooltip>
+                                        Evaluaciones
+                                    </md-tooltip>
+                                    <md-icon icon="img/icons/filter_9_plus.svg"></md-icon>
+                                </md-button>
+                            </div>
+                        </md-item-content>
+                    </md-card>
                 </md-item>
             </md-list>
         </md-content>
