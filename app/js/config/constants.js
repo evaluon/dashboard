@@ -17,6 +17,11 @@ angular.module('evaluon')
 )
 .constant(
     'access', {
+        client: {
+            grant_type: 'client_credentials',
+            client_id: 'administrator',
+            client_secret: 'kv0Ls8xoIFPdE2GXMK5fodQsAEBV5GzzINZOA0NX99E='
+        },
         password: function(user, password){
             return {
                 grant_type: 'password',
@@ -24,10 +29,9 @@ angular.module('evaluon')
                 password: CryptoJS.SHA1(password).toString()
             }
         },
-        client: {
-            grant_type: 'client_credentials',
-            client_id: 'administrator',
-            client_secret: 'kv0Ls8xoIFPdE2GXMK5fodQsAEBV5GzzINZOA0NX99E='
+        refresh: function(refresh_token){
+            grant_type: 'refresh_token',
+            refresh_token: refresh_token
         }
     }
 );

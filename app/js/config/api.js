@@ -48,7 +48,10 @@ angular.module('evaluon').constant(
         },
         groupEvaluees: function(group){
             return apiRouter.route('group/{0}/evaluee'.format(group));
-        }
+        },
+
+        // Answers Module
+        answer: apiRouter.route('answer')
 
     }
 ).constant(
