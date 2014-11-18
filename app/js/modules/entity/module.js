@@ -17,7 +17,14 @@ angular.module('evaluon.entity', ['ui.router']).config(
         ).state(
             'entity.home', {
                 url: '/home',
-                templateUrl: 'views/entity/home.tpl.html'
+                templateUrl: 'views/entity/home.tpl.html',
+                controller: 'EntityHomeCtrl'
+            }
+        ).state(
+            'entity.statistics', {
+                url: '/statistics',
+                templateUrl: 'views/entity/statistics.tpl.html',
+                controller: 'StatisticsCtrl'
             }
         );
 
