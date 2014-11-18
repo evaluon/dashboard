@@ -14,7 +14,9 @@ angular.module('evaluon.evaluator').controller(
 
 
         $scope.delete = function($event, id){
-            
+            Group.deleteEvaluee(groupId, id).then(function(){
+                $scope.getEvaluees();
+            });
         };
 
         $scope.add = function($event, id){
