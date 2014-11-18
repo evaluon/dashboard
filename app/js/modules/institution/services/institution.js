@@ -4,8 +4,7 @@ angular.module('evaluon.institution').factory(
     'Institution',
     function(Auth, api, headers, $upload, $http, localStorageService){
 
-        var utoken = CryptoJS.SHA1(),
-            user = Auth.userLogged;
+        var user = Auth.userLogged;
 
         return {
 

@@ -1,6 +1,7 @@
 'use strict';
 
-angular.module('evaluon.evaluator')
-.controller('EvaluatorCtrl', function(){
+angular.module('evaluon.evaluator').controller(
+    'EvaluatorCtrl', function($scope, Evaluator){
 
-});
+    }
+);
