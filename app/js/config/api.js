@@ -26,6 +26,8 @@ angular.module('evaluon').constant(
         user: apiRouter.route('user'),
         institution: apiRouter.route('institution'),
         evaluee: apiRouter.route('evaluee'),
+        evaluator: apiRouter.route('evaluator'),
+        evaluatorGroup: apiRouter.route('evaluator/group')
 
     }
 ).constant(
