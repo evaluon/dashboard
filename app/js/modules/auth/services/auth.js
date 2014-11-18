@@ -32,6 +32,19 @@ function(
                 return data.data;
             });
         },
+        refresh: function(tokenType, accessToken, refreshToken){
+            return $http({
+                method: 'post',
+                url: api.token,
+                headers: {
+                    'Content-Type': headers.urlencoded,
+                    Authorization: headers.authorization(tokenType, accessToken)
+                },
+                data: $.param(access.refresh(refreshToken))
+            }).then(function(data){
+                return data.data;
+            });
+        },
         logout: function(){
             localStorageService.remove(CryptoJS.SHA1(tokens.user).toString());
         },
