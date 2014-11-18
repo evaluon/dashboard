@@ -5,7 +5,7 @@ angular.module('evaluon.institution').controller(
 
         $scope.evaluators = [];
 
-        function getEvaluators(){
+        $scope.getEvaluators = function(){
             Evaluator.evaluatorList().then(function(evaluators){
                 $scope.evaluators = evaluators;
             }).catch(function(error){
@@ -13,7 +13,7 @@ angular.module('evaluon.institution').controller(
             });
         }
 
-        getEvaluators();
+        $scope.getEvaluators();
 
     }
 );
