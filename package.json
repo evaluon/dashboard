@@ -13,7 +13,7 @@
     "boolinc"
   ],
   "author": "Sebastián Osorio <svzosorio@boolinc.co>",
-  "license": "ISC",
+  "license": "MIT",
   "devDependencies": {
     "gulp": "^3.8.8",
     "connect-history-api-fallback": "0.0.4",
