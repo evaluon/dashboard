@@ -15,7 +15,7 @@ angular.module('evaluon', [
     ){
 
         //Debug mode
-        $logProvider.debugEnabled(true);
+        $logProvider.debugEnabled(false);
 
         //Routing config
         $urlRouterProvider.otherwise('/404');
