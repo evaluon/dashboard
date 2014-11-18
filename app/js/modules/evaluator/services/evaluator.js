@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('evaluon.evaluator').controller(
+angular.module('evaluon.evaluator').factory(
     'Evaluator', function(Auth, api, headers, $http, localStorageService){
 
         var user = Auth.userLogged;
