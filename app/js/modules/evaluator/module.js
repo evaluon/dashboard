@@ -19,6 +19,21 @@ angular.module('evaluon.evaluator',['ui.router']).config(
                 url: '/home',
                 templateUrl: 'views/evaluator/home.tpl.html'
             }
+        ).state(
+            'evaluator.tests', {
+                url:'/test/:groupId',
+                templateUrl: 'views/evaluator/tests.tpl.html'
+            }
+        )state (
+            'evaluator.addTest', {
+                url:'/add-test/:groupId',
+                templateUrl: 'views/evaluators/addTests.tpl.html'
+            }
+        ).state(
+            'evaluator.questionBank', {
+                url:'question-bank',
+                templateUrl: 'views/evaluator/questionBank.tpl.html'
+            }
         );
 
     }
