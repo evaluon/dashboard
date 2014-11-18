@@ -15,13 +15,11 @@ angular.module('evaluon.evaluator').factory(
                     method: 'get',
                     url: api.evaluator,
                     headers: {
-                        Authorization: headers.authorization(
-                            user.token_type, user.access_token
-                        )
+                        Authorization: headers.authorization(tokenType, token)
                     }
                 }).then(function(data){
                     return data.data.data;
-                })
+                });
 
             },
 
