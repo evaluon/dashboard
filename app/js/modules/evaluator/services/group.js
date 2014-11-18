@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('evaluon.evaluator').factory(
-    'Group', function(Auth, api, headers, $http, $q, localStorageService){
+    'Group', function(Auth, api, headers, $http, $q){
 
         var user = Auth.userLogged,
             tokenType = user.token_type,

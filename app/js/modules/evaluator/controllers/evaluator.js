@@ -52,5 +52,6 @@ angular.module('evaluon.evaluator').controller(
             */
 
         };
+        
     }
 );
