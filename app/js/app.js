@@ -4,7 +4,8 @@ angular.module('evaluon', [
 'ngMaterial', 'ui.router', 'LocalStorageModule', 'angularFileUpload',
 
 'evaluon.auth', 'evaluon.entity', 'evaluon.evaluator',
-'evaluon.institution', 'evaluon.templates', 'blockUI'
+'evaluon.institution', 'evaluon.templates', 'blockUI',
+'ng-nvd3'
 ])
 .config(
 

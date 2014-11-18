@@ -35,6 +35,8 @@
     "cryptojs-core": "http://crypto-js.googlecode.com/svn/tags/3.1.2/build/components/core-min.js",
     "cryptojs-sha1": "http://crypto-js.googlecode.com/svn/tags/3.1.2/build/rollups/sha1.js",
     "ng-file-upload": "~1.6.12",
-    "angular-block-ui": "~0.1.1"
+    "angular-block-ui": "~0.1.1",
+    "ng-nvd3": "~0.0.2",
+    "nvd3": "~1.1.15-beta"
   }
 }
