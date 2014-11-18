@@ -22,7 +22,7 @@ angular.module('evaluon').constant(
     'api', {
 
         // Root: url id
-        id: apiRouter.id
+        id: apiRouter.id,
 
         // Authorization Module
         token: apiRouter.route('auth/token'),
