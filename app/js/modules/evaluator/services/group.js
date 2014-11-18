@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('evaluon.evaluator').factory(
-    'Group', function(Auth, api, headers, $http, localStorageService){
+    'Group', function(Auth, api, headers, $http, $q, localStorageService){
 
         var user = Auth.userLogged,
             tokenType = user.token_type,
@@ -95,8 +95,24 @@ angular.module('evaluon.evaluator').factory(
                         users: evaluees
                     }
                 }).then(function(data){
-                    return data.data.data;
+                    return data.data.success;
                 });
+
+            },
+
+            deleteEvaluee: function(group, evaluee){
+
+                var deferred = $q.defer();
+
+                setTimeout(function(){
+                    if(evaluee == '1110556776'){
+                        deferred.reject({ message: "dont_delete_me" });
+                    } else {
+                        deferred.resolve(true);
+                    }
+                }, 1000);
+
+                return deferred.promise;
 
             }
 
