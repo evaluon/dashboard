@@ -12,6 +12,7 @@ angular.module('evaluon')
     'tokens', {
         client: 'dlav4218f',
         user: 'ial83lcv',
+        params: '4kgnwlk34',
         redirect: 'a34rafas'
     }
 )
