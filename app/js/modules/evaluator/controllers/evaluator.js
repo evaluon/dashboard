@@ -1,7 +1,15 @@
 'use strict';
 
 angular.module('evaluon.evaluator').controller(
-    'EvaluatorCtrl', function($scope, $mdDialog, Group, Period){
+    'EvaluatorCtrl', function($scope, $mdDialog, $mdToast, Group, Period){
+
+        function mdToast(message) {
+            $mdToast.show({
+                template: '<md-toast>{0}</md-toast>'.format(message),
+                hideDelay: 6000,
+                position: 'top right'
+            });
+        }
 
         $scope.groups = [];
 
@@ -9,13 +17,13 @@ angular.module('evaluon.evaluator').controller(
             return Group.evaluatorGroups().then(function(groups){
                 $scope.groups = groups;
             }).catch(function(error){
-                console.error(error);
+                mdToast(error);
             });
         }
 
         $scope.getGroups();
 
-        $scope.evaluees= function($event, groupId){
+        $scope.evaluees = function($event, groupId){
             $mdDialog.show({
                 targetEvent: $event,
                 templateUrl: 'views/evaluator/evaluees.tpl.html',
@@ -25,18 +33,24 @@ angular.module('evaluon.evaluator').controller(
             });
         };
 
-        $scope.periode= function($event, groupId){
+        $scope.period = function($event, groupId){
+
             Period.setPeriod(groupId).then(function(success){
-                alert('Periodo seleccionado');
+                mdToast("Periodo establecido");
+            }).catch(function(error){
+                mdToast("Ya existe un periodo activo que está establecido");
             });
+
             /*
             $mdDialog.show({
                 targetEvent: $event,
                 templateUrl: 'views/evaluator/periode.tpl.html',
-                controller: 'PeriodeCtrl',
+                controller: 'PeriodCtrl',
                 onComplete: $scope.getGroups(),
                 locals: { groupId: groupId }
-            });*/
+            });
+            */
+
         };
     }
 );
