@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('evaluon', [
-'ui.router', 'LocalStorageModule', 'ngMaterial', 'angularFileUpload',
+'ngMaterial', 'ui.router', 'LocalStorageModule', 'angularFileUpload',
 
 'evaluon.auth', 'evaluon.entity', 'evaluon.evaluator',
 'evaluon.institution', 'evaluon.templates', 'blockUI'
@@ -10,7 +10,8 @@ angular.module('evaluon', [
 
     function(
         $stateProvider, $logProvider, $urlRouterProvider, $locationProvider,
-        localStorageServiceProvider, authorizationProvider, blockUIConfig
+        localStorageServiceProvider, authorizationProvider, blockUIConfig,
+        $httpProvider
     ){
 
         //Debug mode
@@ -52,6 +53,9 @@ angular.module('evaluon', [
         //Block UI
         blockUIConfig.message = 'Cargando...';
         blockUIConfig.autoBlock = true;
+
+        //Interceptor
+        $httpProvider.interceptors.push('Interceptor');
 
     }
 
