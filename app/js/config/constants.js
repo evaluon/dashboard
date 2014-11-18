@@ -30,8 +30,12 @@ angular.module('evaluon')
             }
         },
         refresh: function(refresh_token){
-            grant_type: 'refresh_token',
-            refresh_token: refresh_token
+
+            return  {
+                grant_type: 'refresh_token',
+                refresh_token: refresh_token
+            }
+
         }
     }
 );
