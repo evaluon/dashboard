@@ -1,15 +1,15 @@
 var gulp = require('gulp'),
-connect = require('gulp-connect'),
-jshint = require('gulp-jshint'),
-historyApiFallback = require('connect-history-api-fallback'),
-inject = require('gulp-inject'),
-wiredep = require('wiredep').stream,
-templateCache = require('gulp-angular-templatecache'),
-gulpif = require('gulp-if'),
-minifyCss = require('gulp-minify-css'),
-useref = require('gulp-useref'),
-uglify = require('gulp-uglify'),
-uncss = require('gulp-uncss');
+    connect = require('gulp-connect'),
+    jshint = require('gulp-jshint'),
+    historyApiFallback = require('connect-history-api-fallback'),
+    inject = require('gulp-inject'),
+    wiredep = require('wiredep').stream,
+    templateCache = require('gulp-angular-templatecache'),
+    gulpif = require('gulp-if'),
+    minifyCss = require('gulp-minify-css'),
+    useref = require('gulp-useref'),
+    uglify = require('gulp-uglify'),
+    uncss = require('gulp-uncss');
 
 gulp.task('webserver', function(){
     connect.server({
