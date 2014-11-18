@@ -1,6 +1,6 @@
 <div layout="horizontal" layout-padding layout-align="center" >
     <div flex= "90" layout-fill>
-        <md-toolbar class="md-default-theme md-whiteframe-z1">
+        <md-toolbar class="md-default-theme md-whiteframe-z2">
             <div class="md-toolbar-tools">
                 <span>Grupos</span>
                 <span flex></span>
@@ -15,7 +15,7 @@
         <md-content flex layout="vertical" class="md-default-theme md-whiteframe-z1" style="height: 500px;">
             <md-list>
                 <md-item ng-repeat="item in groups">
-                    <md-item-content>
+                    <md-item-content class="md-whiteframe-z1">
                         <div class="md-tile-left">
                             <img ng-src="{{item.image.location}}" class="face" alt="{{item.image.description}}">
                         </div>
@@ -23,8 +23,17 @@
                             <h3>Grupo {{item.id}}: {{item.user.first_name}} {{item.user.last_name}}</h3>
                             <h4>{{item.institution.name}}</h4>
                             <h4>{{item.institution.address}}</h4>
+                            <br>
+
+                            <md-button class="md-fab md-fab-bottom-right" ng-click="evaluees($event, item.id)" >
+                                <md-tooltip>
+                                    Evaluados
+                                </md-tooltip>
+                                <md-icon icon="img/icons/group.svg"></md-icon>
+                            </md-button>
                         </div>
                     </md-item-content>
+
                 </md-item>
             </md-list>
         </md-content>
