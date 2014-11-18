@@ -1,7 +1,7 @@
 {
   "name": "string-formatter",
   "version": "0.0.1",
-  "main": "string-formatter.js",
+  "main": "main.js",
   "license": "MIT",
   "ignore": [
     "**/.*",
@@ -27,6 +27,5 @@
   },
   "_source": "git://github.com/pandres95/string-formatter.git",
   "_target": "~0.0.1",
-  "_originalSource": "string-formatter",
-  "_direct": true
+  "_originalSource": "string-formatter"
 }
