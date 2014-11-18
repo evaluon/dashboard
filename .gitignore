@@ -3,3 +3,4 @@ node_modules
 templates
 /dist
 app/lib
+*.log

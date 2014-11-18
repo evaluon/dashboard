@@ -16,9 +16,15 @@ angular.module('evaluon.institution', ['ui.router']).config(
             }
         ).state(
             'institution.home', {
-                url: '/home',
+                url: '/',
                 templateUrl: 'views/institution/home.tpl.html',
                 controller: 'InstitutionCtrl'
+            }
+        ).state(
+            'institution.group', {
+                url: '/group',
+                templateUrl: 'views/institution/group.tpl.html',
+                controller: 'InstitutionGroupCtrl'
             }
         );
 
