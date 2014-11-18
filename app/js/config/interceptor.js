@@ -2,16 +2,24 @@
 
 angular.module('evaluon').factory(
     'Interceptor', function($q){
+
         return {
+
             responseError: function(response) {
 
-                console.error("Whoops!", response);
+                var message = (response.code >= 500 ?
+                    "Ha ocurrido un error en el servidor" :
+                    (response.code >= 400 ?
+                        "Error conocido" : "Error desconocido"
+                    )
+                );
 
-                var errors = {};
                 response.error = errors[response.statusText];
                 return $q.reject(response);
-                
+
             }
+
         };
+
     }
 );
