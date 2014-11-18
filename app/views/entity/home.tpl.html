@@ -1,10 +1,22 @@
 <div layout="horizontal" layout-padding layout-align="center" >
-   <div flex= "90">
-      <md-toolbar>
-         <h1 class="md-toolbar-tools md-whiteframe-z1">Instituciones</h1>
+   <div flex= "90" layout-fill>
+      <md-toolbar class="md-default-theme md-whiteframe-z1">
+         <div class="md-toolbar-tools">
+            <span>Instituciones</span>
+            <span flex></span>
+            <md-button class="md-fab md-primary button-toolbar" aria-label="Recargar" ng-click="getInstitutions()">
+             <md-tooltip>
+                Recargar
+             </md-tooltip>
+             <md-icon icon="/img/icons/refresh.svg"></md-icon>
+            </md-button>
+          </div>
       </md-toolbar>
       <md-content flex layout="vertical" class="md-default-theme md-whiteframe-z1" style="height: 500px;">
             <md-button class="md-primary md-fab md-fab-bottom-right" md-theme="red" ng-click="addInstitution()" style="position: fixed;">
+               <md-tooltip>
+                 Agregar institución
+               </md-tooltip>
                <md-icon icon="img/icons/add.svg"></md-icon>
             </md-button>
             <md-list>
