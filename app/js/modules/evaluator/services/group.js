@@ -21,6 +21,23 @@ angular.module('evaluon.evaluator').factory(
                     return data.data.data;
                 });
 
+            },
+
+            addGroup: function(){
+
+                return $http({
+                    method: 'post',
+                    url: api.group,
+                    headers: {
+                        Authorization: headers.authorization(
+                            user.token_type, user.access_token
+                        ),
+                        'Content-Type': headers.json
+                    }
+                }).then(function(data){
+                    return data.data.data;
+                });
+
             }
 
         }
