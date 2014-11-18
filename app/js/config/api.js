@@ -42,7 +42,13 @@ angular.module('evaluon').constant(
         evalueeDescription: apiRouter.route('evaluee/description'),
 
         // Groups module
-        group: apiRouter.route('group')
+        group: apiRouter.route('group'),
+        groupPeriod: function(group){
+            return apiRouter.route('group/{0}/period'.format(group));
+        },
+        groupEvaluees: function(group){
+            return apiRouter.route('group/{0}/evaluee'.format(group));
+        }
 
     }
 ).constant(
