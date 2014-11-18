@@ -2,9 +2,10 @@
   "name": "Dashboard Evaluon",
   "version": "0.0.1",
   "authors": [
-    "Sebastian Osorio <svzosorio@boolinc.co>"
+    "Sebastian Osorio <svzosorio@boolinc.co>",
+    "Pablo Dorado <pandres95@boolinc.co>"
   ],
-  "description": "Dasboard para el control de Evaluon",
+  "description": "Dashboard para el control de Evaluon",
   "main": "/app",
   "moduleType": [
     "globals"
@@ -19,7 +20,6 @@
   "ignore": [
     "**/.*",
     "node_modules",
-    "bower_components",
     "app/lib",
     "test",
     "tests"
