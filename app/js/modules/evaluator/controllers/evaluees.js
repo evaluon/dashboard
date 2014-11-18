@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('evaluon.evaluator').controller(
-    'EvalueesCtrl', function($scope, groupId, Group){
+    'EvalueesCtrl', function($scope, $mdDialog, groupId, Group){
         $scope.evaluees= [];
         $scope.group = groupId;
 
@@ -14,7 +14,9 @@ angular.module('evaluon.evaluator').controller(
 
 
         $scope.delete = function($event, id){
-            console.log(id);
+            Group.deleteEvaluee(groupId, id).then(function(){
+                $scope.getEvaluees();
+            });
         };
 
         $scope.add = function($event, id){
