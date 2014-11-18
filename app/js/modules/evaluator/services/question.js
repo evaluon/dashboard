@@ -19,11 +19,7 @@ angular.module('evaluon.evaluator').factory(
                     }
                 }).then(function(data){
                     return data.data.data;
-<<<<<<< HEAD
                 });
-=======
-                })
->>>>>>> 3ceab2fd838d3f344805e4ea4ed3fce52cb5cbee
 
             }
 
