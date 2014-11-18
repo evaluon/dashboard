@@ -36,9 +36,37 @@ angular.module('evaluon.institution').factory(
                     return data.data.data;
                 });
 
+            },
+
+            groupPeriod: function(group){
+
+                return $http({
+                    method: 'get',
+                    url: api.groupPeriod(group),
+                    headers: {
+                        Authorization: headers.authorization(tokenType, token)
+                    }
+                }).then(function(data){
+                    return data.data.data;
+                });
+
+            },
+
+            setPeriod: function(group){
+
+                return $http({
+                    method: 'put',
+                    url: api.groupPeriod(group),
+                    headers: {
+                        Authorization: headers.authorization(tokenType, token)
+                    }
+                }).then(function(data){
+                    return data.data.data;
+                });
+
             }
 
         }
 
     }
-)
+);
