@@ -21,6 +21,24 @@ angular.module('evaluon.evaluator').factory(
                     return data.data.data;
                 })
 
+            },
+
+            addEvaluator: function(evaluator){
+
+                return $http({
+                    method: 'post',
+                    url: api.evaluator,
+                    headers: {
+                        Authorization: headers.authorization(
+                            user.token_type, user.access_token
+                        ),
+                        'Content-Type': headers.json
+                    },
+                    data: evaluator
+                }).then(function(data){
+                    return data.data.data;
+                });
+
             }
 
         }
