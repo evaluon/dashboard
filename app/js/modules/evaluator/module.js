@@ -24,7 +24,7 @@ angular.module('evaluon.evaluator',['ui.router']).config(
                 url:'/test/:groupId',
                 templateUrl: 'views/evaluator/tests.tpl.html'
             }
-        )state (
+        ).state (
             'evaluator.addTest', {
                 url:'/add-test/:groupId',
                 templateUrl: 'views/evaluators/addTests.tpl.html'
