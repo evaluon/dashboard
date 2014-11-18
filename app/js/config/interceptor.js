@@ -5,10 +5,12 @@ angular.module('evaluon').factory(
         return {
             responseError: function(response) {
 
-                console.error("Whoops!");
+                console.error("Whoops!", response);
+
                 var errors = {};
                 response.error = errors[response.statusText];
                 return $q.reject(response);
+                
             }
         };
     }
