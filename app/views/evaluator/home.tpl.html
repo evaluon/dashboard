@@ -24,12 +24,18 @@
                             <h4>{{item.institution.name}}</h4>
                             <h4>{{item.institution.address}}</h4>
                             <br>
-
-                            <md-button class="md-fab md-fab-bottom-right" ng-click="evaluees($event, item.id)" >
+                            <!-- md-fab md-fab-bottom-right-->
+                            <md-button class="" ng-click="evaluees($event, item.id)">
                                 <md-tooltip>
                                     Evaluados
                                 </md-tooltip>
                                 <md-icon icon="img/icons/group.svg"></md-icon>
+                            </md-button>
+                            <md-button class="" ng-click="periode($event, item.id)">
+                                <md-tooltip>
+                                    Periodo
+                                </md-tooltip>
+                                <md-icon icon="img/icons/restore.svg"></md-icon>
                             </md-button>
                         </div>
                     </md-item-content>
