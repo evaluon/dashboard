@@ -21,6 +21,22 @@ angular.module('evaluon.entity').factory(
                     return results.data.data;
                 });
 
+            },
+
+            evalueeDescription: function(){
+
+                return $http({
+                    method: 'get',
+                    url: api.evalueeDescription,
+                    headers: {
+                        Authorization: headers.authorization(
+                            user.token_type, user.access_token
+                        )
+                    }
+                }).then(function(results){
+                    return results.data.data;
+                });
+
             }
 
         }
