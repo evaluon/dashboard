@@ -51,6 +51,7 @@ angular.module('evaluon').constant(
         },
 
         // Answers Module
+        knowledgeArea: apiRouter.route('knowledgeArea'),
         answer: apiRouter.route('answer')
 
     }

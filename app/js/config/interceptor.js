@@ -14,6 +14,8 @@ angular.module('evaluon').factory(
                     )
                 );
 
+                var errors = {};
+
                 response.error = errors[response.statusText];
                 return $q.reject(response);
 
