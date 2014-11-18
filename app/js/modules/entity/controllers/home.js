@@ -5,7 +5,7 @@ angular.module('evaluon.entity').controller(
 
         $scope.institutions = [];
 
-        var getInstitutions = function(){
+        $scope.getInstitutions = function(){
             Institution.listInstitutions().then(function(institutions){
                 $scope.institutions = _.map(institutions.data, function(inst){
                     inst.image.location = images.evaluon(inst.image.location);
@@ -21,12 +21,12 @@ angular.module('evaluon.entity').controller(
                 controller: 'AddInstitutionCtrl',
                 escapeToClose: true,
                 onComplete: function(){
-                    getInstitutions();
+                    $scope.getInstitutions();
                 }
             });
         };
 
-        getInstitutions();
+        $scope.getInstitutions();
 
     }
 );
