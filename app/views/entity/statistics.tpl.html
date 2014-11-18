@@ -1,16 +1,28 @@
 <div layout="row" layout-padding>
     <div flex>
-        <h3>Nivel general de usuarios:</h3>
-        <nvd3-bar-graph chart-id="levelUsers" data="usersLevelsData" duration="350" height="500" horizontal="true" responsive="true"></nvd3-bar-graph>
+        <md-card>
+            <h3>Nivel general de usuarios:</h3>
+            <nvd3-bar-graph chart-id="levelUsers" data="usersLevelsData" duration="350" horizontal="true" responsive="true"></nvd3-bar-graph>
+        </md-card>
+    </div>
+    <div flex>
+        <md-card>
+            <h3>Nivel general de usuarios por género:</h3>
+            <nvd3-bar-graph chart-id="levelUsersByGender" data="usersLevelsDataByGender" duration="350" horizontal="true" responsive="true"></nvd3-bar-graph>
+        </md-card>
     </div>
 </div>
 
 <div layout="row" layout-padding>
-    Hola
     <div flex>
-        <nvd3-pie-chart chart-id="disability" data="data" width="300" height="300" duration="1000" label-type="percent" responsive="true"></nvd3-pie-chart>
+        <md-card>
+            <nvd3-pie-chart chart-id="disabilityData" data="disabilityData" width="200" height="200" duration="1000" label-type="percent" responsive="true"></nvd3-pie-chart>
+        </md-card>
     </div>
     <div flex>
-        <nvd3-pie-chart chart-id="level" data="data" width="300" height="300" duration="1000" label-type="percent" responsive="true"></nvd3-pie-chart>
+        <md-card>
+            <nvd3-pie-chart chart-id="typeData " data="typeData " width="300" height="300" duration="1000" label-type="percent" responsive="true"></nvd3-pie-chart>
+
+        </md-card>
     </div>
 </div>
