@@ -22,7 +22,7 @@ angular.module('evaluon.auth').provider('authorization', function(){
                     userRoles.evaluator |
                     userRoles.institution |
                     userRoles.entity,
-                evaluator: userRoles.evaluator,
+                evaluator: userRoles.evaluator | userRoles.institution,
                 institution: userRoles.institution,
                 entity: userRoles.entity
             }
