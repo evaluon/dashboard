@@ -1,12 +1,12 @@
 .face {
-  border-radius: 30px;
-  border: 1px solid #ddd;
-  width: 48px;
-  margin: 16px;
+    border-radius: 30px;
+    border: 1px solid #ddd;
+    width: 48px;
+    margin: 16px;
 }
 .button-toolbar:hover{
-   box-shadow: none;
-  border: none;
-  transform: none;
-  -webkit-transform: none;
+    box-shadow: none;
+    border: none;
+    transform: none;
+    -webkit-transform: none;
 }
