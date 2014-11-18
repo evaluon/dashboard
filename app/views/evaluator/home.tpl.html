@@ -1,38 +1,38 @@
 <div layout="horizontal" layout-padding layout-align="center" >
-   <div flex= "90" layout-fill>
-      <md-toolbar class="md-default-theme md-whiteframe-z1">
-         <div class="md-toolbar-tools">
-            <span>Grupos</span>
-            <span flex></span>
-            <md-button class="md-fab md-primary button-toolbar" aria-label="Recargar" ng-click="getGroups()">
-             <md-tooltip>
-                Recargar
-             </md-tooltip>
-             <md-icon icon="/img/icons/refresh.svg"></md-icon>
-            </md-button>
-          </div>
-      </md-toolbar>
-      <md-content flex layout="vertical" class="md-default-theme md-whiteframe-z1" style="height: 500px;">
+    <div flex= "90" layout-fill>
+        <md-toolbar class="md-default-theme md-whiteframe-z1">
+            <div class="md-toolbar-tools">
+                <span>Grupos</span>
+                <span flex></span>
+                <md-button class="md-fab md-primary button-toolbar" aria-label="Recargar" ng-click="getGroups()">
+                    <md-tooltip>
+                        Recargar
+                    </md-tooltip>
+                    <md-icon icon="/img/icons/refresh.svg"></md-icon>
+                </md-button>
+            </div>
+        </md-toolbar>
+        <md-content flex layout="vertical" class="md-default-theme md-whiteframe-z1" style="height: 500px;">
             <md-button class="md-primary md-fab md-fab-bottom-right" md-theme="red" ng-click="addInstitution()" style="position: fixed;">
-               <md-tooltip>
-                 Agregar grupo
-               </md-tooltip>
-               <md-icon icon="img/icons/add.svg"></md-icon>
+                <md-tooltip>
+                    Agregar grupo
+                </md-tooltip>
+                <md-icon icon="img/icons/add.svg"></md-icon>
             </md-button>
             <md-list>
-               <md-item ng-repeat="item in groups">
-                  <md-item-content>
-                     <div class="md-tile-left">
-                        <img ng-src="{{item.image.location}}" class="face" alt="{{item.image.description}}">
-                     </div>
-                     <div class="md-tile-content">
-                        <h3>{{item.id}}</h3>
-                        <h4>{{item.institution_id}}</h4>
-                        <h4>{{item.evaluator_id}}</h4>
-                     </div>
-                  </md-item-content>
-               </md-item>
+                <md-item ng-repeat="item in groups">
+                    <md-item-content>
+                        <div class="md-tile-left">
+                            <img ng-src="{{item.image.location}}" class="face" alt="{{item.image.description}}">
+                        </div>
+                        <div class="md-tile-content">
+                            <h3>{{item.id}}</h3>
+                            <h4>{{item.institution_id}}</h4>
+                            <h4>{{item.evaluator_id}}</h4>
+                        </div>
+                    </md-item-content>
+                </md-item>
             </md-list>
-      </md-content>
-   </div>
+        </md-content>
+    </div>
 </div>

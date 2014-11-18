@@ -1,24 +1,24 @@
 <md-dialog aria-label="Agregar Institución">
 
-  <md-content>
+    <md-content>
 
-    <md-subheader class="md-sticky-no-effect">Agregar Evaluador</md-subheader>
-    <form style="padding: 20px;">
-      <div class="row">
-          <md-text-float label="NIT" ng-model="institution.id" required> </md-text-float>
-          <md-text-float label="Nombre" ng-model="institution.name" required> </md-text-float>
-      </div>
-      <md-text-float label="Dirección" ng-model="institution.address" required> </md-text-float>
-      <div class="row">
-        <md-text-float label="Correo Electrónico" ng-model="institution.mail" required> </md-text-float>
-        <md-text-float label="Número Teléfono" ng-model="institution.phone_number" required> </md-text-float>
-        </div>
-      <div class="row">
-          <md-button ng-file-select="onFile($files)" >Agregar Archivo</md-button>
-          <md-text-float label="Descripción" ng-model="institution.description" required></md-text-float>
-      </div>
-      <md-button ng-click="send()" class="md-primary">Enviar</md-button>
-    </form>
-  </md-content>
+        <md-subheader class="md-sticky-no-effect">Agregar Evaluador</md-subheader>
+        <form style="padding: 20px;">
+            <div class="row">
+                <md-text-float label="NIT" ng-model="institution.id" required> </md-text-float>
+                <md-text-float label="Nombre" ng-model="institution.name" required> </md-text-float>
+            </div>
+            <md-text-float label="Dirección" ng-model="institution.address" required> </md-text-float>
+            <div class="row">
+                <md-text-float label="Correo Electrónico" ng-model="institution.mail" required> </md-text-float>
+                <md-text-float label="Número Teléfono" ng-model="institution.phone_number" required> </md-text-float>
+            </div>
+            <div class="row">
+                <md-button ng-file-select="onFile($files)" >Agregar Archivo</md-button>
+                <md-text-float label="Descripción" ng-model="institution.description" required></md-text-float>
+            </div>
+            <md-button ng-click="send()" class="md-primary">Enviar</md-button>
+        </form>
+    </md-content>
 
 </md-dialog>
