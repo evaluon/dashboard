@@ -16,11 +16,13 @@ var apiRouter = {
     id: function(url, id){
         return '{0}/{1}'.format(url, id)
     }
-
 };
 
 angular.module('evaluon').constant(
     'api', {
+
+        // Root: url id
+        id: apiRouter.id,
 
         // Authorization Module
         token: apiRouter.route('auth/token'),
@@ -37,7 +39,10 @@ angular.module('evaluon').constant(
 
         // Evaluees Module
         evaluee: apiRouter.route('evaluee'),
-        evalueeDescription: apiRouter.route('evaluee/description')
+        evalueeDescription: apiRouter.route('evaluee/description'),
+
+        // Groups module
+        group: apiRouter.route('group')
 
     }
 ).constant(

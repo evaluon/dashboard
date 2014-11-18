@@ -3,9 +3,25 @@
 angular.module('evaluon.evaluator').factory(
     'Group', function(Auth, api, headers, $http, localStorageService){
 
-        var user = Auth.userLogged;
+        var user = Auth.userLogged,
+            tokenType = user.token_type,
+            token = user.access_token;
 
         return {
+
+            institutionGroups: function(institutionId){
+
+                return $http({
+                    method: 'get',
+                    url: api.id(api.group, institutionId),
+                    headers: {
+                        Authorization: headers.authorization(tokenType, token)
+                    }
+                }).then(function(data){
+                    return data.data.data;
+                });
+
+            },
 
             evaluatorGroups: function(){
 
@@ -13,9 +29,7 @@ angular.module('evaluon.evaluator').factory(
                     method: 'get',
                     url: api.evaluatorGroup,
                     headers: {
-                        Authorization: headers.authorization(
-                            user.token_type, user.access_token
-                        )
+                        Authorization: headers.authorization(tokenType, token)
                     }
                 }).then(function(data){
                     return data.data.data;
@@ -29,9 +43,7 @@ angular.module('evaluon.evaluator').factory(
                     method: 'post',
                     url: api.group,
                     headers: {
-                        Authorization: headers.authorization(
-                            user.token_type, user.access_token
-                        ),
+                        Authorization: headers.authorization(tokenType, token),
                         'Content-Type': headers.json
                     },
                     data: group
@@ -47,9 +59,7 @@ angular.module('evaluon.evaluator').factory(
                     method: 'put',
                     url: api.group,
                     headers: {
-                        Authorization: headers.authorization(
-                            user.token_type, user.access_token
-                        ),
+                        Authorization: headers.authorization(tokenType, token),
                         'Content-Type': headers.json
                     },
                     data: group

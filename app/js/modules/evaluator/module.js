@@ -9,14 +9,14 @@ angular.module('evaluon.evaluator',['ui.router']).config(
                 abstract: true,
                 url: '/evaluator',
                 templateUrl: 'views/evaluator/evaluator.tpl.html',
-                controller: 'EvaluatorCtrl',
                 data:{
                     access: authorizationProvider.$get().accessLevels.evaluator
                 }
             }
         ).state(
             'evaluator.home', {
-                url: '/',
+                url: '/',                
+                controller: 'EvaluatorCtrl',
                 templateUrl: 'views/evaluator/home.tpl.html'
             }
         ).state(
