@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('evaluon.auth').factory(
-    'User', function(api, headers, $http){
+    'User', function(api, Auth, headers, $http){
 
         return {
 

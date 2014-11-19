@@ -13,6 +13,12 @@
             </div>
         </md-toolbar>
         <md-content flex layout="vertical" class="md-default-theme md-whiteframe-z1" style="height: 500px;">
+            <md-button class="md-primary md-fab md-fab-bottom-right" md-theme="red" ng-click="addGroup()" style="position: fixed;">
+                <md-tooltip>
+                    Agregar grupo
+                </md-tooltip>
+                <md-icon icon="img/icons/add.svg"></md-icon>
+            </md-button>
             <md-list>
                 <md-item ng-repeat="item in groups">
                     <md-item-content>
@@ -24,6 +30,12 @@
                             <h4>{{item.institution.name}}</h4>
                             <h4>{{item.institution.address}}</h4>
                         </div>
+                        <md-button class="md-fab md-fab-bottom-right" ng-click="delete($event, item.id)" aria-label="Eliminar grupo">
+                            <md-tooltip>
+                                Eliminar
+                            </md-tooltip>
+                            <md-icon icon="img/icons/delete.svg"></md-icon>
+                        </md-button>
                     </md-item-content>
                 </md-item>
             </md-list>

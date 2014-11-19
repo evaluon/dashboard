@@ -7,7 +7,7 @@ angular.module('evaluon.evaluator').controller(
             $mdToast.show({
                 template: '<md-toast>{0}</md-toast>'.format(message),
                 hideDelay: 6000,
-                position: 'top right'
+                position: 'bottom left'
             });
         }
 
@@ -38,7 +38,7 @@ angular.module('evaluon.evaluator').controller(
             Period.setPeriod(groupId).then(function(success){
                 mdToast("Periodo establecido");
             }).catch(function(error){
-                mdToast("Ya existe un periodo activo que está establecido");
+                mdToast("Ya existe un periodo activo establecido");
             });
 
             /*
