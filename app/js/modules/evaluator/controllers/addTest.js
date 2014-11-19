@@ -1,7 +1,10 @@
 'use strict';
 
 angular.module('evaluon.evaluator').controller('AddTestCtrl',
-function($scope, $state, $stateParams, $q, $mdToast, Test, Question, GroupTest, Answer){
+function(
+    $scope, $state, $stateParams, $q, $mdToast, Test, Question,
+    GroupTest, Answer
+){
 
     $scope.knowledgeAreas = [];
 
@@ -96,7 +99,7 @@ function($scope, $state, $stateParams, $q, $mdToast, Test, Question, GroupTest, 
                 qs.push(
 
                     Question.createQuestion({
-                        institution_id: $stateParams.id,
+                        institution_id: $stateParams.institution,
                         open: question.open || false,
                         public: question.public || false,
                         description_text: question.description,
@@ -104,7 +107,7 @@ function($scope, $state, $stateParams, $q, $mdToast, Test, Question, GroupTest, 
                         difficulty: question.difficulty || 1
                     }).then(function(createdQuestion){
 
-                        if(question.image.location){
+                        if(question.image){
                             return Question.uploadQuestionImage(
                                 createdQuestion.id, question.image
                             ).then(function(){

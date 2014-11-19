@@ -56,7 +56,7 @@ angular.module('evaluon.evaluator').factory(
             addQuestion: function(test, question){
 
                 return $http({
-                    method: 'post',
+                    method: 'put',
                     url: api.testQuestion(test),
                     headers: {
                         Authorization: headers.authorization(tokenType, token),

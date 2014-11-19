@@ -21,13 +21,13 @@ angular.module('evaluon.evaluator',['ui.router']).config(
             }
         ).state(
             'evaluator.test', {
-                url:'/test/:id',
+                url:'/test/:institution/:id',
                 templateUrl: 'views/evaluator/tests.tpl.html',
                 controller: 'TestCtrl'
             }
         ).state (
             'evaluator.addTest', {
-                url:'/test/add/:id',
+                url:'/test/add/:institution/:id/',
                 templateUrl: 'views/evaluator/addTest.tpl.html',
                 controller: 'AddTestCtrl'
             }

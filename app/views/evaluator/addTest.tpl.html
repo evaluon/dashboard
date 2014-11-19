@@ -109,8 +109,8 @@
                                 </select>
                                 <md-text-float label="Descripción" ng-model="item.description" class="long"> </md-text-float>
                                 <div ng-repeat="question in item.questions">
-                                    <md-text-float  ng-if="$first" label="Respuesta Correcta" ng-model="question.description" class="medium"> </md-text-float>
-                                    <md-text-float  ng-if="!$first" label="Respuesta {{$index + 1}}" ng-model="question.description" class="medium"> </md-text-float>
+                                    <md-text-float  ng-if="$first" label="Respuesta Correcta" ng-model="question.description_text" class="medium"> </md-text-float>
+                                    <md-text-float  ng-if="!$first" label="Respuesta {{$index + 1}}" ng-model="question.description_text" class="medium"> </md-text-float>
                                 </div>
                                 <div class="row" layout="horizontal">
                                     <div flex="25">
