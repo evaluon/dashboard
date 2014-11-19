@@ -24,6 +24,12 @@
                                 <h4>{{item.mail}}</h4>
                                 <h4>{{item.phone_number}}</h4>
                             </div>
+                            <md-button ui-sref="institution.groupsByevaluator({id: item.id})" class="md-fab md-fab-bottom-right" aria-label="Entra a grupos asignados">
+                                <md-tooltip>
+                                    Grupos asignados
+                                </md-tooltip>
+                                <md-icon icon="img/icons/group.svg"></md-icon>
+                            </md-button>
                         </md-item-content>
                     </md-card>
                 </md-item>
