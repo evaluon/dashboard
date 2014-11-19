@@ -68,9 +68,10 @@ angular.module('evaluon').constant(
 
         // Answers Module
         knowledgeArea: apiRouter.route('knowledgearea'),
-        answer: apiRouter.route('answer')
-
-
+        answer: apiRouter.route('answer'),
+        addToQuestion: function(q, a){
+            return apiRouter.route('question/{0}/answer/{1}'.format(q, a));
+        }
 
     }
 ).constant(

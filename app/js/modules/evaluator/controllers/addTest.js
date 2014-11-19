@@ -2,7 +2,7 @@
 
 angular.module('evaluon.evaluator').controller(
     'AddTestCtrl',
-    function($scope, $stateParams, $q, Test, Question){
+    function($scope, $state, $stateParams, $q, Test, Question, Answer){
 
         $scope.knowledgeAreas = [];
 
@@ -122,8 +122,32 @@ angular.module('evaluon.evaluator').controller(
 
                         }).then(function(createdQuestion){
 
+                            var answers = question.questions;
 
+                            return Answer.registerAnswers(
+                                answers
+                            ).then(function(answers){
 
+                                var ao = [];
+
+                                for(i = 0; i < answers.length; i++){
+                                    ao.push(
+                                        Answer.addToQuestion(
+                                            createdQuestion.id, answers[i]
+                                        )
+                                    )
+                                }
+
+                                return $q.all(ao);
+
+                            });
+
+                        }).then(function(){
+                            $state.go(
+                                'evaluator.test', { id: $stateParams.id }
+                            );
+                        }).catch(function(error){
+                            console.log(error);
                         })
 
                     );
