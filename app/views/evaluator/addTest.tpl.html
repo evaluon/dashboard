@@ -4,19 +4,19 @@
             <div class="md-toolbar-tools">
                 <span>Agregar Examen</span>
                 <span flex></span>
-                <md-button class="md-fab md-primary" aria-label="Recargar" ng-click="getGroups()">
+                <md-button class="md-fab md-primary" aria-label="Recargar" ng-click="addCloseQuestion()">
                     <md-tooltip>
                         Añadir pregunta cerrada
                     </md-tooltip>
                     <md-icon icon="/img/icons/done_all.svg"></md-icon>
                 </md-button>
-                <md-button class="md-fab md-primary" aria-label="Recargar" ng-click="getGroups()">
+                <md-button class="md-fab md-primary" aria-label="Recargar" ng-click="addOpenQuestion()">
                     <md-tooltip>
                         Añadir pregunta abierta
                     </md-tooltip>
                     <md-icon icon="/img/icons/create.svg"></md-icon>
                 </md-button>
-                <md-button class="md-fab md-primary" aria-label="Recargar" ng-click="getGroups()">
+                <md-button class="md-fab md-primary" aria-label="Recargar" ng-click="addQuestionBank($event)">
                     <md-tooltip>
                         Añadir pregunta del banco
                     </md-tooltip>
@@ -24,13 +24,98 @@
                 </md-button>
             </div>
         </md-toolbar>
-        <md-content flex layout="vertical" class="md-default-theme md-whiteframe-z1" style="height: 500px;">
-            <md-button ui-sref="evaluator.addTest({id: groupId})"class="md-primary md-fab md-fab-bottom-right" md-theme="red" ng-click="addInstitution()" style="position: fixed;">
+        <md-content flex layout="vertical" class="md-default-theme md-whiteframe-z1" style="height: 600px;">
+            <md-button ui-sref="evaluator.addTest({id: groupId})"class="md-primary md-fab md-fab-bottom-right" md-theme="red" ng-click="addTest()" style="position: fixed;">
                 <md-tooltip>
                     Agregar examen
                 </md-tooltip>
                 <md-icon icon="img/icons/add.svg"></md-icon>
             </md-button>
+            <md-list>
+                <md-item ng-repeat="item in test">
+                    <md-card>
+                        <md-item-content>
+                            <div class="md-tile-left"><h3>   {{$index+1}}</h3></div>
+                            <!-- if is a close question-->
+                            <div class="md-tile-content" ng-if="item.type == questionType['open']">
+                                <md-text-float label="Descripción" ng-model="item.description" class="long"> </md-text-float>
+                                <br>
+                                <div class="row" layout="horizontal">
+                                    <div flex="10">
+                                        <md-button  ng-file-select="onImage(item, $files)">
+                                            <md-tooltip>
+                                                Añadir imagen
+                                            </md-tooltip>
+                                            <md-icon icon="img/icons/img.svg"></md-icon>
+                                        </md-button>
+                                    </div>
+                                    <div flex="10">
+                                        <md-button ng-if="item.img.img" ng-click="deleteImage(item)">
+                                            <md-tooltip>
+                                                Eliminar imagen
+                                            </md-tooltip>
+                                            <md-icon icon="img/icons/clear.svg"></md-icon>
+                                        </md-button>
+                                    </div>
+                                </div>
+                                <md-text-float ng-if="item.img.img" label="Descripción de la imagen" ng-model="item.img.description" class="medium"> </md-text-float>
+                            </div>
+                            <!-- if is a open question-->
+                            <div class="md-tile-content" ng-if="item.type == questionType['close']">
+                                <select ng-model="item.knowledgeArea" ng-options="area.id for area in knowledgeAreas">
+                                    <option value=""> Selecciona el Area </option>
+                                </select>
+                                <md-text-float label="Descripción" ng-model="item.description" class="long"> </md-text-float>
+                                <div ng-repeat="question in item.questions">
+                                    <md-text-float  ng-if="$first" label="Respuesta Correcta" ng-model="question.description" class="medium"> </md-text-float>
+                                    <md-text-float  ng-if="!$first" label="Respuesta {{$index + 1}}" ng-model="question.description" class="medium"> </md-text-float>
+                                </div>
+                                <br>
+                                <md-switch ng-model="item.open" aria-label="Guardar en el banco de preguntas">Guardar en el banco de preguntas</md-switch>
+                                <br>
+                                <div class="row" layout="horizontal">
+                                    <div flex="10">
+                                        <md-button  ng-file-select="onImage(item, $files)">
+                                            <md-tooltip>
+                                                Añadir imagen
+                                            </md-tooltip>
+                                            <md-icon icon="img/icons/img.svg"></md-icon>
+                                        </md-button>
+                                    </div>
+                                    <div flex="10">
+                                        <md-button ng-if="item.img.img" ng-click="deleteImage(item)">
+                                            <md-tooltip>
+                                                Eliminar imagen
+                                            </md-tooltip>
+                                            <md-icon icon="img/icons/clear.svg"></md-icon>
+                                        </md-button>
+                                    </div>
+                                </div>
+                                <md-text-float ng-if="item.img.img" label="Descripción de la imagen" ng-model="item.img.description" class="medium"> </md-text-float>
+                            </div>
+                            <!-- if is a bank question-->
+                            <div class="md-tile-content" ng-if="item.type == questionType['bank']">
+                                <md-text-float label="Número de pregunta" class="medium" ng-model="item.id"> </md-text-float>
+                                <br><br>
+                                <md-button class="md-raised md-primary">Banco de preguntas
+                                    <md-tooltip>
+                                        Ir al banco de preguntas
+                                    </md-tooltip>
+                                </md-button>
+                            </div>
+                            <md-button class="md-fab md-fab-bottom-right" ng-click="deleteQuestion($index)" >
+                                <md-tooltip>
+                                    Eliminar pregunta
+                                </md-tooltip>
+                                <md-icon icon="img/icons/delete.svg"></md-icon>
+                            </md-button>
+                        </md-item-content>
+                    </md-card>
+                </md-item>
+            </md-list>
         </md-content>
+
+        <br>
+        {{ test | json}}
     </div>
 </div>
