@@ -2,16 +2,14 @@
 
 angular.module('evaluon.evaluator').controller(
     'AddTestCtrl',
-    function($scope, $state, $stateParams, $q, Test, Question, Answer){
+    function($scope, $state, $stateParams, $q, Test, Question, Answer, GroupTest, $mdToast){
 
         $scope.knowledgeAreas = [];
 
         $scope.getKnowledgeAreas = function(){
             Question.listKnowledgeAreas().then(function(success){
                 $scope.knowledgeAreas = success;
-                console.log(success);
             }).catch(function(error){
-                console.error(error);
             });
         };
 
@@ -21,7 +19,7 @@ angular.module('evaluon.evaluator').controller(
         $scope.testObject = {
             description: "",
             start_date: new Date(),
-            end_date: new Date()
+            stop_date: new Date()
         };
         $scope.test = [];
 
@@ -76,7 +74,7 @@ angular.module('evaluon.evaluator').controller(
         //Add test
         $scope.addTest = function(){
 
-            Test.createTest(testObject).then(function(test){
+            Test.createTest($scope.testObject).then(function(test){
                 $scope.testObject = test;
                 return GroupTest.addTest(
                     $stateParams.id, test.id
@@ -143,10 +141,20 @@ angular.module('evaluon.evaluator').controller(
                             });
 
                         }).then(function(){
+                            $mdToast.show({
+                                template: '<md-toast>{0}</md-toast>'.format('Examen creado correctamente'),
+                                hideDelay: 6000,
+                                position: 'bottom left'
+                            });
                             $state.go(
                                 'evaluator.test', { id: $stateParams.id }
                             );
                         }).catch(function(error){
+                            $mdToast.show({
+                                template: '<md-toast>{0}</md-toast>'.format('No se pudo añadir tu examen, inténtalo de nuevo'),
+                                hideDelay: 6000,
+                                position: 'bottom left'
+                            });
                             console.log(error);
                         })
 
