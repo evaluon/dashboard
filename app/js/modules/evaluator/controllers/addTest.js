@@ -19,7 +19,7 @@ angular.module('evaluon.evaluator').controller(
 
         //Test logic
         $scope.testObject = {
-            description: "Una nueva pregunta",
+            description: "",
             start_date: new Date(),
             end_date: new Date()
         };
