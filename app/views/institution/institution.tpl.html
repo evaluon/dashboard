@@ -1,14 +1,17 @@
 <div layout="horizontal" flex>
-    <md-sidenav class="md-sidenav-left md-whiteframe-z2" component-id="left" is-locked-open="$media('md')"  layout="vertical">
+    <md-sidenav class="md-sidenav-left md-whiteframe-z2" component-id="left" is-locked-open="$media('md')" layout="vertical" style="height: 100vh;">
         <md-toolbar>
             <h1 class="md-toolbar-tools">Institución</h1>
         </md-toolbar>
-        <md-content flex layout="vertical" class="md-default-theme" style="height: 700px;">
+        <md-content flex layout="vertical" md-theme="default" style="height: 90%;">
             <md-button ui-sref="institution.home">
                 Evaluadores
             </md-button>
             <md-button ui-sref="institution.group">
                 Grupos
+            </md-button>
+            <md-button ui-sref="institution.group">
+                Periodos
             </md-button>
             <md-button ui-sref="anon.logout">
                 Cerrar sesión
@@ -22,7 +25,6 @@
             </div>
         </md-toolbar>
         <md-content ui-view>
-
         </md-content>
     </div>
 </div>

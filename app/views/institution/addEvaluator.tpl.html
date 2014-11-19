@@ -1,24 +1,52 @@
-<md-dialog aria-label="Agregar Institución">
+<md-dialog aria-label="Agregar Evaluador" layout="column" style="width: 50vw">
 
     <md-content>
+        <md-header class="md-sticky-no-effect">Agregar Evaluador</md-header>
+        <md-content flex-fill flex layout="row" layout-phone="column" layout-padding>
 
-        <md-subheader class="md-sticky-no-effect">Agregar Evaluador</md-subheader>
-        <form style="padding: 20px;">
-            <div class="row">
-                <md-text-float label="NIT" ng-model="institution.id" required> </md-text-float>
-                <md-text-float label="Nombre" ng-model="institution.name" required> </md-text-float>
+            <div flex="45">
+                <form ng-submit="addExisting()" layout-fill>
+                    <md-subheader style="padding-left: 0">Agregar evaluador existente</md-subheader>
+
+                    <div class="row">
+                        <md-text-float label="Documento de Identidad" ng-model="group.evaluator_id" required></md-text-float>
+                    </div>
+                    <md-button type="submit" layout="center" class="md-primary" layout-align="end">Agregar</md-button>
+                </form>
             </div>
-            <md-text-float label="Dirección" ng-model="institution.address" required> </md-text-float>
-            <div class="row">
-                <md-text-float label="Correo Electrónico" ng-model="institution.mail" required> </md-text-float>
-                <md-text-float label="Número Teléfono" ng-model="institution.phone_number" required> </md-text-float>
+
+            <div flex>
+                <form ng-submit="">
+
+                    <md-subheader style="padding-left: 0">Registrar Evaluador</md-subheader>
+
+                    <div class="row">
+                        <md-text-float label="Documento de Identidad" ng-model="user.id" required></md-text-float>
+                        <md-text-float label="Nombre" ng-model="user.first_name" required></md-text-float>
+                        <md-text-float label="Apellido" ng-model="user.last_name" required></md-text-float>
+                    </div>
+
+                    <div class="row">
+                        <md-text-float type="date" label="Fecha de Nacimiento" ng-model="user.birth_date" required></md-text-float>
+                    </div>
+
+                    <div class="row">
+                        <md-text-float type="email" label="Correo Electrónico" ng-model="institution.mail" required> </md-text-float>
+                        <md-text-float label="Número Teléfono" ng-model="user.phone_number" required> </md-text-float>
+                    </div>
+
+                    <div class="row">
+                        <md-text-float type="password" label="Contraseña" ng-model="user.password" required> </md-text-float>
+                        <md-text-float label="Área de trabajo" ng-model="evaluator.area" required></md-text-float>
+                    </div>
+
+                    <md-button type="submit" class="md-primary">Registrar</md-button>
+                </form>
             </div>
-            <div class="row">
-                <md-button ng-file-select="onFile($files)" >Agregar Archivo</md-button>
-                <md-text-float label="Descripción" ng-model="institution.description" required></md-text-float>
-            </div>
-            <md-button ng-click="send()" class="md-primary">Enviar</md-button>
-        </form>
+
+        </md-content>
+
+
     </md-content>
 
 </md-dialog>
