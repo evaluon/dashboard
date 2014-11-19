@@ -21,17 +21,19 @@
             </md-button>
             <md-list>
                 <md-item ng-repeat="item in institutions">
-                    <md-item-content>
-                        <div class="md-tile-left">
-                            <img ng-src="{{item.image.location}}" class="face" alt="{{item.image.description}}">
-                        </div>
-                        <div class="md-tile-content">
-                            <h3>{{item.name}}</h3>
-                            <h4>{{item.address}}</h4>
-                            <h4>{{item.mail}}</h4>
-                            <h4>{{item.phone_number}}</h4>
-                        </div>
-                    </md-item-content>
+                    <md-card>
+                        <md-item-content>
+                            <div class="md-tile-left">
+                                <img ng-src="{{item.image.location}}" class="face" alt="{{item.image.description}}">
+                            </div>
+                            <div class="md-tile-content">
+                                <h3>{{item.name}}</h3>
+                                <h4>{{item.address}}</h4>
+                                <h4>{{item.mail}}</h4>
+                                <h4>{{item.phone_number}}</h4>
+                            </div>
+                        </md-item-content>
+                    </md-card>
                 </md-item>
             </md-list>
         </md-content>

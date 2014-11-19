@@ -8,7 +8,7 @@ angular.module('evaluon.evaluator').controller(
         $scope.getKnowledgeAreas = function(){
             Question.listKnowledgeAreas().then(function(success){
                 $scope.knowledgeAreas = success;
-                console.log($scope.knowledgeAreas);
+                console.log(success);
             }).catch(function(error){
                 console.error(error);
             });
@@ -28,18 +28,25 @@ angular.module('evaluon.evaluator').controller(
             var openQuestion = {
                 type: $scope.questionType['open']
             };
-
             $scope.test.push(openQuestion);
         };
 
         $scope.addCloseQuestion = function(){
             var closeQuestion = {
-                type: $scope.questionType['close']
+                type: $scope.questionType['close'],
+                questions: [{},{},{},{}]
             };
             $scope.test.push(closeQuestion);
         };
 
         $scope.addQuestionBank = function(){
+            var questionBank = {
+                type: $scope.questionType['bank']
+            };
+            $scope.test.push(questionBank);
+        };
 
+        $scope.deleteQuestion = function(index){
+            $scope.test.splice(index -1 ,1);
         };
     });

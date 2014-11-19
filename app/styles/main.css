@@ -18,3 +18,9 @@ md-toolbar md-button.md-fab.focus:not([disabled]) {
     transform: none;
     -webkit-transform: none;
 }
+md-input-group.long > input {
+    width: 80%;
+}
+md-input-group.medium > input {
+    width: 60%;
+}
