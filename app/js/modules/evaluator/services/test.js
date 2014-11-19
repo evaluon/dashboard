@@ -21,6 +21,20 @@ angular.module('evaluon.evaluator').factory(
                     return data.data.data;
                 });
 
+            },
+
+            evalueesInTest: function(group, test){
+
+                return $http({
+                    method: 'get',
+                    url: api.evalueesInTest(group, test),
+                    headers: {
+                        Ahthorization: headers.authorization(tokenType, token)
+                    }
+                }).then(function(test){
+                    return data.data.data;
+                });
+
             }
 
         }
