@@ -40,13 +40,34 @@ angular.module('evaluon.evaluator').controller(
         };
 
         $scope.addQuestionBank = function(){
+
             var questionBank = {
                 type: $scope.questionType['bank']
             };
+
             $scope.test.push(questionBank);
         };
 
         $scope.deleteQuestion = function(index){
             $scope.test.splice(index -1 ,1);
+        };
+
+        //Images
+        $scope.onImage = function(question, $file){
+
+            question.img = {
+                img: $file[0],
+                description: ''
+            };
+
+        };
+
+        $scope.deleteImage = function(question){
+            delete question.img;
+        };
+
+        //Add test
+        $scope.addTest = function(){
+            console.log($scope.test);
         };
     });

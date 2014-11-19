@@ -24,3 +24,30 @@ md-input-group.long > input {
 md-input-group.medium > input {
     width: 60%;
 }
+select {
+   width:100px;
+   overflow: hidden;
+   background: #F8F8F8;
+   border: 1px solid #DDDDDD;
+   height: 30px;
+   border-radius:2px;
+   color: inherit;
+ }
+
+select {
+  width: 80%;
+  border: 0;
+  border-bottom: 1;
+  line-height: 1.5;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  text-indent: 0.01px;
+  text-overflow: '';
+  appearance: none;
+  background: transparent url("/img/smart_arrows.png") no-repeat scroll 97% 8px;
+  @media (-webkit-min-device-pixel-ratio: 2),
+    (min-resolution: 192dpi) {
+      background: transparent url("/img/smart_arrows@2x.png") no-repeat scroll 97% 8px;
+      background-size: 16px 144px;
+    }
+}
