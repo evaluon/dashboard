@@ -18,23 +18,24 @@ angular.module('evaluon.evaluator').controller(
 
         //Test logic
         $scope.test = [];
-        $scope.questionType = {
-            open: 1,
-            close: 2,
-            bank: 3
-        };
 
         $scope.addOpenQuestion = function(){
             var openQuestion = {
-                type: $scope.questionType['open']
+                open: true
             };
             $scope.test.push(openQuestion);
         };
 
         $scope.addCloseQuestion = function(){
             var closeQuestion = {
-                type: $scope.questionType['close'],
-                questions: [{},{},{},{}]
+                open: false,
+                new: true,
+                questions: [
+                { right: true },
+                { right: false },
+                { right: false },
+                { right: false }
+                ]
             };
             $scope.test.push(closeQuestion);
         };
@@ -42,7 +43,7 @@ angular.module('evaluon.evaluator').controller(
         $scope.addQuestionBank = function(){
 
             var questionBank = {
-                type: $scope.questionType['bank']
+                public: true
             };
 
             $scope.test.push(questionBank);
@@ -55,15 +56,15 @@ angular.module('evaluon.evaluator').controller(
         //Images
         $scope.onImage = function(question, $file){
 
-            question.img = {
-                img: $file[0],
+            question.image = {
+                location: $file[0],
                 description: ''
             };
 
         };
 
         $scope.deleteImage = function(question){
-            delete question.img;
+            delete question.image;
         };
 
         //Add test

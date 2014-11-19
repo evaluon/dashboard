@@ -1,20 +1,23 @@
 <md-dialog aria-label="Evaluados" style="width: 600px;">
 
     <md-content>
+
         <md-card>
+
             <md-subheader class="md-sticky-no-effect"><h2>Periodo Grupo {{group}}</h2></md-subheader>
+
             <md-item>
                 <md-item-content>
                     <div class="md-tile-left">
                     </div>
                     <div class="md-tile-content">
-                        <h3>Asignar Periodo</h3>
+                        <h3>Registrar Periodo</h3>
                         <br>
                         <form ng-submit="add($event, evaluee)">
                             <h5>Fecha de inicio:</h5>
-                            <md-text-float  ng-model="data.initDate" type="date" class="md-fab-bottom-left" required> </md-text-float>
+                            <md-text-float  ng-model="data.start_date" type="date" class="md-fab-bottom-left" required> </md-text-float>
                             <h5>Fecha final:</h5>
-                            <md-text-float  ng-model="data.endDate" type="date" class="md-fab-bottom-left" required> </md-text-float>
+                            <md-text-float  ng-model="data.end_date" type="date" class="md-fab-bottom-left" required> </md-text-float>
                             <md-button type="submit" aria-label="Iniciar Sesion" class="md-fab md-primary md-fab-bottom-right" md-theme="red">
                                 <md-tooltip>
                                     Agregar
@@ -25,6 +28,9 @@
                     </div>
                 </md-item-content>
             </md-item>
+
         </md-card>
+
     </md-content>
+
 </md-dialog>
