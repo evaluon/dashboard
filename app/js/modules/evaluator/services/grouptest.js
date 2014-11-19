@@ -23,7 +23,7 @@ angular.module('evaluon.evaluator').factory(
 
             },
 
-            addTest: function(group, test, period){
+            addTest: function(group, test){
 
                 $http({
                     method: 'post',
@@ -34,8 +34,7 @@ angular.module('evaluon.evaluator').factory(
                     },
                     data: {
                         group_id: group,
-                        test_id: test,
-                        period_id: period
+                        test_id: test
                     }
                 }).then(function(test){
                     return test.data.data;
