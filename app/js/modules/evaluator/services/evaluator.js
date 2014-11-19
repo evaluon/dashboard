@@ -23,13 +23,16 @@ angular.module('evaluon.evaluator').factory(
 
             },
 
-            setEvaluator: function(evaluator){
+            setEvaluator: function(evaluator, user){
 
                 return $http({
                     method: 'post',
                     url: api.evaluator,
                     headers: {
-                        Authorization: headers.authorization(tokenType, token),
+                        Authorization: headers.authorization(
+                            user.token_type || tokenType,
+                            user.access_token || token
+                        ),
                         'Content-Type': headers.json
                     },
                     data: evaluator

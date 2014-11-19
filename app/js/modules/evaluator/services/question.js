@@ -30,7 +30,8 @@ angular.module('evaluon.evaluator').factory(
                     url: api.question,
                     headers: {
                         Authorization: headers.authorization(tokenType, token)
-                    }
+                    },
+                    data: question
                 }).then(function(data){
                     return data.data.data;
                 });
