@@ -56,6 +56,15 @@ angular.module('evaluon').constant(
         evalueesInTest: function(t, g) {
             return apiRouter.route('test/{0}/{1}'.format(t,g));
         },
+        testQuestion: function(id) {
+            return apiRouter.route('test/{0}/question'.format(id));
+        },
+
+        // Question Module
+        question: apiRouter.route('question'),
+        questionImage: function(question){
+            return apiRouter.route('question/{0}/image'.format(question));
+        },
 
         // Answers Module
         knowledgeArea: apiRouter.route('knowledgearea'),

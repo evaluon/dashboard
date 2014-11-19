@@ -1,7 +1,8 @@
 'use strict';
 
 angular.module('evaluon.evaluator').controller(
-    'AddTestCtrl', function($scope, $stateParams, $q, Test, Question){
+    'AddTestCtrl',
+    function($scope, $stateParams, $q, Test, Question){
 
         $scope.knowledgeAreas = [];
 
@@ -55,7 +56,7 @@ angular.module('evaluon.evaluator').controller(
         };
 
         $scope.deleteQuestion = function(index){
-            $scope.test.splice(index -1 ,1);
+            $scope.test.splice(index - 1, 1);
         };
 
         //Images
@@ -77,8 +78,59 @@ angular.module('evaluon.evaluator').controller(
 
             Test.createTest(testObject).then(function(test){
                 $scope.testObject = test;
-                return GroupTest.addTest($stateParams.id, test.id);
-            }).then(function(data){
+                return GroupTest.addTest(
+                    $stateParams.id, test.id
+                ).then(function(){
+                    return test;
+                });
+            }).then(function(test){
+
+                var qs = [];
+
+                for(i = 0; i < $scope.test.length; i++){
+
+                    var question = $scope.test[i];
+
+                    qs.push(
+
+                        Question.createQuestion({
+                            institution_id: $stateParams.id,
+                            open: question.open || false,
+                            public: question.public || false,
+                            description_text: question.description,
+                            knowledge_area_id: question.knowledgeArea.id || null,
+                            difficulty: question.difficulty || 1
+                        }).then(function(createdQuestion){
+
+                            if(question.image.location){
+                                return Question.uploadQuestionImage(
+                                    createdQuestion.id, question.image
+                                ).then(function(){
+                                    return createdQuestion;
+                                });
+                            } else {
+                                return createdQuestion;
+                            }
+
+                        }).then(function(createdQuestion){
+
+                            return Test.addQuestion(
+                                test.id, createdQuestion.id
+                            ).then(function(){
+                                return createdQuestion;
+                            });
+
+                        }).then(function(createdQuestion){
+
+
+
+                        })
+
+                    );
+
+                }
+
+                return $q.all(qs);
 
             });
 

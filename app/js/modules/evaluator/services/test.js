@@ -51,6 +51,24 @@ angular.module('evaluon.evaluator').factory(
                     return data.data.data;
                 });
 
+            },
+
+            addQuestion: function(test, question){
+
+                return $http({
+                    method: 'post',
+                    url: api.testQuestion(test),
+                    headers: {
+                        Authorization: headers.authorization(tokenType, token),
+                        'Content-Type': headers.json
+                    },
+                    data: {
+                        question_id: question
+                    }
+                }).then(function(data){
+                    return data.data.data;
+                });
+
             }
 
         }
