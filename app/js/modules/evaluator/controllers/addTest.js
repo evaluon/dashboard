@@ -85,7 +85,7 @@ angular.module('evaluon.evaluator').controller(
 
                 var qs = [];
 
-                for(i = 0; i < $scope.test.length; i++){
+                for(var i = 0; i < $scope.test.length; i++){
 
                     var question = $scope.test[i];
 
