@@ -36,6 +36,12 @@ angular.module('evaluon.evaluator',['ui.router']).config(
                 url:'question/bank',
                 templateUrl: 'views/evaluator/questionBank.tpl.html'
             }
+        ).state(
+            'evaluator.changePassword', {
+                url: '/password',
+                templateUrl: 'views/auth/changePassword.tpl.html',
+                controller: 'ChanguePasswordCtrl'
+            }
         );
 
     }

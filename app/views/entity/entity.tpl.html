@@ -4,13 +4,16 @@
             <h1 class="md-toolbar-tools">INCI</h1>
         </md-toolbar>
         <md-content flex layout="vertical" class="md-default-theme" style="height: 700px;" layout-padding>
-            <md-button ui-sref="entity.home">
+            <md-button ui-sref="entity.home" aria-label="Entra a instituciones">
                 Instituciones
             </md-button>
-            <md-button ui-sref="entity.statistics">
+            <md-button ui-sref="entity.statistics" aria-label="Entra a estadísticas">
                 Estadísticas
             </md-button>
-            <md-button ui-sref="anon.logout">
+            <md-button ui-sref="entity.changePassword" aria-label="Entra a cambiar contraseña">
+                Cambiar contraseña
+            </md-button>
+            <md-button ui-sref="anon.logout" aria-label="Entra a cerrar sesión">
                 Cerrar sesión
             </md-button>
         </md-content>

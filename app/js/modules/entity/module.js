@@ -25,6 +25,12 @@ angular.module('evaluon.entity', ['ui.router']).config(
                 templateUrl: 'views/entity/statistics.tpl.html',
                 controller: 'StatisticsCtrl'
             }
+        ).state(
+            'entity.changePassword', {
+                url: '/password',
+                templateUrl: 'views/auth/changePassword.tpl.html',
+                controller: 'ChanguePasswordCtrl'
+            }
         );
 
     }
