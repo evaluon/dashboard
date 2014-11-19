@@ -24,7 +24,7 @@ angular.module('evaluon.institution').controller(
 
         $scope.getEvaluators()
 
-        $scope.period= function($event, groupId){
+        $scope.period = function($event, groupId){
             $mdDialog.show({
                 targetEvent: $event,
                 templateUrl: 'views/institution/period.tpl.html',
