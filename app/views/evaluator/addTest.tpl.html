@@ -1,1 +1,36 @@
-<h1>add test</h1>
+<div layout="horizontal" layout-padding layout-align="center" >
+    <div flex= "90" layout-fill>
+        <md-toolbar class="md-default-theme md-whiteframe-z2">
+            <div class="md-toolbar-tools">
+                <span>Agregar Examen</span>
+                <span flex></span>
+                <md-button class="md-fab md-primary" aria-label="Recargar" ng-click="getGroups()">
+                    <md-tooltip>
+                        Añadir pregunta cerrada
+                    </md-tooltip>
+                    <md-icon icon="/img/icons/done_all.svg"></md-icon>
+                </md-button>
+                <md-button class="md-fab md-primary" aria-label="Recargar" ng-click="getGroups()">
+                    <md-tooltip>
+                        Añadir pregunta abierta
+                    </md-tooltip>
+                    <md-icon icon="/img/icons/create.svg"></md-icon>
+                </md-button>
+                <md-button class="md-fab md-primary" aria-label="Recargar" ng-click="getGroups()">
+                    <md-tooltip>
+                        Añadir pregunta del banco
+                    </md-tooltip>
+                    <md-icon icon="/img/icons/archive.svg"></md-icon>
+                </md-button>
+            </div>
+        </md-toolbar>
+        <md-content flex layout="vertical" class="md-default-theme md-whiteframe-z1" style="height: 500px;">
+            <md-button ui-sref="evaluator.addTest({id: groupId})"class="md-primary md-fab md-fab-bottom-right" md-theme="red" ng-click="addInstitution()" style="position: fixed;">
+                <md-tooltip>
+                    Agregar examen
+                </md-tooltip>
+                <md-icon icon="img/icons/add.svg"></md-icon>
+            </md-button>
+        </md-content>
+    </div>
+</div>

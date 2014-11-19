@@ -11,7 +11,7 @@ angular.module('evaluon.evaluator').factory(
 
             groupTests: function(group){
 
-                $http({
+                return $http({
                     method: 'get',
                     url: api.id(api.testGroup, group),
                     headers: {

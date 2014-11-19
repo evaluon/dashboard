@@ -5,8 +5,8 @@ angular.module('evaluon.auth').controller(
     function($scope, $state, Auth, tokens, User, localStorageService){
 
         $scope.user = {
-            email: 'nombre@correo.co',
-            password: 'contraseña'
+            email: '',
+            password: ''
         };
 
         $scope.login = function(event){

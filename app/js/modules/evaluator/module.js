@@ -28,7 +28,8 @@ angular.module('evaluon.evaluator',['ui.router']).config(
         ).state (
             'evaluator.addTest', {
                 url:'/test/add/:id',
-                templateUrl: 'views/evaluator/addTest.tpl.html'
+                templateUrl: 'views/evaluator/addTest.tpl.html',
+                controller: 'AddTestCtrl'
             }
         ).state(
             'evaluator.questionBank', {
