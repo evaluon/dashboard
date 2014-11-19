@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('evaluon.evaluator').controller('AddTestCtrl',
-function($scope, $state, $stateParams, $q, Test, Question, Answer){
+function($scope, $state, $stateParams, $q, Test, Question, GroupTest, Answer){
 
     $scope.knowledgeAreas = [];
 
@@ -20,7 +20,7 @@ function($scope, $state, $stateParams, $q, Test, Question, Answer){
     $scope.testObject = {
         description: "Una nueva pregunta",
         start_date: new Date(),
-        end_date: new Date()
+        stop_date: new Date()
     };
     $scope.test = [];
 
@@ -86,9 +86,11 @@ function($scope, $state, $stateParams, $q, Test, Question, Answer){
 
             var qs = [];
 
-            for(i = 0; i < $scope.test.length; i++){
+            for(var i = 0; i < $scope.test.length; i++){
 
                 var question = $scope.test[i];
+
+                console.log(i, question);
 
                 qs.push(
 
@@ -129,7 +131,7 @@ function($scope, $state, $stateParams, $q, Test, Question, Answer){
 
                             var ao = [];
 
-                            for(i = 0; i < answers.length; i++){
+                            for(var i = 0; i < answers.length; i++){
                                 ao.push(
                                     Answer.addToQuestion(
                                         createdQuestion.id, answers[i]

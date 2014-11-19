@@ -42,6 +42,26 @@
             </md-button>
             <md-list>
 
+                <md-item>
+                    <md-card>
+                        <md-item-content>
+                            <div class="md-title-left">
+                            </div>
+                            <div class="md-tile-content">
+                                <md-text-float label="Nombre" ng-model="testObject.description" class="long"></md-text-float>
+                                <div class="row" layout="horizontal">
+                                    <div flex="40">
+                                        <md-text-float label="Inicio" type="datetime-local" ng-model="testObject.start_date"></md-text-float>
+                                    </div>
+                                    <div flex="40">
+                                        <md-text-float label="Final" type="datetime-local" ng-model="testObject.stop_date"></md-text-float>
+                                    </div>
+                                </div>
+                            </div>
+                        </md-item-content>
+                    </md-card>
+                </md-item>
+
                 <md-item ng-repeat="item in test">
 
                     <md-card>
@@ -53,6 +73,19 @@
                             <div class="md-tile-content" ng-if="item.open">
                                 <md-text-float label="Descripción" ng-model="item.description" class="long"> </md-text-float>
                                 <br>
+                                <div class="row" layout="horizontal">
+                                    <div flex="25">
+                                        <md-text-float label="Dificultad" type="number"ng-model="item.difficulty"></md-text-float>
+                                    </div>
+                                    <div flex="20">
+                                        <md-button aria-label="Valor de dificultad entre 1 y 480">
+                                            <md-tooltip>
+                                                Valor de dificultad entre 1 y 480
+                                            </md-tooltip>
+                                            <md-icon icon="img/icons/live_help.svg"></md-icon>
+                                        </md-button>
+                                    </div>
+                                </div>
                                 <div class="row" layout="horizontal">
                                     <div flex="10">
                                         <md-button ng-file-select="onImage(item, $files)">
@@ -78,6 +111,19 @@
                                 <div ng-repeat="question in item.questions">
                                     <md-text-float  ng-if="$first" label="Respuesta Correcta" ng-model="question.description" class="medium"> </md-text-float>
                                     <md-text-float  ng-if="!$first" label="Respuesta {{$index + 1}}" ng-model="question.description" class="medium"> </md-text-float>
+                                </div>
+                                <div class="row" layout="horizontal">
+                                    <div flex="25">
+                                        <md-text-float label="Dificultad" type="number"ng-model="item.difficulty"></md-text-float>
+                                    </div>
+                                    <div flex="20">
+                                        <md-button aria-label="Valor de dificultad entre 1 y 480">
+                                            <md-tooltip>
+                                                Valor de dificultad entre 1 y 480
+                                            </md-tooltip>
+                                            <md-icon icon="img/icons/live_help.svg"></md-icon>
+                                        </md-button>
+                                    </div>
                                 </div>
                                 <br>
                                 <md-switch ng-model="item.public" aria-label="Guardar en el banco de preguntas">Guardar en el banco de preguntas</md-switch>
@@ -129,7 +175,6 @@
             </md-list>
 
             <br>
-            {{ test | json}}
 
         </md-content>
 
