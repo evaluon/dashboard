@@ -4,19 +4,19 @@
             <div class="md-toolbar-tools">
                 <span>Agregar Examen</span>
                 <span flex></span>
-                <md-button class="md-fab md-primary" aria-label="Recargar" ng-click="getGroups()">
+                <md-button class="md-fab md-primary" aria-label="Recargar" ng-click="addCloseQuestion()">
                     <md-tooltip>
                         Añadir pregunta cerrada
                     </md-tooltip>
                     <md-icon icon="/img/icons/done_all.svg"></md-icon>
                 </md-button>
-                <md-button class="md-fab md-primary" aria-label="Recargar" ng-click="getGroups()">
+                <md-button class="md-fab md-primary" aria-label="Recargar" ng-click="addOpenQuestion()">
                     <md-tooltip>
                         Añadir pregunta abierta
                     </md-tooltip>
                     <md-icon icon="/img/icons/create.svg"></md-icon>
                 </md-button>
-                <md-button class="md-fab md-primary" aria-label="Recargar" ng-click="getGroups()">
+                <md-button class="md-fab md-primary" aria-label="Recargar" ng-click="addQuestionBank()">
                     <md-tooltip>
                         Añadir pregunta del banco
                     </md-tooltip>
@@ -31,6 +31,15 @@
                 </md-tooltip>
                 <md-icon icon="img/icons/add.svg"></md-icon>
             </md-button>
+            <md-item ng-repeat="item in tests">
+                {{item}}
+                <md-card ng-if="item.type == 1">
+                    Open
+                </md-card>
+                <md-card ng-if="item.type == 2">
+                    Close
+                </md-card>
+            </md-item>
         </md-content>
     </div>
 </div>

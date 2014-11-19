@@ -16,4 +16,28 @@ angular.module('evaluon.evaluator').controller(
 
         //Test logic
         $scope.test = [];
+        $scope.questionType = {
+            open: 1,
+            close: 2,
+            bank: 3
+        };
+
+        $scope.addOpenQuestion = function(){
+            var openQuestion = {
+                type: $scope.questionType['open']
+            };
+
+            $scope.test.push(openQuestion);
+        };
+
+        $scope.addCloseQuestion = function(){
+            var closeQuestion = {
+                type: $scope.questionType['close']
+            };
+            $scope.test.push(closeQuestion);
+        };
+
+        $scope.addQuestionBank = function(){
+
+        };
     });
