@@ -4,6 +4,9 @@ angular.module('evaluon.evaluator').controller(
     'AddTestCtrl',
     function($scope, $state, $stateParams, $q, Test, Question, Answer, GroupTest, $mdToast){
 
+        alert($stateParams.id);
+
+
         $scope.knowledgeAreas = [];
 
         $scope.getKnowledgeAreas = function(){
@@ -72,7 +75,8 @@ angular.module('evaluon.evaluator').controller(
         };
 
         //Add test
-        $scope.addTest = function(){
+        $scope.addTest = function($event){
+            $event.preventDefault();
 
             Test.createTest($scope.testObject).then(function(test){
                 $scope.testObject = test;
