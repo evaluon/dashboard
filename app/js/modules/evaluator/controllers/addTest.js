@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('evaluon.evaluator').controller(
-    'AddTestCtrl', function($scope, Question){
+    'AddTestCtrl', function($scope, $stateParams, $q, Test, Question){
 
         $scope.knowledgeAreas = [];
 
@@ -17,6 +17,11 @@ angular.module('evaluon.evaluator').controller(
         $scope.getKnowledgeAreas();
 
         //Test logic
+        $scope.testObject = {
+            description: "Una nueva pregunta",
+            start_date: new Date(),
+            end_date: new Date()
+        };
         $scope.test = [];
 
         $scope.addOpenQuestion = function(){
@@ -69,6 +74,14 @@ angular.module('evaluon.evaluator').controller(
 
         //Add test
         $scope.addTest = function(){
-            console.log($scope.test);
+
+            Test.createTest(testObject).then(function(test){
+                $scope.testObject = test;
+                return GroupTest.addTest($stateParams.id, test.id);
+            }).then(function(data){
+
+            });
+
         };
+
     });
