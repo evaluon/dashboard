@@ -13,13 +13,13 @@ angular.module('evaluon.evaluator').factory(
 
                 return $http({
                     method: 'get',
-                    url: api.id(api.testGroup, group),
+                    url: api.id(api.testsGroups, group),
                     headers: {
                         Authorization: headers.authorization(tokenType, token)
                     }
                 }).then(function(data){
                     return data.data.data;
-                })
+                });
 
             },
 
