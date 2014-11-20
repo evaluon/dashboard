@@ -2,6 +2,7 @@
 
 angular.module('evaluon.evaluator').controller(
     'TestCtrl', function($scope, $stateParams, GroupTest){
+
         $scope.groupId = $stateParams.id;
         $scope.institutionId = $stateParams.institution;
         $scope.tests = [];
@@ -13,4 +14,6 @@ angular.module('evaluon.evaluator').controller(
         };
 
         $scope.getTests();
-    });
+        
+    }
+);

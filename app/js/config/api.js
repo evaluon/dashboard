@@ -53,7 +53,6 @@ angular.module('evaluon').constant(
         // Test Module
         test: apiRouter.route('test'),
         testGroup: apiRouter.route('test/group'),
-        testsGroups: apiRouter.route('tests/groups'),
         evalueesInTest: function(t, g) {
             return apiRouter.route('test/{0}/{1}'.format(t,g));
         },
