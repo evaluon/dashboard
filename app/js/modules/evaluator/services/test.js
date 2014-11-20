@@ -35,7 +35,7 @@ angular.module('evaluon.evaluator').factory(
                         group: group,
                         test: test
                     }
-                }).then(function(test){
+                }).then(function(data){
                     return data.data.data;
                 });
 
