@@ -14,6 +14,6 @@ angular.module('evaluon.evaluator').controller(
         };
 
         $scope.getTests();
-        
+
     }
 );
