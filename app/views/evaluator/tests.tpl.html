@@ -28,6 +28,19 @@
                                 <h4>{{item.start_date | date: 'medium'}} - {{item.stop_date | date: 'medium'}}</h4>
                                 <br>
                                 <h4>Clave de acceso: <b>{{item.hotp}}</b></h4>
+
+                                <md-button class="md-fab md-fab-top-right" ng-click="">
+                                    <md-tooltip>
+                                        Cambiar periodo
+                                    </md-tooltip>
+                                    <md-icon icon="img/icons/restore.svg"></md-icon>
+                                </md-button>
+                                <md-button class="" ui-sref="evaluator.evalueeTest({group: groupId, id: item.id})">
+                                    <md-tooltip>
+                                        Supervisar
+                                    </md-tooltip>
+                                    <md-icon icon="img/icons/supervisor.svg"></md-icon>
+                                </md-button>
                             </div>
                         </md-content>
                     </md-card>
