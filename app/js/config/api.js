@@ -53,7 +53,7 @@ angular.module('evaluon').constant(
         // Test Module
         test: apiRouter.route('test'),
         testGroup: apiRouter.route('test/group'),
-        evalueesInTest: apiRouter.route('evaluee/test')
+        evalueesInTest: apiRouter.route('evaluee/test'),
 
         // Answers Module
         knowledgeArea: apiRouter.route('knowledgearea'),
