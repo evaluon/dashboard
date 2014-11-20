@@ -2,7 +2,7 @@
 
 angular.module('evaluon.auth').factory('Auth',
 function(
-    api, headers, tokens, access, User, $rootScope, $http, localStorageService
+    api, headers, tokens, access, $rootScope, $http, localStorageService
 ){
 
     return {

@@ -25,6 +25,20 @@ angular.module('evaluon.institution', ['ui.router']).config(
                 templateUrl: 'views/institution/group.tpl.html',
                 controller: 'InstitutionGroupCtrl'
             }
+        ).
+        state(
+            'institution.groupsByevaluator', {
+                url: '/group/:id',
+                templateUrl: 'views/institution/groupByEvaluator.tpl.html',
+                controller: 'GroupByEvaluatorCtrl'
+            }
+        )
+        .state(
+            'institution.changePassword', {
+                url: '/password',
+                templateUrl: 'views/auth/changePassword.tpl.html',
+                controller: 'ChanguePasswordCtrl'
+            }
         );
 
     }

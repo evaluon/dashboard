@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('evaluon.evaluator').factory(
-    'GroupTest', function(Auth, api, headers, $http, $q){
+    'GroupTest', function(Auth, api, headers, $http, $q, $mdToast){
 
         var user = Auth.userLogged,
             tokenType = user.token_type,
@@ -19,13 +19,13 @@ angular.module('evaluon.evaluator').factory(
                     }
                 }).then(function(data){
                     return data.data.data;
-                })
+                });
 
             },
 
-            addTest: function(group, test, period){
+            addTest: function(group, test){
 
-                $http({
+                return $http({
                     method: 'post',
                     url: api.testGroup,
                     headers: {
@@ -34,11 +34,16 @@ angular.module('evaluon.evaluator').factory(
                     },
                     data: {
                         group_id: group,
-                        test_id: test,
-                        period_id: period
+                        test_id: test
                     }
                 }).then(function(test){
                     return test.data.data;
+                }).catch(function(){
+                    $mdToast.show({
+                        template: '<md-toast>{0}</md-toast>'.format('No se pudo añadir tu examen, inténtalo de nuevo'),
+                        hideDelay: 6000,
+                        position: 'bottom left'
+                    });
                 });
 
             }

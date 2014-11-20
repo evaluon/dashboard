@@ -4,16 +4,19 @@
             <h1 class="md-toolbar-tools">Institución</h1>
         </md-toolbar>
         <md-content flex layout="vertical" md-theme="default" style="height: 90%;">
-            <md-button ui-sref="institution.home">
+            <md-button ui-sref="institution.home" aria-label="Entra a evaluadores">
                 Evaluadores
             </md-button>
-            <md-button ui-sref="institution.group">
+            <md-button ui-sref="institution.group" aria-label="Entra a grupos">
                 Grupos
             </md-button>
-            <md-button ui-sref="institution.group">
+            <md-button ui-sref="institution.group" aria-label="Entra a periodos">
                 Periodos
             </md-button>
-            <md-button ui-sref="anon.logout">
+            <md-button ui-sref="institution.changePassword" aria-label="Entra a cambiar contraseña">
+                Cambiar contraseña
+            </md-button>
+            <md-button ui-sref="anon.logout" aria-label="Cerrar sesión">
                 Cerrar sesión
             </md-button>
         </md-content>

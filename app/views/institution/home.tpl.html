@@ -1,17 +1,18 @@
 <div layout="horizontal" layout-padding layout-align="center" >
-    <div flex= "90" layout-fill>
+
+    <div flex="90" layout-fill>
+
         <md-toolbar class="md-default-theme md-whiteframe-z2" md-theme="default">
             <h1 class="md-toolbar-tools">
                 <span flex>Evaluadores</span>
                 <md-button class="md-fab md-primary" aria-label="refresh" ng-click="getEvaluators()">
-                    <md-tooltip>
-                        Recargar
-                    </md-tooltip>
+                    <md-tooltip>Recargar</md-tooltip>
                     <md-icon icon="/img/icons/refresh.svg"></md-icon>
                 </md-button>
             </h1>
         </md-toolbar>
-        <md-content flex layout="vertical" md-theme="default" class="md-whiteframe-z1" style="height: 65vh;">
+
+        <md-content flex layout="vertical" md-theme="default" class="md-whiteframe-z1" style="height: 72vh">
             <md-list>
                 <md-item ng-repeat="item in evaluators">
                     <md-card>
@@ -23,14 +24,22 @@
                                 <h4>{{item.mail}}</h4>
                                 <h4>{{item.phone_number}}</h4>
                             </div>
+                            <md-button ui-sref="institution.groupsByevaluator({id: item.id})" class="md-fab md-fab-bottom-right" aria-label="Entra a grupos asignados">
+                                <md-tooltip>
+                                    Grupos asignados
+                                </md-tooltip>
+                                <md-icon icon="img/icons/group.svg"></md-icon>
+                            </md-button>
                         </md-item-content>
                     </md-card>
                 </md-item>
             </md-list>
-            <md-button class="md-primary md-fab md-fab-bottom-right" md-theme="red" ng-click="addEvaluator()" style="position: fixed;">
-                <md-tooltip>Agregar evaluador</md-tooltip>
-                <md-icon icon="img/icons/add.svg"></md-icon>
-            </md-button>
         </md-content>
+
+        <md-button class="md-primary md-fab md-fab-bottom-right" md-theme="red" ng-click="addEvaluator()" style="position: fixed;">
+            <md-tooltip>Agregar evaluador</md-tooltip>
+            <md-icon icon="img/icons/add.svg"></md-icon>
+        </md-button>
+
     </div>
 </div>

@@ -4,10 +4,13 @@
             <h1 class="md-toolbar-tools">Evaluador</h1>
         </md-toolbar>
         <md-content flex layout="vertical" md-theme="default" style="height: 90%;">
-            <md-button ui-sref="evaluator.home">
+            <md-button ui-sref="evaluator.home" aria-label="Entra a grupos">
                 Grupos
             </md-button>
-            <md-button ui-sref="anon.logout">
+            <md-button ui-sref="evaluator.changePassword" aria-label="Entra a cambiar contraseña">
+                Cambiar contraseña
+            </md-button>
+            <md-button ui-sref="anon.logout" aria-label="Cerrar sesión">
                 Cerrar sesión
             </md-button>
         </md-content>

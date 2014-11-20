@@ -23,6 +23,20 @@ angular.module('evaluon.evaluator').factory(
                     return data.data.data;
                 });
 
+            },
+
+            addToQuestion: function(question, answer){
+
+                return $http({
+                    method: 'put',
+                    url: api.addToQuestion(question, answer),
+                    headers: {
+                        Authorization: headers.authorization(tokenType, token)
+                    }
+                }).then(function(data){
+                    return data.data;
+                });
+
             }
 
         }
