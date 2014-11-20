@@ -60,7 +60,7 @@ function(
     };
 
     $scope.deleteQuestion = function(index){
-        $scope.test.splice(index - 1, 1);
+        $scope.test.splice(index, 1);
     };
 
     //Images
