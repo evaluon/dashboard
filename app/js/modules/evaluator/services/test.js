@@ -27,9 +27,13 @@ angular.module('evaluon.evaluator').factory(
 
                 return $http({
                     method: 'get',
-                    url: api.evalueesInTest(group, test),
+                    url: api.evalueesInTest,
                     headers: {
                         Ahthorization: headers.authorization(tokenType, token)
+                    },
+                    params: {
+                        group: group,
+                        test: test
                     }
                 }).then(function(test){
                     return data.data.data;
