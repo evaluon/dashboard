@@ -29,7 +29,7 @@ angular.module('evaluon.evaluator').factory(
                     method: 'get',
                     url: api.evalueesInTest,
                     headers: {
-                        Ahthorization: headers.authorization(tokenType, token)
+                        Authorization: headers.authorization(tokenType, token)
                     },
                     params: {
                         group: group,
