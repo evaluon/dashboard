@@ -20,15 +20,18 @@
                 <md-icon icon="img/icons/add.svg"></md-icon>
             </md-button>
             <md-list>
-                <md-card ng-repeat="item in tests">
-                    <md-content>
-                        <div class="md-tile-content">
-                            <h3>{{item.id}} {{item.description}}</h3>
-                            <h4>{{item.start_date}} hasta {{item.stop_date}}</h4>
-                            <h4>Clave de acceso: {{item.hotp}}</h4>
-                        </div>
-                    </md-content>
-                </md-card>
+                <md-item ng-repeat="item in tests">
+                    <md-card>
+                        <md-content>
+                            <div class="md-tile-content">
+                                <h3>{{item.id}}. {{item.description}}</h3>
+                                <h4>{{item.start_date | date: 'medium'}} - {{item.stop_date | date: 'medium'}}</h4>
+                                <br>
+                                <h4>Clave de acceso: <b>{{item.hotp}}</b></h4>
+                            </div>
+                        </md-content>
+                    </md-card>
+                </md-item>
             </md-list>
         </md-content>
     </div>
