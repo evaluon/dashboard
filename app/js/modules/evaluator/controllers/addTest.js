@@ -6,6 +6,14 @@ function(
     GroupTest, Answer
 ){
 
+    function mdToast(message){
+        $mdToast.show({
+            template: '<md-toast>{0}</md-toast>'.format(message),
+            hideDelay: 6000,
+            position: 'bottom left'
+        });
+    }
+
     $scope.knowledgeAreas = [];
 
     $scope.getKnowledgeAreas = function(){
@@ -96,82 +104,81 @@ function(
 
                 var question = $scope.test[i];
 
-                qs.push(
+                if(question.new){
 
-                    Question.createQuestion({
-                        institution_id: $stateParams.institution,
-                        open: question.open || false,
-                        public: question.public || false,
-                        description_text: question.description,
-                        knowledge_area_id: question.knowledgeArea.id || null,
-                        difficulty: question.difficulty || 1
-                    }).then(function(createdQuestion){
+                    qs.push(
+                        Question.createQuestion({
+                            institution_id: $stateParams.institution,
+                            open: question.open || false,
+                            public: question.public || false,
+                            description_text: question.description,
+                            knowledge_area_id: question.knowledgeArea.id || null,
+                            difficulty: question.difficulty || 1
+                        }).then(function(createdQuestion){
 
-                        if(question.image){
-                            return Question.uploadQuestionImage(
-                                createdQuestion.id, question.image
+                            if(question.image){
+                                return Question.uploadQuestionImage(
+                                    createdQuestion.id, question.image
+                                ).then(function(){
+                                    return createdQuestion;
+                                });
+                            } else {
+                                return createdQuestion;
+                            }
+
+                        }).then(function(createdQuestion){
+
+                            return Test.addQuestion(
+                                test.id, createdQuestion.id
                             ).then(function(){
                                 return createdQuestion;
                             });
-                        } else {
-                            return createdQuestion;
-                        }
 
-                    }).then(function(createdQuestion){
+                        }).then(function(createdQuestion){
 
-                        return Test.addQuestion(
-                            test.id, createdQuestion.id
-                        ).then(function(){
-                            return createdQuestion;
-                        });
+                            var answers = question.questions;
 
-                    }).then(function(createdQuestion){
+                            return Answer.registerAnswers(
+                                answers
+                            ).then(function(answers){
 
-                        var answers = question.questions;
+                                var ao = [];
 
-                        return Answer.registerAnswers(
-                            answers
-                        ).then(function(answers){
-
-                            var ao = [];
-
-                            for(var i = 0; i < answers.length; i++){
-                                ao.push(
-                                    Answer.addToQuestion(
-                                        createdQuestion.id, answers[i]
+                                for(var i = 0; i < answers.length; i++){
+                                    ao.push(
+                                        Answer.addToQuestion(
+                                            createdQuestion.id, answers[i]
+                                        )
                                     )
-                                )
-                            }
+                                }
 
-                            return $q.all(ao);
+                                return $q.all(ao);
 
-                        });
+                            });
 
-                    }).then(function(){
+                        })
+                    )
 
-                        $mdToast.show({
-                            template: '<md-toast>{0}</md-toast>'.format('Examen creado satisfactoriamente'),
-                            hideDelay: 6000,
-                            position: 'bottom left'
-                        });
+                } else {
 
-                        $state.go('evaluator.test', { id: $stateParams.id });
-                    }).catch(function(error){
-                        $mdToast.show({
-                            template: '<md-toast>{0}</md-toast>'.format('No se pudo crear el examen'),
-                            hideDelay: 6000,
-                            position: 'bottom left'
-                        });
+                    qs.push(
+                        Test.addQuestion(
+                            test.id, question.id
+                        )
+                    );
 
-                        console.log(error);
-                    })
-
-                );
+                }
 
             }
 
             return $q.all(qs);
 
+        }).then(function(){
+            mdToast("Examen creado satisfactoriamente");
+            $state.go('evaluator.test', { id: $stateParams.id });
+        }).catch(function(error){
+            mdToast("No se pudo crear el examen");
+            console.log(error);
         });
 
     };

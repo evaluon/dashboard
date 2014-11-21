@@ -61,35 +61,39 @@ angular.module('evaluon', [
 
 
 ).run(
-    function($state, $rootScope, $mdToast, Auth, Permissions){
-
-        if(!Auth.client()){
-
-            console.log("Authenticating client...");
-
-            Auth.clientCredentials().then(function(client){
-                Auth.setClient(client);
-            }).catch(function(error){
-                $mdToast.show({
-                    template: '<md-toast>{0}</md-toast'
-                        .format(
-                            'No ha sido posible autentificarse con el ' +
-                            'servidor. Por favor, intentelo más tarde.'
-                        ),
-                    hideDelay: 6000,
-                    position: 'top right'
-                })
-            });
-
-        }
+    function($state, $rootScope, $mdToast, Auth, Permissions, blockUI){
 
         $rootScope.$on('$stateChangeStart', function(e, toState, toParams){
 
-            var nextState = Permissions.check(toState);
+            if(!Auth.client()){
 
-            if(nextState){
                 e.preventDefault();
-                $state.go(nextState);
+
+                Auth.clientCredentials().then(function(client){
+                    Auth.setClient(client);
+                    $state.go('anon.auth');
+                }).catch(function(error){
+
+                    $mdToast.show({
+                        template: '<md-toast>{0}</md-toast'
+                        .format(
+                            'No ha sido posible autenticarse con el ' +
+                            'servidor. Por favor, intentelo más tarde.'
+                        ),
+                        hideDelay: 6000000,
+                        position: 'top right'
+                    })
+                });
+
+            } else {
+
+                var nextState = Permissions.check(toState);
+
+                if(nextState){
+                    e.preventDefault();
+                    $state.go(nextState);
+                }
+
             }
 
         });
