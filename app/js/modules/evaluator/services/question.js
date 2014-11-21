@@ -3,7 +3,7 @@
 angular.module('evaluon.evaluator').factory(
     'Question', function(Auth, api, headers, $upload, $http){
 
-        var user = Auth.userLogged,
+        var user = Auth.userLogged(),
             tokenType = user.token_type,
             token = user.access_token;
 

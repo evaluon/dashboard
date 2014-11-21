@@ -21,7 +21,7 @@ angular.module('evaluon.auth').factory(
 
             createUser: function(options){
 
-                var user = Auth.userLogged,
+                var user = Auth.userLogged(),
                     tokenType = user.token_type,
                     token = user.access_token;
 
@@ -41,7 +41,7 @@ angular.module('evaluon.auth').factory(
 
             updateUser: function(options){
 
-                var user = Auth.userLogged,
+                var user = Auth.userLogged(),
                     tokenType = user.token_type,
                     token = user.access_token;
 

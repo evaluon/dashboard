@@ -3,7 +3,7 @@
 angular.module('evaluon.entity').factory(
     'Statistics', function(Auth, api, headers, $http){
 
-        var user = Auth.userLogged;
+        var user = Auth.userLogged();
 
         return {
 

@@ -1,9 +1,7 @@
 'use strict';
 
 angular.module('evaluon.auth').factory('Auth',
-function(
-    api, headers, tokens, access, $rootScope, $http, localStorageService
-){
+function($http, api, headers, tokens, access, localStorageService){
 
     return {
 
@@ -19,45 +17,66 @@ function(
                 return data.data;
             });
         },
-        password: function(tokenType, accessToken, username, password){
+        password: function(username, password){
+            var client = this.client(),
+                tokenType = client.token_type,
+                token = client.access_token;
+
             return $http({
                 method: 'post',
                 url: api.token,
                 headers: {
                     'Content-Type': headers.urlencoded,
-                    Authorization: headers.authorization(tokenType, accessToken)
+                    Authorization: headers.authorization(tokenType, token)
                 },
                 data: $.param(access.password(username, password))
             }).then(function(data){
                 return data.data;
             });
         },
-        refresh: function(tokenType, accessToken, refreshToken){
+        refresh: function(tokenType, token, refreshToken){
             return $http({
                 method: 'post',
                 url: api.token,
                 headers: {
                     'Content-Type': headers.urlencoded,
-                    Authorization: headers.authorization(tokenType, accessToken)
+                    Authorization: headers.authorization(tokenType, token)
                 },
                 data: $.param(access.refresh(refreshToken))
             }).then(function(data){
                 return data.data;
             });
         },
-        logout: function(){
-            localStorageService.remove(CryptoJS.SHA1(tokens.user).toString());
-        },
-        userLogged: (function(){
+        userLogged: function(){
             return localStorageService.get(
                 CryptoJS.SHA1(tokens.user).toString()
             );
-        })(),
-        client: (function(){
+        },
+        login: function(user){
+            localStorageService.set(
+                CryptoJS.SHA1(tokens.user).toString(), user
+            );
+        },
+        logout: function(){
+            localStorageService.remove(
+                CryptoJS.SHA1(tokens.user).toString()
+            );
+        },
+        client: function(){
             return localStorageService.get(
                 CryptoJS.SHA1(tokens.client).toString()
             );
-        })()
+        },
+        setClient: function(client){
+            localStorageService.set(
+                CryptoJS.SHA1(tokens.client).toString(), client
+            );
+        },
+        unsetClient: function(){
+            localStorageService.remove(
+                CryptoJS.SHA1(tokens.client).toString()
+            );
+        }
 
     };
 

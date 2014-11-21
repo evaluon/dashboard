@@ -3,7 +3,7 @@
 angular.module('evaluon.evaluator').factory(
     'Test', function(Auth, api, headers, $http){
 
-        var user = Auth.userLogged,
+        var user = Auth.userLogged(),
             tokenType = user.token_type,
             token = user.access_token;
 

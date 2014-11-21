@@ -3,7 +3,7 @@
 angular.module('evaluon.evaluator').factory(
     'GroupTest', function(Auth, api, headers, $http, $q, $mdToast){
 
-        var user = Auth.userLogged,
+        var user = Auth.userLogged(),
             tokenType = user.token_type,
             token = user.access_token;
 
