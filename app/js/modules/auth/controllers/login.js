@@ -28,7 +28,7 @@ angular.module('evaluon.auth').controller(
 
         };
 
-        if(Auth.loggedUser()) {
+        if(Auth.userLogged()) {
             $state.go('anon.auth');
         }
 
