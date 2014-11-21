@@ -9,8 +9,9 @@ angular.module('evaluon.evaluator').controller(
         $scope.evaluees = [];
 
         $scope.getEvaluees = function(){
-            Test.evalueesInTest($scope.groupId, $scope.testId).then(function(success){
-                console.log(success);
+            Test.evalueesInTest(
+                $scope.groupId, $scope.testId
+            ).then(function(success){
                 $scope.evaluees = success;
             }).catch(function(error){
                 console.error(error);
