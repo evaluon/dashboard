@@ -33,153 +33,153 @@
         </md-toolbar>
 
         <md-content flex layout="vertical" class="md-default-theme md-whiteframe-z1" style="height: 72vh;">
+            <form name ="addTestForm">
 
-            <md-button class="md-primary md-fab md-fab-bottom-right" md-theme="red" ng-click="addTest($event)" style="position: fixed;">
-                <md-tooltip>
-                    Agregar examen
-                </md-tooltip>
-                <md-icon icon="img/icons/done.svg"></md-icon>
-            </md-button>
-            <md-list>
+                <md-button class="md-primary md-fab md-fab-bottom-right" md-theme="red" ng-click="addTest($event)" style="position: fixed;" ng-disabled="((test.length == 0) || ($addTestForm.$invalid))" class="md-raised md-primary">
+                    <md-tooltip>
+                        Agregar examen
+                    </md-tooltip>
+                    <md-icon icon="img/icons/done.svg"></md-icon>
+                </md-button>
+                <md-list>
 
-                <md-item>
-                    <md-card>
-                        <md-item-content>
-                            <div class="md-title-left">
-                            </div>
-                            <div class="md-tile-content">
-                                <md-text-float label="Nombre" ng-model="testObject.description" class="long"></md-text-float>
-                                <div class="row" layout="horizontal">
-                                    <div flex="40">
-                                        <md-text-float label="Inicio" type="datetime-local" ng-model="testObject.start_date"></md-text-float>
-                                    </div>
-                                    <div flex="40">
-                                        <md-text-float label="Final" type="datetime-local" ng-model="testObject.stop_date"></md-text-float>
+                    <md-item>
+                        <md-card>
+                            <md-item-content>
+                                <div class="md-title-left">
+                                </div>
+                                <div class="md-tile-content">
+                                    <md-text-float label="Nombre" name="nombre" ng-model="testObject.description" class="long" required></md-text-float>
+                                    <div class="row" layout="horizontal">
+                                        <div flex="40">
+                                            <md-text-float label="Inicio" name="startDate" type="datetime-local" ng-model="testObject.start_date" required></md-text-float>
+                                        </div>
+                                        <div flex="40">
+                                            <md-text-float label="Final" name="stopDate" type="datetime-local" ng-model="testObject.stop_date" required></md-text-float>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
-                        </md-item-content>
-                    </md-card>
-                </md-item>
+                            </md-item-content>
+                        </md-card>
+                    </md-item>
 
-                <md-item ng-repeat="item in test">
+                    <md-item ng-repeat="item in test">
 
-                    <md-card>
+                        <md-card>
 
-                        <md-item-content>
+                            <md-item-content>
 
-                            <div class="md-tile-left"><h3>{{$index+1}}</h3></div>
-                            <!-- if is a open question-->
-                            <div class="md-tile-content" ng-if="item.open">
-                                <select ng-model="item.knowledgeArea" ng-options="area.id for area in knowledgeAreas">
-                                    <option value=""> Selecciona el Area </option>
-                                </select>
-                                <md-text-float label="Descripción" ng-model="item.description" class="long"> </md-text-float>
-                                <br>
-                                <div class="row" layout="horizontal">
-                                    <div flex="25">
-                                        <md-text-float label="Dificultad" type="number"ng-model="item.difficulty"></md-text-float>
+                                <div class="md-tile-left"><h3>{{$index+1}}</h3></div>
+                                <!-- if is a open question-->
+                                <div class="md-tile-content" ng-if="item.open">
+                                    <select ng-model="item.knowledgeArea" ng-options="area.id for area in knowledgeAreas" required>
+                                        <option value=""> Selecciona el Area </option>
+                                    </select>
+                                    <md-text-float label="Descripción" ng-model="item.description" class="long" required> </md-text-float>
+                                    <br>
+                                    <div class="row" layout="horizontal">
+                                        <div flex="25">
+                                            <md-text-float label="Dificultad" type="number"ng-model="item.difficulty" required></md-text-float>
+                                        </div>
+                                        <div flex="20">
+                                            <md-button aria-label="Valor de dificultad entre 1 y 480">
+                                                <md-tooltip>
+                                                    Valor de dificultad entre 1 y 480
+                                                </md-tooltip>
+                                                <md-icon icon="img/icons/live_help.svg"></md-icon>
+                                            </md-button>
+                                        </div>
                                     </div>
-                                    <div flex="20">
-                                        <md-button aria-label="Valor de dificultad entre 1 y 480">
-                                            <md-tooltip>
-                                                Valor de dificultad entre 1 y 480
-                                            </md-tooltip>
-                                            <md-icon icon="img/icons/live_help.svg"></md-icon>
-                                        </md-button>
+                                    <div class="row" layout="horizontal">
+                                        <div flex="10">
+                                            <md-button ng-file-select="onImage(item, $files)">
+                                                <md-tooltip>Añadir imagen</md-tooltip>
+                                                <md-icon icon="img/icons/img.svg"></md-icon>
+                                            </md-button>
+                                        </div>
+                                        <div flex="10">
+                                            <md-button ng-if="item.image.location" ng-click="deleteImage(item)">
+                                                <md-tooltip>Eliminar imagen</md-tooltip>
+                                                <md-icon icon="img/icons/clear.svg"></md-icon>
+                                            </md-button>
+                                        </div>
                                     </div>
+                                    <md-text-float ng-if="item.image.location" label="Descripción de la imagen" ng-model="item.img.description" class="medium" required> </md-text-float>
                                 </div>
-                                <div class="row" layout="horizontal">
-                                    <div flex="10">
-                                        <md-button ng-file-select="onImage(item, $files)">
-                                            <md-tooltip>Añadir imagen</md-tooltip>
-                                            <md-icon icon="img/icons/img.svg"></md-icon>
-                                        </md-button>
+                                <!-- if is a close question-->
+                                <div class="md-tile-content" ng-if="!item.open && item.new">
+                                    <select name="knowledgeAreaCloseQuestion{{$index+1}}" ng-model="item.knowledgeArea" ng-options="area.id for area in knowledgeAreas" required>
+                                        <option value=""> Selecciona el Area </option>
+                                    </select>
+                                    <md-text-float label="Descripción" ng-model="item.description" class="long" required> </md-text-float>
+                                    <div ng-repeat="question in item.questions">
+                                        <md-text-float  ng-if="$first" label="Respuesta Correcta" ng-model="question.description_text" class="medium" required> </md-text-float>
+                                        <md-text-float  ng-if="!$first" label="Respuesta {{$index + 1}}" ng-model="question.description_text" class="medium" required> </md-text-float>
                                     </div>
-                                    <div flex="10">
-                                        <md-button ng-if="item.image.location" ng-click="deleteImage(item)">
-                                            <md-tooltip>Eliminar imagen</md-tooltip>
-                                            <md-icon icon="img/icons/clear.svg"></md-icon>
-                                        </md-button>
+                                    <div class="row" layout="horizontal">
+                                        <div flex="25">
+                                            <md-text-float label="Dificultad" type="number"ng-model="item.difficulty" required></md-text-float>
+                                        </div>
+                                        <div flex="20">
+                                            <md-button aria-label="Valor de dificultad entre 1 y 480">
+                                                <md-tooltip>
+                                                    Valor de dificultad entre 1 y 480
+                                                </md-tooltip>
+                                                <md-icon icon="img/icons/live_help.svg"></md-icon>
+                                            </md-button>
+                                        </div>
                                     </div>
+                                    <br>
+                                    <md-switch ng-model="item.public" aria-label="Guardar en el banco de preguntas">Guardar en el banco de preguntas</md-switch>
+                                    <br>
+                                    <div class="row" layout="horizontal">
+                                        <div flex="10">
+                                            <md-button  ng-file-select="onImage(item, $files)">
+                                                <md-tooltip>
+                                                    Añadir imagen
+                                                </md-tooltip>
+                                                <md-icon icon="img/icons/img.svg"></md-icon>
+                                            </md-button>
+                                        </div>
+                                        <div flex="10">
+                                            <md-button ng-if="item.image.location" ng-click="deleteImage(item)">
+                                                <md-tooltip>
+                                                    Eliminar imagen
+                                                </md-tooltip>
+                                                <md-icon icon="img/icons/clear.svg"></md-icon>
+                                            </md-button>
+                                        </div>
+                                    </div>
+                                    <md-text-float ng-if="item.image.location" label="Descripción de la imagen" ng-model="item.img.description" class="medium" required> </md-text-float>
                                 </div>
-                                <md-text-float ng-if="item.image.location" label="Descripción de la imagen" ng-model="item.img.description" class="medium"> </md-text-float>
-                            </div>
-                            <!-- if is a close question-->
-                            <div class="md-tile-content" ng-if="!item.open && item.new">
-                                <select ng-model="item.knowledgeArea" ng-options="area.id for area in knowledgeAreas">
-                                    <option value=""> Selecciona el Area </option>
-                                </select>
-                                <md-text-float label="Descripción" ng-model="item.description" class="long"> </md-text-float>
-                                <div ng-repeat="question in item.questions">
-                                    <md-text-float  ng-if="$first" label="Respuesta Correcta" ng-model="question.description_text" class="medium"> </md-text-float>
-                                    <md-text-float  ng-if="!$first" label="Respuesta {{$index + 1}}" ng-model="question.description_text" class="medium"> </md-text-float>
+                                <!-- if is a bank question-->
+                                <div class="md-tile-content" ng-if="item.public && !item.new">
+                                    <md-text-float label="Número de pregunta" class="medium" ng-model="item.id" required> </md-text-float>
+                                    <br><br>
+                                    <md-button class="md-raised md-primary">Banco de preguntas
+                                        <md-tooltip>
+                                            Ir al banco de preguntas
+                                        </md-tooltip>
+                                    </md-button>
                                 </div>
-                                <div class="row" layout="horizontal">
-                                    <div flex="25">
-                                        <md-text-float label="Dificultad" type="number"ng-model="item.difficulty"></md-text-float>
-                                    </div>
-                                    <div flex="20">
-                                        <md-button aria-label="Valor de dificultad entre 1 y 480">
-                                            <md-tooltip>
-                                                Valor de dificultad entre 1 y 480
-                                            </md-tooltip>
-                                            <md-icon icon="img/icons/live_help.svg"></md-icon>
-                                        </md-button>
-                                    </div>
-                                </div>
-                                <br>
-                                <md-switch ng-model="item.public" aria-label="Guardar en el banco de preguntas">Guardar en el banco de preguntas</md-switch>
-                                <br>
-                                <div class="row" layout="horizontal">
-                                    <div flex="10">
-                                        <md-button  ng-file-select="onImage(item, $files)">
-                                            <md-tooltip>
-                                                Añadir imagen
-                                            </md-tooltip>
-                                            <md-icon icon="img/icons/img.svg"></md-icon>
-                                        </md-button>
-                                    </div>
-                                    <div flex="10">
-                                        <md-button ng-if="item.image.location" ng-click="deleteImage(item)">
-                                            <md-tooltip>
-                                                Eliminar imagen
-                                            </md-tooltip>
-                                            <md-icon icon="img/icons/clear.svg"></md-icon>
-                                        </md-button>
-                                    </div>
-                                </div>
-                                <md-text-float ng-if="item.image.location" label="Descripción de la imagen" ng-model="item.img.description" class="medium"> </md-text-float>
-                            </div>
-                            <!-- if is a bank question-->
-                            <div class="md-tile-content" ng-if="item.public && !item.new">
-                                <md-text-float label="Número de pregunta" class="medium" ng-model="item.id"> </md-text-float>
-                                <br><br>
-                                <md-button class="md-raised md-primary">Banco de preguntas
+
+                                <md-button class="md-fab md-fab-bottom-right" ng-click="deleteQuestion($index)" >
                                     <md-tooltip>
-                                        Ir al banco de preguntas
+                                        Eliminar pregunta
                                     </md-tooltip>
+                                    <md-icon icon="img/icons/delete.svg"></md-icon>
                                 </md-button>
-                            </div>
 
-                            <md-button class="md-fab md-fab-bottom-right" ng-click="deleteQuestion($index)" >
-                                <md-tooltip>
-                                    Eliminar pregunta
-                                </md-tooltip>
-                                <md-icon icon="img/icons/delete.svg"></md-icon>
-                            </md-button>
+                            </md-item-content>
 
-                        </md-item-content>
+                        </md-card>
 
-                    </md-card>
+                    </md-item>
 
-                </md-item>
+                </md-list>
 
-            </md-list>
-
-            <br>
-
+                <br>
+            </form>
         </md-content>
-
     </div>
 </div>
