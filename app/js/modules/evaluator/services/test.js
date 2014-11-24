@@ -57,6 +57,22 @@ angular.module('evaluon.evaluator').factory(
 
             },
 
+            updateTest: function(test){
+
+                return $http({
+                    method: 'put',
+                    url: api.test,
+                    headers: {
+                        Authorization: headers.authorization(tokenType, token),
+                        'Content-Type': headers.json
+                    },
+                    data: test
+                }).then(function(data){
+                    return data.data.data;
+                });
+
+            },
+
             addQuestion: function(test, question){
 
                 return $http({

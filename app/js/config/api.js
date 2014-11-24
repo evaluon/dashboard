@@ -7,7 +7,7 @@ var apiRouter = {
     },
     url: {
         protocol: 'http',
-        host: 'evaluon.boolinc.co'
+        host: 'localhost:3004'
     },
     route: function(path){
         var url = this.url;
@@ -60,7 +60,11 @@ angular.module('evaluon').constant(
         answer: apiRouter.route('answer'),
         addToQuestion: function(q, a){
             return apiRouter.route('question/{0}/answer/{1}'.format(q, a));
-        }
+        },
+        testQuestion: function(id){
+            return apiRouter.route('test/{0}/question'.format(id));
+        },
+        question: apiRouter.route('question')
 
     }
 ).constant(

@@ -19,7 +19,6 @@ function(
     $scope.getKnowledgeAreas = function(){
         Question.listKnowledgeAreas().then(function(success){
             $scope.knowledgeAreas = success;
-            console.log(success);
         }).catch(function(error){
             console.error(error);
         });
@@ -37,7 +36,8 @@ function(
 
     $scope.addOpenQuestion = function(){
         var openQuestion = {
-            open: true
+            open: true,
+            new: true
         };
         $scope.test.push(openQuestion);
     };
@@ -89,7 +89,7 @@ function(
     $scope.addTest = function($event){
         $event.preventDefault();
 
-        Test.createTest($scope.testObject).then(function(test){
+        Test.createTest(_.omit($scope.testObject, 'id')).then(function(test){
             $scope.testObject = test;
             return GroupTest.addTest(
                 $stateParams.id, test.id
@@ -106,15 +106,30 @@ function(
 
                 if(question.new){
 
-                    qs.push(
-                        Question.createQuestion({
+                    if(question.open){
+                        var questionObject = {
                             institution_id: $stateParams.institution,
-                            open: question.open || false,
+                            open: true,
+                            public: false,
+                            description_text: question.description,
+                            knowledge_area_id: question.knowledgeArea.id || null,
+                            difficulty: question.difficulty || 1
+                        };
+                    } else {
+                        var questionObject = {
+                            institution_id: $stateParams.institution,
+                            open: false,
                             public: question.public || false,
                             description_text: question.description,
                             knowledge_area_id: question.knowledgeArea.id || null,
                             difficulty: question.difficulty || 1
-                        }).then(function(createdQuestion){
+                        };
+                    }
+
+                    qs.push(
+                        Question.createQuestion(
+                            questionObject
+                        ).then(function(createdQuestion){
 
                             if(question.image){
                                 return Question.uploadQuestionImage(
@@ -157,16 +172,11 @@ function(
                             });
 
                         })
-                    )
-
-                } else {
-
-                    qs.push(
-                        Test.addQuestion(
-                            test.id, question.id
-                        )
                     );
 
+
+                } else {
+                    qs.push(Test.addQuestion(test.id, question.id));
                 }
 
             }
@@ -178,7 +188,7 @@ function(
             $state.go('evaluator.test', { id: $stateParams.id });
         }).catch(function(error){
             mdToast("No se pudo crear el examen");
-            console.log(error);
+            console.error(error);
         });
 
     };

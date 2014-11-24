@@ -43,10 +43,12 @@ angular.module('evaluon.evaluator').factory(
                     method: 'post',
                     url: api.question,
                     headers: {
-                        Authorization: headers.authorization(tokenType, token)
+                        Authorization: headers.authorization(tokenType, token),
+                        'Content-Type': headers.json
                     },
                     data: question
                 }).then(function(data){
+
                     return data.data.data;
                 });
 

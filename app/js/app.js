@@ -99,7 +99,7 @@ angular.module('evaluon', [
         });
 
         $rootScope.$on('$stateChangeSuccess', function(e, toState, toParams){
-            console.log("GET %s", toState.url);
+            ("GET %s", toState.url);
         });
 
     }
