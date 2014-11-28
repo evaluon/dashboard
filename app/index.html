@@ -7,10 +7,13 @@
     <title>Evaluon | Dashboard</title>
 
     <!-- build:css /styles/style.min.css -->
+    <link rel="stylesheet" href="lib/angular-material/themes/light-blue-dark-theme.css">
+    <link rel="stylesheet" href="lib/angular-material/themes/red-theme.css">
     <!-- bower:css -->
     <link rel="stylesheet" href="lib/angular-material/angular-material.css" />
     <link rel="stylesheet" href="lib/angular-block-ui/dist/angular-block-ui.css" />
     <link rel="stylesheet" href="lib/nvd3/src/nv.d3.css" />
+    <link rel="stylesheet" href="lib/angular-loading-bar/build/loading-bar.css" />
     <!-- endbower -->
     <!-- inject:css -->
     <link rel="stylesheet" href="/styles/main.css">
@@ -27,21 +30,22 @@
     <!-- build:js /js/vendor.min.js -->
     <!-- bower:js -->
     <script src="lib/jquery/dist/jquery.js"></script>
-    <script src="lib/string-formatter/string-formatter.js"></script>
-    <script src="lib/cryptojs-core/index.js"></script>
-    <script src="lib/cryptojs-sha1/index.js"></script>
-    <script src="lib/underscore/underscore.js"></script>
     <script src="lib/angular/angular.js"></script>
-    <script src="lib/ng-file-upload/angular-file-upload.js"></script>
     <script src="lib/angular-animate/angular-animate.js"></script>
     <script src="lib/angular-aria/angular-aria.js"></script>
     <script src="lib/hammerjs/hammer.js"></script>
     <script src="lib/angular-material/angular-material.js"></script>
     <script src="lib/angular-local-storage/dist/angular-local-storage.js"></script>
+    <script src="lib/string-formatter/string-formatter.js"></script>
+    <script src="lib/underscore/underscore.js"></script>
+    <script src="lib/cryptojs-core/index.js"></script>
+    <script src="lib/cryptojs-sha1/index.js"></script>
+    <script src="lib/ng-file-upload/angular-file-upload.js"></script>
     <script src="lib/angular-block-ui/dist/angular-block-ui.js"></script>
     <script src="lib/d3/d3.js"></script>
     <script src="lib/nvd3/nv.d3.js"></script>
     <script src="lib/ng-nvd3/dist/ng-nvd3.js"></script>
+    <script src="lib/angular-loading-bar/build/loading-bar.js"></script>
     <!-- endbower -->
     <script src="lib/angular-ui-router/release/angular-ui-router.js"></script>
     <!-- endbuild -->
@@ -52,10 +56,22 @@
     <script src="/js/config/constants.js"></script>
     <script src="/js/config/interceptor.js"></script>
     <script src="/js/templates/templates.js"></script>
-    <script src="/js/modules/evaluator/module.js"></script>
     <script src="/js/modules/auth/module.js"></script>
     <script src="/js/modules/entity/module.js"></script>
+    <script src="/js/modules/evaluator/module.js"></script>
     <script src="/js/modules/institution/module.js"></script>
+    <script src="/js/modules/auth/controllers/auth.js"></script>
+    <script src="/js/modules/auth/controllers/changePassword.js"></script>
+    <script src="/js/modules/auth/controllers/login.js"></script>
+    <script src="/js/modules/auth/controllers/logout.js"></script>
+    <script src="/js/modules/auth/services/auth.js"></script>
+    <script src="/js/modules/auth/services/authorization.js"></script>
+    <script src="/js/modules/auth/services/permissions.js"></script>
+    <script src="/js/modules/auth/services/user.js"></script>
+    <script src="/js/modules/entity/controllers/addInstitution.js"></script>
+    <script src="/js/modules/entity/controllers/home.js"></script>
+    <script src="/js/modules/entity/controllers/statistics.js"></script>
+    <script src="/js/modules/entity/services/statistics.js"></script>
     <script src="/js/modules/evaluator/controllers/addEvaluator.js"></script>
     <script src="/js/modules/evaluator/controllers/addGroup.js"></script>
     <script src="/js/modules/evaluator/controllers/addQuestionBank.js"></script>
@@ -73,18 +89,6 @@
     <script src="/js/modules/evaluator/services/grouptest.js"></script>
     <script src="/js/modules/evaluator/services/question.js"></script>
     <script src="/js/modules/evaluator/services/test.js"></script>
-    <script src="/js/modules/auth/controllers/auth.js"></script>
-    <script src="/js/modules/auth/controllers/changePassword.js"></script>
-    <script src="/js/modules/auth/controllers/login.js"></script>
-    <script src="/js/modules/auth/controllers/logout.js"></script>
-    <script src="/js/modules/auth/services/auth.js"></script>
-    <script src="/js/modules/auth/services/authorization.js"></script>
-    <script src="/js/modules/auth/services/permissions.js"></script>
-    <script src="/js/modules/auth/services/user.js"></script>
-    <script src="/js/modules/entity/controllers/addInstitution.js"></script>
-    <script src="/js/modules/entity/controllers/home.js"></script>
-    <script src="/js/modules/entity/controllers/statistics.js"></script>
-    <script src="/js/modules/entity/services/statistics.js"></script>
     <script src="/js/modules/institution/controller/addEvaluator.js"></script>
     <script src="/js/modules/institution/controller/addGroup.js"></script>
     <script src="/js/modules/institution/controller/group.js"></script>
