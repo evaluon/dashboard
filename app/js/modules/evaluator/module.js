@@ -15,7 +15,7 @@ angular.module('evaluon.evaluator',['ui.router']).config(
             }
         ).state(
             'evaluator.home', {
-                url: '/',
+                url: '',
                 controller: 'EvaluatorCtrl',
                 templateUrl: 'views/evaluator/home.tpl.html'
             }
@@ -51,8 +51,9 @@ angular.module('evaluon.evaluator',['ui.router']).config(
             }
         ).state(
             'evaluator.scoreTest', {
-                url:'score-test/:id/evaluee/:evalueeId',
-                templateUrl: 'views/evaluator/score.tpl.html'
+                url:'/score-test/:id/evaluee/:evalueeId',
+                templateUrl: 'views/evaluator/score.tpl.html',
+                controller: 'ScoreTestCtrl'
             }
         );
 
