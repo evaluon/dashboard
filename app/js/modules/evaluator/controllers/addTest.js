@@ -37,7 +37,8 @@ function(
     $scope.addOpenQuestion = function(){
         var openQuestion = {
             open: true,
-            new: true
+            new: true,
+            questions: []
         };
         $scope.test.push(openQuestion);
     };
