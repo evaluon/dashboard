@@ -89,6 +89,24 @@ angular.module('evaluon.evaluator').factory(
                     return data.data.data;
                 });
 
+            },
+
+            testResults: function(test, evaluee){
+
+                return $http({
+                    method: 'get',
+                    url: api.testResults,
+                    headers: {
+                        Authorization: headers.authorization(tokenType, token)
+                    },
+                    query: {
+                        test: test,
+                        evaluee: evaluee
+                    }
+                }).then(function(data){
+                    return data.data.data;
+                });
+
             }
 
         }
