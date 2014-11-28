@@ -37,6 +37,23 @@ angular.module('evaluon.evaluator').factory(
                     return data.data;
                 });
 
+            },
+
+            score: function(answer, mark){
+
+                return $http({
+                    method: 'put',
+                    url: api.id(api.answer, answer),
+
+                    headers: {
+                        Authorization: headers.authorization(tokenType, token),
+                        'Content-Type': headers.json
+                    },
+                    data: {
+                        mark: mark
+                    }
+                })
+
             }
 
         }
