@@ -63,7 +63,6 @@ angular.module('evaluon.evaluator').factory(
                         Authorization: headers.authorization(tokenType, token)
                     },
                     data: {
-                        question: question,
                         description: image.description
                     },
                     file: image.location
