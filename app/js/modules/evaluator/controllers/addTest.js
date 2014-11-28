@@ -6,47 +6,57 @@ function(
     GroupTest, Answer
 ){
 
-    function mdToast(message){
-        $mdToast.show({
-            template: '<md-toast>{0}</md-toast>'.format(message),
-            hideDelay: 6000,
-            position: 'bottom left'
-        });
-    }
+    console.log($stateParams);
 
-    $scope.knowledgeAreas = [];
-
-    $scope.getKnowledgeAreas = function(){
-        Question.listKnowledgeAreas().then(function(success){
-            $scope.knowledgeAreas = success;
-        }).catch(function(error){
-            console.error(error);
-        });
-    };
-
-    $scope.getKnowledgeAreas();
-
-    //Test logic
+    // Test logic
     $scope.testObject = {
         description: "",
         start_date: new Date(),
         stop_date: new Date()
     };
+    // Yes, it is a variable for the questions
     $scope.test = [];
+    $scope.knowledgeAreas = [];
+
+    function mdToast(message){
+
+        $mdToast.show({
+            template: '<md-toast>{0}</md-toast>'.format(message),
+            hideDelay: 6000,
+            position: 'bottom left'
+        });
+
+    }
+
+    $scope.getKnowledgeAreas = function(){
+
+        Question.listKnowledgeAreas().then(function(success){
+            $scope.knowledgeAreas = success;
+        }).catch(function(error){
+            console.error(error);
+        });
+
+    };
 
     $scope.addOpenQuestion = function(){
+
         var openQuestion = {
             open: true,
             new: true,
+            // Yes, the answers are called questions
             questions: []
         };
+
         $scope.test.push(openQuestion);
+
     };
 
     $scope.addCloseQuestion = function(){
+
         var closeQuestion = {
             open: false,
             new: true,
+            // Yes, the answers are called questions
             questions: [
             { right: true },
             { right: false },
@@ -54,10 +64,10 @@ function(
             { right: false }
             ]
         };
-        $scope.test.push(closeQuestion);
-    };
 
-    $scope.knowledgeAreas = [];
+        $scope.test.push(closeQuestion);
+
+    };
 
     $scope.addQuestionBank = function(){
 
@@ -66,13 +76,16 @@ function(
         };
 
         $scope.test.push(questionBank);
+
     };
 
     $scope.deleteQuestion = function(index){
+
         $scope.test.splice(index, 1);
+
     };
 
-    //Images
+    // Adding Images
     $scope.onImage = function(question, $file){
 
         question.image = {
@@ -86,18 +99,13 @@ function(
         delete question.image;
     };
 
-    //Add test
+    // Add test
     $scope.addTest = function($event){
         $event.preventDefault();
 
-        Test.createTest(_.omit($scope.testObject, 'id')).then(function(test){
-            $scope.testObject = test;
-            return GroupTest.addTest(
-                $stateParams.id, test.id
-            ).then(function(){
-                return test;
-            });
-        }).then(function(test){
+        var test = _.omit($scope.testObject, 'id');
+
+        Test.createTest(test).then($scope.addToGroup).then(function(test){
 
             var qs = [];
 
@@ -106,76 +114,7 @@ function(
                 var question = $scope.test[i];
 
                 if(question.new){
-
-                    if(question.open){
-                        var questionObject = {
-                            institution_id: $stateParams.institution,
-                            open: true,
-                            public: false,
-                            description_text: question.description,
-                            knowledge_area_id: question.knowledgeArea.id || null,
-                            difficulty: question.difficulty || 1
-                        };
-                    } else {
-                        var questionObject = {
-                            institution_id: $stateParams.institution,
-                            open: false,
-                            public: question.public || false,
-                            description_text: question.description,
-                            knowledge_area_id: question.knowledgeArea.id || null,
-                            difficulty: question.difficulty || 1
-                        };
-                    }
-
-                    qs.push(
-                        Question.createQuestion(
-                            questionObject
-                        ).then(function(createdQuestion){
-
-                            if(question.image){
-                                return Question.uploadQuestionImage(
-                                    createdQuestion.id, question.image
-                                ).then(function(){
-                                    return createdQuestion;
-                                });
-                            } else {
-                                return createdQuestion;
-                            }
-
-                        }).then(function(createdQuestion){
-
-                            return Test.addQuestion(
-                                test.id, createdQuestion.id
-                            ).then(function(){
-                                return createdQuestion;
-                            });
-
-                        }).then(function(createdQuestion){
-
-                            var answers = question.questions;
-
-                            return Answer.registerAnswers(
-                                answers
-                            ).then(function(answers){
-
-                                var ao = [];
-
-                                for(var i = 0; i < answers.length; i++){
-                                    ao.push(
-                                        Answer.addToQuestion(
-                                            createdQuestion.id, answers[i]
-                                        )
-                                    )
-                                }
-
-                                return $q.all(ao);
-
-                            });
-
-                        })
-                    );
-
-
+                    $scope.addNewQuestion(qs, test, question);
                 } else {
                     qs.push(Test.addQuestion(test.id, question.id));
                 }
@@ -193,5 +132,75 @@ function(
         });
 
     };
+
+    $scope.addToGroup = function(test){
+
+        $scope.testObject = test;
+        return GroupTest.addTest($stateParams.id, test.id).then(function(){
+            return test;
+        });
+
+    }
+
+    $scope.addNewQuestion = function(qs, test, question){
+
+        var _question = {
+            institution_id: $stateParams.institution,
+            open: question.open,
+            public: question.public || false,
+            description_text: question.description,
+            knowledge_area_id: question.knowledgeArea.id || null,
+            difficulty: question.difficulty || 1
+        };
+
+        qs.push(
+            Question.createQuestion(_question).then(function(_question){
+                return $scope.uploadImage(question, _question);
+            }).then(function(_question){
+
+                return Test.addQuestion(test.id, _question.id).then(function(){
+                    return _question;
+                });
+
+            }).then(function(_question){
+                return $scope.registerAnswers(question, _question);
+            })
+        );
+
+    }
+
+    $scope.uploadImage = function(question, _question){
+
+        if(question.image){
+            return Question.uploadQuestionImage(
+                _question.id, question.image
+            ).then(function(){
+                return _question;
+            });
+        } else {
+            return _question;
+        }
+
+    }
+
+    $scope.registerAnswers = function(question, _question){
+
+        var answers = _.shuffle(question.questions);
+
+        return Answer.registerAnswers(answers).then(function(answers){
+
+            var ao = [];
+
+            for(var i = 0; i < answers.length; i++){
+                ao.push(Answer.addToQuestion(_question.id, answers[i]));
+            }
+
+            return $q.all(ao);
+
+        });
+
+    }
+
+    $scope.getKnowledgeAreas();
 
 });
