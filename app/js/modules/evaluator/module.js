@@ -51,11 +51,7 @@ angular.module('evaluon.evaluator',['ui.router']).config(
             }
         ).state(
             'evaluator.scoreTest', {
-<<<<<<< HEAD
                 url:'/score-test/:id/evaluee/:evalueeId',
-=======
-                url:'score-test/:id/evaluee/:evalueeId',
->>>>>>> a8b014c0eeb70352a100f2932c74dbbd77dd984a
                 templateUrl: 'views/evaluator/score.tpl.html',
                 controller: 'ScoreTestCtrl'
             }
