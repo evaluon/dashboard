@@ -4,7 +4,7 @@
             <div class="md-toolbar-tools">
                 <span>Resultado</span>
                 <span flex></span>
-                <md-button class="md-fab md-primary button-toolbar" aria-label="Recargar" ng-click="getEvaluees()">
+                <md-button class="md-fab md-primary button-toolbar" aria-label="Recargar" ng-click="getResults()">
                     <md-tooltip>
                         Recargar
                     </md-tooltip>
@@ -14,7 +14,7 @@
         </md-toolbar>
         <md-content flex layout="vertical" class="md-default-theme md-whiteframe-z1" style="height: 500px;">
             <md-list>
-                <md-item ng-repeat="item in questions">
+                <md-item ng-repeat="item in test.questions">
                     <md-card>
                         <md-item-content>
                             <div class="md-tile-content">

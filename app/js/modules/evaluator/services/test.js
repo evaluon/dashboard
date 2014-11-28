@@ -95,12 +95,11 @@ angular.module('evaluon.evaluator').factory(
 
                 return $http({
                     method: 'get',
-                    url: api.testResults,
+                    url: api.testResults(test),
                     headers: {
                         Authorization: headers.authorization(tokenType, token)
                     },
-                    query: {
-                        test: test,
+                    params: {
                         evaluee: evaluee
                     }
                 }).then(function(data){

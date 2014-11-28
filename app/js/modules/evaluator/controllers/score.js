@@ -3,13 +3,16 @@
 angular.module('evaluon.evaluator').controller(
     'ScoreTestCtrl', function($scope, $stateParams, Test){
 
-        console.log($stateParams);
+        $scope.getResults = function(){
 
-        Test.testResults(
-            $stateParams.id, $stateParams.evalueeId
-        ).then(function(test){
-            console.log(test);
-            $scope.test = test;
-        });
+            Test.testResults(
+                $stateParams.id, $stateParams.evalueeId
+            ).then(function(test){
+                $scope.test = test;
+            });
+
+        }
+
+        $scope.getResults();
 
 });

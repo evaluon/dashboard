@@ -68,7 +68,9 @@ angular.module('evaluon').constant(
         questionImage: function(id){
             return apiRouter.route('question/{0}/image'.format(id));
         },
-        testResults: apiRouter.route('test/results')
+        testResults: function(id){ 
+            return apiRouter.route('test/{0}/results'.format(id));
+        }
 
     }
 ).constant(
