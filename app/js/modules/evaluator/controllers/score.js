@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('evaluon.evaluator').controller(
-    'ScoreTestCtrl', function($scope, $stateParams, Test){
+    'ScoreTestCtrl', function($scope, $stateParams, Test, Answer){
 
         $scope.test = [];
 
@@ -15,11 +15,12 @@ angular.module('evaluon.evaluator').controller(
 
         };
 
-        $scope.getResults();
-
         $scope.calificate = function(id, value){
-            console.log(id);
-            console.log(value);
+            Answer.score(id, value).then(function(){
+                $scope.getResults();
+            });
         };
+
+        $scope.getResults();
 
 });
