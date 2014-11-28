@@ -5,4 +5,11 @@ angular.module('evaluon.evaluator').controller(
 
         console.log($stateParams);
 
+        Test.testResults(
+            $stateParams.id, $stateParams.evalueeId
+        ).then(function(test){
+            console.log(test);
+            $scope.test = test;
+        });
+
 });
