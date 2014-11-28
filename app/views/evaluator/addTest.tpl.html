@@ -35,7 +35,7 @@
         <md-content flex layout="vertical" class="md-default-theme md-whiteframe-z1" style="height: 72vh;">
             <form name ="addTestForm">
 
-                <md-button class="md-primary md-fab md-fab-bottom-right" md-theme="red" ng-click="addTest($event)" style="position: fixed;" ng-disabled="((test.length == 0) || ($addTestForm.$invalid))" class="md-raised md-primary">
+                <md-button class="md-primary md-fab md-fab-bottom-right" md-theme="red" ng-click="addTest($event)" style="position: fixed;" ng-disabled="((test.length < 1) || (addTestForm.$invalid))" class="md-raised md-primary">
                     <md-tooltip>
                         Agregar examen
                     </md-tooltip>

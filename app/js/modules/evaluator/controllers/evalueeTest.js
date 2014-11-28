@@ -12,6 +12,7 @@ angular.module('evaluon.evaluator').controller(
             Test.evalueesInTest(
                 $scope.groupId, $scope.testId
             ).then(function(success){
+                console.log(success);
                 $scope.evaluees = success;
             }).catch(function(error){
                 console.error(error);
