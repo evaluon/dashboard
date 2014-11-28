@@ -57,13 +57,12 @@ angular.module('evaluon.evaluator').factory(
             uploadQuestionImage: function(question, image){
 
                 return $upload.upload({
-                    method: 'post',
+                    method: 'put',
                     url: api.questionImage(question),
                     headers: {
                         Authorization: headers.authorization(tokenType, token)
                     },
                     data: {
-                        question: question,
                         description: image.description
                     },
                     file: image.location
