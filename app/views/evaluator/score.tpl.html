@@ -2,7 +2,7 @@
     <div flex= "90" layout-fill>
         <md-toolbar class="md-default-theme md-whiteframe-z1">
             <div class="md-toolbar-tools">
-                <span>Evaluados</span>
+                <span>Resultado</span>
                 <span flex></span>
                 <md-button class="md-fab md-primary button-toolbar" aria-label="Recargar" ng-click="getEvaluees()">
                     <md-tooltip>
@@ -14,23 +14,11 @@
         </md-toolbar>
         <md-content flex layout="vertical" class="md-default-theme md-whiteframe-z1" style="height: 500px;">
             <md-list>
-                <md-item ng-repeat="item in evaluees">
+                <md-item ng-repeat="item in questions">
                     <md-card>
                         <md-item-content>
                             <div class="md-tile-content">
-                                <h3>{{item.first_name}} {{item.last_name}}</h3>
-                                <h4>{{item.mail}}</h4>
-                                <h4>{{item.phone}}</h4>
-                                <h4>{{item.level}}</h4>
-                                <h4>{{item.disability}}</h4>
-                                <br>
-                                <!-- md-fab md-fab-bottom-right-->
-                                <md-button class="md-fab md-fab-top-right" ui-sref="evaluator.scoreTest({id: testId, evalueeId: item.id})" aria-label="Calificar examen">
-                                    <md-tooltip>
-                                        Calificar
-                                    </md-tooltip>
-                                    <md-icon icon="img/icons/assignment_turned_in.svg"></md-icon>
-                                </md-button>
+                                HOLAAA
                             </div>
                         </md-item-content>
                     </md-card>

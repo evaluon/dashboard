@@ -33,7 +33,7 @@
         </md-toolbar>
 
         <md-content flex layout="vertical" class="md-default-theme md-whiteframe-z1" style="height: 72vh;">
-            <form name ="addTestForm">
+            <form name ="addTestForm" novalidate>
 
                 <md-button class="md-primary md-fab md-fab-bottom-right" md-theme="red" ng-click="addTest($event)" style="position: fixed;" ng-disabled="((test.length < 1) || (addTestForm.$invalid))" class="md-raised md-primary">
                     <md-tooltip>
@@ -156,7 +156,7 @@
                                 <div class="md-tile-content" ng-if="item.public && !item.new">
                                     <md-text-float label="Número de pregunta" class="medium" ng-model="item.id" required> </md-text-float>
                                     <br><br>
-                                    <md-button class="md-raised md-primary">Banco de preguntas
+                                    <md-button class="md-raised md-primary" href="/evaluator/question-bank" target="_blank">Banco de preguntas
                                         <md-tooltip>
                                             Ir al banco de preguntas
                                         </md-tooltip>

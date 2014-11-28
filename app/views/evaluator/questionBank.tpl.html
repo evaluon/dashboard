@@ -1,5 +1,6 @@
-<div layout="horizontal" layout-padding layout-align="center" >
+<div layout="horizontal" layout-padding layout-align="center">
     <div flex= "90" layout-fill>
+        <br><br><br><br>
         <md-toolbar class="md-default-theme md-whiteframe-z1">
             <div class="md-toolbar-tools">
                 <span>Banco de preguntas</span>
@@ -12,21 +13,24 @@
                 </md-button>
             </div>
         </md-toolbar>
-        <md-content flex layout="vertical" class="md-default-theme md-whiteframe-z1" style="height: 500px;">
+        <md-content flex layout="vertical" class="md-default-theme md-whiteframe-z1" style="height: 480px;">
             <md-list>
-                <md-item ng-repeat="item in institutions">
-                    <md-item-content>
-                        <div class="md-tile-left">
-                            <img ng-src="{{item.image.location}}" class="face" alt="{{item.image.description}}">
-                        </div>
-                        <div class="md-tile-content">
-                            <h3>{{item.name}}</h3>
-                            <h4>{{item.address}}</h4>
-                            <h4>{{item.mail}}</h4>
-                            <h4>{{item.phone_number}}</h4>
-                        </div>
-                    </md-item-content>
-                </md-item>
+                <section ng-repeat="area in knowledgeAreas">
+                    <md-subheader class="md-primary"><h3>{{area.id}}</h3></md-subheader>
+                    <md-list>
+                        <md-item>
+                            <md-card ng-repeat="question in questionBank | filter: {knowledge_area_id: area.id} ">
+                                <md-item-content>
+                                    <div class="md-tile-left"><h3>{{question.id}}</h3></div>
+                                    <div class="md-tile-content">
+                                        <h3>{{question.description_text}}</h3>
+                                        <h4>Dificultad: {{question.difficulty}}</h4>
+                                    </div>
+                                </md-item-content>
+                            </md-card>
+                        </md-item>
+                    </md-list>
+                </section>
             </md-list>
         </md-content>
     </div>

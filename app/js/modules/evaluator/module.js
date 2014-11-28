@@ -39,14 +39,20 @@ angular.module('evaluon.evaluator',['ui.router']).config(
             }
         ).state(
             'evaluator.questionBank', {
-                url:'question/bank',
-                templateUrl: 'views/evaluator/questionBank.tpl.html'
+                url:'/question-bank',
+                templateUrl: 'views/evaluator/questionBank.tpl.html',
+                controller: 'QuestionBankCtrl'
             }
         ).state(
             'evaluator.changePassword', {
                 url: '/password',
                 templateUrl: 'views/auth/changePassword.tpl.html',
                 controller: 'ChanguePasswordCtrl'
+            }
+        ).state(
+            'evaluator.scoreTest', {
+                url:'score-test/:id/evaluee/:evalueeId',
+                templateUrl: 'views/evaluator/score.tpl.html'
             }
         );
 
