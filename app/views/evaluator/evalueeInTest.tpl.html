@@ -20,29 +20,25 @@
                 <md-icon icon="img/icons/add.svg"></md-icon>
             </md-button>
             <md-list>
-                <md-item ng-repeat="item in tests">
+                <md-item ng-repeat="item in evaluees">
                     <md-card>
-                        <md-content>
+                        <md-item-content>
                             <div class="md-tile-content">
-                                <h3>{{item.id}}. {{item.description}}</h3>
-                                <h4>{{item.start_date | date: 'medium'}} - {{item.stop_date | date: 'medium'}}</h4>
+                                <h3>{{item.first_name}} {{item.last_name}}</h3>
+                                <h4>{{item.mail}}</h4>
+                                <h4>{{item.phone}}</h4>
+                                <h4>{{item.level}}</h4>
+                                <h4>{{item.disability}}</h4>
                                 <br>
-                                <h4>Clave de acceso: <b>{{item.hotp}}</b></h4>
-
-                                <md-button class="md-fab md-fab-top-right" ng-click="">
+                                <!-- md-fab md-fab-bottom-right-->
+                                <md-button class="md-fab md-fab-top-right">
                                     <md-tooltip>
-                                        Cambiar periodo
+                                        Calificar
                                     </md-tooltip>
-                                    <md-icon icon="img/icons/restore.svg"></md-icon>
-                                </md-button>
-                                <md-button class="" ng-click="">
-                                    <md-tooltip>
-                                        Supervisar
-                                    </md-tooltip>
-                                    <md-icon icon="img/icons/supervisor.svg"></md-icon>
+                                    <md-icon icon="img/icons/group.svg"></md-icon>
                                 </md-button>
                             </div>
-                        </md-content>
+                        </md-item-content>
                     </md-card>
                 </md-item>
             </md-list>

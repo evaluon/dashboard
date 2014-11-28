@@ -34,7 +34,7 @@ angular.module('evaluon.evaluator',['ui.router']).config(
         ).state(
             'evaluator.evalueeTest', {
                 url: '/test/:group/evaluee/:id',
-                templateUrl: 'views/evaluator/evalueeTest.tpl.html',
+                templateUrl: 'views/evaluator/evalueeInTest.tpl.html',
                 controller: 'EvalueeTestCtrl'
             }
         ).state(
