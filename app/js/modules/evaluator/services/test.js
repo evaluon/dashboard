@@ -106,6 +106,25 @@ angular.module('evaluon.evaluator').factory(
                     return data.data.data;
                 });
 
+            },
+
+            feedback: function(user, test, feedback){
+
+                return $http({
+                    method: 'post',
+                    url: api.testFeedback(test),
+                    headers: {
+                        Authorization: headers.authorization(tokenType, token),
+                        'Content-Type': headers.json
+                    },
+                    data: {
+                        user: user,
+                        feedback: feedback
+                    }
+                }).then(function(data){
+                    return data.data.data;
+                });
+
             }
 
         }

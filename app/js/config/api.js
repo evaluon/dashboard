@@ -70,6 +70,9 @@ angular.module('evaluon').constant(
         },
         testResults: function(id){ 
             return apiRouter.route('test/{0}/results'.format(id));
+        },
+        testFeedback: function(id){
+            return apiRouter.route('test/{0}/feedback'.format(id));
         }
 
     }
