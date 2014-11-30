@@ -64,6 +64,22 @@ angular.module('evaluon.institution').factory(
                     return data.data.data;
                 });
 
+            },
+
+            updatePeriod: function(period){
+
+                return $http({
+                    method: 'put',
+                    url: api.period,
+                    headers: {
+                        Authorization: headers.authorization(tokenType, token),
+                        'Content-Type': headers.json
+                    },
+                    data: period
+                }).then(function(data){
+                    return data.data.data;
+                });
+
             }
 
         }
