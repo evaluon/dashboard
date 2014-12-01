@@ -44,6 +44,23 @@ angular.module('evaluon.institution').factory(
 
             },
 
+            unapprovedInstitutions: function(){
+
+                return $http({
+                    method: 'get',
+                    url: api.institution,
+                    headers: {
+                        Authorization: headers.authorization(tokenType, token)
+                    },
+                    params: {
+                        unapproved: true
+                    }
+                }).then(function(result){
+                    return result.data;
+                });
+
+            }
+
             createInstitution: function(institution, file){
 
                 return $upload.upload({
@@ -58,7 +75,45 @@ angular.module('evaluon.institution').factory(
                     return result.data.data;
                 });
 
-            }
+            },
+
+            approveInstitution: function(institutionId){
+
+                return $http({
+                    method: 'put',
+                    url: api.id(api.institution, institutionId),
+                    headers: {
+                        Authorization: headers.authorization(tokenType, token),
+                        'Content-Type': headers.json
+                    },
+                    data: {
+                        approved: true
+                    }
+                }).then(function(result){
+                    return result.data.data;
+                });
+
+            },
+
+            denyInstitution: function(institutionId, reason){
+
+                return $http({
+                    method: 'put',
+                    url: api.id(api.institution, institutionId),
+                    headers: {
+                        Authorization: headers.authorization(tokenType, token),
+                        'Content-Type': headers.json
+                    },
+                    data: {
+                        denial_reason: reason
+                    }
+                }).then(function(result){
+                    return result.data.data;
+                });
+
+            },
+
+
 
         }
 
