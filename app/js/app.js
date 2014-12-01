@@ -5,7 +5,7 @@ angular.module('evaluon', [
 
 'evaluon.auth', 'evaluon.entity', 'evaluon.evaluator',
 'evaluon.institution', 'evaluon.templates', 'blockUI',
-'ng-nvd3', 'angular-loading-bar'
+'ng-nvd3', 'angular-loading-bar', 'ngCsv', 'ngSanitize'
 ])
 .config(
 
