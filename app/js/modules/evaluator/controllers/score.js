@@ -21,6 +21,12 @@ angular.module('evaluon.evaluator').controller(
             });
         };
 
+        $scope.setFeedback = function(feedback){
+            Test.feedback($stateParams.evalueeId, $stateParams.id, feedback).then(function(){
+                $scope.getResults();
+            });
+        };
+
         $scope.getResults();
 
 });

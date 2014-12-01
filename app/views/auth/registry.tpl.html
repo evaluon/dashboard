@@ -1,0 +1,63 @@
+<md-dialog aria-label="Registro" style="width: 60vw">
+
+    <md-content >
+        <div layout="row" layout-align="center">
+            <div flex>
+                <md-header class="md-sticky-no-effect">Registrar Institución</md-header>
+
+                <form name="registerInstitutionForm" ng-submit="registerInstitution($event)">
+
+                    <md-text-float label="NIT" ng-model="institution.id" class="long" required> </md-text-float>
+                    <md-text-float label="Nombre" ng-model="institution.name" class="long" required> </md-text-float>
+                    <md-text-float label="Dirección" ng-model="institution.address" class="long" required> </md-text-float>
+                    <md-text-float label="Correo Electrónico" ng-model="institution.mail" class="long" required> </md-text-float>
+                    <md-text-float label="Número Teléfono" ng-model="institution.phone_number" class="long" required> </md-text-float>
+                    <div layout="vertical" layout-align="center">
+                        <br>
+                        <md-button ng-file-select="onFile($files)" style="width: 80%;" >Agregar Imagen</md-button>
+                        <md-text-float label="Descripción Imagen" ng-model="institution.description" class="long" required></md-text-float>
+                    </div>
+
+                    <br>
+                    <md-text-float label="Contraseña" type="password" ng-model="institution.password1" class="long" required></md-text-float>
+                    <md-text-float label="Repite la contraseña" type="password" ng-model="institution.password2" class="long" required></md-text-float>
+
+                    <br>
+                    <div layout="vertical" layout-align="center">
+                        <md-button type="submit" class="md-primary" style="width: 80%;">Enviar</md-button>
+                    </div>
+
+                </form>
+            </div>
+
+            <div flex>
+                <md-header class="md-sticky-no-effect">Registrar Evaluador</md-header>
+
+                <form name="registerEvaluatorForm" ng-submit="registerEvaluator($event)">
+
+                    <md-text-float label="Documento de Identidad" ng-model="evaluator.id" class="long" required></md-text-float>
+                    <md-text-float label="Nombre" ng-model="evaluator.first_name" class="long" required></md-text-float>
+                    <md-text-float label="Apellido" ng-model="evaluator.last_name" class="long" required></md-text-float>
+
+                    <md-text-float type="datetime-local" label="Fecha de Nacimiento" ng-model="evaluator.birth_date" class="long" required></md-text-float>
+
+                    <md-text-float type="email" label="Correo Electrónico" ng-model="evaluator.mail" class="long" required> </md-text-float>
+                    <md-text-float label="Número Teléfono" ng-model="evaluator.phone_number" class="long" required> </md-text-float>
+                    <md-text-float label="Área de trabajo" ng-model="evaluator.area" class="long" required></md-text-float>
+
+                    <br>
+                    <md-text-float type="password" label="Contraseña" ng-model="evaluator.password1" class="long" required> </md-text-float>
+                    <md-text-float type="password" label="Repite la contraseña" ng-model="evaluator.password2" class="long" required> </md-text-float>
+
+                    <br>
+                    <div layout="vertical" layout-align="center">
+                        <md-button type="submit" class="md-primary" style="width: 80%;">Enviar</md-button>
+                    </div>
+
+                </form>
+            </div>
+        </div>
+
+    </md-content>
+
+</md-dialog>
