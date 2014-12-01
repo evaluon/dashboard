@@ -102,5 +102,10 @@ angular.module('evaluon', [
             ("GET %s", toState.url);
         });
 
+        $rootScope.validateItem = function(form, item){
+            
+            return form[item].$invalid && form[item].$dirty;
+        };
+
     }
 );

@@ -24,7 +24,7 @@ function($mdDialog, $scope, Auth, User, Evaluator, Institution){
         address: "",
         mail: "",
         phone_number: "",
-        description = "",
+        description: "",
         evaluator: {
             id: "",
             first_name: "",
@@ -38,7 +38,7 @@ function($mdDialog, $scope, Auth, User, Evaluator, Institution){
         }
     };
 
-    $scope.evaluator: {
+    $scope.evaluator = {
         id: "",
         first_name: "",
         last_name: "",
