@@ -39,6 +39,13 @@ angular.module('evaluon.institution', ['ui.router']).config(
                 templateUrl: 'views/auth/changePassword.tpl.html',
                 controller: 'ChanguePasswordCtrl'
             }
+        )
+        .state(
+            'institution.periodes', {
+                url: '/periodes',
+                templateUrl: 'views/institution/period.tpl.html',
+                controller: 'InstitutionPeriodCtrl'
+            }
         );
 
     }

@@ -1,0 +1,37 @@
+<div layout="horizontal" layout-padding layout-align="center" >
+    <div flex= "90" layout-fill>
+        <md-toolbar class="md-default-theme md-whiteframe-z1">
+            <div class="md-toolbar-tools">
+                <span>Periodos activos</span>
+                <span flex></span>
+
+                <md-button class="md-fab md-primary button-toolbar" aria-label="Recargar" ng-click="getEvaluees()">
+                    <md-tooltip>
+                        Recargar
+                    </md-tooltip>
+                    <md-icon icon="/img/icons/refresh.svg"></md-icon>
+                </md-button>
+            </div>
+        </md-toolbar>
+        <md-content flex layout="vertical" class="md-default-theme md-whiteframe-z1" style="height: 500px;">
+            <md-list>
+                <md-item ng-repeat="item in periodes">
+                    <md-card>
+                        <md-item-content>
+                            <div class="md-tile-content">
+
+                                <!-- md-fab md-fab-bottom-right-->
+                                <md-button class="md-fab md-fab-top-right" ui-sref="" aria-label="Editar periodo">
+                                    <md-tooltip>
+                                        Editar
+                                    </md-tooltip>
+                                    <md-icon icon="img/icons/assignment_turned_in.svg"></md-icon>
+                                </md-button>
+                            </div>
+                        </md-item-content>
+                    </md-card>
+                </md-item>
+            </md-list>
+        </md-content>
+    </div>
+</div>
