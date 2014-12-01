@@ -6,6 +6,8 @@
                 <md-header class="md-sticky-no-effect">Registrar Institución</md-header>
 
                 <form name="registerInstitutionForm" ng-submit="registerInstitution($event)">
+                    <br>
+                    <h4>Datos de la institución:</h4>
 
                     <md-text-float label="NIT" ng-model="institution.id" class="long" required> </md-text-float>
                     <md-text-float label="Nombre" ng-model="institution.name" class="long" required> </md-text-float>
@@ -19,8 +21,22 @@
                     </div>
 
                     <br>
-                    <md-text-float label="Contraseña" type="password" ng-model="institution.password1" class="long" required></md-text-float>
-                    <md-text-float label="Repite la contraseña" type="password" ng-model="institution.password2" class="long" required></md-text-float>
+                    <h4>Datos del administrador:</h4>
+
+                    <md-text-float label="Documento de Identidad" ng-model="institution.evaluator.id" class="long" required></md-text-float>
+                    <md-text-float label="Nombre" ng-model="institution.evaluator.first_name" class="long" required></md-text-float>
+                    <md-text-float label="Apellido" ng-model="institution.evaluator.last_name" class="long" required></md-text-float>
+
+                    <md-text-float type="datetime-local" label="Fecha de Nacimiento" ng-model="institution.evaluator.birth_date" class="long" required></md-text-float>
+
+                    <md-text-float type="email" label="Correo Electrónico" ng-model="institution.evaluator.mail" class="long" required> </md-text-float>
+                    <md-text-float label="Número Teléfono" ng-model="institution.evaluator.phone_number" class="long" required> </md-text-float>
+                    <md-text-float label="Área de trabajo" ng-model="institution.evaluator.area" class="long" required></md-text-float>
+
+                    <br>
+                    <md-text-float type="password" label="Contraseña" ng-model="evaluator.password1" class="long" required> </md-text-float>
+                    <md-text-float type="password" label="Repite la contraseña" ng-model="evaluator.password2" class="long" required> </md-text-float>
+
 
                     <br>
                     <div layout="vertical" layout-align="center">
