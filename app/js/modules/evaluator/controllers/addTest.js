@@ -126,9 +126,8 @@ function(
         }).then(function(){
             mdToast("Examen creado satisfactoriamente");
             $state.go('evaluator.test', { id: $stateParams.id });
-        }).catch(function(error){
-            mdToast("No se pudo crear el examen");
-            console.error(error);
+        }).catch(function(response){
+            mdToast(response.error);
         });
 
     };

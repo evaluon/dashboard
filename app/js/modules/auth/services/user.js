@@ -19,9 +19,9 @@ angular.module('evaluon.auth').factory(
 
             },
 
-            createUser: function(options){
+            createUser: function(options, token){
 
-                var user = Auth.userLogged(),
+                var user = token || Auth.userLogged(),
                     tokenType = user.token_type,
                     token = user.access_token;
 
