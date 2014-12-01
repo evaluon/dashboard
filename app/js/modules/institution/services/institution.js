@@ -59,7 +59,7 @@ angular.module('evaluon.institution').factory(
                     return result.data;
                 });
 
-            }
+            },
 
             createInstitution: function(institution, file){
 
@@ -111,7 +111,7 @@ angular.module('evaluon.institution').factory(
                     return result.data.data;
                 });
 
-            },
+            }
 
 
 
