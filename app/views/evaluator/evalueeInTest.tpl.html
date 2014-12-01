@@ -4,6 +4,14 @@
             <div class="md-toolbar-tools">
                 <span>Evaluados</span>
                 <span flex></span>
+
+                <md-button class="md-fab md-primary" ng-if="evaluees.length > 0" aria-label="Exportar" ng-csv="evaluees" csv-header="headers" filename="test-{{testId}}-group-{{groupId}}.csv">
+                    <md-tooltip>
+                        Exportar
+                    </md-tooltip>
+                    <md-icon icon="/img/icons/cloud_download.svg"></md-icon>
+                </md-button>
+
                 <md-button class="md-fab md-primary button-toolbar" aria-label="Recargar" ng-click="getEvaluees()">
                     <md-tooltip>
                         Recargar
