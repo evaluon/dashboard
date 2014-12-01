@@ -60,7 +60,14 @@
                         <md-item-content>
                             <div class="md-tile-left"><h3></h3></div>
                             <div class="md-tile-content">
-
+                                <h3>Retroalimentación</h3>
+                                <md-text-float label="" class="long" ng-model="test.feedback"></md-text-float>
+                                <md-button class="md-fab md-fab-bottom-right" ng-click="setFeedback(test.feedback)">
+                                    <md-tooltip>
+                                        Enviar
+                                    </md-tooltip>
+                                    <md-icon icon="img/icons/done.svg"></md-icon>
+                                </md-button>
                             </div>
                         </md-item-content>
                     </md-card>

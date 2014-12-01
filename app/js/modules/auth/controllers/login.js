@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('evaluon.auth').controller(
-    'LoginCtrl', function($scope, $state, Auth, User){
+    'LoginCtrl', function($scope, $state, Auth, User, $mdDialog){
 
         $scope.user = {
             email: '',
@@ -26,6 +26,16 @@ angular.module('evaluon.auth').controller(
                 console.error(error);
             });
 
+        };
+
+        $scope.registry = function($event){
+            console.log('registry');
+            $mdDialog.show({
+                targetEvent: $event,
+                templateUrl: 'views/auth/registry.tpl.html',
+                controller: 'RegistryCtrl',
+                escapeToClose: true
+            });
         };
 
     }
