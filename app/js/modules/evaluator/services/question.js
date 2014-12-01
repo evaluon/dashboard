@@ -4,8 +4,8 @@ angular.module('evaluon.evaluator').factory(
     'Question', function(Auth, api, headers, $upload, $http){
 
         var user = Auth.userLogged(),
-            tokenType = user.token_type,
-            token = user.access_token;
+        tokenType = user.token_type,
+        token = user.access_token;
 
         return {
 
@@ -30,6 +30,24 @@ angular.module('evaluon.evaluator').factory(
                     url: api.knowledgeArea,
                     headers: {
                         Authorization: headers.authorization(tokenType, token)
+                    }
+                }).then(function(data){
+                    return data.data.data;
+                });
+
+            },
+
+            createKnowledgeArea: function(data){
+
+                return $http({
+                    method: 'post',
+                    url: api.knowledgeArea,
+                    headers: {
+                        Authorization: headers.authorization(tokenType, token),
+                        'Content-Type': headers.json
+                    },
+                    data: {
+                        id: data
                     }
                 }).then(function(data){
                     return data.data.data;
