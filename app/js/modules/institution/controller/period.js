@@ -1,22 +1,18 @@
 'use strict';
 
 angular.module('evaluon.institution').controller(
-    'PeriodCtrl', function($scope, $mdDialog, groupId, Period, Auth){
-
-        Auth.userLogged().institution;
+    'InstitutionPeriodCtrl', function($scope, $mdDialog, Period, Auth){        ;
 
         $scope.periodes = [];
 
         $scope.getPeriodes = function(){
-
+            var institution = Auth.userLogged().institution;
+            Period.activePeriods(institution).then(function(success){
+                console.log(success);
+                $scope.periodes = success;
+            })
         };
 
-        $scope.add = function($event, group){
-
-            Period.setPeriod(groupId, [id]).then(function(){
-                $scope.getPeriodes();
-            });
-
-        };
+        $scope.getPeriodes();
 
     });
