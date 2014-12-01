@@ -13,6 +13,10 @@ angular.module('evaluon.auth').controller(
 
         $scope.registerEvaluator = function(event){
             event.preventDefault();
+
+
+
         };
 
-    });
+    }
+);

@@ -50,6 +50,9 @@ angular.module('evaluon').constant(
             return apiRouter.route('group/{0}/evaluee'.format(group));
         },
 
+        // Periods Module
+        period: apiRouter.route('period'),
+
         // Test Module
         test: apiRouter.route('test'),
         testGroup: apiRouter.route('test/group'),

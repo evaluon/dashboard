@@ -26,7 +26,7 @@ angular.module('evaluon.institution').factory(
             createPeriod: function(institution){
 
                 return $http({
-                    method: 'get',
+                    method: 'post',
                     url: api.id(api.period, institution),
                     headers: {
                         Authorization: headers.authorization(tokenType, token),
