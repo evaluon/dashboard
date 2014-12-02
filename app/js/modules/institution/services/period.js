@@ -23,7 +23,7 @@ angular.module('evaluon.institution').factory(
 
             },
 
-            createPeriod: function(institution){
+            createPeriod: function(institution, period){
 
                 return $http({
                     method: 'post',
@@ -31,7 +31,8 @@ angular.module('evaluon.institution').factory(
                     headers: {
                         Authorization: headers.authorization(tokenType, token),
                         'Content-Type': headers.json
-                    }
+                    },
+                    data: period
                 }).then(function(data){
                     return data.data.data;
                 });
