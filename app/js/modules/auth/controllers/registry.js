@@ -2,7 +2,7 @@
 
 angular.module('evaluon.auth').controller('RegistryCtrl',
 
-function($mdDialog, $scope, Auth, User, Evaluator, Institution){
+function($mdDialog, $scope, Auth, User, Evaluator, Institution, $mdToast){
 
     $scope.file = false;
 
