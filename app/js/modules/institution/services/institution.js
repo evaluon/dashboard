@@ -58,7 +58,7 @@ angular.module('evaluon.institution').factory(
                         unapproved: true
                     }
                 }).then(function(result){
-                    return result.data;
+                    return result.data.data;
                 });
 
             },
