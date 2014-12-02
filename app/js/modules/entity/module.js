@@ -31,6 +31,12 @@ angular.module('evaluon.entity', ['ui.router']).config(
                 templateUrl: 'views/auth/changePassword.tpl.html',
                 controller: 'ChanguePasswordCtrl'
             }
+        ).state(
+            'entity.approveInstitutions', {
+                url: '/approve-institutions',
+                templateUrl: 'views/entity/approveInstitutions.tpl.html',
+                controller: 'ApproveInstitutionsCtrl'
+            }
         );
 
     }
