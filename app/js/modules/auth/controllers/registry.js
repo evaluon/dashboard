@@ -17,7 +17,8 @@ function($mdDialog, $scope, Auth, User, Evaluator, Institution){
     }
 
     function registerUser(user){
-        return User.createUser(user);
+        var token =  Auth.client();
+        return User.createUser(user, token);
     }
 
     $scope.institution = {
