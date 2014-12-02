@@ -32,7 +32,7 @@ angular.module('evaluon.auth').controller(
         };
 
         $scope.registry = function($event){
-            console.log('registry');
+
             $mdDialog.show({
                 targetEvent: $event,
                 templateUrl: 'views/auth/registry.tpl.html',
