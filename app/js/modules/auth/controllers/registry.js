@@ -53,7 +53,8 @@ function($mdDialog, $scope, Auth, User, Evaluator, Institution, $mdToast){
         password2: ''
     };
 
-    $scope.onFile = function($file){
+    $scope.onFile = function($event, $file){
+        $event.preventDefault();
         $scope.file = $file[0];
     };
 
