@@ -24,6 +24,17 @@ md-input-group.long > input {
 md-input-group.medium > input {
     width: 60%;
 }
+md-input-group.invalid > input {
+  color: #EF5350;
+  border-color: #FFCDD2;
+}
+p.invalid {
+  color: #EF5350;
+  font-size: 12px;
+}
+md-input-group.valid > input {
+  border-color: #C5E1A5;
+}
 select {
    width:100px;
    overflow: hidden;

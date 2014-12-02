@@ -1,73 +1,76 @@
-<md-dialog aria-label="Registro" style="width: 60vw">
+<md-dialog aria-label="Registro" style="width: 70vw">
 
-    <md-content >
+    <md-content>
         <div layout="row" layout-align="center">
+
             <div flex>
-                <md-header class="md-sticky-no-effect">Registrar Institución</md-header>
+                <md-header class="md-sticky-no-effect"><h4>Registrar Institución:</h4></md-header>
 
                 <form name="registerInstitutionForm" ng-submit="registerInstitution($event)">
-                    <br>
-                    <h4>Datos de la institución:</h4>
+                    <h5>Datos de la institución:</h5>
 
-                    <md-text-float label="NIT" ng-model="institution.id" class="long" required> </md-text-float>
-                    <md-text-float label="Nombre" ng-model="institution.name" class="long" required> </md-text-float>
-                    <md-text-float label="Dirección" ng-model="institution.address" class="long" required> </md-text-float>
-                    <md-text-float label="Correo Electrónico" ng-model="institution.mail" class="long" required> </md-text-float>
-                    <md-text-float label="Número Teléfono" ng-model="institution.phone_number" class="long" required> </md-text-float>
+                    <md-text-float label="NIT" ng-model="institution.id" class="long" name="id" ng-class="validateStyleField(registerInstitutionForm, 'id')" required> </md-text-float>
+                    <md-text-float label="Nombre" ng-model="institution.name" class="long" name="name" ng-class="validateStyleField(registerInstitutionForm, 'name')" required> </md-text-float>
+                    <md-text-float label="Dirección" ng-model="institution.address" class="long" name="address" ng-class="validateStyleField(registerInstitutionForm, 'address')" required> </md-text-float>
+                    <md-text-float label="Correo Electrónico" type="email" ng-model="institution.mail" class="long" name="mail" ng-class="validateStyleField(registerInstitutionForm, 'mail')" required> </md-text-float>
+                    <md-text-float label="Número Teléfono" type="number" ng-model="institution.phone_number" class="long" name="phone_number" ng-class="validateStyleField(registerInstitutionForm, 'phone_number')" required> </md-text-float>
                     <div layout="vertical" layout-align="center">
                         <br>
-                        <md-button ng-file-select="onFile($files)" style="width: 80%;" >Agregar Imagen</md-button>
-                        <md-text-float label="Descripción Imagen" ng-model="institution.description" class="long" required></md-text-float>
+                        <md-button ng-file-select="onFile($files)" style="width: 80%;" ng-class="{'md-warn': !file}" >Agregar Imagen</md-button>
+                        <md-text-float label="Descripción Imagen" ng-model="institution.description" class="long" name="description" ng-class="validateStyleField(registerInstitutionForm, 'description')" required></md-text-float>
                     </div>
 
                     <br>
-                    <h4>Datos del administrador:</h4>
+                    <h5>Datos del administrador:</h5>
 
-                    <md-text-float label="Documento de Identidad" ng-model="institution.evaluator.id" class="long" required></md-text-float>
-                    <md-text-float label="Nombre" ng-model="institution.evaluator.first_name" class="long" required></md-text-float>
-                    <md-text-float label="Apellido" ng-model="institution.evaluator.last_name" class="long" required></md-text-float>
+                    <md-text-float label="Documento de Identidad" type="number" ng-model="institution.evaluator.id" class="long" name="evaluator.id" ng-class="validateStyleField(registerInstitutionForm, 'evaluator.id')" required></md-text-float>
+                    <md-text-float label="Nombre" ng-model="institution.evaluator.first_name" class="long" name="evaluator.first_name" ng-class="validateStyleField(registerInstitutionForm, 'evaluator.first_name')" required></md-text-float>
+                    <md-text-float label="Apellido" ng-model="institution.evaluator.last_name" class="long" name="evaluator.last_name" ng-class="validateStyleField(registerInstitutionForm, 'evaluator.last_name')" required></md-text-float>
 
-                    <md-text-float type="datetime-local" label="Fecha de Nacimiento" ng-model="institution.evaluator.birth_date" class="long" required></md-text-float>
+                    <md-text-float type="date" label="Fecha de Nacimiento" ng-model="institution.evaluator.birth_date" class="long" name="evaluator.birth_date" ng-class="validateStyleField(registerInstitutionForm, 'evaluator.birth_date')" required></md-text-float>
 
-                    <md-text-float type="email" label="Correo Electrónico" ng-model="institution.evaluator.mail" class="long" required> </md-text-float>
-                    <md-text-float label="Número Teléfono" ng-model="institution.evaluator.phone_number" class="long" required> </md-text-float>
-                    <md-text-float label="Área de trabajo" ng-model="institution.evaluator.area" class="long" required></md-text-float>
+                    <md-text-float type="email" label="Correo Electrónico" ng-model="institution.evaluator.mail" class="long" name="evaluator.mail" ng-class="validateStyleField(registerInstitutionForm, 'evaluator.mail')" required> </md-text-float>
+                    <md-text-float label="Número Teléfono" ng-model="institution.evaluator.phone_number" class="long" name="evaluator.phone_number" ng-class="validateStyleField(registerInstitutionForm, 'evaluator.phone_number')" required> </md-text-float>
+                    <md-text-float label="Área de trabajo" ng-model="institution.evaluator.area" class="long" name="evaluator.area" ng-class="validateStyleField(registerInstitutionForm, 'evaluator.area')" required></md-text-float>
 
                     <br>
-                    <md-text-float type="password" label="Contraseña" ng-model="evaluator.password1" class="long" required> </md-text-float>
-                    <md-text-float type="password" label="Repite la contraseña" ng-model="evaluator.password2" class="long" required> </md-text-float>
+                    <md-text-float type="password" label="Contraseña" ng-model="institution.evaluator.password" class="long" name="evaluator.password" ng-class="validateStyleField(registerInstitutionForm, 'evaluator.password')" minlength="6" required> </md-text-float>
+                    <md-text-float type="password" label="Repite la contraseña" ng-model="institution.evaluator.password2" class="long" name="evaluator.password2" ng-class="validateStyleField(registerInstitutionForm, 'evaluator.password2')" required> </md-text-float>
+                    <p class="invalid" ng-if="institution.evaluator.password.length < 6">La contraseña tiene que tener un mínimo de 6 carácteres</p>
+                    <p class="invalid" ng-if="(institution.evaluator.password != institution.evaluator.password2)">Las contraseñas no coinciden</p>
 
 
                     <br>
                     <div layout="vertical" layout-align="center">
-                        <md-button type="submit" class="md-primary" style="width: 80%;">Enviar</md-button>
+                        <md-button type="submit" class="md-primary" style="width: 80%;" ng-disabled="registerInstitutionForm.$invalid || institution.evaluator.password.length < 6 || (institution.evaluator.password != institution.evaluator.password2) || !file ">Enviar</md-button>
                     </div>
 
                 </form>
             </div>
 
             <div flex>
-                <md-header class="md-sticky-no-effect">Registrar Evaluador</md-header>
+                <md-header class="md-sticky-no-effect"><h4> Registrar Evaluador:</h4></md-header>
 
                 <form name="registerEvaluatorForm" ng-submit="registerEvaluator($event)">
 
-                    <md-text-float label="Documento de Identidad" ng-model="evaluator.id" class="long" required></md-text-float>
-                    <md-text-float label="Nombre" ng-model="evaluator.first_name" class="long" required></md-text-float>
-                    <md-text-float label="Apellido" ng-model="evaluator.last_name" class="long" required></md-text-float>
+                    <md-text-float label="Documento de Identidad" type="number" ng-model="evaluator.id" class="long" name="id" ng-class="validateStyleField(registerEvaluatorForm, 'id')" required></md-text-float>
+                    <md-text-float label="Nombre" ng-model="evaluator.first_name" class="long" name="first_name" ng-class="validateStyleField(registerEvaluatorForm, 'first_name')" required></md-text-float>
+                    <md-text-float label="Apellido" ng-model="evaluator.last_name" class="long" name="last_name" ng-class="validateStyleField(registerEvaluatorForm, 'last_name')" required></md-text-float>
 
-                    <md-text-float type="datetime-local" label="Fecha de Nacimiento" ng-model="evaluator.birth_date" class="long" required></md-text-float>
+                    <md-text-float type="date" label="Fecha de Nacimiento" ng-model="evaluator.birth_date" class="long" name="birth_date" ng-class="validateStyleField(registerEvaluatorForm, 'birth_date')" required></md-text-float>
 
-                    <md-text-float type="email" label="Correo Electrónico" ng-model="evaluator.mail" class="long" required> </md-text-float>
-                    <md-text-float label="Número Teléfono" ng-model="evaluator.phone_number" class="long" required> </md-text-float>
-                    <md-text-float label="Área de trabajo" ng-model="evaluator.area" class="long" required></md-text-float>
+                    <md-text-float type="email" label="Correo Electrónico" ng-model="evaluator.mail" class="long" name="mail" ng-class="validateStyleField(registerEvaluatorForm, 'mail')" required> </md-text-float>
+                    <md-text-float label="Número Teléfono" ng-model="evaluator.phone_number" class="long" name="phone_number" ng-class="validateStyleField(registerEvaluatorForm, 'phone_number')" required> </md-text-float>
+                    <md-text-float label="Área de trabajo" ng-model="evaluator.area" class="long" name="area" ng-class="validateStyleField(registerEvaluatorForm, 'area')" required></md-text-float>
 
                     <br>
-                    <md-text-float type="password" label="Contraseña" ng-model="evaluator.password1" class="long" required> </md-text-float>
-                    <md-text-float type="password" label="Repite la contraseña" ng-model="evaluator.password2" class="long" required> </md-text-float>
-
+                    <md-text-float type="password" label="Contraseña" ng-model="evaluator.password" class="long" name="password" ng-class="validateStyleField(registerEvaluatorForm, 'password')" minlength="6" required> </md-text-float>
+                    <md-text-float type="password" label="Repite la contraseña" ng-model="evaluator.password2" class="long" name="password2" ng-class="validateStyleField(registerEvaluatorForm, 'password2')" required> </md-text-float>
+                    <p class="invalid" ng-if="evaluator.password.length < 6">La contraseña tiene que tener un mínimo de 6 carácteres</p>
+                    <p class="invalid" ng-if="(evaluator.password != evaluator.password2)">Las contraseñas no coinciden</p>
                     <br>
                     <div layout="vertical" layout-align="center">
-                        <md-button type="submit" class="md-primary" style="width: 80%;">Enviar</md-button>
+                        <md-button type="submit" class="md-primary" style="width: 80%;" ng-disabled="registerEvaluatorForm.$invalid || evaluator.password.length < 6 || (evaluator.password != evaluator.password2)">Enviar</md-button>
                     </div>
 
                 </form>

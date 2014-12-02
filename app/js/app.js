@@ -102,8 +102,16 @@ angular.module('evaluon', [
             ("GET %s", toState.url);
         });
 
-        $rootScope.validateItem = function(form, item){
-            
+        $rootScope.validateStyleField = function(form, item){
+
+            return {
+                'invalid': form[item].$invalid,
+                'valid': form[item].$valid
+            };
+        };
+
+        $rootScope.validateTextField = function(form, item){
+
             return form[item].$invalid && form[item].$dirty;
         };
 

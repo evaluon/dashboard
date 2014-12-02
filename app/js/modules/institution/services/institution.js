@@ -4,9 +4,11 @@ angular.module('evaluon.institution').factory(
     'Institution',
     function(Auth, api, headers, $upload, $http, localStorageService){
 
-        var user = Auth.userLogged(),
+        if(Auth.userLogged()){
+            var user = Auth.userLogged(),
             tokenType = user.token_type,
             token = user.access_token;
+        }
 
         return {
 

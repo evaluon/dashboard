@@ -4,6 +4,8 @@ angular.module('evaluon.auth').controller('RegistryCtrl',
 
 function($mdDialog, $scope, Auth, User, Evaluator, Institution){
 
+    $scope.file = false;
+
     function mdToast(message){
 
         $mdToast.show({
@@ -19,40 +21,41 @@ function($mdDialog, $scope, Auth, User, Evaluator, Institution){
     }
 
     $scope.institution = {
-        id: "",
-        name: "",
-        address: "",
-        mail: "",
-        phone_number: "",
-        description: "",
+        id: '',
+        name: '',
+        address: '',
+        mail: '',
+        phone_number: '',
+        description: '',
         evaluator: {
-            id: "",
-            first_name: "",
-            last_name: "",
-            birth_date: "",
-            mail: "",
-            phone_number: "",
-            area: "",
-            password: "",
-            password2: ""
+            id: '',
+            first_name: '',
+            last_name: '',
+            birth_date: new Date(),
+            mail: '',
+            phone_number: '',
+            area: '',
+            password: '',
+            password2: ''
         }
     };
 
     $scope.evaluator = {
-        id: "",
-        first_name: "",
-        last_name: "",
-        birth_date: "",
-        mail: "",
-        phone_number: "",
-        area: "",
-        password: "",
-        password2: ""
+        id: '',
+        first_name: '',
+        last_name: '',
+        birth_date: new Date(),
+        mail: '',
+        phone_number: '',
+        area: '',
+        password: '',
+        password2: ''
     };
 
     $scope.onFile = function($file){
         $scope.file = $file[0];
     };
+
 
     $scope.registerInstitution = function(event){
         event.preventDefault();
