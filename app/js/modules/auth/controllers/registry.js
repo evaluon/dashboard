@@ -69,7 +69,7 @@ function($mdDialog, $scope, Auth, User, Evaluator, Institution, $mdToast){
         var user = _.omit($scope.institution.evaluator, 'password2');
 
         registerUser(_.omit(user, 'area')).then(function(){
-            return Auth.password(user.email, user.password);
+            return Auth.password(user.mail, user.password);
         }).then(function(token){
             return Evaluator.setEvaluator(
                 { area: user.area }, token
@@ -103,7 +103,7 @@ function($mdDialog, $scope, Auth, User, Evaluator, Institution, $mdToast){
         var user = _.omit($scope.evaluator, 'password2');
 
         registerUser(_.omit(user, 'area')).then(function(){
-            return Auth.password(user.email, user.password);
+            return Auth.password(user.mail, user.password);
         }).then(function(token){
             return Evaluator.setEvaluator({ area: user.area }, token);
         }).then(function(){
