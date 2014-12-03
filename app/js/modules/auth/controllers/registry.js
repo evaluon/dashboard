@@ -80,13 +80,22 @@ function($mdDialog, $scope, Auth, User, Evaluator, Institution, $mdToast){
                 return token;
             });
         }).then(function(token){
-            return User.getUser(token.token_type, token.access_token);
-        }).then(function(user){
+            return User.getUser(
+                token.token_type, token.access_token
+            ).then(function(user){
+                return { user: user, token: token };
+            });
+        }).then(function(data){
+            var user = data.user,
+                token = data.token;
+
             var institution = _.extend(
                 _.omit($scope.institution, 'evaluator'),
                 { evaluator_id: user.id }
             );
-            return Institution.createInstitution(institution, $scope.file);
+            return Institution.createInstitution(
+                institution, $scope.file, token
+            );
         }).then(function(){
             mdToast(
                 "Tu solicitud ha sido recibida exitosamente. " +
