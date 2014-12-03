@@ -18,16 +18,26 @@
                 <md-item ng-repeat="item in institutions">
                     <md-card>
                         <md-item-content>
-                            <div class="md-tile-left"><h3></h3></div>
+                            <div class="md-tile-left">
+                                <img ng-src="http://cdn.boolinc.co/evaluon/{{item.image.location}}" class="face" alt="{{item.image.description}}">
+                            </div>
                             <div class="md-tile-content">
-                                <h3></h3>
-                                {{item | json}}
-                                <!-- md-fab md-fab-bottom-right-->
-                                <md-button class="" aria-label="Editar periodo" ng-click="updatePeriod($event, item)">
+                                <h3>{{item.name}}</h3>
+                                <h4>{{item.address}}</h4>
+                                <h4>{{item.mail}}</h4>
+                                <h4>{{item.phone_number}}</h4>
+                                <md-text-float label="Observaciones" class="long" ng-model="observations"></md-text-float>
+                                <md-button class="" aria-label="Aceptar Institucion" ng-click="approve($event, item.id, observations)">
                                     <md-tooltip>
-                                        Editar
+                                        Aceptar
                                     </md-tooltip>
-                                    <md-icon icon="img/icons/restore.svg"></md-icon>
+                                    <md-icon icon="img/icons/done.svg"></md-icon>
+                                </md-button>
+                                <md-button class="" aria-label="Denegar Institucion" ng-click="reject($event, item.id, observations)">
+                                    <md-tooltip>
+                                        Denegar
+                                    </md-tooltip>
+                                    <md-icon icon="img/icons/clear.svg"></md-icon>
                                 </md-button>
                             </div>
                         </md-item-content>
