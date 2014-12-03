@@ -70,3 +70,8 @@ select {
 #loading-bar .bar {
   background: black;
 }
+.img-warn{
+
+    border: 1.5px solid #FFCDD2;
+    border-radius: 3px;
+}

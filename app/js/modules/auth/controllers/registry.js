@@ -53,19 +53,23 @@ function($mdDialog, $scope, Auth, User, Evaluator, Institution, $mdToast){
         password2: ''
     };
 
-    $scope.onFile = function($event, $file){
-        $event.preventDefault();
-        $scope.file = $file[0];
+    $scope.onFile = function($files, event){
+        console.log("Not prevented")
+
+        event.preventDefault();
+        console.log("Prevented (?) Yay!")
+        $scope.file = $files[0];
     };
 
 
-    $scope.registerInstitution = function(event){
+    $scope.registerInstitution = function(event, valid){
+        console.log(valid);
         event.preventDefault();
 
         var user = _.omit($scope.institution.evaluator, 'password2');
 
         registerUser(_.omit(user, 'area')).then(function(){
-            return Auth.password(user.email, user.password);
+            return Auth.password(user.mail, user.password);
         }).then(function(token){
             return Evaluator.setEvaluator(
                 { area: user.area }, token
@@ -99,7 +103,7 @@ function($mdDialog, $scope, Auth, User, Evaluator, Institution, $mdToast){
         var user = _.omit($scope.evaluator, 'password2');
 
         registerUser(_.omit(user, 'area')).then(function(){
-            return Auth.password(user.email, user.password);
+            return Auth.password(user.mail, user.password);
         }).then(function(token){
             return Evaluator.setEvaluator({ area: user.area }, token);
         }).then(function(){

@@ -6,7 +6,7 @@
             <div flex>
                 <md-header class="md-sticky-no-effect"><h4>Registrar Institución:</h4></md-header>
 
-                <form name="registerInstitutionForm" ng-submit="registerInstitution($event)">
+                <form name="registerInstitutionForm" ng-submit="registerInstitution($event, registerInstitutionForm.$valid)">
                     <h5>Datos de la institución:</h5>
 
                     <md-text-float label="NIT" ng-model="institution.id" class="long" name="id" ng-class="validateStyleField(registerInstitutionForm, 'id')" required> </md-text-float>
@@ -16,8 +16,15 @@
                     <md-text-float label="Número Teléfono" type="number" ng-model="institution.phone_number" class="long" name="phone_number" ng-class="validateStyleField(registerInstitutionForm, 'phone_number')" required> </md-text-float>
                     <div layout="vertical" layout-align="center">
                         <br>
-                        <md-button ng-file-select="onFile($event, $files)" style="width: 80%;" ng-class="{'md-warn': !file}" >Agregar Imagen</md-button>
+                        <div layout="vertical" layout-align="center" class="md-default-theme md-button-inner" ng-file-select="onFile($files, $event)" style="width: 80%;">
+                            <a href="#" layout="vertical" layout-align="center">
+                                <md-icon icon="img/icons/img.svg" ng-class="{'img-warn': !file}"></md-icon>
+                            </a>
+
+                        </div>
+
                         <md-text-float label="Descripción Imagen" ng-model="institution.description" class="long" name="description" ng-class="validateStyleField(registerInstitutionForm, 'description')" required></md-text-float>
+
                     </div>
 
                     <br>
