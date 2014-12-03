@@ -53,13 +53,17 @@ function($mdDialog, $scope, Auth, User, Evaluator, Institution, $mdToast){
         password2: ''
     };
 
-    $scope.onFile = function($event, $file){
-        $event.preventDefault();
-        $scope.file = $file[0];
+    $scope.onFile = function($files, event){
+        console.log("Not prevented")
+
+        event.preventDefault();
+        console.log("Prevented (?) Yay!")
+        $scope.file = $files[0];
     };
 
 
-    $scope.registerInstitution = function(event){
+    $scope.registerInstitution = function(event, valid){
+        console.log(valid);
         event.preventDefault();
 
         var user = _.omit($scope.institution.evaluator, 'password2');
