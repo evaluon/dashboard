@@ -2,19 +2,9 @@
 
 angular.module('evaluon.auth').controller('RegistryCtrl',
 
-function($mdDialog, $scope, Auth, User, Evaluator, Institution, $mdToast){
+function($mdDialog, $scope, Auth, User, Evaluator, Institution){
 
     $scope.file = false;
-
-    function mdToast(message){
-
-        $mdToast.show({
-            template: '<md-toast>{0}</md-toast>'.format(message),
-            hideDelay: 6000,
-            position: 'bottom left'
-        });
-
-    }
 
     function registerUser(user){
 
@@ -102,7 +92,7 @@ function($mdDialog, $scope, Auth, User, Evaluator, Institution, $mdToast){
                 "Revisa en los próximos días si fue aceptada " +
                 "o escribenos a ######@#######.com"
             );
-            // Return & Login
+            $mdDialog.hide(true);
         }).catch(function(response){
             mdToast(response.error);
         });
@@ -117,9 +107,13 @@ function($mdDialog, $scope, Auth, User, Evaluator, Institution, $mdToast){
         registerUser(_.omit(user, 'area')).then(function(){
             return Auth.password(user.mail, user.password);
         }).then(function(token){
-            return Evaluator.setEvaluator({ area: user.area }, token);
-        }).then(function(){
-            // Return & Login
+            return Evaluator.setEvaluator(
+                { area: user.area }, token
+            ).then(function(){
+                return token;
+            });
+        }).then(function(token){
+            $mdDialog.hide(false, token);
         }).catch(function(response){
             mdToast(response.error);
         });
