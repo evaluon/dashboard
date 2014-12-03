@@ -17,6 +17,9 @@ function($mdDialog, $scope, Auth, User, Evaluator, Institution, $mdToast){
     }
 
     function registerUser(user){
+
+        user.password = CryptoJS.SHA1(user.password).toString();
+
         var token =  Auth.client();
         return User.createUser(user, token);
     }
@@ -76,7 +79,7 @@ function($mdDialog, $scope, Auth, User, Evaluator, Institution, $mdToast){
             ).then(function(){
                 return token;
             });
-        }).then(function(){
+        }).then(function(token){
             return User.getUser(token.token_type, token.access_token);
         }).then(function(user){
             var institution = _.extend(
