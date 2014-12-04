@@ -40,8 +40,8 @@ angular.module('evaluon').factory(
                     messsage = "Ha ocurrido un error en el servidor";
                 }
                 else if(errors[response.status]){
-                    if(errors[response.status][response.data.error]){
-                        message = errors[response.status][response.data.error];
+                    if(errors[response.status][response.data.error.message]){
+                        message = errors[response.status][response.data.error.message];
                     }
                     else{
                         message = 'Error desconocido, si este persiste contacte al administrador';
