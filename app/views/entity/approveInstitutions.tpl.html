@@ -26,14 +26,14 @@
                                 <h4>{{item.address}}</h4>
                                 <h4>{{item.mail}}</h4>
                                 <h4>{{item.phone_number}}</h4>
-                                <md-text-float label="Observaciones" class="long" ng-model="item.observations"></md-text-float>
-                                <md-button class="" aria-label="Aceptar Institucion" ng-click="approve($event, item.id, item.observations)">
+                                <md-text-float label="Observaciones" class="long" ng-model="item.denial_reason"></md-text-float>
+                                <md-button class="" aria-label="Aceptar Institucion" ng-click="approve(item.id)">
                                     <md-tooltip>
                                         Aceptar
                                     </md-tooltip>
                                     <md-icon icon="img/icons/done.svg"></md-icon>
                                 </md-button>
-                                <md-button class="" aria-label="Denegar Institucion" ng-click="reject($event, item.id, item.observations)">
+                                <md-button class="" aria-label="Denegar Institucion" ng-click="reject(item.id, item.denial_reason)">
                                     <md-tooltip>
                                         Denegar
                                     </md-tooltip>
