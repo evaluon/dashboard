@@ -17,6 +17,9 @@ function($mdDialog, $scope, Auth, User, Evaluator, Institution, $mdToast){
     }
 
     function registerUser(user){
+
+        user.password = CryptoJS.SHA1(user.password).toString();
+
         var token =  Auth.client();
         return User.createUser(user, token);
     }
@@ -76,14 +79,23 @@ function($mdDialog, $scope, Auth, User, Evaluator, Institution, $mdToast){
             ).then(function(){
                 return token;
             });
-        }).then(function(){
-            return User.getUser(token.token_type, token.access_token);
-        }).then(function(user){
+        }).then(function(token){
+            return User.getUser(
+                token.token_type, token.access_token
+            ).then(function(user){
+                return { user: user, token: token };
+            });
+        }).then(function(data){
+            var user = data.user,
+                token = data.token;
+
             var institution = _.extend(
                 _.omit($scope.institution, 'evaluator'),
                 { evaluator_id: user.id }
             );
-            return Institution.createInstitution(institution, $scope.file);
+            return Institution.createInstitution(
+                institution, $scope.file, token
+            );
         }).then(function(){
             mdToast(
                 "Tu solicitud ha sido recibida exitosamente. " +
