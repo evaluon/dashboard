@@ -2,21 +2,14 @@
 
 angular.module('evaluon.auth').controller('RegistryCtrl',
 
-function($mdDialog, $scope, Auth, User, Evaluator, Institution, $mdToast){
+function($mdDialog, $scope, Auth, User, Evaluator, Institution){
 
     $scope.file = false;
 
-    function mdToast(message){
-
-        $mdToast.show({
-            template: '<md-toast>{0}</md-toast>'.format(message),
-            hideDelay: 6000,
-            position: 'bottom left'
-        });
-
-    }
-
     function registerUser(user){
+
+        user.password = CryptoJS.SHA1(user.password).toString();
+
         var token =  Auth.client();
         return User.createUser(user, token);
     }
@@ -69,28 +62,37 @@ function($mdDialog, $scope, Auth, User, Evaluator, Institution, $mdToast){
         var user = _.omit($scope.institution.evaluator, 'password2');
 
         registerUser(_.omit(user, 'area')).then(function(){
-            return Auth.password(user.email, user.password);
+            return Auth.password(user.mail, user.password);
         }).then(function(token){
             return Evaluator.setEvaluator(
                 { area: user.area }, token
             ).then(function(){
                 return token;
             });
-        }).then(function(){
-            return User.getUser(token.token_type, token.access_token);
-        }).then(function(user){
+        }).then(function(token){
+            return User.getUser(
+                token.token_type, token.access_token
+            ).then(function(user){
+                return { user: user, token: token };
+            });
+        }).then(function(data){
+            var user = data.user,
+                token = data.token;
+
             var institution = _.extend(
                 _.omit($scope.institution, 'evaluator'),
                 { evaluator_id: user.id }
             );
-            return Institution.createInstitution(institution, $scope.file);
+            return Institution.createInstitution(
+                institution, $scope.file, token
+            );
         }).then(function(){
             mdToast(
                 "Tu solicitud ha sido recibida exitosamente. " +
                 "Revisa en los próximos días si fue aceptada " +
                 "o escribenos a ######@#######.com"
             );
-            // Return & Login
+            $mdDialog.hide(true);
         }).catch(function(response){
             mdToast(response.error);
         });
@@ -103,11 +105,15 @@ function($mdDialog, $scope, Auth, User, Evaluator, Institution, $mdToast){
         var user = _.omit($scope.evaluator, 'password2');
 
         registerUser(_.omit(user, 'area')).then(function(){
-            return Auth.password(user.email, user.password);
+            return Auth.password(user.mail, user.password);
         }).then(function(token){
-            return Evaluator.setEvaluator({ area: user.area }, token);
-        }).then(function(){
-            // Return & Login
+            return Evaluator.setEvaluator(
+                { area: user.area }, token
+            ).then(function(){
+                return token;
+            });
+        }).then(function(token){
+            $mdDialog.hide(false, token);
         }).catch(function(response){
             mdToast(response.error);
         });

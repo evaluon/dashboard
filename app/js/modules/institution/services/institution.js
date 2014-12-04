@@ -63,7 +63,10 @@ angular.module('evaluon.institution').factory(
 
             },
 
-            createInstitution: function(institution, file){
+            createInstitution: function(institution, file, token){
+
+                tokenType = token.token_type || tokenType;
+                token = token.access_token || token;
 
                 return $upload.upload({
                     method: 'post',

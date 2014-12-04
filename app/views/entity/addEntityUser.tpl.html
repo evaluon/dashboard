@@ -1,0 +1,37 @@
+<md-dialog aria-label="Registro Usuario INCI" style="width: 40vw">
+
+    <md-content>
+
+        <md-card>
+            <md-subheader><h2>Registrar Usuario INCI</h2></md-subheader>
+
+            <md-item layout="row" layout-align="center">
+                <md-item-content>
+                    <form name="registerUserForm" ng-submit="register($event, user)">
+
+                        <md-text-float label="Documento de Identidad" type="number" ng-model="user.id" class="long" name="id" ng-class="validateStyleField(registerUserForm, 'id')" required></md-text-float>
+                        <md-text-float label="Nombre" ng-model="user.first_name" class="long" name="first_name" ng-class="validateStyleField(registerUserForm, 'first_name')" required></md-text-float>
+                        <md-text-float label="Apellido" ng-model="user.last_name" class="long" name="last_name" ng-class="validateStyleField(registerUserForm, 'last_name')" required></md-text-float>
+
+                        <md-text-float type="date" label="Fecha de Nacimiento" ng-model="user.birth_date" class="long" name="birth_date" ng-class="validateStyleField(registerUserForm, 'birth_date')" required></md-text-float>
+
+                        <md-text-float type="email" label="Correo Electrónico" ng-model="user.mail" class="long" name="mail" ng-class="validateStyleField(registerUserForm, 'mail')" required> </md-text-float>
+                        <md-text-float label="Número Teléfono" ng-model="user.phone_number" class="long" name="phone_number" ng-class="validateStyleField(registerUserForm, 'phone_number')" required> </md-text-float>
+
+                        <br>
+                        <md-text-float type="password" label="Contraseña" ng-model="user.password" class="long" name="password" ng-class="validateStyleField(registerUserForm, 'password')" minlength="6" required> </md-text-float>
+                        <md-text-float type="password" label="Repite la contraseña" ng-model="user.password2" class="long" name="password2" ng-class="validateStyleField(registerUserForm, 'password2')" required> </md-text-float>
+                        <p class="invalid" ng-if="user.password.length < 6">La contraseña tiene que tener un mínimo de 6 carácteres</p>
+                        <p class="invalid" ng-if="(user.password != user.password2)">Las contraseñas no coinciden</p>
+                        <br>
+                        <div layout="vertical" layout-align="center">
+                            <md-button type="submit" class="md-primary" style="width: 80%;" ng-disabled="registerUserForm.$invalid || user.password.length < 6 || (user.password != user.password2)">Enviar</md-button>
+                        </div>
+
+                    </form>
+                </md-item-content>
+            </md-item>
+        </md-card>
+    </md-content>
+
+</md-dialog>

@@ -1,0 +1,34 @@
+<md-dialog aria-label="Evaluados" style="width: 600px;">
+
+    <md-content>
+
+        <md-card>
+
+            <md-subheader class="md-sticky-no-effect"><h2>Nueva Area de Conocimiento </h2></md-subheader>
+
+            <md-item>
+                <md-item-content>
+                    <div class="md-tile-left">
+                    </div>
+                    <div class="md-tile-content">
+                        <h3>Registrar Area</h3>
+                        <br>
+                        <form name="addAreaForm" ng-submit="add($event, data)">
+                            <md-text-float label="Nombre"  ng-model="data.name" name="name" class="medium" required> </md-text-float>
+                            <md-text-float  label="Descripción" ng-model="data.descripcion" name="name" class="medium" required> </md-text-float>
+                            <md-button type="submit" aria-label="Agregar periodo" ng-disabled="addAreaForm.$invalid" class="md-fab md-primary md-fab-bottom-right" md-theme="red" ng-disabled="addPeriodForm.$invalid || data.start_date >= data.end_date" >
+                                <md-tooltip>
+                                    Agregar
+                                </md-tooltip>
+                                <md-icon icon="img/icons/done.svg"></md-icon>
+                            </md-button>
+                        </form>
+                    </div>
+                </md-item-content>
+            </md-item>
+
+        </md-card>
+
+    </md-content>
+
+</md-dialog>

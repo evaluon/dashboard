@@ -1,12 +1,31 @@
 'use strict';
 
 angular.module('evaluon.auth').controller(
-    'LoginCtrl', function($scope, $state, Auth, User, $mdDialog){
+    'LoginCtrl', function($scope, $state, Auth, User, $mdDialog, $mdToast){
+
+        function mdToast(message){
+
+            $mdToast.show({
+                template: '<md-toast>{0}</md-toast>'.format(message),
+                hideDelay: 6000,
+                position: 'bottom left'
+            });
+
+        }
 
         $scope.user = {
             email: '',
             password: ''
         };
+
+        function login(token, user){
+            token.role = user.role;
+            if(user.institution_id){
+                token.institution = user.institution_id;
+            }
+            Auth.login(token);
+            $state.go('anon.auth');
+        }
 
         $scope.login = function(event){
             event.preventDefault();
@@ -19,12 +38,7 @@ angular.module('evaluon.auth').controller(
                 uToken = token;
                 return User.getUser(token.token_type, token.access_token);
             }).then(function(user){
-                uToken.role = user.role;
-                if(user.institution_id){
-                    uToken.institution = user.institution_id;
-                }
-                Auth.login(uToken);
-                $state.go('anon.auth');
+                login(uToken, user);
             }).catch(function(error){
                 console.error(error);
             });
@@ -37,7 +51,18 @@ angular.module('evaluon.auth').controller(
                 targetEvent: $event,
                 templateUrl: 'views/auth/registry.tpl.html',
                 controller: 'RegistryCtrl',
-                escapeToClose: true
+                escapeToClose: true,
+                onComplete: function(institution, token){
+                    if(!institution){
+                        return User.getUser(
+                            token.token_type, token.access_token
+                        ).then(function(user){
+                            login(token, user);
+                        });
+                    } else {
+
+                    }
+                }
             });
         };
 
