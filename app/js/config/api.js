@@ -7,7 +7,7 @@ var apiRouter = {
     },
     url: {
         protocol: 'http',
-        host: 'evaluon.boolinc.co'
+        host: 'localhost:3004'
     },
     route: function(path){
         var url = this.url;
