@@ -37,6 +37,12 @@ angular.module('evaluon.entity', ['ui.router']).config(
                 templateUrl: 'views/entity/approveInstitutions.tpl.html',
                 controller: 'ApproveInstitutionsCtrl'
             }
+        ).state(
+            'entity.approveAreas', {
+                url: '/approve-areas',
+                templateUrl: 'views/entity/approveAreas.tpl.html',
+                controller: 'ApproveAreasCtrl'
+            }
         );
 
     }

@@ -2,10 +2,10 @@
     <div flex= "90" layout-fill>
         <md-toolbar class="md-default-theme md-whiteframe-z1">
             <div class="md-toolbar-tools">
-                <span>Aprovar Instituciones</span>
+                <span>Aprovar Areas</span>
                 <span flex></span>
 
-                <md-button class="md-fab md-primary button-toolbar" aria-label="Recargar" ng-click="getInstitutions()">
+                <md-button class="md-fab md-primary button-toolbar" aria-label="Recargar" ng-click="getAreas()">
                     <md-tooltip>
                         Recargar
                     </md-tooltip>
@@ -15,7 +15,7 @@
         </md-toolbar>
         <md-content flex layout="vertical" class="md-default-theme md-whiteframe-z1" style="height: 500px;">
             <md-list>
-                <md-item ng-repeat="item in institutions">
+                <md-item ng-repeat="item in areas">
                     <md-card>
                         <md-item-content>
                             <div class="md-tile-left">
@@ -23,9 +23,7 @@
                             </div>
                             <div class="md-tile-content">
                                 <h3>{{item.name}}</h3>
-                                <h4>{{item.address}}</h4>
-                                <h4>{{item.mail}}</h4>
-                                <h4>{{item.phone_number}}</h4>
+                                <h4>{{item.description}}</h4>
                                 <md-text-float label="Observaciones" class="long" ng-model="item.observations"></md-text-float>
                                 <md-button class="" aria-label="Aceptar Institucion" ng-click="approve($event, item.id, item.observations)">
                                     <md-tooltip>
