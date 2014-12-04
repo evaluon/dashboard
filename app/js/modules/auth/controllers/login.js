@@ -19,11 +19,11 @@ angular.module('evaluon.auth').controller(
         };
 
         function login(token, user){
-            uToken.role = user.role;
+            token.role = user.role;
             if(user.institution_id){
-                uToken.institution = user.institution_id;
+                token.institution = user.institution_id;
             }
-            Auth.login(uToken);
+            Auth.login(token);
             $state.go('anon.auth');
         }
 
@@ -38,7 +38,7 @@ angular.module('evaluon.auth').controller(
                 uToken = token;
                 return User.getUser(token.token_type, token.access_token);
             }).then(function(user){
-                login(token, user);
+                login(uToken, user);
             }).catch(function(error){
                 console.error(error);
             });
