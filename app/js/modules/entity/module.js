@@ -9,6 +9,7 @@ angular.module('evaluon.entity', ['ui.router']).config(
                 abstract: true,
                 url: '/entity',
                 templateUrl: 'views/entity/entity.tpl.html',
+                controller: 'EntityMenuCtrl',
                 data: {
                     access: authorizationProvider.$get().accessLevels.entity
                 }
@@ -36,6 +37,12 @@ angular.module('evaluon.entity', ['ui.router']).config(
                 url: '/approve-institutions',
                 templateUrl: 'views/entity/approveInstitutions.tpl.html',
                 controller: 'ApproveInstitutionsCtrl'
+            }
+        ).state(
+            'entity.approveAreas', {
+                url: '/approve-areas',
+                templateUrl: 'views/entity/approveAreas.tpl.html',
+                controller: 'ApproveAreasCtrl'
             }
         );
 
