@@ -37,7 +37,7 @@ angular.module('evaluon.evaluator').factory(
 
             },
 
-            createKnowledgeArea: function(data){
+            createKnowledgeArea: function(area){
 
                 return $http({
                     method: 'post',
@@ -46,11 +46,9 @@ angular.module('evaluon.evaluator').factory(
                         Authorization: headers.authorization(tokenType, token),
                         'Content-Type': headers.json
                     },
-                    data: {
-                        id: data
-                    }
-                }).then(function(data){
-                    return data.data.data;
+                    data: area
+                }).then(function(response){
+                    return response.data.data;
                 });
 
             },
