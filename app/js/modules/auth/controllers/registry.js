@@ -2,7 +2,7 @@
 
 angular.module('evaluon.auth').controller('RegistryCtrl',
 
-function($mdDialog, $scope, Auth, User, Evaluator, Institution){
+function($mdDialog, toast, $scope, Auth, User, Evaluator, Institution){
 
     $scope.file = false;
 
@@ -14,49 +14,17 @@ function($mdDialog, $scope, Auth, User, Evaluator, Institution){
         return User.createUser(user, token);
     }
 
-    $scope.institution = {
-        id: '',
-        name: '',
-        address: '',
-        mail: '',
-        phone_number: '',
-        description: '',
-        evaluator: {
-            id: '',
-            first_name: '',
-            last_name: '',
-            birth_date: new Date(),
-            mail: '',
-            phone_number: '',
-            area: '',
-            password: '',
-            password2: ''
-        }
-    };
+    $scope.institution = { evaluator: { birth_date: new Date() } };
 
-    $scope.evaluator = {
-        id: '',
-        first_name: '',
-        last_name: '',
-        birth_date: new Date(),
-        mail: '',
-        phone_number: '',
-        area: '',
-        password: '',
-        password2: ''
-    };
+    $scope.evaluator = { birth_date: new Date() };
 
     $scope.onFile = function($files, event){
-        console.log("Not prevented")
-
         event.preventDefault();
-        console.log("Prevented (?) Yay!")
         $scope.file = $files[0];
     };
 
 
     $scope.registerInstitution = function(event, valid){
-        console.log(valid);
         event.preventDefault();
 
         var user = _.omit($scope.institution.evaluator, 'password2');
@@ -70,31 +38,25 @@ function($mdDialog, $scope, Auth, User, Evaluator, Institution){
                 return token;
             });
         }).then(function(token){
-            return User.getUser(
-                token.token_type, token.access_token
-            ).then(function(user){
-                return { user: user, token: token };
-            });
-        }).then(function(data){
-            var user = data.user,
-                token = data.token;
+            return User.getUser(token.token_type, token.access_token);
+        }).then(function(user){
 
             var institution = _.extend(
                 _.omit($scope.institution, 'evaluator'),
                 { evaluator_id: user.id }
             );
             return Institution.createInstitution(
-                institution, $scope.file, token
+                institution, $scope.file, Auth.client()
             );
         }).then(function(){
-            mdToast(
+            toast.show(
                 "Tu solicitud ha sido recibida exitosamente. " +
                 "Revisa en los próximos días si fue aceptada " +
                 "o escribenos a ######@#######.com"
             );
             $mdDialog.hide(true);
         }).catch(function(response){
-            mdToast(response.error);
+            toast.show(response.error);
         });
 
     };
@@ -115,7 +77,7 @@ function($mdDialog, $scope, Auth, User, Evaluator, Institution){
         }).then(function(token){
             $mdDialog.hide(false, token);
         }).catch(function(response){
-            mdToast(response.error);
+            toast.show(response.error);
         });
 
     };

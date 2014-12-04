@@ -14,8 +14,8 @@
                         <h3>Registrar Area</h3>
                         <br>
                         <form name="addAreaForm" ng-submit="add($event, data)">
-                            <md-text-float label="Nombre"  ng-model="data.id" name="name" class="medium" required> </md-text-float>
-                            <md-text-float  label="Descripción" ng-model="data.description" name="name" class="medium" required> </md-text-float>
+                            <md-text-float label="Nombre" ng-model="data.id" name="id" class="medium" required> </md-text-float>
+                            <md-text-float  label="Descripción" ng-model="data.description" name="description" class="medium" required> </md-text-float>
                             <md-button type="submit" aria-label="Agregar periodo" ng-disabled="addAreaForm.$invalid" class="md-fab md-primary md-fab-bottom-right" md-theme="red" ng-disabled="addPeriodForm.$invalid" >
                                 <md-tooltip>
                                     Agregar
