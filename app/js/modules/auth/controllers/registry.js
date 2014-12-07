@@ -23,6 +23,10 @@ function($mdDialog, toast, $scope, Auth, User, Evaluator, Institution){
         $scope.file = $files[0];
     };
 
+    $scope.deleteFile = function(){
+        $scope.file = null;
+    };
+
 
     $scope.registerInstitution = function(event, valid){
         event.preventDefault();
