@@ -1,16 +1,17 @@
 'use strict';
 
-angular.module('evaluon.institution').controller(
-    'GroupByEvaluatorCtrl', function($scope, $stateParams, $mdDialog, Group){
+angular.module('evaluon.institution').controller('GroupByEvaluatorCtrl',
+    function($scope, $stateParams, $mdDialog, toast, Group){
 
         $scope.groups = [];
 
         $scope.getGroups = function(){
 
-            Group.evaluatorGroups($stateParams.id).then(function(institutionId){
-                return Group.institutionGroups(institutionId);
-            }).then(function(groups){
+            Group.institutionGroups($stateParams.id).then(function(groups){
                 $scope.groups = groups;
+            }).catch(function(response){
+                console.log(response);
+                toast.show(response.error);
             });
 
         };
@@ -26,5 +27,4 @@ angular.module('evaluon.institution').controller(
                 locals: { id: $stateParams.id}
             });
         };
-    }
-);
+    };
