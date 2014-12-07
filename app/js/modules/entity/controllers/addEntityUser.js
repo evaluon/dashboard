@@ -6,12 +6,7 @@ function($mdDialog, $scope, Auth, User, toast){
 
     $scope.file = false;
 
-    console.log('register');
-
     $scope.register = function($event, user){
-
-        console.log('registering');
-
         $event.preventDefault();
 
         var entityUser = angular.copy(user);

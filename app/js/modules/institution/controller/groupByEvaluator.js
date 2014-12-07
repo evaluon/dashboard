@@ -16,15 +16,17 @@ angular.module('evaluon.institution').controller('GroupByEvaluatorCtrl',
 
         };
 
-        $scope.getGroups();
-
         $scope.addGroup = function($event){
             $mdDialog.show({
                 targetEvent: $event,
                 templateUrl: 'views/institution/addGroup.tpl.html',
                 controller: 'AddGroupCtrl',
                 onComplete: $scope.getGroups(),
-                locals: { id: $stateParams.id}
+                locals: { id: $stateParams.id }
             });
         };
-    };
+
+        $scope.getGroups();
+
+    }
+);
