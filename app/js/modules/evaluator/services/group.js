@@ -17,8 +17,8 @@ angular.module('evaluon.evaluator').factory(
                     headers: {
                         Authorization: headers.authorization(tokenType, token)
                     }
-                }).then(function(data){
-                    return data.data.data;
+                }).then(function(response){
+                    return response.data.data;
                 });
 
             },
