@@ -106,7 +106,7 @@ angular.module('evaluon.evaluator').factory(
 
             },
 
-            approveKnowledgeArea: function(id, reason){
+            denyKnowledgeArea: function(id, reason){
 
                 return $http({
                     method: 'delete',
