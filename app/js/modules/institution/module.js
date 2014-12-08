@@ -65,6 +65,12 @@ angular.module('evaluon.institution', ['ui.router']).config(
                 templateUrl: 'views/evaluator/evalueeInTest.tpl.html',
                 controller: 'EvalueeTestCtrl'
             }
+        ).state(
+            'institution.scoreTest', {
+                url:'/score-test/:id/evaluee/:evalueeId',
+                templateUrl: 'views/evaluator/score.tpl.html',
+                controller: 'ScoreTestCtrl'
+            }
         );
 
     }
