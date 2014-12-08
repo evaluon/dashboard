@@ -14,18 +14,6 @@ angular.module('evaluon.entity').controller(
             });
         };
 
-        $scope.addInstitution = function($event){
-            $mdDialog.show({
-                targetEvent: $event,
-                templateUrl: 'views/entity/addInstitution.tpl.html',
-                controller: 'AddInstitutionCtrl',
-                escapeToClose: true,
-                onComplete: function(){
-                    $scope.getInstitutions();
-                }
-            });
-        };
-
         $scope.getInstitutions();
 
     }
