@@ -20,7 +20,15 @@ function($mdDialog, toast, $scope, Auth, User, Evaluator, Institution){
 
     $scope.onFile = function($files, event){
         event.preventDefault();
-        $scope.file = $files[0];
+        if($scope.file.size >= 2097152){
+            $scope.file = $files[0];
+        } else {
+            toast.show(
+                "El tamaño del archivo es muy grande, recuerde " +
+                "que no debe ser mayor a 2MB."
+            );
+            $scope.file = null;
+        }
     };
 
     $scope.deleteFile = function(){
