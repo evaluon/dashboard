@@ -23,6 +23,12 @@
                             <h3>Grupo {{item.id}}: {{item.user.first_name}} {{item.user.last_name}}</h3>
                             <h4>{{item.institution.name}}</h4>
                             <h4>{{item.institution.address}}</h4>
+                            <md-button class="md-fab md-fab-bottom-right" ui-sref="institution.test({institution: item.institution.id, id: item.id})">
+                                <md-tooltip>
+                                    Exámenes
+                                </md-tooltip>
+                                <md-icon icon="img/icons/description.svg"></md-icon>
+                            </md-button>
                         </div>
                     </md-item-content>
                 </md-item>

@@ -13,7 +13,7 @@
             </div>
         </md-toolbar>
         <md-content flex layout="vertical" class="md-default-theme md-whiteframe-z1" style="height: 500px;">
-            <md-button ui-sref="evaluator.addTest({institution: institutionId, id: groupId})"class="md-primary md-fab md-fab-bottom-right" md-theme="red" ng-click="addInstitution()" style="position: fixed;">
+            <md-button ng-class="{'no-permission': !$state.includes('institution.test') }" ui-sref="evaluator.addTest({institution: institutionId, id: groupId})"class="md-primary md-fab md-fab-bottom-right" md-theme="red" ng-click="addInstitution()" style="position: fixed;">
                 <md-tooltip>
                     Agregar examen
                 </md-tooltip>
@@ -29,13 +29,21 @@
                                 <br>
                                 <h4>Clave de acceso: <b>{{item.hotp}}</b></h4>
 
-                                <md-button class="md-fab md-fab-top-right" ng-click="">
+                                <md-button ng-class="{'no-permission': !$state.includes('institution.test')}" class="md-fab md-fab-top-right" ng-click="">
                                     <md-tooltip>
                                         Cambiar periodo
                                     </md-tooltip>
                                     <md-icon icon="img/icons/restore.svg"></md-icon>
                                 </md-button>
-                                <md-button class="" ui-sref="evaluator.evalueeTest({group: groupId, id: item.id})">
+
+                                <md-button ng-if="includeInstitution" ui-sref="institution.evalueeTest({group: groupId, id: item.id})">
+                                    <md-tooltip>
+                                        Supervisar
+                                    </md-tooltip>
+                                    <md-icon icon="img/icons/supervisor.svg"></md-icon>
+                                </md-button>
+
+                                <md-button ng-if="includeEvaluator" ui-sref="evaluator.evalueeTest({group: groupId, id: item.id})">
                                     <md-tooltip>
                                         Supervisar
                                     </md-tooltip>

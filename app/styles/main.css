@@ -75,3 +75,7 @@ select {
     border: 1.5px solid #FFCDD2;
     border-radius: 3px;
 }
+.no-permission
+{
+    display: none;
+}
