@@ -10,6 +10,10 @@ angular.module('evaluon').service(
                 hideDelay: 6000,
                 position: 'bottom left'
             });
-        };
+        },
+        this.showSuccess = function(){
+            var that = this;
+            
+        }
     }
 )
