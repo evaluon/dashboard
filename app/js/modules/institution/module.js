@@ -16,7 +16,7 @@ angular.module('evaluon.institution', ['ui.router']).config(
             }
         ).state(
             'institution.home', {
-                url: '/',
+                url: '',
                 templateUrl: 'views/institution/home.tpl.html',
                 controller: 'InstitutionCtrl'
             }

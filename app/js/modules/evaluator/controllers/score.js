@@ -1,9 +1,12 @@
 'use strict';
 
 angular.module('evaluon.evaluator').controller(
-    'ScoreTestCtrl', function($scope, $stateParams, Test, Answer){
+    'ScoreTestCtrl', function($scope, $stateParams, $state, Test, Answer){
 
         $scope.test = [];
+
+        $scope.inInstitution = $state.includes('institution');
+        $scope.inEvaluator= $state.includes('evaluator');
 
         $scope.getResults = function(){
 
