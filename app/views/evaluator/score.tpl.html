@@ -38,7 +38,7 @@
                                     <h4 ng-if="item.right == 1" style="color: #5ed95b">Correcta</h4>
                                     <h4 ng-if="item.right == null">No Calificada</h4>
                                 </div>
-                                <div ng-class="{'no-permission': !$state.includes('institution') }" ng-if="item.right == null">
+                                <div ng-class="{'no-permission': inInstitution }" ng-if="item.right == null">
                                     <md-button class="md-fab" ng-click="calificate(item.answer_id, true)">
                                         <md-tooltip>
                                             Correcta
@@ -56,7 +56,7 @@
                         </md-item-content>
                     </md-card>
                 </md-item>
-                <md-item ng-class="{'no-permission': !$state.includes('institution') }">
+                <md-item ng-class="{'no-permission': inInstitution }">
                     <md-card>
                         <md-item-content>
                             <div class="md-tile-left"><h3></h3></div>

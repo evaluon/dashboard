@@ -27,4 +27,4 @@ angular.module('evaluon.institution').controller('GroupByEvaluatorCtrl',
                 locals: { id: $stateParams.id}
             });
         };
-    };
+    }
