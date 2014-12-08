@@ -23,36 +23,6 @@ angular.module('evaluon.evaluator').factory(
 
             },
 
-            listKnowledgeAreas: function(){
-
-                return $http({
-                    method: 'get',
-                    url: api.knowledgeArea,
-                    headers: {
-                        Authorization: headers.authorization(tokenType, token)
-                    }
-                }).then(function(data){
-                    return data.data.data;
-                });
-
-            },
-
-            createKnowledgeArea: function(area){
-
-                return $http({
-                    method: 'post',
-                    url: api.knowledgeArea,
-                    headers: {
-                        Authorization: headers.authorization(tokenType, token),
-                        'Content-Type': headers.json
-                    },
-                    data: area
-                }).then(function(response){
-                    return response.data.data;
-                });
-
-            },
-
             createQuestion: function(question){
 
                 return $http({
@@ -84,6 +54,71 @@ angular.module('evaluon.evaluator').factory(
                     file: image.location
                 }).then(function(result){
                     return result.data.data;
+                });
+
+            },
+
+
+            listKnowledgeAreas: function(unapproved){
+
+                return $http({
+                    method: 'get',
+                    url: api.knowledgeArea,
+                    headers: {
+                        Authorization: headers.authorization(tokenType, token)
+                    },
+                    params: {
+                        unapproved: unapproved || false
+                    }
+                }).then(function(data){
+                    return data.data.data;
+                });
+
+            },
+
+            createKnowledgeArea: function(area){
+
+                return $http({
+                    method: 'post',
+                    url: api.knowledgeArea,
+                    headers: {
+                        Authorization: headers.authorization(tokenType, token),
+                        'Content-Type': headers.json
+                    },
+                    data: area
+                }).then(function(response){
+                    return response.data.data;
+                });
+
+            },
+
+            approveKnowledgeArea: function(id){
+
+                return $http({
+                    method: 'put',
+                    url: api.id(api.knowledgeArea, id),
+                    headers: {
+                        Authorization: headers.authorization(tokenType, token)
+                    }
+                }).then(function(response){
+                    return response.data.data;
+                });
+
+            },
+
+            approveKnowledgeArea: function(id, reason){
+
+                return $http({
+                    method: 'delete',
+                    url: api.id(api.knowledgeArea, id),
+                    headers: {
+                        Authorization: headers.authorization(tokenType, token)
+                    },
+                    data: {
+                        denial_reason: reason
+                    }
+                }).then(function(response){
+                    return response.data.data;
                 });
 
             }

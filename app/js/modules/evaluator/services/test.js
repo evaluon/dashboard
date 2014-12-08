@@ -57,11 +57,11 @@ angular.module('evaluon.evaluator').factory(
 
             },
 
-            updateTest: function(test){
+            updateTest: function(id, test){
 
                 return $http({
                     method: 'put',
-                    url: api.test,
+                    url: api.id(api.test, id),
                     headers: {
                         Authorization: headers.authorization(tokenType, token),
                         'Content-Type': headers.json
