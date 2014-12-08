@@ -9,9 +9,9 @@ angular.module('evaluon').service(
                 position: 'bottom left'
             });
         };
-        
-        this.showSuccess = function(message){
-            this.show("Petición finalizada exitosamente");
+
+        this.showSuccess = function(){
+            this.show('Petición realizada exitosamente');
         };
 
     }
