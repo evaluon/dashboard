@@ -29,7 +29,7 @@
                                 <br>
                                 <h4>Clave de acceso: <b>{{item.hotp}}</b></h4>
 
-                                <md-button ng-class="{'no-permission': includeInstitution }" class="md-fab md-fab-top-right" ng-click="">
+                                <md-button ng-class="{'no-permission': includeInstitution }" ng-click="uptadeTestPeriod($event, item)" class="md-fab md-fab-top-right" ng-click="">
                                     <md-tooltip>
                                         Cambiar periodo
                                     </md-tooltip>
