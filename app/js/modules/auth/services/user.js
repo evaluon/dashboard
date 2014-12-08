@@ -57,7 +57,30 @@ angular.module('evaluon.auth').factory(
                     return data.data.data;
                 });
 
+            },
+
+            recoverPassword: function(mail){
+
+                var user = Auth.client(),
+                    tokenType = user.token_type,
+                    token = user.access_token;
+
+                return $http({
+                    method: 'delete',
+                    url: api.user,
+                    headers: {
+                        Authorization: headers.authorization(tokenType, token),
+                        'Content-Type': headers.json
+                    },
+                    data: {
+                        mail: mail
+                    }
+                }).then(function(data){
+                    return data.data.data;
+                });
+
             }
+
 
         };
 
