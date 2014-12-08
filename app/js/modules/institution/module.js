@@ -47,6 +47,30 @@ angular.module('evaluon.institution', ['ui.router']).config(
                 templateUrl: 'views/institution/period.tpl.html',
                 controller: 'InstitutionPeriodCtrl'
             }
+        ).state(
+            'institution.test', {
+                url:'/test/:institution/:id',
+                templateUrl: 'views/evaluator/tests.tpl.html',
+                controller: 'TestCtrl'
+            }
+        ).state (
+            'institution.addTest', {
+                url:'/test/add/:institution/:id/',
+                templateUrl: 'views/evaluator/addTest.tpl.html',
+                controller: 'AddTestCtrl'
+            }
+        ).state(
+            'institution.evalueeTest', {
+                url: '/test/:group/evaluee/:id',
+                templateUrl: 'views/evaluator/evalueeInTest.tpl.html',
+                controller: 'EvalueeTestCtrl'
+            }
+        ).state(
+            'institution.scoreTest', {
+                url:'/score-test/:id/evaluee/:evalueeId',
+                templateUrl: 'views/evaluator/score.tpl.html',
+                controller: 'ScoreTestCtrl'
+            }
         );
 
     }

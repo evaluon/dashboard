@@ -1,7 +1,10 @@
 'use strict';
 
 angular.module('evaluon.evaluator').controller(
-    'TestCtrl', function($scope, $stateParams, GroupTest){
+    'TestCtrl', function($scope, $stateParams, $state, GroupTest){
+
+        $scope.includeInstitution = $state.includes('institution.test');
+        $scope.includeEvaluator = $state.includes('evaluator.test');
 
         $scope.groupId = $stateParams.id;
         $scope.institutionId = $stateParams.institution;

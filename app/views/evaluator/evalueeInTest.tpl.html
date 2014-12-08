@@ -33,7 +33,13 @@
                                 <h4>{{item.disability}}</h4>
                                 <br>
                                 <!-- md-fab md-fab-bottom-right-->
-                                <md-button class="md-fab md-fab-top-right" ui-sref="evaluator.scoreTest({id: testId, evalueeId: item.id})" aria-label="Calificar examen">
+                                <md-button ng-if="inInstitution" class="md-fab md-fab-top-right" ui-sref="institution.scoreTest({id: testId, evalueeId: item.id})" aria-label="Calificar examen">
+                                    <md-tooltip>
+                                        Calificar
+                                    </md-tooltip>
+                                    <md-icon icon="img/icons/assignment_turned_in.svg"></md-icon>
+                                </md-button>
+                                <md-button ng-if="inEvaluator" class="md-fab md-fab-top-right" ui-sref="evaluator.scoreTest({id: testId, evalueeId: item.id})" aria-label="Calificar examen">
                                     <md-tooltip>
                                         Calificar
                                     </md-tooltip>
