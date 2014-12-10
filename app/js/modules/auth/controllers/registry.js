@@ -20,6 +20,7 @@ function($mdDialog, toast, $scope, Auth, User, Evaluator, Institution){
 
     $scope.onFile = function($files, event){
         event.preventDefault();
+        console.log($files[0]);
         if($files[0].size >= 2097152){
             $scope.file = $files[0];
         } else {
