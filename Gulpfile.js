@@ -89,6 +89,11 @@ gulp.task('copy', function(){
     .pipe(gulp.dest('./dist'));
     gulp.src('./app/img/**')
     .pipe(gulp.dest('./dist/img'));
+    gulp.src('./app/styles/material-icons/**')
+    .pipe(gulp.dest('./dist/styles/material-icons'));
+    gulp.src('./app/styles/material-icons.css')
+    .pipe(gulp.dest('./dist/styles'));
+
 });
 
 gulp.task('uncss', function(){
