@@ -19,28 +19,6 @@
                 </form>
             </md-content>
 
-            <md-content flex>
-                <form ng-submit="registerNew($event)">
-
-                    <md-subheader style="padding-left: 0">Registrar Evaluador</md-subheader>
-
-                    <md-text-float label="Documento de Identidad" ng-model="user.id" ng-required="true"></md-text-float>
-                    <md-text-float label="Nombre" ng-model="user.first_name" ng-required="true"></md-text-float>
-                    <md-text-float label="Apellido" ng-model="user.last_name" ng-required="true"></md-text-float>
-
-                    <md-text-float type="datetime-local" label="Fecha de Nacimiento" ng-model="user.birth_date" ng-required="true"></md-text-float>
-
-                    <md-text-float type="email" label="Correo Electrónico" ng-model="user.mail" ng-required="true"> </md-text-float>
-                    <md-text-float label="Número Teléfono" ng-model="user.phone_number" ng-required="true"> </md-text-float>
-
-                    <md-text-float type="password" label="Contraseña" ng-model="user.password" ng-required="true"> </md-text-float>
-                    <md-text-float label="Área de trabajo" ng-model="evaluator.area" ng-required="true"></md-text-float>
-
-                    <md-button type="submit" class="md-primary">Registrar</md-button>
-
-                </form>
-            </md-content>
-
         </md-content>
 
 
