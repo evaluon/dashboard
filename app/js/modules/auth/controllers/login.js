@@ -66,5 +66,26 @@ angular.module('evaluon.auth').controller(
             });
         };
 
+        $scope.forgotPassword = function(){
+
+            $mdDialog.show({
+                targetEvent: $event,
+                templateUrl: 'views/auth/recover.tpl.html',
+                controller: 'RecoverPasswordCtrl',
+                escapeToClose: true,
+                onComplete: function(error){
+                    if(!error) {
+                        toast.show(
+                            "Su nueva contraseña ha sido enviada a su " +
+                            "correo electrónico."
+                        );
+                    } else {
+                        toast.show(error.message);
+                    }
+                }
+            });
+
+        };
+
     }
 );
