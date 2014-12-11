@@ -1,0 +1,21 @@
+<md-dialog aria-label="Recordar contraseña contraseña" style="width: 40vw">
+
+    <md-content>
+        <div layout-align="center">
+            <md-header class="md-sticky-no-effect"><h4> Recordar contraseña:</h4></md-header>
+
+            <form name="recoverPasswordForm" ng-submit="recoverPassword($event)">
+
+                <md-text-float label="Correo" type="email" ng-model="mail" class="long" name="email" ng-class="validateStyleField(recoverPasswordForm, 'email')" required></md-text-float>
+
+                <div layout="vertical" layout-align="center">
+                    <md-button type="submit" class="md-primary" style="width: 80%;" ng-disabled="recoverPasswordForm.$invalid">Enviar</md-button>
+                </div>
+
+            </form>
+        </div>
+        </div>
+
+    </md-content>
+
+</md-dialog>

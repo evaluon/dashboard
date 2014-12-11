@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('evaluon.auth').controller(
-    'LoginCtrl', function($scope, $state, Auth, User, $mdDialog, $mdToast){
+    'LoginCtrl', function($scope, $state, Auth, User, $mdDialog, $mdToast, toast){
 
         function mdToast(message){
 
@@ -40,13 +40,12 @@ angular.module('evaluon.auth').controller(
             }).then(function(user){
                 login(uToken, user);
             }).catch(function(error){
-                console.error(error);
+                toast.show('Usuario y contraseña no coinciden');
             });
 
         };
 
         $scope.registry = function($event){
-
             $mdDialog.show({
                 targetEvent: $event,
                 templateUrl: 'views/auth/registry.tpl.html',
@@ -66,7 +65,7 @@ angular.module('evaluon.auth').controller(
             });
         };
 
-        $scope.forgotPassword = function(){
+        $scope.forgotPassword = function($event){
 
             $mdDialog.show({
                 targetEvent: $event,

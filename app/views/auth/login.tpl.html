@@ -8,8 +8,8 @@
         </md-toolbar>
         <md-content class="md-padding md-whiteframe-z5" md-theme="light-blue-dark" layout-padding layout-align="center">
             <form layout="vertical" layout-align="center center" ng-submit="login($event)">
-                <md-text-float label="Correo" type="email" ng-model="user.email" ng-required="true"> </md-text-float>
-                <md-text-float label="Contraseña" type="password" ng-model="user.password" ng-required="true"> </md-text-float>
+                <md-text-float label="Correo" type="email" ng-model="user.email" ng-required="true" class="large"> </md-text-float>
+                <md-text-float label="Contraseña" type="password" ng-model="user.password" ng-required="true" class="large"> </md-text-float>
                 <md-button type="submit" aria-label="Iniciar Sesion" md-theme="light-blue-dark" class="md-primary">
                     Iniciar Sesion
                 </md-button>
@@ -19,6 +19,9 @@
             <div layout="vertical" layout-align="center">
                 <md-button aria-label="Registro" ng-click="registry($event)" md-theme="light-blue-dark" class="md-primary">
                     Registro
+                </md-button>
+                <md-button aria-label="Olvidé mi contraseña" ng-click="forgotPassword($event)" class="md-primary">
+                    Olvidé mi contraseña
                 </md-button>
             </div>
         </md-content>
