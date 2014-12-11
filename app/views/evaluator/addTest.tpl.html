@@ -11,21 +11,21 @@
                     <md-tooltip>
                         Añadir pregunta cerrada
                     </md-tooltip>
-                    <md-icon icon="/img/icons/done_all.svg"></md-icon>
+                    <i class="mi mi-done-all"></i>
                 </md-button>
 
                 <md-button class="md-fab md-primary" aria-label="Recargar" ng-click="addOpenQuestion()">
                     <md-tooltip>
                         Añadir pregunta abierta
                     </md-tooltip>
-                    <md-icon icon="/img/icons/create.svg"></md-icon>
+                    <i class="mi mi-create"></i>
                 </md-button>
 
                 <md-button class="md-fab md-primary" aria-label="Recargar" ng-click="addQuestionBank($event)">
                     <md-tooltip>
                         Añadir pregunta del banco
                     </md-tooltip>
-                    <md-icon icon="/img/icons/archive.svg"></md-icon>
+                    <i class="mi mi-archive"></i>
                 </md-button>
 
             </div>
@@ -39,7 +39,7 @@
                     <md-tooltip>
                         Agregar examen
                     </md-tooltip>
-                    <md-icon icon="img/icons/done.svg"></md-icon>
+                    <i class="mi mi-done"></i>
                 </md-button>
                 <md-list>
 
@@ -86,21 +86,21 @@
                                                 <md-tooltip>
                                                     Valor de dificultad entre 1 y 480
                                                 </md-tooltip>
-                                                <md-icon icon="img/icons/live_help.svg"></md-icon>
+                                                <i class="mi mi-live-help"></i>
                                             </md-button>
                                         </div>
                                     </div>
                                     <div class="row" layout="horizontal">
                                         <div flex="10">
-                                            <md-button ng-file-select="onImage(item, $files)">
+                                            <md-button ng-file-select="onImage(item, $files)" accept="image/jpeg">
                                                 <md-tooltip>Añadir imagen</md-tooltip>
-                                                <md-icon icon="img/icons/img.svg"></md-icon>
+                                                <i class="mi mi-img"></i>
                                             </md-button>
                                         </div>
                                         <div flex="10">
                                             <md-button ng-if="item.image.location" ng-click="deleteImage(item)">
                                                 <md-tooltip>Eliminar imagen</md-tooltip>
-                                                <md-icon icon="img/icons/clear.svg"></md-icon>
+                                                <i class="mi mi-clear"></i>
                                             </md-button>
                                         </div>
                                     </div>
@@ -125,7 +125,7 @@
                                                 <md-tooltip>
                                                     Valor de dificultad entre 1 y 480
                                                 </md-tooltip>
-                                                <md-icon icon="img/icons/live_help.svg"></md-icon>
+                                                <i class="mi mi-live-help"></i>
                                             </md-button>
                                         </div>
                                     </div>
@@ -138,7 +138,7 @@
                                                 <md-tooltip>
                                                     Añadir imagen
                                                 </md-tooltip>
-                                                <md-icon icon="img/icons/img.svg"></md-icon>
+                                                <i class="mi mi-img"></i>
                                             </md-button>
                                         </div>
                                         <div flex="10">
@@ -146,7 +146,7 @@
                                                 <md-tooltip>
                                                     Eliminar imagen
                                                 </md-tooltip>
-                                                <md-icon icon="img/icons/clear.svg"></md-icon>
+                                                <i class="mi mi-clear"></i>
                                             </md-button>
                                         </div>
                                     </div>
@@ -167,7 +167,7 @@
                                     <md-tooltip>
                                         Eliminar pregunta
                                     </md-tooltip>
-                                    <md-icon icon="img/icons/delete.svg"></md-icon>
+                                    <i class="mi mi-delete"></i>
                                 </md-button>
 
                             </md-item-content>

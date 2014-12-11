@@ -1,9 +1,12 @@
 .mi {
+    margin: auto;
+    padding: 0;
     display: inline-block;
-    font-size: inherit;
-    text-rendering: auto;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
+    margin-top: 4px;
+    background-repeat: no-repeat no-repeat;
+    pointer-events: none;
+    height: 25px;
+    width: 25px;
 }
 
 .mi-lg {

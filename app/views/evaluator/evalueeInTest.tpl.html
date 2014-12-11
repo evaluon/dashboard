@@ -9,14 +9,14 @@
                     <md-tooltip>
                         Exportar
                     </md-tooltip>
-                    <md-icon icon="/img/icons/cloud_download.svg"></md-icon>
+                    <i class="mi mi-cloud-download"></i>
                 </md-button>
 
                 <md-button class="md-fab md-primary button-toolbar" aria-label="Recargar" ng-click="getEvaluees()">
                     <md-tooltip>
                         Recargar
                     </md-tooltip>
-                    <md-icon icon="/img/icons/refresh.svg"></md-icon>
+                    <i class="mi mi-refresh"></i>
                 </md-button>
             </div>
         </md-toolbar>
@@ -37,13 +37,13 @@
                                     <md-tooltip>
                                         Calificaciones
                                     </md-tooltip>
-                                    <md-icon icon="img/icons/assignment_turned_in.svg"></md-icon>
+                                    <i class="mi mi-assignment-turned-in"></i>
                                 </md-button>
                                 <md-button ng-if="inEvaluator" class="md-fab md-fab-top-right" ui-sref="evaluator.scoreTest({id: testId, evalueeId: item.id})" aria-label="Calificar examen">
                                     <md-tooltip>
                                         Calificar
                                     </md-tooltip>
-                                    <md-icon icon="img/icons/assignment_turned_in.svg"></md-icon>
+                                    <i class="mi mi-assignment-turned-in"></i>
                                 </md-button>
                             </div>
                         </md-item-content>

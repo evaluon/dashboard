@@ -21,14 +21,15 @@
                         <div layout="horizontal">
 
                             <div layout="vertical" layout-align="center" class="md-default-theme md-button-inner" ng-file-select="onFile($files, $event)" accept="image/jpeg" style="width: 80%;">
-                                <a href="#" layout="vertical" layout-align="center" ng-class="{'img-warn': !file}" class="mi mi-center mi-img">
+                                <a href="#" layout="vertical" layout-align="center" ng-class="{'img-warn': !file}" >
+                                    <i class="mi mi-center mi-img"></i>
                                 </a>
 
                             </div>
 
                             <div layout="horizontal" ng-if="file" layout-align="center" class="md-default-theme md-button-inner" ng-click="deleteFile()" style="width: 80%;">
                                 <a href="#" layout="vertical" layout-align="center">
-                                    <md-icon icon="img/icons/clear.svg" alt"Eliminar"></md-icon>
+                                    <i class="mi mi-clear"></i>
                                 </a>
                             </div>
 
