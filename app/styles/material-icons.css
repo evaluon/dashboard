@@ -1,0 +1,229 @@
+.mi {
+    display: inline-block;
+    font-size: inherit;
+    text-rendering: auto;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.mi-lg {
+    font-size: 1.33333333em;
+    line-height: 0.75em;
+    vertical-align: -15%;
+}
+.mi-2x {
+    font-size: 2em;
+}
+.mi-3x {
+    font-size: 3em;
+}
+.mi-4x {
+    font-size: 4em;
+}
+.mi-5x {
+    font-size: 5em;
+}
+.mi-fw {
+    width: 1.28571429em;
+    text-align: center;
+}
+.mi-ul {
+    padding-left: 0;
+    margin-left: 2.14285714em;
+    list-style-type: none;
+}
+.mi-ul > li {
+    position: relative;
+}
+.mi-li {
+    position: absolute;
+    left: -2.14285714em;
+    width: 2.14285714em;
+    top: 0.14285714em;
+    text-align: center;
+}
+.mi-li.mi-lg {
+    left: -1.85714286em;
+}
+.mi-border {
+    padding: .2em .25em .15em;
+    border: solid 0.08em #eeeeee;
+    border-radius: .1em;
+}
+.mi-center{
+    text-align: center;
+}
+.pull-right {
+    float: right;
+}
+.pull-left {
+    float: left;
+}
+.mi.pull-left {
+    margin-right: .3em;
+}
+.mi.pull-right {
+    margin-left: .3em;
+}
+.mi-spin {
+    -webkit-animation: mi-spin 2s infinite linear;
+    animation: mi-spin 2s infinite linear;
+}
+@-webkit-keyframes mi-spin {
+    0% {
+        -webkit-transform: rotate(0deg);
+        transform: rotate(0deg);
+    }
+    100% {
+        -webkit-transform: rotate(359deg);
+        transform: rotate(359deg);
+    }
+}
+@keyframes mi-spin {
+    0% {
+        -webkit-transform: rotate(0deg);
+        transform: rotate(0deg);
+    }
+    100% {
+        -webkit-transform: rotate(359deg);
+        transform: rotate(359deg);
+    }
+}
+.mi-rotate-90 {
+    filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=1);
+    -webkit-transform: rotate(90deg);
+    -ms-transform: rotate(90deg);
+    transform: rotate(90deg);
+}
+.mi-rotate-180 {
+    filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=2);
+    -webkit-transform: rotate(180deg);
+    -ms-transform: rotate(180deg);
+    transform: rotate(180deg);
+}
+.mi-rotate-270 {
+    filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=3);
+    -webkit-transform: rotate(270deg);
+    -ms-transform: rotate(270deg);
+    transform: rotate(270deg);
+}
+.mi-flip-horizontal {
+    filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=0, mirror=1);
+    -webkit-transform: scale(-1, 1);
+    -ms-transform: scale(-1, 1);
+    transform: scale(-1, 1);
+}
+.mi-flip-vertical {
+    filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=2, mirror=1);
+    -webkit-transform: scale(1, -1);
+    -ms-transform: scale(1, -1);
+    transform: scale(1, -1);
+}
+:root .mi-rotate-90,
+:root .mi-rotate-180,
+:root .mi-rotate-270,
+:root .mi-flip-horizontal,
+:root .mi-flip-vertical {
+    filter: none;
+}
+.mi-stack {
+    position: relative;
+    display: inline-block;
+    width: 2em;
+    height: 2em;
+    line-height: 2em;
+    vertical-align: middle;
+}
+.mi-stack-1x,
+.mi-stack-2x {
+    position: absolute;
+    left: 0;
+    width: 100%;
+    text-align: center;
+}
+.mi-stack-1x {
+    line-height: inherit;
+}
+.mi-stack-2x {
+    font-size: 2em;
+}
+.mi-inverse {
+    color: #ffffff;
+}
+
+/* Icons */
+.mi-add:before {
+    content: url("icons/add.svg");
+}
+
+.mi-archive:before {
+    content: url("icons/archive.svg");
+}
+
+.mi-assignment-turned-in:before {
+    content: url("icons/assignment_turned_in.svg");
+}
+
+.mi-clear:before{
+    content: url("icons/clear.svg")
+}
+
+.mi-cloud-download:before{
+    content: url("icons/cloud_download.svg")
+}
+
+.mi-create:before{
+    content: url("icons/create.svg")
+}
+
+.mi-delete:before{
+    content: url("icons/delete.svg")
+}
+
+.mi-description:before{
+    content: url("icons/description.svg")
+}
+
+.mi-done:before{
+    content: url("icons/done.svg")
+}
+
+.mi-done-all:before{
+    content: url("icons/done_all.svg")
+}
+
+.mi-filter-9-plus:before{
+    content: url("icons/filter_9_plus.svg")
+}
+
+.mi-group-add:before{
+    content: url("icons/group-add.svg")
+}
+
+.mi-group:before{
+    content: url("icons/group.svg")
+}
+
+.mi-img:before{
+    content: url("icons/img.svg")
+}
+
+.mi-live-help:before{
+    content: url("icons/live_help.svg")
+}
+
+.mi-message:before{
+    content: url("icons/message.svg")
+}
+
+.mi-refresh:before{
+    content: url("icons/refresh.svg")
+}
+
+.mi-restore:before{
+    content: url("icons/restore.svg")
+}
+
+.mi-supervisor:before{
+    content: url("icons/supervisor.svg")
+}
