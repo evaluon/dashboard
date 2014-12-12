@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('evaluon.institution').controller(
-    'InstitutionGroupCtrl', function($scope, Group, Institution){
+    'InstitutionGroupCtrl', function($scope, $mdDialog, Group, Institution){
 
         $scope.groups = [];
 
@@ -13,7 +13,16 @@ angular.module('evaluon.institution').controller(
                 $scope.groups = groups;
             });
 
-        }
+        };
+
+        $scope.addEvaluator= function($event){
+            $mdDialog.show({
+                targetEvent: $event,
+                templateUrl: 'views/institution/addEvaluator.tpl.html',
+                controller: 'AddEvaluatorCtrl',
+                onComplete: $scope.getGroups()
+            });
+        };
 
         $scope.getGroups();
 

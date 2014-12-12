@@ -35,9 +35,9 @@
                         </div>
                         <div class="md-tile-content">
                             <h3>Agregar Evaluado</h3>
-                            <form ng-submit="add($event, evaluee.id)">
-                                <md-text-float label="Evaluado" ng-model="evaluee.id" class="md-fab-bottom-left" required> </md-text-float>
-                                <md-button type="submit" aria-label="Iniciar Sesion" class="md-fab md-primary md-fab-bottom-right" md-theme="red">
+                            <form name="addEvalueeForm" ng-submit="add($event, evaluee.id)">
+                                <md-text-float name="id" label="Documento del evaluado" type="number" ng-model="evaluee.id" ng-class="validateStyleField(addEvalueeForm, 'id')" class="md-fab-bottom-left" required> </md-text-float>
+                                <md-button type="submit" ng-disabled="addEvalueeForm.$invalid" aria-label="Iniciar Sesion" class="md-fab md-primary md-fab-bottom-right" md-theme="red">
                                     <md-tooltip>
                                         Agregar
                                     </md-tooltip>
