@@ -3,12 +3,10 @@
 angular.module('evaluon.institution').controller('AddEvaluatorCtrl',
 function(Institution, User, Auth, Evaluator, Group, $scope, $mdDialog){
 
-    Institution.activeInstitution().then(function(institution){
-        $scope.group = {
-            evaluator_id: '',
-            institution_id: institution
-        };
-    });
+    $scope.group = {
+        evaluator_id: '',
+        institution_id: Auth.userLogged().institution
+    };
 
     $scope.addExisting = function($event){
         $event.preventDefault();
