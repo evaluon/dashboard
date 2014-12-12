@@ -5,7 +5,7 @@
                 <span>Aprobar Areas</span>
                 <span flex></span>
 
-                <md-button class="md-fab md-primary button-toolbar" aria-label="Recargar" ng-click="getAreas()">
+                <md-button class="md-fab md-primary button-toolbar" aria-label="Recargar" ng-click="listAreas()">
                     <md-tooltip>
                         Recargar
                     </md-tooltip>
@@ -22,7 +22,7 @@
                                 <img ng-src="http://cdn.boolinc.co/evaluon/{{item.image.location}}" class="face" alt="{{item.image.description}}">
                             </div>
                             <div class="md-tile-content">
-                                <h3>{{item.name}}</h3>
+                                <h3>{{item.id}}</h3>
                                 <h4>{{item.description}}</h4>
                                 <md-text-float label="Observaciones" class="long" ng-model="item.observations"></md-text-float>
                                 <md-button class="" aria-label="Aceptar Institucion" ng-click="approve($event, item.id, item.observations)">
