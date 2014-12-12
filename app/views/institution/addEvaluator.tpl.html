@@ -2,18 +2,18 @@
 
     <md-content>
 
-        <md-header class="md-sticky-no-effect">Agregar Evaluador</md-header>
+        <md-header class="md-sticky-no-effect">Agregar Grupo</md-header>
 
             <md-content layout="column" layout-align="center">
-                <form ng-submit="addExisting($event)">
+                <form  name="addEvaluatorForm" ng-submit="addExisting($event)">
 
-                    <md-subheader style="padding-left: 0">Agregar evaluador existente</md-subheader>
+                    <md-subheader style="padding-left: 0">Evaluador existente</md-subheader>
 
                     <div class="row">
-                        <md-text-float label="Documento de Identidad" ng-model="group.evaluator_id" ng-required="true"></md-text-float>
+                        <md-text-float label="Documento de Identidad" name="id" type="number" ng-model="group.evaluator_id" ng-class="validateStyleField(addEvaluatorForm, 'id')" ng-required="true"></md-text-float>
                     </div>
 
-                    <md-button type="submit" ng-disabled="group.evaluator_id == ''" class="md-primary">Agregar</md-button>
+                    <md-button type="submit" ng-disabled="addEvaluatorForm.$invalid" class="md-primary">Agregar</md-button>
 
                 </form>
             </md-content>

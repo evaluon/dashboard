@@ -13,15 +13,6 @@ angular.module('evaluon.institution').controller(
             });
         };
 
-        $scope.addEvaluator= function($event){
-            $mdDialog.show({
-                targetEvent: $event,
-                templateUrl: 'views/institution/addEvaluator.tpl.html',
-                controller: 'AddEvaluatorCtrl',
-                onComplete: $scope.getEvaluators()
-            });
-        };
-
         $scope.getEvaluators()
 
         $scope.period = function($event, groupId){
