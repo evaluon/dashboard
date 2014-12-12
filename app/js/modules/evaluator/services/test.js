@@ -130,9 +130,9 @@ angular.module('evaluon.evaluator').factory(
 
             feedback: function(user, test, feedback){
 
-                var user = Auth.userLogged(),
-                    tokenType = user.token_type,
-                    token = user.access_token;
+                var token = Auth.userLogged(),
+                    tokenType = token.token_type,
+                    token = token.access_token;
 
                 return $http({
                     method: 'post',
