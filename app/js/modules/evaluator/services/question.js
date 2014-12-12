@@ -112,7 +112,8 @@ angular.module('evaluon.evaluator').factory(
                     method: 'delete',
                     url: api.id(api.knowledgeArea, id),
                     headers: {
-                        Authorization: headers.authorization(tokenType, token)
+                        Authorization: headers.authorization(tokenType, token),
+                        'Content-Type': headers.json
                     },
                     data: {
                         denial_reason: reason
