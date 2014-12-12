@@ -37,7 +37,7 @@ angular.module('evaluon').factory(
                 };
 
                 if(response.status == 500){
-                    messsage = "Ha ocurrido un error en el servidor";
+                    message = "Ha ocurrido un error en el servidor";
                 }
                 else if(errors[response.status]){
                     if(errors[response.status][response.data.error.message]){

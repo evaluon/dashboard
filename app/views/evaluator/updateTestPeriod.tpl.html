@@ -13,7 +13,7 @@
                     <div class="md-tile-content">
                         <h3>Actualizar Periodo</h3>
                         <br>
-                        <form name="addPeriodForm" ng-submit="update($event, data)">
+                        <form name="addPeriodForm" ng-submit="update($event, data)" novalidate>
                             <h5>Fecha de inicio:</h5>
                             <md-text-float  ng-model="data.start_date" type="datetime-local" name="start_date" class="medium" required> </md-text-float>
                             <h5>Fecha final:</h5>
