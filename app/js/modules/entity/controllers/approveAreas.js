@@ -12,7 +12,7 @@ angular.module('evaluon.entity').controller(
             });
         };
 
-        $scope.deny = function(id, reason){
+        $scope.reject = function(id, reason){
             Question.denyKnowledgeArea(id, reason).then(function(){
                 toast.showSuccess();
                 $scope.listAreas();
