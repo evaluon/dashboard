@@ -99,6 +99,9 @@ angular.module('evaluon.evaluator').factory(
                     url: api.id(api.knowledgeArea, id),
                     headers: {
                         Authorization: headers.authorization(tokenType, token)
+                    },
+                    data: {
+                        approved: 1
                     }
                 }).then(function(response){
                     return response.data.data;
