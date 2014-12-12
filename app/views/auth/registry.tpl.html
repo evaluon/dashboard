@@ -12,7 +12,7 @@
                     <md-text-float label="NIT" ng-model="institution.id" class="long" name="id" ng-class="validateStyleField(registerInstitutionForm, 'id')" required> </md-text-float>
                     <md-text-float label="Nombre" ng-model="institution.name" class="long" name="name" ng-class="validateStyleField(registerInstitutionForm, 'name')" required> </md-text-float>
                     <md-text-float label="Dirección" ng-model="institution.address" class="long" name="address" ng-class="validateStyleField(registerInstitutionForm, 'address')" required> </md-text-float>
-                    <md-text-float label="Correo Electrónico" type="email" ng-model="institution.mail" class="long" name="mail" ng-class="validateStyleField(registerInstitutionForm, 'mail')" required> </md-text-float>
+                    <md-text-float label="Correo Electrónico" type="email" ng-model="institution.mail" class="long" name="mail"ng-class="{ 'invalid': !validateEmail(institution.mail), 'valid': validateEmail(institution.mail)}" required> </md-text-float>
                     <md-text-float label="Número Teléfono" type="number" ng-model="institution.phone_number" class="long" name="phone_number" ng-class="validateStyleField(registerInstitutionForm, 'phone_number')" required> </md-text-float>
                     <div layout="vertical" layout-align="center">
                         <br>
@@ -48,7 +48,7 @@
 
                     <md-text-float type="date" label="Fecha de Nacimiento" ng-model="institution.evaluator.birth_date" class="long" name="evaluator.birth_date" ng-class="validateStyleField(registerInstitutionForm, 'evaluator.birth_date')" required></md-text-float>
 
-                    <md-text-float type="email" label="Correo Electrónico" ng-model="institution.evaluator.mail" class="long" name="evaluator.mail" ng-class="validateStyleField(registerInstitutionForm, 'evaluator.mail')" required> </md-text-float>
+                    <md-text-float type="email" label="Correo Electrónico" ng-model="institution.evaluator.mail" class="long" name="evaluator.mail" ng-class="{ 'invalid': !validateEmail(institution.evaluator.mail), 'valid': validateEmail(institution.evaluator.mail)}" required> </md-text-float>
                     <md-text-float label="Número Teléfono" ng-model="institution.evaluator.phone_number" class="long" name="evaluator.phone_number" ng-class="validateStyleField(registerInstitutionForm, 'evaluator.phone_number')" required> </md-text-float>
                     <md-text-float label="Área de trabajo" ng-model="institution.evaluator.area" class="long" name="evaluator.area" ng-class="validateStyleField(registerInstitutionForm, 'evaluator.area')" required></md-text-float>
 
@@ -61,7 +61,7 @@
 
                     <br>
                     <div layout="vertical" layout-align="center">
-                        <md-button type="submit" class="md-primary" style="width: 80%;" ng-disabled="registerInstitutionForm.$invalid || institution.evaluator.password.length < 6 || (institution.evaluator.password != institution.evaluator.password2) || !file ">Enviar</md-button>
+                        <md-button type="submit" class="md-primary" style="width: 80%;" ng-disabled="validateInstitution(registerInstitutionForm, institution.evaluator.password, institution.evaluator.password2, file, institution.mail, institution.evaluator.mail)">Enviar</md-button>
                     </div>
 
                 </form>
@@ -78,7 +78,7 @@
 
                     <md-text-float type="date" label="Fecha de Nacimiento" ng-model="evaluator.birth_date" class="long" name="birth_date" ng-class="validateStyleField(registerEvaluatorForm, 'birth_date')" required></md-text-float>
 
-                    <md-text-float type="email" label="Correo Electrónico" ng-model="evaluator.mail" class="long" name="mail" ng-class="validateStyleField(registerEvaluatorForm, 'mail')" required> </md-text-float>
+                    <md-text-float type="email" label="Correo Electrónico" ng-model="evaluator.mail" class="long" name="mail" ng-class="{ 'invalid': !validateEmail(evaluator.mail), 'valid': validateEmail(evaluator.mail)}"  required> </md-text-float>
                     <md-text-float label="Número Teléfono" ng-model="evaluator.phone_number" class="long" name="phone_number" ng-class="validateStyleField(registerEvaluatorForm, 'phone_number')" required> </md-text-float>
                     <md-text-float label="Área de trabajo" ng-model="evaluator.area" class="long" name="area" ng-class="validateStyleField(registerEvaluatorForm, 'area')" required></md-text-float>
 
@@ -89,7 +89,7 @@
                     <p class="invalid" ng-if="(evaluator.password != evaluator.password2)">Las contraseñas no coinciden</p>
                     <br>
                     <div layout="vertical" layout-align="center">
-                        <md-button type="submit" class="md-primary" style="width: 80%;" ng-disabled="registerEvaluatorForm.$invalid || evaluator.password.length < 6 || (evaluator.password != evaluator.password2)">Enviar</md-button>
+                        <md-button type="submit" class="md-primary" style="width: 80%;" ng-disabled="validateEvaluator(registerEvaluatorForm, evaluator.password, evaluator.password2, evaluator.mail)">Enviar</md-button>
                     </div>
 
                 </form>

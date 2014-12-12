@@ -14,6 +14,16 @@ function($mdDialog, toast, $scope, Auth, User, Evaluator, Institution){
         return User.createUser(user, token);
     }
 
+    $scope.validateInstitution = function(form, password1, password2, file, email1, email2){
+
+        return form.$invalid || password1.length < 6 || (password1 != password2) || !file || !$scope.validateEmail(email1) || !$scope.validateEmail(email2);
+    };
+
+    $scope.validateEvaluator = function(form, password1, password2, email){
+
+        return form.$invalid || password1.length < 6 || (password1 != password2) || !$scope.validateEmail(email);
+    };
+
     $scope.institution = { evaluator: { birth_date: new Date() } };
 
     $scope.evaluator = { birth_date: new Date() };

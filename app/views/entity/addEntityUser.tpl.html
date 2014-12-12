@@ -15,8 +15,8 @@
 
                         <md-text-float type="date" label="Fecha de Nacimiento" ng-model="user.birth_date" class="long" name="birth_date" ng-class="validateStyleField(registerUserForm, 'birth_date')" required></md-text-float>
 
-                        <md-text-float type="email" label="Correo Electrónico" ng-model="user.mail" class="long" name="mail" ng-class="validateStyleField(registerUserForm, 'mail')" required> </md-text-float>
-                        <md-text-float label="Número Teléfono" ng-model="user.phone_number" class="long" name="phone_number" ng-class="validateStyleField(registerUserForm, 'phone_number')" required> </md-text-float>
+                        <md-text-float type="email" label="Correo Electrónico" ng-model="user.mail" class="long" name="mail" ng-class="{ 'invalid': !validateEmail(user.mail), 'valid': validateEmail(user.mail)}" required> </md-text-float>
+                        <md-text-float label="Número Teléfono" ng-model="user.phone_number" type="number" class="long" name="phone_number" ng-class="validateStyleField(registerUserForm, 'phone_number')" required> </md-text-float>
 
                         <br>
                         <md-text-float type="password" label="Contraseña" ng-model="user.password" class="long" name="password" ng-class="validateStyleField(registerUserForm, 'password')" minlength="6" required> </md-text-float>
@@ -25,7 +25,7 @@
                         <p class="invalid" ng-if="(user.password != user.password2)">Las contraseñas no coinciden</p>
                         <br>
                         <div layout="vertical" layout-align="center">
-                            <md-button type="submit" class="md-primary" style="width: 80%;" ng-disabled="registerUserForm.$invalid || user.password.length < 6 || (user.password != user.password2)">Enviar</md-button>
+                            <md-button type="submit" class="md-primary" style="width: 80%;" ng-disabled="isValid(registerUserForm, user.password, user.password2, user.mail)">Enviar</md-button>
                         </div>
 
                     </form>

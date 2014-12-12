@@ -21,7 +21,12 @@ function($mdDialog, $scope, Auth, User, toast){
         }).catch(function(result){
             toast.show(result.error);
         });
-    }
+    };
+
+    $scope.isValid = function(form, password1, password2, email){
+
+        return form.$invalid || (password1.length < 6) || (password1 != password2) || !$scope.validateEmail(email);
+    };
 
     $scope.user = {
         id: '',
