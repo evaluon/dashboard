@@ -3,13 +3,13 @@
 angular.module('evaluon.evaluator').factory(
     'GroupTest', function(Auth, api, headers, $http, $q, $mdToast){
 
-        var user = Auth.userLogged(),
-            tokenType = user.token_type,
-            token = user.access_token;
-
         return {
 
             groupTests: function(group){
+
+                var user = Auth.userLogged(),
+                    tokenType = user.token_type,
+                    token = user.access_token;
 
                 return $http({
                     method: 'get',
@@ -24,6 +24,10 @@ angular.module('evaluon.evaluator').factory(
             },
 
             addTest: function(group, test){
+
+                var user = Auth.userLogged(),
+                    tokenType = user.token_type,
+                    token = user.access_token;
 
                 return $http({
                     method: 'post',

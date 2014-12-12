@@ -3,13 +3,13 @@
 angular.module('evaluon.institution').factory(
     'Period', function(Auth, Institution, api, headers, $http){
 
-        var user = Auth.userLogged(),
-            tokenType = user.token_type,
-            token = user.access_token;
-
         return {
 
             activePeriods: function(institution){
+
+                var user = Auth.userLogged(),
+                    tokenType = user.token_type,
+                    token = user.access_token;
 
                 return $http({
                     method: 'get',
@@ -24,6 +24,10 @@ angular.module('evaluon.institution').factory(
             },
 
             createPeriod: function(institution, period){
+
+                var user = Auth.userLogged(),
+                    tokenType = user.token_type,
+                    token = user.access_token;
 
                 return $http({
                     method: 'post',
@@ -41,6 +45,10 @@ angular.module('evaluon.institution').factory(
 
             groupPeriod: function(group){
 
+                var user = Auth.userLogged(),
+                    tokenType = user.token_type,
+                    token = user.access_token;
+
                 return $http({
                     method: 'get',
                     url: api.groupPeriod(group),
@@ -55,6 +63,10 @@ angular.module('evaluon.institution').factory(
 
             setPeriod: function(group){
 
+                var user = Auth.userLogged(),
+                    tokenType = user.token_type,
+                    token = user.access_token;
+
                 return $http({
                     method: 'put',
                     url: api.groupPeriod(group),
@@ -68,6 +80,10 @@ angular.module('evaluon.institution').factory(
             },
 
             updatePeriod: function(period){
+
+                var user = Auth.userLogged(),
+                    tokenType = user.token_type,
+                    token = user.access_token;
 
                 return $http({
                     method: 'put',

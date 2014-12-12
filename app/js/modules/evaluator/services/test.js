@@ -3,13 +3,13 @@
 angular.module('evaluon.evaluator').factory(
     'Test', function(Auth, api, headers, $http){
 
-        var user = Auth.userLogged(),
-            tokenType = user.token_type,
-            token = user.access_token;
-
         return {
 
             testDetail: function(id){
+
+                var user = Auth.userLogged(),
+                    tokenType = user.token_type,
+                    token = user.access_token;
 
                 return $http({
                     method: 'get',
@@ -24,6 +24,10 @@ angular.module('evaluon.evaluator').factory(
             },
 
             evalueesInTest: function(group, test){
+
+                var user = Auth.userLogged(),
+                    tokenType = user.token_type,
+                    token = user.access_token;
 
                 return $http({
                     method: 'get',
@@ -43,6 +47,10 @@ angular.module('evaluon.evaluator').factory(
 
             createTest: function(test){
 
+                var user = Auth.userLogged(),
+                    tokenType = user.token_type,
+                    token = user.access_token;
+
                 return $http({
                     method: 'post',
                     url: api.test,
@@ -59,6 +67,10 @@ angular.module('evaluon.evaluator').factory(
 
             updateTest: function(id, test){
 
+                var user = Auth.userLogged(),
+                    tokenType = user.token_type,
+                    token = user.access_token;
+
                 return $http({
                     method: 'put',
                     url: api.id(api.test, id),
@@ -74,6 +86,10 @@ angular.module('evaluon.evaluator').factory(
             },
 
             addQuestion: function(test, question){
+
+                var user = Auth.userLogged(),
+                    tokenType = user.token_type,
+                    token = user.access_token;
 
                 return $http({
                     method: 'put',
@@ -93,6 +109,10 @@ angular.module('evaluon.evaluator').factory(
 
             testResults: function(test, evaluee){
 
+                var user = Auth.userLogged(),
+                    tokenType = user.token_type,
+                    token = user.access_token;
+
                 return $http({
                     method: 'get',
                     url: api.testResults(test),
@@ -109,6 +129,10 @@ angular.module('evaluon.evaluator').factory(
             },
 
             feedback: function(user, test, feedback){
+
+                var user = Auth.userLogged(),
+                    tokenType = user.token_type,
+                    token = user.access_token;
 
                 return $http({
                     method: 'post',

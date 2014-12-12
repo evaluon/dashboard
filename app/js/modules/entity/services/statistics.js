@@ -3,11 +3,11 @@
 angular.module('evaluon.entity').factory(
     'Statistics', function(Auth, api, headers, $http){
 
-        var user = Auth.userLogged();
-
         return {
 
             evalueeList: function(){
+
+                var user = Auth.userLogged();
 
                 return $http({
                     method: 'get',
@@ -24,6 +24,8 @@ angular.module('evaluon.entity').factory(
             },
 
             evalueeDescription: function(){
+
+                var user = Auth.userLogged();
 
                 return $http({
                     method: 'get',

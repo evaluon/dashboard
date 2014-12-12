@@ -3,13 +3,13 @@
 angular.module('evaluon.evaluator').factory(
     'Answer', function(Auth, api, headers, $http){
 
-        var user = Auth.userLogged(),
-            tokenType = user.token_type,
-            token = user.access_token;
-
         return {
 
             registerAnswers: function(answers){
+
+                var user = Auth.userLogged(),
+                    tokenType = user.token_type,
+                    token = user.access_token;
 
                 return $http({
                     method: 'post',
@@ -27,6 +27,10 @@ angular.module('evaluon.evaluator').factory(
 
             addToQuestion: function(question, answer){
 
+                var user = Auth.userLogged(),
+                    tokenType = user.token_type,
+                    token = user.access_token;
+
                 return $http({
                     method: 'put',
                     url: api.addToQuestion(question, answer),
@@ -40,6 +44,10 @@ angular.module('evaluon.evaluator').factory(
             },
 
             score: function(answer, mark){
+
+                var user = Auth.userLogged(),
+                    tokenType = user.token_type,
+                    token = user.access_token;
 
                 return $http({
                     method: 'put',

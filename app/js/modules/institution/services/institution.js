@@ -4,15 +4,13 @@ angular.module('evaluon.institution').factory(
     'Institution',
     function(Auth, api, headers, $upload, $http, localStorageService){
 
-        if(Auth.userLogged()){
-            var user = Auth.userLogged(),
-            tokenType = user.token_type,
-            token = user.access_token;
-        }
-
         return {
 
             activeInstitution: function(){
+
+                var user = Auth.userLogged(),
+                    tokenType = user.token_type,
+                    token = user.access_token;
 
                 return $http({
                     method: 'get',
@@ -34,6 +32,10 @@ angular.module('evaluon.institution').factory(
 
             listInstitutions: function(){
 
+                var user = Auth.userLogged(),
+                    tokenType = user.token_type,
+                    token = user.access_token;
+
                 return $http({
                     method: 'get',
                     url: api.institution,
@@ -47,6 +49,10 @@ angular.module('evaluon.institution').factory(
             },
 
             unapprovedInstitutions: function(){
+
+                var user = Auth.userLogged(),
+                    tokenType = user.token_type,
+                    token = user.access_token;
 
                 return $http({
                     method: 'get',
@@ -65,8 +71,8 @@ angular.module('evaluon.institution').factory(
 
             createInstitution: function(institution, file, token){
 
-                tokenType = token.token_type || tokenType;
-                token = token.access_token || token;
+                var tokenType = token.token_type,
+                    token = token.access_token;
 
                 return $upload.upload({
                     method: 'post',
@@ -83,6 +89,10 @@ angular.module('evaluon.institution').factory(
             },
 
             approveInstitution: function(institutionId){
+
+                var user = Auth.userLogged(),
+                    tokenType = user.token_type,
+                    token = user.access_token;
 
                 return $http({
                     method: 'put',
@@ -101,6 +111,10 @@ angular.module('evaluon.institution').factory(
             },
 
             denyInstitution: function(institutionId, reason){
+
+                var user = Auth.userLogged(),
+                    tokenType = user.token_type,
+                    token = user.access_token;
 
                 return $http({
                     method: 'put',

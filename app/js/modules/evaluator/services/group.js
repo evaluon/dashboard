@@ -11,6 +11,10 @@ angular.module('evaluon.evaluator').factory(
 
             institutionGroups: function(institutionId){
 
+                var user = Auth.userLogged(),
+                    tokenType = user.token_type,
+                    token = user.access_token;
+
                 return $http({
                     method: 'get',
                     url: api.id(api.group, institutionId),
@@ -25,6 +29,10 @@ angular.module('evaluon.evaluator').factory(
 
             evaluatorGroups: function(){
 
+                var user = Auth.userLogged(),
+                    tokenType = user.token_type,
+                    token = user.access_token;
+
                 return $http({
                     method: 'get',
                     url: api.evaluatorGroup,
@@ -38,6 +46,10 @@ angular.module('evaluon.evaluator').factory(
             },
 
             addGroup: function(group){
+
+                var user = Auth.userLogged(),
+                    tokenType = user.token_type,
+                    token = user.access_token;
 
                 return $http({
                     method: 'post',
@@ -55,6 +67,10 @@ angular.module('evaluon.evaluator').factory(
 
             updateGroup: function(group){
 
+                var user = Auth.userLogged(),
+                    tokenType = user.token_type,
+                    token = user.access_token;
+
                 return $http({
                     method: 'put',
                     url: api.group,
@@ -71,6 +87,10 @@ angular.module('evaluon.evaluator').factory(
 
             groupEvaluees: function(group){
 
+                var user = Auth.userLogged(),
+                    tokenType = user.token_type,
+                    token = user.access_token;
+
                 return $http({
                     method: 'get',
                     url: api.groupEvaluees(group),
@@ -84,6 +104,10 @@ angular.module('evaluon.evaluator').factory(
             },
 
             addEvaluee: function(group, evaluees){
+
+                var user = Auth.userLogged(),
+                    tokenType = user.token_type,
+                    token = user.access_token;
 
                 return $http({
                     method: 'put',
@@ -101,6 +125,10 @@ angular.module('evaluon.evaluator').factory(
             },
 
             deleteEvaluee: function(group, evaluee){
+
+                var user = Auth.userLogged(),
+                    tokenType = user.token_type,
+                    token = user.access_token;
 
                 var deferred = $q.defer();
 

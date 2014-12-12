@@ -3,15 +3,13 @@
 angular.module('evaluon.evaluator').factory(
     'Evaluator', function(Auth, api, headers, $http, localStorageService){
 
-        if(Auth.userLogged()){
-            var user = Auth.userLogged(),
-            tokenType = user.token_type,
-            token = user.access_token;
-        }
-
         return {
 
             evaluatorList: function(){
+
+                var user = Auth.userLogged(),
+                    tokenType = user.token_type,
+                    token = user.access_token;
 
                 return $http({
                     method: 'get',
@@ -27,14 +25,14 @@ angular.module('evaluon.evaluator').factory(
 
             setEvaluator: function(evaluator, user){
 
+                var tokenType = user.token_type,
+                    token = user.access_token;
+
                 return $http({
                     method: 'post',
                     url: api.evaluator,
                     headers: {
-                        Authorization: headers.authorization(
-                            user.token_type || tokenType,
-                            user.access_token || token
-                        ),
+                        Authorization: headers.authorization(tokenType, token),
                         'Content-Type': headers.json
                     },
                     data: evaluator

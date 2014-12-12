@@ -3,13 +3,13 @@
 angular.module('evaluon.evaluator').factory(
     'Question', function(Auth, api, headers, $upload, $http){
 
-        var user = Auth.userLogged(),
-        tokenType = user.token_type,
-        token = user.access_token;
-
         return {
 
             listBank: function(){
+
+                var user = Auth.userLogged(),
+                    tokenType = user.token_type,
+                    token = user.access_token;
 
                 return $http({
                     method: 'get',
@@ -24,6 +24,10 @@ angular.module('evaluon.evaluator').factory(
             },
 
             createQuestion: function(question){
+
+                var user = Auth.userLogged(),
+                    tokenType = user.token_type,
+                    token = user.access_token;
 
                 return $http({
                     method: 'post',
@@ -41,6 +45,10 @@ angular.module('evaluon.evaluator').factory(
             },
 
             uploadQuestionImage: function(question, image){
+
+                var user = Auth.userLogged(),
+                    tokenType = user.token_type,
+                    token = user.access_token;
 
                 return $upload.upload({
                     method: 'put',
@@ -61,6 +69,10 @@ angular.module('evaluon.evaluator').factory(
 
             listKnowledgeAreas: function(unapproved){
 
+                var user = Auth.userLogged(),
+                    tokenType = user.token_type,
+                    token = user.access_token;
+
                 return $http({
                     method: 'get',
                     url: api.knowledgeArea,
@@ -78,6 +90,10 @@ angular.module('evaluon.evaluator').factory(
 
             createKnowledgeArea: function(area){
 
+                var user = Auth.userLogged(),
+                    tokenType = user.token_type,
+                    token = user.access_token;
+
                 return $http({
                     method: 'post',
                     url: api.knowledgeArea,
@@ -94,6 +110,10 @@ angular.module('evaluon.evaluator').factory(
 
             approveKnowledgeArea: function(id){
 
+                var user = Auth.userLogged(),
+                    tokenType = user.token_type,
+                    token = user.access_token;
+
                 return $http({
                     method: 'put',
                     url: api.id(api.knowledgeArea, id),
@@ -107,6 +127,10 @@ angular.module('evaluon.evaluator').factory(
             },
 
             denyKnowledgeArea: function(id, reason){
+
+                var user = Auth.userLogged(),
+                    tokenType = user.token_type,
+                    token = user.access_token;
 
                 return $http({
                     method: 'delete',
