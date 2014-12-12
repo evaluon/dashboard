@@ -23,12 +23,6 @@ function($mdDialog, $scope, Auth, User, toast){
         });
     };
 
-    $scope.validateEmail = function(email){
-
-        var pattern = /^[a-z][\w.-]+@\w[\w.-]+\.[\w.-]*[a-z][a-z]$/i;
-        return pattern.test(email);
-    };
-
     $scope.isValid = function(form, password1, password2, email){
 
         return form.$invalid || (password1.length < 6) || (password1 != password2) || !$scope.validateEmail(email);

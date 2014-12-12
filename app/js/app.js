@@ -102,6 +102,12 @@ angular.module('evaluon', [
             ("GET %s", toState.url);
         });
 
+        $rootScope.validateEmail = function(email){
+
+            var pattern = /^[a-z][\w.-]+@\w[\w.-]+\.[\w.-]*[a-z][a-z]$/i;
+            return pattern.test(email);
+        };
+
         $rootScope.validateStyleField = function(form, item){
 
             return {
