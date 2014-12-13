@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('evaluon.entity').controller(
-    'EntityUserCtrl', function($scope, $mdDialog, User){
+    'EntityUserCtrl', function($scope, $mdDialog, User, toast ){
 
         $scope.users = [];
 
@@ -32,7 +32,17 @@ angular.module('evaluon.entity').controller(
                 escapeToClose: true,
                 locals: {user: user}
             });
-        }
+        };
+
+        $scope.blockUser = function(id){
+            User.blockUser(id).then(function(success){
+                toast.show('Actualizado correctamente');
+                $scope.getUsers();
+            }).catch(function(error){
+                toast.show(error.error);
+            });
+
+        };
 
         $scope.getUsers();
 
