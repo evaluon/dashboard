@@ -25,7 +25,13 @@
                                 <h4>NIT: {{item.id}}</h4>
                                 <h4>{{item.address}}</h4>
                                 <h4>{{item.mail}}</h4>
-                                <h4>{{item.phone_number}}</h4>
+                                <h4>Tel: {{item.phone_number}}</h4>
+                                <hr style="width: 60%">
+                                <h3>Administrador:</h3>
+                                <h4>{{item.administrator.first_name}} {{item.administrator.midle_name}} {{item.administrator.last_name}}</h4>
+                                <h4>Area: {{item.administrator.area}}</h4>
+                                <h4>{{item.administrator.mail}}</h4>
+                                <h4>Tel: {{item.administrator.phone_number}}</h4>
                             </div>
                         </md-item-content>
                     </md-card>
