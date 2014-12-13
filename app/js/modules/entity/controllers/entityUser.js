@@ -24,6 +24,16 @@ angular.module('evaluon.entity').controller(
             });
         };
 
+        $scope.updateUser = function($event, user){
+            $mdDialog.show({
+                targetEvent: $event,
+                templateUrl: 'views/entity/updateEntityUser.tpl.html',
+                controller: 'UpdateEntityUserCtrl',
+                escapeToClose: true,
+                locals: {user: user}
+            });
+        }
+
         $scope.getUsers();
 
     }

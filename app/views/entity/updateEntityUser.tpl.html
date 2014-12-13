@@ -1,0 +1,31 @@
+<md-dialog aria-label="Registro Usuario INCI" style="width: 40vw">
+
+    <md-content>
+
+        <md-card>
+            <md-subheader><h2>Actualizar Usuario {{title}}</h2></md-subheader>
+
+            <md-item layout="row" layout-align="center">
+                <md-item-content>
+                    <form name="updateUserForm" ng-submit="update($event, user)">
+
+                        <md-text-float label="Documento de Identidad" type="number" ng-model="user.id" class="long" name="id" ng-class="validateStyleField(updateUserForm, 'id')" required></md-text-float>
+                        <md-text-float label="Nombre" ng-model="user.first_name" class="long" name="first_name" ng-class="validateStyleField(updateUserForm, 'first_name')" required></md-text-float>
+                        <md-text-float label="Apellido" ng-model="user.last_name" class="long" name="last_name" ng-class="validateStyleField(updateUserForm, 'last_name')" required></md-text-float>
+
+                        <md-text-float type="date" label="Fecha de Nacimiento" ng-model="user.birth_date" class="long" name="birth_date" ng-class="validateStyleField(updateUserForm, 'birth_date')" required></md-text-float>
+
+                        <md-text-float type="email" label="Correo Electrónico" ng-model="user.mail" class="long" name="mail" ng-class="{ 'invalid': !validateEmail(user.mail), 'valid': validateEmail(user.mail)}" required> </md-text-float>
+                        <md-text-float label="Número Teléfono" ng-model="user.phone_number" type="number" class="long" name="phone_number" ng-class="validateStyleField(updateUserForm, 'phone_number')" required> </md-text-float>
+
+                        <div layout="vertical" layout-align="center">
+                            <md-button type="submit" class="md-primary" style="width: 80%;" ng-disabled="isValid(updateUserForm, user.mail)">Enviar</md-button>
+                        </div>
+
+                    </form>
+                </md-item-content>
+            </md-item>
+        </md-card>
+    </md-content>
+
+</md-dialog>

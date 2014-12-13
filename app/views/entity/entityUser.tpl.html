@@ -33,6 +33,12 @@
                                 <h4>{{item.birth_date | date : 'mediumDate'}}</h4>
                                 <h4>Usuario desde {{item.register_date | date : 'medium'}}</h4>
                             </div>
+                            <md-button class="md-fab md-fab-bottom-right" ng-click="updateUser($event, item)">
+                                <md-tooltip>
+                                    Actualizar
+                                </md-tooltip>
+                                <i class="mi mi-cached"></i>
+                            </md-button>
                         </md-item-content>
                     </md-card>
                 </md-item>

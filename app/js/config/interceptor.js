@@ -36,13 +36,7 @@ angular.module('evaluon').factory(
                     }
                 };
 
-                if(response.status == 500){
-                    message = "Ha ocurrido un error en el servidor";
-                }
-                else if(response.status == 0){
-                    message = "No hay conección a internet";
-                }
-                else if(errors[response.status]){
+                if(errors[response.status]){
                     if(errors[response.status][response.data.error.message]){
                         message = errors[response.status][response.data.error.message];
                     }
@@ -50,6 +44,22 @@ angular.module('evaluon').factory(
                         message = 'Error desconocido, si este persiste contacte al administrador';
                     }
                 }
+                else if(response.status == 500){
+                    console.log(response.data);
+                    if(response.data.error_description == 'user_not_found'){
+                        message = 'Usuario y contraseña no coinciden';
+                    }
+                    if(response.data.error_description == 'blocked_user'){
+                        message = 'Usuario bloqueado';
+                    }
+                    else{
+                        message = "Ha ocurrido un error en el servidor";
+                    }
+                }
+                else if(response.status == 0){
+                    message = "No hay conección a internet";
+                }
+
                 else{
                     message = 'Error desconocido, si este persiste contacte al administrador';
                 }
