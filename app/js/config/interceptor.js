@@ -39,6 +39,9 @@ angular.module('evaluon').factory(
                 if(response.status == 500){
                     message = "Ha ocurrido un error en el servidor";
                 }
+                else if(response.status == 0){
+                    message = "No hay conección a internet";
+                }
                 else if(errors[response.status]){
                     if(errors[response.status][response.data.error.message]){
                         message = errors[response.status][response.data.error.message];
