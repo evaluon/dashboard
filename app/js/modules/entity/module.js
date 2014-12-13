@@ -44,7 +44,12 @@ angular.module('evaluon.entity', ['ui.router']).config(
                 templateUrl: 'views/entity/approveAreas.tpl.html',
                 controller: 'ApproveAreasCtrl'
             }
-        );
+        )
+        .state('entity.users', {
+                url: '/users',
+                templateUrl: 'views/entity/entityUser.tpl.html',
+                controller: 'EntityUserCtrl'
+        });
 
     }
 );
