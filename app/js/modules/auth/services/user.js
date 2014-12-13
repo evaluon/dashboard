@@ -81,9 +81,27 @@ angular.module('evaluon.auth').factory(
 
             },
 
+            blockUser: function(id){
+
+                var user = Auth.userLogged(),
+                    tokenType = user.token_type,
+                    token = user.access_token;
+
+                return $http({
+                    method: 'delete',
+                    url: api.id(api.user, id),
+                    headers: {
+                        Authorization: headers.authorization(tokenType, token)
+                    }
+                }).then(function(data){
+                    return data.data.data;
+                });
+
+            },
+
             adminUsers: function(mail){
 
-                var user = Auth.client(),
+                var user = Auth.userLogged(),
                     tokenType = user.token_type,
                     token = user.access_token;
 
