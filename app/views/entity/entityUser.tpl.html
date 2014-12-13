@@ -2,9 +2,9 @@
     <div flex= "90" layout-fill>
         <md-toolbar class="md-default-theme md-whiteframe-z1">
             <div class="md-toolbar-tools">
-                <span>Instituciones</span>
+                <span>Usuarios</span>
                 <span flex></span>
-                <md-button class="md-fab md-primary button-toolbar" aria-label="Recargar" ng-click="getInstitutions()">
+                <md-button class="md-fab md-primary button-toolbar" aria-label="Recargar" ng-click="getUsers()">
                     <md-tooltip>
                         Recargar
                     </md-tooltip>
@@ -13,16 +13,25 @@
             </div>
         </md-toolbar>
         <md-content flex layout="vertical" class="md-default-theme md-whiteframe-z1" style="height: 500px;">
+            <md-button class="md-primary md-fab md-fab-bottom-right" md-theme="red" ng-click="addUser()" style="position: fixed;">
+                <md-tooltip>
+                    Agregar examen
+                </md-tooltip>
+                <i class="mi mi-add"></i>
+            </md-button>
             <md-list>
                 <md-item ng-repeat="item in users">
                     <md-card>
                         <md-item-content>
                             <div class="md-tile-left">
-                                <img ng-src="{{item.image.location}}" class="face" alt="{{item.image.description}}">
                             </div>
                             <div class="md-tile-content">
-                                <h3>{{item.name}} </h3>
-
+                                <h3>{{item.id}} </h3>
+                                <h4>{{item.first_name}} {{item.middle_name}} {{item.last_name}}</h4>
+                                <h4>{{item.mail}}</h4>
+                                <h4>{{item.phone_number}}</h4>
+                                <h4>{{item.birth_date | date : 'mediumDate'}}</h4>
+                                <h4>Usuario desde {{item.register_date | date : 'medium'}}</h4>
                             </div>
                         </md-item-content>
                     </md-card>

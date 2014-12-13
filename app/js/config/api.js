@@ -7,7 +7,7 @@ var apiRouter = {
     },
     url: {
         protocol: 'http',
-        host: 'localhost:3004'
+        host: 'evaluon.boolinc.co'
     },
     route: function(path){
         var url = this.url;
@@ -29,6 +29,7 @@ angular.module('evaluon').constant(
 
         // Users Module
         user: apiRouter.route('user'),
+        adminUser: apiRouter.route('user/admin'),
 
         // Institutions Module
         institution: apiRouter.route('institution'),

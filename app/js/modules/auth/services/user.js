@@ -79,7 +79,26 @@ angular.module('evaluon.auth').factory(
                     return data.data.data;
                 });
 
+            },
+
+            adminUsers: function(mail){
+
+                var user = Auth.client(),
+                    tokenType = user.token_type,
+                    token = user.access_token;
+
+                return $http({
+                    method: 'get',
+                    url: api.adminUser,
+                    headers: {
+                        Authorization: headers.authorization(tokenType, token)
+                    }
+                }).then(function(data){
+                    return data.data.data;
+                });
+
             }
+
 
 
         };
