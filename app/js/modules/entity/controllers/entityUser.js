@@ -1,12 +1,12 @@
 'use strict';
 
 angular.module('evaluon.entity').controller(
-    'EntityUserCtrl', function($scope, $mdDialog, User, toast ){
+    'EntityUserCtrl', function($scope, $mdDialog, User, Auth, toast ){
 
         $scope.users = [];
+        $scope.userLogged = {};
 
         $scope.getUsers = function(){
-            console.log('si XD');
             User.adminUsers().then(function(data){
                 $scope.users = data;
             }).catch(function(error){
@@ -14,6 +14,23 @@ angular.module('evaluon.entity').controller(
             });
 
         };
+
+        $scope.getUserLogged = function(){
+
+            var token = Auth.userLogged();
+
+            User.getUser(token.token_type, token.access_token).then(
+                function(data){
+                    $scope.userLogged = data;
+                }).catch(
+                    function(error){
+                        toast.show(error.error);
+                    }
+                );
+        };
+
+        $scope.getUsers();
+        $scope.getUserLogged();
 
         $scope.addUser = function($event){
             $mdDialog.show({
@@ -44,7 +61,7 @@ angular.module('evaluon.entity').controller(
 
         };
 
-        $scope.getUsers();
+
 
     }
 );

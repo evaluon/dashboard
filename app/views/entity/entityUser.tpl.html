@@ -32,6 +32,8 @@
                                 <h4>{{item.phone_number}}</h4>
                                 <h4>{{item.birth_date | date : 'mediumDate'}}</h4>
                                 <h4>Usuario desde {{item.register_date | date : 'medium'}}</h4>
+                                <h4 ng-if="item.enabled == 1"> <b>Activo</b></h4>
+                                <h4 ng-if="item.enabled == 0"> <b>Bloqueado</b></h4>
 
                                 <md-button class="md-fab md-fab-bottom-right" ng-click="updateUser($event, item)">
                                     <md-tooltip>
@@ -39,18 +41,21 @@
                                     </md-tooltip>
                                     <i class="mi mi-cached"></i>
                                 </md-button>
-                                <md-button ng-if="item.enabled = 1" ng-click="blockUser(item.id)">
-                                    <md-tooltip>
-                                        Bloquear
-                                    </md-tooltip>
-                                    <i class="mi mi-clear"></i>
-                                </md-button>
-                                <md-button ng-if="item.enabled = 0" ng-click="blockUser(item.id)">
-                                    <md-tooltip>
-                                        Desbloquear
-                                    </md-tooltip>
-                                    <i class="mi mi-done"></i>
-                                </md-button>
+                                <div ng-if="item.id != userLogged.id">
+                                    <md-button ng-if="item.enabled == 1" ng-click="blockUser(item.id)">
+                                        <md-tooltip>
+                                            Bloquear
+                                        </md-tooltip>
+                                        <i class="mi mi-clear"></i>
+                                    </md-button>
+                                    <md-button ng-if="item.enabled == 0" ng-click="blockUser(item.id)">
+                                        <md-tooltip>
+                                            Activar
+                                        </md-tooltip>
+                                        <i class="mi mi-done"></i>
+                                    </md-button>
+                                </div>
+
                             </div>
                         </md-item-content>
                     </md-card>

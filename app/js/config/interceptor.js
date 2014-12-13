@@ -45,7 +45,7 @@ angular.module('evaluon').factory(
                     }
                 }
                 else if(response.status == 500){
-                    console.log(response.data);
+
                     if(response.data.error_description == 'user_not_found'){
                         message = 'Usuario y contraseña no coinciden';
                     }
