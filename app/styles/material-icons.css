@@ -230,3 +230,7 @@
 .mi-supervisor:before{
     content: url(/styles/material-icons/supervisor.svg)
 }
+
+.mi-cached:before{
+    content: url(/styles/material-icons/cached.svg)
+}

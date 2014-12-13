@@ -7,10 +7,10 @@
             </div>
         </md-toolbar>
         <md-content class="md-padding md-whiteframe-z5" md-theme="light-blue-dark" layout-padding layout-align="center">
-            <form layout="vertical" layout-align="center center" ng-submit="login($event)">
+            <form layout="vertical" name="loginForm" layout-align="center center" ng-submit="login($event)">
                 <md-text-float label="Correo" type="email" ng-model="user.email" ng-required="true" class="large"> </md-text-float>
                 <md-text-float label="Contraseña" type="password" ng-model="user.password" ng-required="true" class="large"> </md-text-float>
-                <md-button type="submit" aria-label="Iniciar Sesion" md-theme="light-blue-dark" class="md-primary">
+                <md-button type="submit" ng-disabled="loginForm.$invalid" aria-label="Iniciar Sesion" md-theme="light-blue-dark" class="md-primary">
                     Iniciar Sesion
                 </md-button>
                 <br>

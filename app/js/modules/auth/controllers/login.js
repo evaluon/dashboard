@@ -30,7 +30,7 @@ angular.module('evaluon.auth').controller(
             }).then(function(user){
                 login(uToken, user);
             }).catch(function(error){
-                toast.show('Usuario y contraseña no coinciden');
+                toast.show(error.error);
             });
 
         };
