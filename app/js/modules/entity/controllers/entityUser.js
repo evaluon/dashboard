@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('evaluon.entity').controller(
-    'EntityUserCtrl', function($scope, $mdDialog, User, ){
+    'EntityUserCtrl', function($scope, $mdDialog, User, toast ){
 
         $scope.users = [];
 
