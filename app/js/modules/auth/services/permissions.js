@@ -15,7 +15,10 @@ angular.module('evaluon.auth').factory('Permissions', function(Auth){
                     return false;
                 }
             } else {
-                if (user.role == 1){
+                if(state.name == 'anon.login'){
+                    return 'anon.auth';
+                } else if (user.role == 1){
+                    Auth.logout();
                     return 'anon.logout';
                 } else if (!(state.data.access & user.role)) {
                     return 'public.403';

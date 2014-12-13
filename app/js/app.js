@@ -61,7 +61,7 @@ angular.module('evaluon', [
 
 
 ).run(
-    function($state, $rootScope, $mdToast, Auth, Permissions, blockUI){
+    function($state, $rootScope, toast, Auth, Permissions, blockUI){
 
         $rootScope.$on('$stateChangeStart', function(e, toState, toParams){
 
@@ -73,16 +73,10 @@ angular.module('evaluon', [
                     Auth.setClient(client);
                     $state.go('anon.auth');
                 }).catch(function(error){
-
-                    $mdToast.show({
-                        template: '<md-toast>{0}</md-toast'
-                        .format(
-                            'No ha sido posible autenticarse con el ' +
-                            'servidor. Por favor, intentelo más tarde.'
-                        ),
-                        hideDelay: 6000000,
-                        position: 'top right'
-                    })
+                    toast.show(
+                        'No ha sido posible autenticarse con el ' +
+                        'servidor. Por favor, intentelo más tarde.'
+                    );
                 });
 
             } else {

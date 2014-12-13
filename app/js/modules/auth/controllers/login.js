@@ -1,17 +1,7 @@
 'use strict';
 
 angular.module('evaluon.auth').controller(
-    'LoginCtrl', function($scope, $state, Auth, User, $mdDialog, $mdToast, toast){
-
-        function mdToast(message){
-
-            $mdToast.show({
-                template: '<md-toast>{0}</md-toast>'.format(message),
-                hideDelay: 6000,
-                position: 'bottom left'
-            });
-
-        }
+    'LoginCtrl', function($scope, $state, Auth, User, $mdDialog, toast){
 
         $scope.user = {
             email: '',

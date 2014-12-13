@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('evaluon.auth').controller(
-    'AuthCtrl', function($state, Auth){
+    'AuthCtrl', function($state, Auth, toast){
 
         var user = Auth.userLogged(),
             userRole = user.role;
@@ -13,7 +13,7 @@ angular.module('evaluon.auth').controller(
         );
 
         if(userRole == 1){
-            $state.go('anon.logout');
+            $state.go('anon.login');
         }
         else{
             $state.go('{0}.home'.format(userHome));
