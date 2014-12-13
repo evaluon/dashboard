@@ -7,7 +7,7 @@ var apiRouter = {
     },
     url: {
         protocol: 'http',
-        host: 'evaluon.boolinc.co'
+        host: 'localhost:3004'
     },
     route: function(path){
         var url = this.url;
@@ -46,6 +46,7 @@ angular.module('evaluon').constant(
         groupPeriod: function(group){
             return apiRouter.route('group/{0}/period'.format(group));
         },
+        groupEvaluee: apiRouter.route('evaluee/group'),
         groupEvaluees: function(group){
             return apiRouter.route('group/{0}/evaluee'.format(group));
         },

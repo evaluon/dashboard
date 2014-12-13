@@ -130,17 +130,20 @@ angular.module('evaluon.evaluator').factory(
                     tokenType = user.token_type,
                     token = user.access_token;
 
-                var deferred = $q.defer();
-
-                setTimeout(function(){
-                    if(evaluee == '1110556776'){
-                        deferred.reject({ message: "dont_delete_me" });
-                    } else {
-                        deferred.resolve(true);
+                return $http({
+                    method: 'delete',
+                    url: api.groupEvaluee,
+                    headers: {
+                        Authorization: headers.authorization(tokenType, token),
+                        'Content-Type': headers.json
+                    },
+                    data: {
+                        evaluee_id: evaluee,
+                        group_id: group
                     }
-                }, 1000);
-
-                return deferred.promise;
+                }).then(function(data){
+                    return data.data.success;
+                });
 
             }
 
