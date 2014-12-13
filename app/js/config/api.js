@@ -29,6 +29,7 @@ angular.module('evaluon').constant(
 
         // Users Module
         user: apiRouter.route('user'),
+        adminUser: apiRouter.route('user/admin'),
 
         // Institutions Module
         institution: apiRouter.route('institution'),
