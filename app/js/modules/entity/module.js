@@ -9,7 +9,6 @@ angular.module('evaluon.entity', ['ui.router']).config(
                 abstract: true,
                 url: '/entity',
                 templateUrl: 'views/entity/entity.tpl.html',
-                controller: 'EntityMenuCtrl',
                 data: {
                     access: authorizationProvider.$get().accessLevels.entity
                 }
