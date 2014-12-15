@@ -9,6 +9,8 @@ angular.module('evaluon').factory(
 
                 var message;
 
+                console.log(response);
+
                 var errors = {
                     400: {
                         missing_fields: 'Solicitud incompleta'
@@ -24,7 +26,8 @@ angular.module('evaluon').factory(
                         unabled_institution: "Imposible realizar acción sobre esta institución.",
                         insuficient_privileges: 'No tienes permiso para acceder a estos recursos',
                         invalid_hotp_code: 'Clave de acceso inválida',
-                        invalid_grant: 'Usuario y contraseña no coinciden'
+                        invalid_grant: 'Usuario y contraseña no coinciden',
+                        access_denied: 'Usuario bloqueado'
                     },
                     404: {
                         no_active_groups: 'No hay grupos activos',
@@ -37,8 +40,8 @@ angular.module('evaluon').factory(
                 };
 
                 if(errors[response.status]){
-                    if(errors[response.status][response.data.error.message]){
-                        message = errors[response.status][response.data.error.message];
+                    if(errors[response.status][response.data.error]){
+                        message = errors[response.status][response.data.error];
                     }
                     else{
                         message = 'Error desconocido, si este persiste contacte al administrador';
