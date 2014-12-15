@@ -40,7 +40,10 @@ angular.module('evaluon').factory(
                 };
 
                 if(errors[response.status]){
-                    if(errors[response.status][response.data.error]){
+                    if(errors[response.status][response.data.error.message]){
+                        message = errors[response.status][response.data.error.message];
+                    }
+                    else if(errors[response.status][response.data.error]){
                         message = errors[response.status][response.data.error];
                     }
                     else{
