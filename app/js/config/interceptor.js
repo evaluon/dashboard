@@ -55,7 +55,7 @@ angular.module('evaluon').factory(
                     if(response.data.error_description == 'user_not_found'){
                         message = 'Usuario y contraseña no coinciden';
                     }
-                    if(response.data.error_description == 'blocked_user'){
+                    else if(response.data.error_description == 'blocked_user'){
                         message = 'Usuario bloqueado';
                     }
                     else{
