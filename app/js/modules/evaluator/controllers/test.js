@@ -9,10 +9,15 @@ angular.module('evaluon.evaluator').controller(
         $scope.groupId = $stateParams.id;
         $scope.institutionId = $stateParams.institution;
         $scope.tests = [];
+        $scope.noActivePeriod = false;
 
         $scope.getTests = function(){
             GroupTest.groupTests($stateParams.id).then(function(success){
                 $scope.tests = success;
+            }).then(function(response){
+                if(response.status == 404){
+                    $scope.noActivePeriod = true;
+                }
             });
         };
 
