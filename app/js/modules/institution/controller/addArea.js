@@ -9,7 +9,7 @@ angular.module('evaluon.institution').controller(
             data = _.extend({ image_id: 1 }, data);
 
             Question.createKnowledgeArea(data).then(function(){
-                toast.show();
+                toast.showSuccess();
             }).catch(function(response){
                 toast.show(response.error);
             });

@@ -7,7 +7,7 @@ angular.module('evaluon.institution').controller('GroupByEvaluatorCtrl',
 
         $scope.getGroups = function(){
 
-            Group.institutionGroups($stateParams.id).then(function(groups){
+            Group.findEvaluatorGroups($stateParams.id).then(function(groups){
                 $scope.groups = groups;
             }).catch(function(response){
                 console.log(response);
