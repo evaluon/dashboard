@@ -31,12 +31,16 @@ angular.module('evaluon.institution').factory(
 
                 return $http({
                     method: 'post',
-                    url: api.id(api.period, institution),
+                    url: api.period,
                     headers: {
                         Authorization: headers.authorization(tokenType, token),
                         'Content-Type': headers.json
                     },
-                    data: period
+                    data: {
+                        institution_id: institution,
+                        start_date: period.start_date,
+                        stop_date: period.end_date
+                    }
                 }).then(function(data){
                     return data.data.data;
                 });

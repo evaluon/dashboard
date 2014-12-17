@@ -9,7 +9,7 @@
                 <form name="registerInstitutionForm" ng-submit="registerInstitution($event, registerInstitutionForm.$valid)">
                     <h5>Datos de la institución:</h5>
 
-                    <md-text-float label="NIT" ng-model="institution.id" class="long" name="id" ng-class="validateStyleField(registerInstitutionForm, 'id')" required> </md-text-float>
+                    <md-text-float label="NIT" ng-model="institution.id" class="long" name="id" ng-class="validateStyleField(registerInstitutionForm, 'id')" minlength="4" maxlength="7" required> </md-text-float>
                     <md-text-float label="Nombre" ng-model="institution.name" class="long" name="name" ng-class="validateStyleField(registerInstitutionForm, 'name')" required> </md-text-float>
                     <md-text-float label="Dirección" ng-model="institution.address" class="long" name="address" ng-class="validateStyleField(registerInstitutionForm, 'address')" required> </md-text-float>
                     <md-text-float label="Correo Electrónico" type="email" ng-model="institution.mail" class="long" name="mail"ng-class="{ 'invalid': !validateEmail(institution.mail), 'valid': validateEmail(institution.mail)}" required> </md-text-float>
