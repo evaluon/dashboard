@@ -45,6 +45,24 @@ angular.module('evaluon.evaluator').factory(
 
             },
 
+            findEvaluatorGroups: function(id){
+
+                var user = Auth.userLogged(),
+                tokenType = user.token_type,
+                token = user.access_token;
+
+                return $http({
+                    method: 'get',
+                    url: api.id(api.evaluatorGroup, id),
+                    headers: {
+                        Authorization: headers.authorization(tokenType, token)
+                    }
+                }).then(function(data){
+                    return data.data.data;
+                });
+
+            },
+
             addGroup: function(group){
 
                 var user = Auth.userLogged(),
