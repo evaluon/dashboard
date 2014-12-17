@@ -8,8 +8,6 @@ angular.module('evaluon.evaluator').controller(
         $scope.getGroups = function(){
             return Group.evaluatorGroups().then(function(groups){
                 $scope.groups = groups;
-            }).catch(function(error){
-                toast.show(error.message);
             });
         }
 
