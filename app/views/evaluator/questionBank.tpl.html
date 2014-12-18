@@ -16,15 +16,15 @@
         <md-content flex layout="vertical" class="md-default-theme md-whiteframe-z1" style="height: 480px;">
             <md-list>
                 <section ng-repeat="area in knowledgeAreas">
-                    <md-subheader class="md-primary"><h3>{{area.id}}</h3></md-subheader>
+                    <md-subheader class="md-primary"><h3 tabindex="0">{{area.id}}</h3></md-subheader>
                     <md-list>
                         <md-item>
                             <md-card ng-repeat="question in questionBank | filter: {knowledge_area_id: area.id} ">
                                 <md-item-content>
-                                    <div class="md-tile-left"><h3>{{question.id}}</h3></div>
+                                    <div class="md-tile-left"><h3 tabindex="0">{{question.id}}</h3></div>
                                     <div class="md-tile-content">
-                                        <h3>{{question.description_text}}</h3>
-                                        <h4>Dificultad: {{question.difficulty}}</h4>
+                                        <h3 tabindex="0">{{question.description_text}}</h3>
+                                        <h4 tabindex="0">Dificultad: {{question.difficulty}}</h4>
                                         <h4 ng-repeat="answer in question.answers" ng-class="{'correct': answer.right == 1}">{{$index + 1}}. {{answer.description_text}}</h4>
                                     </div>
                                 </md-item-content>

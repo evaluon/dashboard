@@ -4,19 +4,19 @@
 
         <md-card>
 
-            <md-subheader class="md-sticky-no-effect"><h2>Nuevo Periodo </h2></md-subheader>
+            <md-subheader class="md-sticky-no-effect"><h2 tabindex="0">Nuevo Periodo </h2></md-subheader>
 
             <md-item>
                 <md-item-content>
                     <div class="md-tile-left">
                     </div>
                     <div class="md-tile-content">
-                        <h3>Registrar Periodo</h3>
+                        <h3 tabindex="0">Registrar Periodo</h3>
                         <br>
                         <form name="addPeriodForm" ng-submit="add($event, data)">
-                            <h5>Fecha de inicio:</h5>
+                            <h5 tabindex="0">Fecha de inicio:</h5>
                             <md-text-float  ng-model="data.start_date" type="date" name="start_date" class="medium" required> </md-text-float>
-                            <h5>Fecha final:</h5>
+                            <h5 tabindex="0">Fecha final:</h5>
                             <md-text-float  ng-model="data.end_date" type="date" name="end_date" class="medium" required> </md-text-float>
                             <p ng-if="validate(addPeriodForm, data)" class="invalid">Tienes campos no validos en tu formulario</p>
                             <md-button type="submit" aria-label="Agregar periodo" class="md-fab md-primary md-fab-bottom-right" md-theme="red" ng-disabled="validate(addPeriodForm, data)" >

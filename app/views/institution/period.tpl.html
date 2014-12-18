@@ -24,9 +24,9 @@
                 <md-item ng-repeat="item in periodes">
                     <md-card>
                         <md-item-content>
-                            <div class="md-tile-left"><h3>{{item.id}}.</h3></div>
+                            <div class="md-tile-left"><h3 tabindex="0">{{item.id}}.</h3></div>
                             <div class="md-tile-content">
-                                <h3>{{item.start_date | date: 'longDate'}} - {{item.stop_date | date: 'longDate'}}</h3>
+                                <h3 tabindex="0">{{item.start_date | date: 'longDate'}} - {{item.stop_date | date: 'longDate'}}</h3>
                                 <!-- md-fab md-fab-bottom-right-->
                                 <md-button class="" aria-label="Editar periodo" ng-click="updatePeriod($event, item)">
                                     <md-tooltip>

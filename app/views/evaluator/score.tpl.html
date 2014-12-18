@@ -17,10 +17,10 @@
                 <md-item>
                     <md-card>
                         <md-item-content>
-                            <div class="md-tile-left"><h3></h3></div>
+                            <div class="md-tile-left"><h3 tabindex="0"></h3></div>
                             <div class="md-tile-content">
-                                <h3>{{test.description}}</h3>
-                                <h4>Creado: {{test.create_date | date: 'medium'}}</h4>
+                                <h3 tabindex="0">{{test.description}}</h3>
+                                <h4 tabindex="0">Creado: {{test.create_date | date: 'medium'}}</h4>
                             </div>
                         </md-item-content>
                     </md-card>
@@ -28,11 +28,11 @@
                 <md-item ng-repeat="item in test.questions">
                     <md-card>
                         <md-item-content>
-                            <div class="md-tile-left"><h3>{{$index+1}}</h3></div>
+                            <div class="md-tile-left"><h3 tabindex="0">{{$index+1}}</h3></div>
                             <div class="md-tile-content">
-                                <h3>{{item.question}}</h3>
-                                <h4>{{item.knowledge_area_id}}</h4>
-                                <h4>Respuesta: {{item.answer}}</h4>
+                                <h3 tabindex="0">{{item.question}}</h3>
+                                <h4 tabindex="0">{{item.knowledge_area_id}}</h4>
+                                <h4 tabindex="0">Respuesta: {{item.answer}}</h4>
                                 <div ng-if="item.right != null">
                                     <h4 ng-if="item.right == 0" style="color: red;">Incorrecta</h4>
                                     <h4 ng-if="item.right == 1" style="color: #5ed95b">Correcta</h4>
@@ -59,9 +59,9 @@
                 <md-item ng-class="{'no-permission': inInstitution }">
                     <md-card>
                         <md-item-content>
-                            <div class="md-tile-left"><h3></h3></div>
+                            <div class="md-tile-left"><h3 tabindex="0"></h3></div>
                             <div class="md-tile-content">
-                                <h3>Retroalimentación</h3>
+                                <h3 tabindex="0">Retroalimentación</h3>
                                 <md-text-float label="" class="long" ng-model="test.feedback"></md-text-float>
                                 <md-button class="md-fab md-fab-bottom-right" ng-click="setFeedback(test.feedback)">
                                     <md-tooltip>

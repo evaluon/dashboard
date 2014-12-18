@@ -4,7 +4,7 @@
 
         <md-card>
 
-            <md-subheader class="md-sticky-no-effect"><h2>Areas de conocimiento </h2></md-subheader>
+            <md-subheader class="md-sticky-no-effect"><h2 tabindex="0">Areas de conocimiento </h2></md-subheader>
 
             <md-list>
                 <md-item ng-repeat="item in knowledgeAreas">
@@ -14,8 +14,8 @@
                                 <img ng-src="cdn.boolinc.co/evaluon/{{item.image.location}}" alt="{{item.description}}">
                             </div>
                             <div class="md-tile-content">
-                                <h3>{{item.id}}</h3>
-                                <h2>{{item.description}}</h2>
+                                <h3 tabindex="0">{{item.id}}</h3>
+                                <h2 tabindex="0">{{item.description}}</h2>
                             </div>
                         </md-item-content>
                     </md-card>
@@ -27,7 +27,7 @@
                     <div class="md-tile-left">
                     </div>
                     <div class="md-tile-content">
-                        <h3>Petición de área de conocimiento</h3>
+                        <h3 tabindex="0">Petición de área de conocimiento</h3>
                         <br>
                         <form name="addAreaForm" ng-submit="add($event, data)">
                             <md-text-float label="Nombre" ng-model="data.id" name="id" class="medium" required> </md-text-float>
