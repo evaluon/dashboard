@@ -25,9 +25,9 @@
                         <md-content>
                             <div class="md-tile-content">
                                 <h3 tabindex="0">{{item.id}}. {{item.description}}</h3>
-                                <h4 tabindex="0">{{item.start_date | date: 'medium'}} - {{item.stop_date | date: 'medium'}}</h4>
+                                <p tabindex="0">{{item.start_date | date: 'medium'}} - {{item.stop_date | date: 'medium'}}</p>
                                 <br>
-                                <h4 tabindex="0">Clave de acceso: <b>{{item.hotp}}</b></h4>
+                                <p tabindex="0">Clave de acceso: <b>{{item.hotp}}</b></p>
 
                                 <md-button ng-class="{'no-permission': includeInstitution }" ng-click="uptadeTestPeriod($event, item)" class="md-fab md-fab-top-right" ng-click="">
                                     <md-tooltip>

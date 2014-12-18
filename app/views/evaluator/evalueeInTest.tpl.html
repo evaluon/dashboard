@@ -27,10 +27,10 @@
                         <md-item-content>
                             <div class="md-tile-content">
                                 <h3 tabindex="0">{{item.first_name}} {{item.last_name}}</h3>
-                                <h4 tabindex="0">{{item.mail}}</h4>
-                                <h4 tabindex="0">{{item.phone}}</h4>
-                                <h4 tabindex="0">{{item.level}}</h4>
-                                <h4 tabindex="0">{{item.disability}}</h4>
+                                <p tabindex="0">{{item.mail}}</p>
+                                <p tabindex="0">{{item.phone}}</p>
+                                <p tabindex="0">{{item.level}}</p>
+                                <p tabindex="0">{{item.disability}}</p>
                                 <br>
                                 <!-- md-fab md-fab-bottom-right-->
                                 <md-button ng-if="inInstitution" class="md-fab md-fab-top-right" ui-sref="institution.scoreTest({id: testId, evalueeId: item.id})" aria-label="Calificaciones del examen">

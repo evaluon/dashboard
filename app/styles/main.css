@@ -81,3 +81,6 @@ select {
 .correct{
   color: green;
 }
+.md-tile-content p{
+  font-size: 15px;
+}
