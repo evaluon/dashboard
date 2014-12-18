@@ -6,8 +6,6 @@ function(
     GroupTest, Answer
 ){
 
-    console.log($stateParams);
-
     // Test logic
     $scope.testObject = {
         description: "",
