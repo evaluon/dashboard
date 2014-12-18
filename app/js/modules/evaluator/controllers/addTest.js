@@ -2,11 +2,8 @@
 
 angular.module('evaluon.evaluator').controller('AddTestCtrl',
 function(
-    $scope, $state, $stateParams, $q, $mdToast, Test, Question,
-    GroupTest, Answer
+    $scope, $state, $stateParams, $q, toast, Test, Question,GroupTest, Answer
 ){
-
-    console.log($stateParams);
 
     // Test logic
     $scope.testObject = {
@@ -18,22 +15,12 @@ function(
     $scope.test = [];
     $scope.knowledgeAreas = [];
 
-    function mdToast(message){
-
-        $mdToast.show({
-            template: '<md-toast>{0}</md-toast>'.format(message),
-            hideDelay: 6000,
-            position: 'bottom left'
-        });
-
-    }
-
     $scope.getKnowledgeAreas = function(){
 
         Question.listKnowledgeAreas().then(function(success){
             $scope.knowledgeAreas = success;
-        }).catch(function(error){
-            console.error(error);
+        }).catch(function(response){
+            toast.show(response.error);
         });
 
     };
@@ -124,10 +111,14 @@ function(
             return $q.all(qs);
 
         }).then(function(){
-            mdToast("Examen creado satisfactoriamente");
+            toast.show(
+                "Examen creado satisfactoriamente. Recuerde que este" +
+                "examen aparecerá a sus estudiantes una vez se encuentre " +
+                "en las fechas de realización del mismo"
+            );
             $state.go('evaluator.test', { id: $stateParams.id });
         }).catch(function(response){
-            mdToast(response.error);
+            toast.show(response.error);
         });
 
     };
