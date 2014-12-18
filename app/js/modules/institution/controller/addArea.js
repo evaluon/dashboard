@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('evaluon.institution').controller(
-    'AddAreaCtrl', function($scope, toast, Question){
+    'AddAreaCtrl', function($scope, toast, Question, $mdDialog){
 
         $scope.add = function($event, data){
             $event.preventDefault();
@@ -10,6 +10,7 @@ angular.module('evaluon.institution').controller(
 
             Question.createKnowledgeArea(data).then(function(){
                 toast.showSuccess();
+                $mdDialog.hide();
             }).catch(function(response){
                 toast.show(response.error);
             });

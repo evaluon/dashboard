@@ -46,10 +46,6 @@
                     <md-text-float label="Nombre" ng-model="institution.evaluator.first_name" class="long" name="evaluator.first_name" ng-class="validateStyleField(registerInstitutionForm, 'evaluator.first_name')" required></md-text-float>
                     <md-text-float label="Apellido" ng-model="institution.evaluator.last_name" class="long" name="evaluator.last_name" ng-class="validateStyleField(registerInstitutionForm, 'evaluator.last_name')" required></md-text-float>
 
-                    <md-text-float type="date" label="Fecha de Nacimiento" ng-model="institution.evaluator.birth_date" class="long" name="evaluator.birth_date" ng-class="validateStyleField(registerInstitutionForm, 'evaluator.birth_date')" required></md-text-float>
-
-                    <md-text-float type="email" label="Correo Electrónico" ng-model="institution.evaluator.mail" class="long" name="evaluator.mail" ng-class="{ 'invalid': !validateEmail(institution.evaluator.mail), 'valid': validateEmail(institution.evaluator.mail)}" required> </md-text-float>
-                    <md-text-float label="Número Teléfono" ng-model="institution.evaluator.phone_number" class="long" name="evaluator.phone_number" ng-class="validateStyleField(registerInstitutionForm, 'evaluator.phone_number')" required> </md-text-float>
                     <md-text-float label="Área de trabajo" ng-model="institution.evaluator.area" class="long" name="evaluator.area" ng-class="validateStyleField(registerInstitutionForm, 'evaluator.area')" required></md-text-float>
 
                     <br>
@@ -75,8 +71,6 @@
                     <md-text-float label="Documento de Identidad" type="number" ng-model="evaluator.id" class="long" name="id" ng-class="validateStyleField(registerEvaluatorForm, 'id')" required></md-text-float>
                     <md-text-float label="Nombre" ng-model="evaluator.first_name" class="long" name="first_name" ng-class="validateStyleField(registerEvaluatorForm, 'first_name')" required></md-text-float>
                     <md-text-float label="Apellido" ng-model="evaluator.last_name" class="long" name="last_name" ng-class="validateStyleField(registerEvaluatorForm, 'last_name')" required></md-text-float>
-
-                    <md-text-float type="date" label="Fecha de Nacimiento" ng-model="evaluator.birth_date" class="long" name="birth_date" ng-class="validateStyleField(registerEvaluatorForm, 'birth_date')" required></md-text-float>
 
                     <md-text-float type="email" label="Correo Electrónico" ng-model="evaluator.mail" class="long" name="mail" ng-class="{ 'invalid': !validateEmail(evaluator.mail), 'valid': validateEmail(evaluator.mail)}"  required> </md-text-float>
                     <md-text-float label="Número Teléfono" ng-model="evaluator.phone_number" class="long" name="phone_number" ng-class="validateStyleField(registerEvaluatorForm, 'phone_number')" required> </md-text-float>
