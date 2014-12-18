@@ -35,7 +35,7 @@
         <md-content flex layout="vertical" class="md-default-theme md-whiteframe-z1" style="height: 72vh;">
             <form name ="addTestForm" novalidate>
 
-                <md-button class="md-primary md-fab md-fab-bottom-right" md-theme="red" ng-click="addTest($event)" style="position: fixed;" ng-disabled="((test.length < 1) || (addTestForm.$invalid))" class="md-raised md-primary">
+                <md-button class="md-primary md-fab md-fab-bottom-right" md-theme="red" ng-click="addTest($event)" style="position: fixed;" ng-disabled="validate(addTestForm, test)" class="md-raised md-primary">
                     <md-tooltip>
                         Agregar examen
                     </md-tooltip>
@@ -80,7 +80,7 @@
                                     <br>
                                     <div class="row" layout="horizontal">
                                         <div flex="25">
-                                            <md-text-float label="Dificultad" type="number"ng-model="item.difficulty" required></md-text-float>
+                                            <md-text-float label="Dificultad" type="number"ng-model="item.difficulty" ng-class="{'invalid': item.difficulty <= 0 || item.difficulty > 480 }" required></md-text-float>
                                         </div>
                                         <div flex="20">
                                             <md-button aria-label="Valor de dificultad entre 1 y 480">
@@ -119,7 +119,7 @@
                                     </div>
                                     <div class="row" layout="horizontal">
                                         <div flex="25">
-                                            <md-text-float label="Dificultad" type="number"ng-model="item.difficulty" required></md-text-float>
+                                            <md-text-float label="Dificultad" type="number"ng-model="item.difficulty" ng-class="{'invalid': item.difficulty <= 0 || item.difficulty > 480 }" required></md-text-float>
                                         </div>
                                         <div flex="20">
                                             <md-button aria-label="Valor de dificultad entre 1 y 480">
@@ -155,7 +155,7 @@
                                 </div>
                                 <!-- if is a bank question-->
                                 <div class="md-tile-content" ng-if="item.public && !item.new">
-                                    <md-text-float label="Número de pregunta" class="medium" ng-model="item.id" required> </md-text-float>
+                                    <md-text-float label="Número de pregunta" type="number" class="medium" ng-model="item.id" required> </md-text-float>
                                     <br><br>
                                     <md-button class="md-raised md-primary" href="/evaluator/question-bank" target="_blank">Banco de preguntas
                                         <md-tooltip>

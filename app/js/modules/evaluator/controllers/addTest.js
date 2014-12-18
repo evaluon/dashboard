@@ -16,6 +16,20 @@ function(
     $scope.test = [];
     $scope.knowledgeAreas = [];
 
+    $scope.validate = function(form, test){
+
+        var difficulty = _.reduce(test, function(prev, item){
+
+            if(item.difficulty !== 'undefined' || idem.difficulty){
+                if(item.difficulty < 1 || item.difficulty > 480) return false && prev;
+                else return true && prev;
+            }
+            else true && prev;
+        }, true);
+
+        return test.length < 1 || form.$invalid || !difficulty;
+    };
+
     function mdToast(message){
 
         $mdToast.show({
