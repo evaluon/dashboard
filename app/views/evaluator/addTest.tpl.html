@@ -70,7 +70,7 @@
 
                             <md-item-content>
 
-                                <div class="md-tile-left"><h3>{{$index+1}}</h3></div>
+                                <div class="md-tile-left"><h3 tabindex="0">{{$index+1}}</h3></div>
                                 <!-- if is a open question-->
                                 <div class="md-tile-content" ng-if="item.open">
                                     <select ng-model="item.knowledgeArea" ng-options="area.id for area in knowledgeAreas" required>

@@ -26,9 +26,9 @@
                             <img ng-src="{{item.image.location}}" class="face" alt="{{item.image.description}}">
                         </div>
                         <div class="md-tile-content">
-                            <h3>Grupo {{item.id}}: {{item.user.first_name}} {{item.user.last_name}}</h3>
-                            <h4>{{item.institution.name}}</h4>
-                            <h4>{{item.institution.address}}</h4>
+                            <h3 tabindex="0">Grupo {{item.id}}: {{item.user.first_name}} {{item.user.last_name}}</h3>
+                            <h4 tabindex="0">{{item.institution.name}}</h4>
+                            <h4 tabindex="0">{{item.institution.address}}</h4>
                         </div>
                         <md-button class="md-fab md-fab-bottom-right" ng-click="delete($event, item.id)" aria-label="Eliminar grupo">
                             <md-tooltip>

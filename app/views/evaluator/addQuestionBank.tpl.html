@@ -1,14 +1,14 @@
 <md-dialog aria-label="Añadir pregunta del banco" style="width: 600px;">
     <md-content>
         <md-card>
-            <md-subheader class="md-sticky-no-effect"><h2>Añadir pregunta del banco</h2></md-subheader>
+            <md-subheader class="md-sticky-no-effect"><h2 tabindex="0">Añadir pregunta del banco</h2></md-subheader>
             <md-card>
                 <md-item>
                     <md-item-content>
                         <div class="md-tile-left">
                         </div>
                         <div class="md-tile-content">
-                            <h3>Agregar Pregunta</h3>
+                            <h3 tabindex="0">Agregar Pregunta</h3>
                             <form ng-submit="add($event)">
                                 <md-text-float label="Pregunta" ng-model="question.id" class="md-fab-bottom-left" required> </md-text-float>
                                 <md-button type="submit" aria-label="Agregar pregunta" class="md-fab md-primary md-fab-bottom-right" md-theme="red">

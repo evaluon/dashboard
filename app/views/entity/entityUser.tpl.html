@@ -26,12 +26,12 @@
                             <div class="md-tile-left">
                             </div>
                             <div class="md-tile-content">
-                                <h3>{{item.id}} </h3>
-                                <h4>{{item.first_name}} {{item.middle_name}} {{item.last_name}}</h4>
-                                <h4>{{item.mail}}</h4>
-                                <h4>{{item.phone_number}}</h4>
-                                <h4>{{item.birth_date | date : 'mediumDate'}}</h4>
-                                <h4>Usuario desde {{item.register_date | date : 'medium'}}</h4>
+                                <h3 tabindex="0">{{item.id}} </h3>
+                                <h4 tabindex="0">{{item.first_name}} {{item.middle_name}} {{item.last_name}}</h4>
+                                <h4 tabindex="0">{{item.mail}}</h4>
+                                <h4 tabindex="0">{{item.phone_number}}</h4>
+                                <h4 tabindex="0">{{item.birth_date | date : 'mediumDate'}}</h4>
+                                <h4 tabindex="0">Usuario desde {{item.register_date | date : 'medium'}}</h4>
                                 <h4 ng-if="item.enabled == 1"> <b>Activo</b></h4>
                                 <h4 ng-if="item.enabled == 0"> <b>Bloqueado</b></h4>
 

@@ -4,10 +4,10 @@
         <div layout="row" layout-align="center">
 
             <div flex>
-                <md-header class="md-sticky-no-effect"><h4>Registrar Institución:</h4></md-header>
+                <md-header class="md-sticky-no-effect"><h4 tabindex="0">Registrar Institución:</h4></md-header>
 
                 <form name="registerInstitutionForm" ng-submit="registerInstitution($event, registerInstitutionForm.$valid)">
-                    <h5>Datos de la institución:</h5>
+                    <h5 tabindex="0">Datos de la institución:</h5>
 
                     <md-text-float label="NIT" ng-model="institution.id" class="long" name="id" ng-class="validateStyleField(registerInstitutionForm, 'id')" minlength="9" maxlength="9" required> </md-text-float>
                     <md-text-float label="Nombre" ng-model="institution.name" class="long" name="name" ng-class="validateStyleField(registerInstitutionForm, 'name')" required> </md-text-float>
@@ -40,7 +40,7 @@
                     </div>
 
                     <br>
-                    <h5>Datos del administrador:</h5>
+                    <h5 tabindex="0">Datos del administrador:</h5>
 
                     <md-text-float label="Documento de Identidad" type="number" ng-model="institution.evaluator.id" class="long" name="evaluator.id" ng-class="validateStyleField(registerInstitutionForm, 'evaluator.id')" required></md-text-float>
                     <md-text-float label="Nombre" ng-model="institution.evaluator.first_name" class="long" name="evaluator.first_name" ng-class="validateStyleField(registerInstitutionForm, 'evaluator.first_name')" required></md-text-float>
@@ -64,7 +64,7 @@
             </div>
 
             <div flex>
-                <md-header class="md-sticky-no-effect"><h4> Registrar Evaluador:</h4></md-header>
+                <md-header class="md-sticky-no-effect"><h4 tabindex="0"> Registrar Evaluador:</h4></md-header>
 
                 <form name="registerEvaluatorForm" ng-submit="registerEvaluator($event)">
 

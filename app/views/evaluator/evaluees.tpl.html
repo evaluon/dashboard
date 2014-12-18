@@ -3,7 +3,7 @@
     <md-content>
         <md-list>
             <md-card>
-                <md-subheader class="md-sticky-no-effect"><h2>Evaluados Grupo {{group}}</h2></md-subheader>
+                <md-subheader class="md-sticky-no-effect"><h2 tabindex="0">Evaluados Grupo {{group}}</h2></md-subheader>
                 <md-item ng-repeat="item in evaluees">
                     <md-card>
                         <md-item-content>
@@ -11,11 +11,11 @@
 
                             </div>
                             <div class="md-tile-content">
-                                <h3>{{item.first_name}} {{item.last_name}}</h3>
-                                <h4>{{item.id}}</h4>
-                                <h4>{{item.institution}}</h4>
-                                <h4>{{item.mail}}</h4>
-                                <h4>{{item.phone_number}}</h4>
+                                <h3 tabindex="0">{{item.first_name}} {{item.last_name}}</h3>
+                                <h4 tabindex="0">{{item.id}}</h4>
+                                <h4 tabindex="0">{{item.institution}}</h4>
+                                <h4 tabindex="0">{{item.mail}}</h4>
+                                <h4 tabindex="0">{{item.phone_number}}</h4>
                                 <br>
 
                                 <md-button class="md-fab md-fab-bottom-right" ng-click="delete($event, item.id)" >
@@ -34,7 +34,7 @@
                         <div class="md-tile-left">
                         </div>
                         <div class="md-tile-content">
-                            <h3>Agregar Evaluado</h3>
+                            <h3 tabindex="0">Agregar Evaluado</h3>
                             <form name="addEvalueeForm" ng-submit="add($event, evaluee.id)">
                                 <md-text-float name="id" label="Documento del evaluado" type="number" ng-model="evaluee.id" ng-class="validateStyleField(addEvalueeForm, 'id')" class="md-fab-bottom-left" required> </md-text-float>
                                 <md-button type="submit" ng-disabled="addEvalueeForm.$invalid" aria-label="Iniciar Sesion" class="md-fab md-primary md-fab-bottom-right" md-theme="red">

@@ -18,24 +18,24 @@
                     <md-card>
                         <md-item-content>
                             <div class="md-tile-content">
-                                <h3>Grupo {{item.id}}: {{item.user.first_name}} {{item.user.last_name}}</h3>
-                                <h4>{{item.institution.name}}</h4>
-                                <h4>{{item.institution.address}}</h4>
+                                <h3 tabindex="0">Grupo {{item.id}}: {{item.user.first_name}} {{item.user.last_name}}</h3>
+                                <h4 tabindex="0">{{item.institution.name}}</h4>
+                                <h4 tabindex="0">{{item.institution.address}}</h4>
                                 <br>
                                 <!-- md-fab md-fab-bottom-right-->
-                                <md-button class="md-fab md-fab-top-right" ng-click="evaluees($event, item.id)">
+                                <md-button aria-label="Evaluados" class="md-fab md-fab-top-right" ng-click="evaluees($event, item.id)">
                                     <md-tooltip>
                                         Evaluados
                                     </md-tooltip>
                                     <i class="mi mi-group"></i>
                                 </md-button>
-                                <md-button class="" ng-click="period($event, item.id)">
+                                <md-button aria-label="Reestablecer periodo" ng-click="period($event, item.id)">
                                     <md-tooltip>
                                         Reestablecer periodo
                                     </md-tooltip>
                                     <i class="mi mi-restore"></i>
                                 </md-button>
-                                <md-button class="" ui-sref="evaluator.test({institution: item.institution.id, id: item.id})">
+                                <md-button aria-label="Examenes" class="" ui-sref="evaluator.test({institution: item.institution.id, id: item.id})">
                                     <md-tooltip>
                                         Exámenes
                                     </md-tooltip>
