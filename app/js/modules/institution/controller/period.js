@@ -18,7 +18,8 @@ angular.module('evaluon.institution').controller(
                 templateUrl: 'views/institution/addPeriod.tpl.html',
                 controller: 'InstitutionAddPeriodCtrl',
                 escapeToClose: true,
-                locals: {institution: Auth.userLogged().institution}
+                locals: {institution: Auth.userLogged().institution},
+                onComplete: $scope.getPeriodes()
             });
         };
 

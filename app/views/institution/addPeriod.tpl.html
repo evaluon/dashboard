@@ -18,7 +18,8 @@
                             <md-text-float  ng-model="data.start_date" type="date" name="start_date" class="medium" required> </md-text-float>
                             <h5>Fecha final:</h5>
                             <md-text-float  ng-model="data.end_date" type="date" name="end_date" class="medium" required> </md-text-float>
-                            <md-button type="submit" aria-label="Agregar periodo" class="md-fab md-primary md-fab-bottom-right" md-theme="red" ng-disabled="addPeriodForm.$invalid || data.start_date >= data.end_date" >
+                            <p ng-if="validate(addPeriodForm, data)" class="invalid">Tienes campos no validos en tu formulario</p>
+                            <md-button type="submit" aria-label="Agregar periodo" class="md-fab md-primary md-fab-bottom-right" md-theme="red" ng-disabled="validate(addPeriodForm, data)" >
                                 <md-tooltip>
                                     Agregar
                                 </md-tooltip>
