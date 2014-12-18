@@ -54,6 +54,7 @@
                                         <div flex="40">
                                             <md-text-float label="Inicio" name="startDate" type="datetime-local" ng-model="testObject.start_date" required></md-text-float>
                                         </div>
+
                                         <div flex="40">
                                             <md-text-float label="Final" name="stopDate" type="datetime-local" ng-model="testObject.stop_date" required></md-text-float>
                                         </div>
@@ -134,7 +135,7 @@
                                     <br>
                                     <div class="row" layout="horizontal">
                                         <div flex="10">
-                                            <md-button  ng-file-select="onImage(item, $files)">
+                                            <md-button  ng-file-select="onImage(item, $files)" accept="image/jpeg">
                                                 <md-tooltip>
                                                     Añadir imagen
                                                 </md-tooltip>

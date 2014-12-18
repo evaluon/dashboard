@@ -25,6 +25,7 @@
                                     <div class="md-tile-content">
                                         <h3>{{question.description_text}}</h3>
                                         <h4>Dificultad: {{question.difficulty}}</h4>
+                                        <h4 ng-repeat="answer in question.answers" ng-class="{'correct': answer.right == 1}">{{$index + 1}}. {{answer.description_text}}</h4>
                                     </div>
                                 </md-item-content>
                             </md-card>

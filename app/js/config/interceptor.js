@@ -38,7 +38,8 @@ angular.module('evaluon').factory(
                         no_active_test: 'No hay test activos para este grupo',
                         test_unavailable: 'La prueba seleccionada no está disponible',
                         client_not_found: "Cliente de aplicación no encontrado",
-                        results_not_found: "Los resultados del evaluado son muy pocos para hacer una estadística o no se encontraron. Posiblemente el evaluado es inválido"
+                        results_not_found: "Los resultados del evaluado son muy pocos para hacer una estadística o no se encontraron. Posiblemente el evaluado es inválido",
+                        no_questions_available: "No hay preguntas disponibles"
                     }
                 };
 
