@@ -50,6 +50,8 @@ function($mdDialog, toast, $scope, Auth, User, Evaluator, Institution){
         event.preventDefault();
 
         var user = _.omit($scope.institution.evaluator, 'password2');
+        user.mail = $scope.institution.mail;
+        user.phone_number = $scope.institution.phone_number;
 
         registerUser(_.omit(user, 'area')).then(function(){
             return Auth.password(user.mail, user.password);
