@@ -27,10 +27,13 @@ angular.module('evaluon').factory(
                         insuficient_privileges: 'No tienes permiso para acceder a estos recursos',
                         invalid_hotp_code: 'Clave de acceso inválida',
                         invalid_grant: 'Usuario y contraseña no coinciden',
-                        access_denied: 'Usuario bloqueado'
+                        access_denied: 'Usuario bloqueado',
+                        already_opened_test: 'El test que intenta abrir ya ha sido abierto',
+                        existing_user: 'El usuario ya existe'
                     },
                     404: {
                         no_active_groups: 'No hay grupos activos',
+                        question_not_found: 'La pregunta que busca no existe',
                         no_active_period: 'No hay algún un periodo activo para este grupo',
                         no_active_test: 'No hay test activos para este grupo',
                         test_unavailable: 'La prueba seleccionada no está disponible',
