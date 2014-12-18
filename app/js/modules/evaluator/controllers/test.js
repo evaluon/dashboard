@@ -14,7 +14,7 @@ angular.module('evaluon.evaluator').controller(
         $scope.getTests = function(){
             GroupTest.groupTests($stateParams.id).then(function(success){
                 $scope.tests = success;
-            }).then(function(response){
+            }).catch(function(response){
                 if(response.status == 404){
                     $scope.noActivePeriod = true;
                 }
