@@ -3,6 +3,18 @@
 angular.module('evaluon.institution').controller(
     'AddAreaCtrl', function($scope, toast, Question, $mdDialog){
 
+        $scope.getKnowledgeAreas = function(){
+
+            Question.listKnowledgeAreas().then(function(success){
+                $scope.knowledgeAreas = success;
+            }).catch(function(response){
+                toast.show(response.message);
+            });
+
+        };
+        
+        $scope.getKnowledgeAreas();
+
         $scope.add = function($event, data){
             $event.preventDefault();
 
