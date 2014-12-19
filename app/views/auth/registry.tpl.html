@@ -13,7 +13,7 @@
                     <md-text-float label="Nombre" ng-model="institution.name" minlength="5" maxlength="255" class="long" name="name" ng-class="validateStyleField(registerInstitutionForm, 'name')" required> </md-text-float>
                     <md-text-float label="Dirección" ng-model="institution.address" minlength="2" class="long" name="address" ng-class="validateStyleField(registerInstitutionForm, 'address')" required> </md-text-float>
                     <md-text-float label="Correo Electrónico" type="email" maxlength="128" ng-model="institution.mail" class="long" name="mail"ng-class="{ 'invalid': !validateEmail(institution.mail), 'valid': validateEmail(institution.mail)}" required> </md-text-float>
-                    <md-text-float label="Número Teléfono" type="number" pattern="[0-9]{6,14}" ng-model="institution.phone_number" class="long" name="phone_number" ng-class="validateStyleField(registerInstitutionForm, 'phone_number')" required> </md-text-float>
+                    <md-text-float pattern="[0-9]{6,14}" label="Número Teléfono" type="tel" ng-model="institution.phone_number" class="long" name="phone_number" ng-class="validateStyleField(registerInstitutionForm, 'phone_number')" required> </md-text-float>
                     <div layout="vertical" layout-align="center">
                         <br>
 
@@ -42,7 +42,7 @@
                     <br>
                     <h5 tabindex="0">Datos del administrador:</h5>
 
-                    <md-text-float label="Documento de Identidad" pattern="[0-9]{6,13}" ng-model="institution.evaluator.id" class="long" name="evaluator.id" ng-class="validateStyleField(registerInstitutionForm, 'evaluator.id')" required></md-text-float>
+                    <md-text-float pattern="[0-9]{6,13}" label="Documento de Identidad" ng-model="institution.evaluator.id" class="long" name="evaluator.id" ng-class="validateStyleField(registerInstitutionForm, 'evaluator.id')" required></md-text-float>
                     <md-text-float label="Nombre" ng-model="institution.evaluator.first_name" minlength="2" maxlength="96" class="long" name="evaluator.first_name" ng-class="validateStyleField(registerInstitutionForm, 'evaluator.first_name')" required></md-text-float>
                     <md-text-float label="Apellido" ng-model="institution.evaluator.last_name" minlength="2" maxlength="96" class="long" name="evaluator.last_name" ng-class="validateStyleField(registerInstitutionForm, 'evaluator.last_name')" required></md-text-float>
 
@@ -56,7 +56,7 @@
 
                     <br>
                     <div layout="vertical" layout-align="center">
-                        <md-button type="submit" class="md-primary" style="width: 80%;" ng-disabled="validateInstitution(registerInstitutionForm, institution.evaluator.password, institution.evaluator.password2, file, institution.mail, institution.evaluator.mail)">Enviar</md-button>
+                        <md-button type="submit" class="md-primary" style="width: 80%;" ng-disabled="validateInstitution(registerInstitutionForm, institution.evaluator.password, institution.evaluator.password2, file, institution.mail, institution.mail)">Enviar</md-button>
                     </div>
 
                 </form>
