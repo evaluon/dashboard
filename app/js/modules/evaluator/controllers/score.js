@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('evaluon.evaluator').controller(
-    'ScoreTestCtrl', function($scope, $stateParams, $state, Test, Answer){
+    'ScoreTestCtrl', function($scope, $stateParams, $state, Test, Answer, toast){
 
         $scope.test = [];
 
@@ -27,6 +27,7 @@ angular.module('evaluon.evaluator').controller(
         $scope.setFeedback = function(feedback){
             Test.feedback($stateParams.evalueeId, $stateParams.id, feedback).then(function(){
                 $scope.getResults();
+                toast.show('Enviado correctamente');
             });
         };
 

@@ -31,6 +31,8 @@
                                 <p tabindex="0">{{item.phone}}</p>
                                 <p tabindex="0">{{item.level}}</p>
                                 <p tabindex="0">{{item.disability}}</p>
+                                <p tabindex="0" ng-if="item.checked"><b>Calificado</b></p>
+                                <p tabindex="0" ng-if="!item.checked"><b>No calificado</b></p>
                                 <br>
                                 <!-- md-fab md-fab-bottom-right-->
                                 <md-button ng-if="inInstitution" class="md-fab md-fab-top-right" ui-sref="institution.scoreTest({id: testId, evalueeId: item.id})" aria-label="Calificaciones del examen">

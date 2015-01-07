@@ -35,7 +35,7 @@ p.invalid {
 md-input-group.valid > input {
   border-color: #C5E1A5;
 }
-select {
+select{
    width:100px;
    overflow: hidden;
    background: #F8F8F8;
@@ -83,4 +83,7 @@ select {
 }
 .md-tile-content p{
   font-size: 15px;
+}
+select.invalid{
+  border: 1px solid #FFCDD2;
 }

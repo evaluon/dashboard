@@ -5,11 +5,15 @@ function(
     $scope, $state, $stateParams, $q, toast, Test, Question,GroupTest, Answer
 ){
 
+    var date = new Date();
+    date.setMilliseconds(0);
+    date.setSeconds(0);
+
     // Test logic
     $scope.testObject = {
         description: "",
-        start_date: new Date(),
-        stop_date: new Date()
+        start_date: date,
+        stop_date: date
     };
     // Yes, it is a variable for the questions
     $scope.test = [];
