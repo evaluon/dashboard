@@ -35,9 +35,11 @@ angular.module('evaluon.evaluator').controller(
                         "Sexo": (evaluee.gender == "male" ? "Hombre" : "Mujer"),
                         "Nota": evaluee.average,
                         "Calificado": (evaluee.checked ? "Si" : "No")
-                    }
+                    };
                 });
-                if($scope.evaluees.length > 0) $scope.headers = Object.keys($scope.evaluees[0]);
+                if($scope.evaluees.length > 0) {
+                    $scope.headers = Object.keys($scope.evaluees_es[0]);
+                }
             }).catch(function(error){
                 console.error(error);
             });
