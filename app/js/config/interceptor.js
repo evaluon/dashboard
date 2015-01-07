@@ -35,6 +35,7 @@ angular.module('evaluon').factory(
                         no_active_groups: 'No hay grupos activos',
                         question_not_found: 'La pregunta que busca no existe',
                         no_active_period: 'No hay algún un periodo activo para este grupo',
+                        institution_no_active_period: 'No existe un periodo activo en este momento en la institución',
                         no_active_test: 'No hay test activos para este grupo',
                         test_unavailable: 'La prueba seleccionada no está disponible',
                         client_not_found: "Cliente de aplicación no encontrado",
