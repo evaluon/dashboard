@@ -108,14 +108,14 @@
                                     <md-text-float name="imageDescription{{$index}}" ng-if="item.image.location" label="Descripción de la imagen" ng-model="item.image.description" class="medium" ng-class="validateStyleField(addTestForm, 'imageDescription{{$index}}')" required> </md-text-float>
                                 </div>
                                 <!-- if is a close question-->
-                                <div class="md-tile-content" ng-if="!item.open && item.new">
+                                <div class="md-tile-content" ng-if="!item.open && item.new" ng-init="outerIndex = $index">
                                     <select name="knowledgeArea{{$index}}" ng-model="item.knowledgeArea" ng-options="area.id for area in knowledgeAreas" ng-class="validateStyleField(addTestForm, 'knowledgeArea{{$index}}')"  required>
                                         <option value=""> Selecciona el Area </option>
                                     </select>
                                     <md-text-float label="Descripción" name="description{{$index}}" ng-model="item.description" class="long" ng-class="validateStyleField(addTestForm, 'description{{$index}}')"  required> </md-text-float>
                                     <div ng-repeat="question in item.questions">
-                                        <md-text-float  ng-if="$first" label="Respuesta Correcta" ng-model="question.description_text" class="medium" required> </md-text-float>
-                                        <md-text-float  ng-if="!$first" label="Respuesta {{$index + 1}}" ng-model="question.description_text" class="medium" required> </md-text-float>
+                                        <md-text-float name="question{{outerIndex}}{{$index}}"  ng-if="$first" label="Respuesta Correcta" ng-model="question.description_text" class="medium" ng-class="validateStyleField(addTestForm, 'question{{outerIndex}}{{$index}}')" required> </md-text-float>
+                                        <md-text-float name="question{{outerIndex}}{{$index}}"  ng-if="!$first" label="Respuesta {{$index + 1}}" ng-model="question.description_text" class="medium" ng-class="validateStyleField(addTestForm, 'question{{outerIndex}}{{$index}}')" required> </md-text-float>
                                     </div>
                                     <div class="row" layout="horizontal">
                                         <div flex="25">
