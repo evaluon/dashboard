@@ -26,7 +26,7 @@ angular.module('evaluon.evaluator').controller(
             Period.setPeriod(groupId).then(function(success){
                 toast.show("Periodo establecido");
             }).catch(function(error){
-                toast.show("Ya existe un periodo activo establecido");
+                toast.show(error.message);
             });
 
         };
