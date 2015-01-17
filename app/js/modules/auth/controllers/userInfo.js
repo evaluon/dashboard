@@ -25,5 +25,7 @@ angular.module('evaluon.auth').controller(
 
         }
 
+        $scope.getUser();
+
     }
 )
