@@ -2,13 +2,45 @@
     <div flex>
         <md-card>
             <h3 tabindex="0">Nivel general de usuarios:</h3>
-            <nvd3-bar-graph chart-id="levelUsers" data="usersLevelsData" duration="350" horizontal="true" responsive="true"></nvd3-bar-graph>
+            <table>
+                <thead>
+                    <td>Usuario</td>
+                    <td>Puntaje</td>
+                </thead>
+                <tr ng-repeat="item in usersLevelsData[0].values">
+                    <td>{{item.label}}</td>
+                    <td>{{item.value}}</td>
+                </tr>
+            </table>
         </md-card>
     </div>
     <div flex>
         <md-card>
             <h3 tabindex="0">Nivel general de usuarios por género:</h3>
-            <nvd3-bar-graph chart-id="levelUsersByGender" data="usersLevelsDataByGender" duration="350" horizontal="true" responsive="true"></nvd3-bar-graph>
+            <h4 tabindex="0">Hombres:</h4>
+            <table>
+                <thead>
+                    <td>Usuario</td>
+                    <td>Puntaje</td>
+                </thead>
+                <tr ng-repeat="item in usersLevelsDataByGender[0].values">
+                    <td>{{item.label}}</td>
+                    <td>{{item.value | number:2}}</td>
+                </tr>
+            </table>
+
+            <h4 tabindex="0">Mujeres:</h4>
+
+            <table>
+                <thead>
+                    <td>Usuario</td>
+                    <td>Puntaje</td>
+                </thead>
+                <tr ng-repeat="item in usersLevelsDataByGender[1].values">
+                    <td>{{item.label}}</td>
+                    <td>{{item.value | number:2}}</td>
+                </tr>
+            </table>
         </md-card>
     </div>
 </div>
@@ -16,13 +48,45 @@
 <div layout="row" layout-padding>
     <div flex>
         <md-card>
-            <nvd3-pie-chart chart-id="disabilityData" data="disabilityData" width="200" height="200" duration="1000" label-type="percent" responsive="true"></nvd3-pie-chart>
+            <h3 tabindex="0">Condición visual</h3>
+
+            <table>
+                <thead>
+                    <td>Valor</td>
+                    <td>Número</td>
+                    <td>Porcentaje</td>
+                </thead>
+                <tr ng-repeat="item in disabilityData">
+                    <td>{{item.key}}</td>
+                    <td>{{item.val}}</td>
+                    <td>{{item.percent | number:2}}%</td>
+                </tr>
+            </table>
         </md-card>
     </div>
     <div flex>
         <md-card>
-            <nvd3-pie-chart chart-id="typeData " data="typeData " width="300" height="300" duration="1000" label-type="percent" responsive="true"></nvd3-pie-chart>
+            <h3 tabindex="0">Tipo de usuario</h3>
 
+            <table>
+                <thead>
+                    <td>Valor</td>
+                    <td>Número</td>
+                    <td>Porcentaje</td>
+                </thead>
+                <tr ng-repeat="item in typeData">
+                    <td>{{item.key}}</td>
+                    <td>{{item.val}}</td>
+                    <td>{{item.percent | number:2}}%</td>
+                </tr>
+            </table>
         </md-card>
     </div>
 </div>
+
+<md-button ui-sref="entity.statistics-graphic" class="md-primary md-fab md-fab-bottom-right" md-theme="red" style="position: fixed;">
+    <md-tooltip>
+        Gráficas
+    </md-tooltip>
+    <i class="mi mi-filter-9-plus"></i>
+</md-button>

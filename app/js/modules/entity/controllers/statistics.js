@@ -33,7 +33,7 @@ angular.module('evaluon.entity').controller(
 
             _.each($scope.evalueeDescription.disabilities, function(obj){
                 var val = _.where($scope.statistics, {disability_id : obj.id}).length;
-                data.push({key: obj.description, val: val});
+                data.push({key: obj.description, val: val, percent: (val/total)*100});
             });
 
             $scope.disabilityData = data;
@@ -45,7 +45,7 @@ angular.module('evaluon.entity').controller(
 
             _.each($scope.evalueeDescription.types, function(obj){
                 var val = _.where($scope.statistics, {type_id : obj.id}).length;
-                data.push({key: obj.description, val: val});
+                data.push({key: obj.description, val: val, percent: (val/total)*100});
             });
 
             $scope.typeData = data;
@@ -84,5 +84,5 @@ angular.module('evaluon.entity').controller(
                 }
             ];
         };
-        
+
     });
