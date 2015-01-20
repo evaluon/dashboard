@@ -1,0 +1,62 @@
+<div layout="horizontal" layout-padding layout-align="center" >
+    <div flex="80" layout-fill>
+        <md-toolbar class="md-whiteframe-z1">
+            <div class="md-toolbar-tools">
+                <span>Usuario</span>
+                <span flex></span>
+            </div>
+        </md-toolbar>
+        <md-content class="md-padding md-whiteframe-z1" layout-padding layout-align="center">
+            <div layout="row" layout-padding>
+                <div flex="50">
+                    <md-list>
+                        <md-item>
+                            <md-item-content>
+                                <div class="md-tile-content">
+                                    <h3 tabindex="0">Documento de identificación</h3>
+                                    <p tabindex="0">{{user.id}}</p>
+                                </div>
+                            </md-item-content>
+                        </md-item>
+                        <md-item>
+                            <md-item-content>
+                                <div class="md-tile-content">
+                                    <h3 tabindex="0">Nombres</h3>
+                                    <p tabindex="0">{{user.first_name}} {{user.middle_name}} {{user.last_name}}</p>
+                                </div>
+                            </md-item-content>
+                        </md-item>
+                        <md-item>
+                            <md-item-content>
+                                <div class="md-tile-content">
+                                    <h3 tabindex="0">Fecha de nacimiento</h3>
+                                    <p tabindex="0">{{user.birth_date | date: "mediumDate"}}</p>
+                                </div>
+                            </md-item-content>
+                        </md-item>
+                    </md-list>
+                </div>
+                <div flex="50">
+                    <md-list>
+                        <md-item>
+                            <md-item-content>
+                                <div class="md-tile-content">
+                                    <h3 tabindex="0">Correo</h3>
+                                    <p tabindex="0">{{user.mail}}</p>
+                                </div>
+                            </md-item-content>
+                        </md-item>
+                        <md-item>
+                            <md-item-content>
+                                <div class="md-tile-content">
+                                    <h3 tabindex="0">Telefono</h3>
+                                    <p tabindex="0">{{user.phone_number}}</p>
+                                </div>
+                            </md-item-content>
+                        </md-item>
+                    </md-list>
+                </div>
+            </div>
+        </md-content>
+    </div>
+</div>

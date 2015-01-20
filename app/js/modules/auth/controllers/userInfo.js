@@ -1,13 +1,13 @@
 'use strict';
 
 angular.module('evaluon.auth').controller(
-    'UserInfoCtrl', function($state, Auth, User, Institution, toast){
+    'UserInfoCtrl', function($scope, $state, Auth, User, Institution, toast){
 
         $scope.user = {};
 
         $scope.getUser = function(){
 
-            var token = Auth.loggedUser();
+            var token = Auth.userLogged();
 
             return User.getUser(
                 token.token_type, token.access_token

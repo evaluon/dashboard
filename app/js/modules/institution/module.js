@@ -71,6 +71,12 @@ angular.module('evaluon.institution', ['ui.router']).config(
                 templateUrl: 'views/evaluator/score.tpl.html',
                 controller: 'ScoreTestCtrl'
             }
+        ).state(
+            'institution.user', {
+                url:'/user',
+                templateUrl: 'views/auth/user.tpl.html',
+                controller: 'UserInfoCtrl'
+            }
         );
 
     }
