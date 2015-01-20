@@ -5,6 +5,7 @@ angular.module('evaluon.evaluator').controller(
 
         $scope.groupId = $stateParams.group;
         $scope.testId = $stateParams.id;
+        $scope.params = $stateParams;
 
         $scope.inInstitution = $state.includes('institution');
         $scope.inEvaluator= $state.includes('evaluator');

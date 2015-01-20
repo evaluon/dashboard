@@ -35,13 +35,13 @@
                                 <p tabindex="0" ng-if="!item.checked"><b>No calificado</b></p>
                                 <br>
                                 <!-- md-fab md-fab-bottom-right-->
-                                <md-button ng-if="inInstitution" class="md-fab md-fab-top-right" ui-sref="institution.scoreTest({id: testId, evalueeId: item.id})" aria-label="Calificaciones del examen">
+                                <md-button ng-if="inInstitution" class="md-fab md-fab-top-right" ui-sref="institution.scoreTest({id: testId, evalueeId: item.id, groupId: groupId})" aria-label="Calificaciones del examen">
                                     <md-tooltip>
                                         Calificaciones
                                     </md-tooltip>
                                     <i class="mi mi-assignment-turned-in"></i>
                                 </md-button>
-                                <md-button ng-if="inEvaluator" class="md-fab md-fab-top-right" ui-sref="evaluator.scoreTest({id: testId, evalueeId: item.id})" aria-label="Calificar examen">
+                                <md-button ng-if="inEvaluator" class="md-fab md-fab-top-right" ui-sref="evaluator.scoreTest({id: testId, evalueeId: item.id, groupId: groupId})" aria-label="Calificar examen">
                                     <md-tooltip>
                                         Calificar
                                     </md-tooltip>

@@ -13,6 +13,18 @@
             </div>
         </md-toolbar>
         <md-content flex layout="vertical" class="md-default-theme md-whiteframe-z1" style="height: 500px;">
+            <md-button ng-if="inEvaluator" ui-sref="evaluator.evalueeTest({group: params.groupId, id: params.id})" class="md-primary md-fab md-fab-bottom-right" md-theme="red" ng-click="addInstitution()" style="position: fixed;">
+                <md-tooltip>
+                    Volver
+                </md-tooltip>
+                <i class="mi mi-arrow_back"></i>
+            </md-button>
+            <md-button ng-if="inInstitution" ui-sref="institution.evalueeTest({group: params.groupId, id: params.id})" class="md-primary md-fab md-fab-bottom-right" md-theme="red" ng-click="addInstitution()" style="position: fixed;">
+                <md-tooltip>
+                    Volver
+                </md-tooltip>
+                <i class="mi mi-arrow_back"></i>
+            </md-button>
             <md-list>
                 <md-item>
                     <md-card>

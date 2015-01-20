@@ -4,6 +4,7 @@ angular.module('evaluon.evaluator').controller(
     'ScoreTestCtrl', function($scope, $stateParams, $state, Test, Answer, toast){
 
         $scope.test = [];
+        $scope.params = $stateParams;
 
         $scope.inInstitution = $state.includes('institution');
         $scope.inEvaluator= $state.includes('evaluator');

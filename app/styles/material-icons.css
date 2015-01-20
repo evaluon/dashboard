@@ -234,3 +234,11 @@
 .mi-cached:before{
     content: url(/styles/material-icons/cached.svg)
 }
+
+.mi-tonality:before{
+    content: url(/styles/material-icons/tonality.svg)
+}
+
+.mi-arrow_back:before{
+    content: url(/styles/material-icons/arrow_back.svg)
+}
