@@ -131,8 +131,11 @@ function(
 
             _.each(wrongQuestions, function(question, key){
                 toast.show(
-                    "La pregunta con el id {0} no existe o no está" +
-                    "dentro del banco de preguntas".format(key)
+                    "El número de la pregunta {0}, ".format(key + 1) +
+                    "que usted escribió como {0}, no ".format(question.id) +
+                    "existe o no está dentro del banco de preguntas. " +
+                    "Por favor consulte el banco de preguntas para obtener " +
+                    "un listado de preguntas válidas."
                 );
             });
 

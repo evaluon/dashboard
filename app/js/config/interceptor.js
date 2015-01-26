@@ -13,7 +13,6 @@ angular.module('evaluon').factory(
 
                 var errors = {
                     400: {
-                        already_set_period: 'El grupo ya está en un periodo activo'
                         missing_fields: 'Solicitud incompleta'
                     },
                     403: {
@@ -30,6 +29,7 @@ angular.module('evaluon').factory(
                         invalid_grant: 'Usuario y contraseña no coinciden',
                         access_denied: 'Usuario bloqueado',
                         already_opened_test: 'El test que intenta abrir ya ha sido abierto',
+                        already_set_period: 'El grupo ya está en un periodo activo',
                         existing_user: 'El usuario ya existe'
                     },
                     404: {
