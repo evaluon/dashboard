@@ -27,7 +27,7 @@ angular.module('evaluon.evaluator').controller(
                         "Segundo nombre": evaluee.middle_name,
                         "Apellidos": evaluee.last_name,
                         "Tipo de discapacidad": evaluee.disability,
-                        "Nota": evaluee.average,
+                        "Nota": $filter('number')(evaluee.average, 2),
                         "Calificado": (evaluee.checked ? "Si" : "No")
                     };
                 });
