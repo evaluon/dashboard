@@ -15,6 +15,12 @@ angular.module('evaluon.institution').controller(
             stop_date: stopDate
         };
 
+        $scope.validate = function(form, data){
+            var actualDate = new Date();
+
+            return form.$invalid || data.start_date >= data.stop_date;
+        };
+
         $scope.update = function($event, data){
             Test.updateTest(item.id, data).then(function(success){
                 toast.show('Periodo actualizado correctamente');
