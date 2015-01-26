@@ -2,12 +2,14 @@
 
 angular.module('evaluon.evaluator').controller('AddTestCtrl',
 function(
-    $scope, $state, $stateParams, $q, toast, Test, Question,GroupTest, Answer
+    $scope, $state, $stateParams, $q, toast, Test, Question, GroupTest, Answer
 ){
 
     var date = new Date();
     date.setMilliseconds(0);
     date.setSeconds(0);
+
+    $scope.questionBank = {};
 
     // Test logic
     $scope.testObject = {
@@ -18,6 +20,14 @@ function(
     // Yes, it is a variable for the questions
     $scope.test = [];
     $scope.knowledgeAreas = [];
+
+    $scope.listBank = function(){
+        Question.listBank().then(function(success){
+            $scope.questionBank = _.map(success, function(question){
+                return question.id;
+            });
+        });
+    }
 
     $scope.validate = function(form, test){
 
@@ -77,7 +87,8 @@ function(
     $scope.addQuestionBank = function(){
 
         var questionBank = {
-            public: true
+            public: true,
+            new: false
         };
 
         $scope.test.push(questionBank);
@@ -108,36 +119,57 @@ function(
     $scope.addTest = function($event){
         $event.preventDefault();
 
-        var test = _.omit($scope.testObject, 'id');
+        var bankQuestions = _.filter($scope.test, function(question){
+            return !question.new;
+        });
 
-        Test.createTest(test).then($scope.addToGroup).then(function(test){
+        var wrongQuestions = _.filter(bankQuestions, function(question){
+            return !_.contains($scope.questionBank, question.id);
+        });
 
-            var qs = [];
+        if(wrongQuestions.length > 0){
 
-            for(var i = 0; i < $scope.test.length; i++){
+            _.each(wrongQuestions, function(question, key){
+                toast.show(
+                    "La pregunta con el id {0} no existe o no está" +
+                    "dentro del banco de preguntas".format(key)
+                );
+            });
 
-                var question = $scope.test[i];
+        } else{
 
-                if(question.new){
-                    $scope.addNewQuestion(qs, test, question);
-                } else {
-                    qs.push(Test.addQuestion(test.id, question.id));
+            var test = _.omit($scope.testObject, 'id');
+
+            Test.createTest(test).then($scope.addToGroup).then(function(test){
+
+                var qs = [];
+
+                for(var i = 0; i < $scope.test.length; i++){
+
+                    var question = $scope.test[i];
+
+                    if(question.new){
+                        $scope.addNewQuestion(qs, test, question);
+                    } else {
+                        qs.push(Test.addQuestion(test.id, question.id));
+                    }
+
                 }
 
-            }
+                return $q.all(qs);
 
-            return $q.all(qs);
+            }).then(function(){
+                toast.show(
+                    "Examen creado satisfactoriamente. Recuerde que este" +
+                    "examen aparecerá a sus estudiantes una vez se encuentre " +
+                    "en las fechas de realización del mismo"
+                );
+                $state.go('evaluator.test', { id: $stateParams.id });
+            }).catch(function(response){
+                toast.show(response.error);
+            });
 
-        }).then(function(){
-            toast.show(
-                "Examen creado satisfactoriamente. Recuerde que este" +
-                "examen aparecerá a sus estudiantes una vez se encuentre " +
-                "en las fechas de realización del mismo"
-            );
-            $state.go('evaluator.test', { id: $stateParams.id });
-        }).catch(function(response){
-            toast.show(response.error);
-        });
+        }
 
     };
 
@@ -210,5 +242,6 @@ function(
     }
 
     $scope.getKnowledgeAreas();
+    $scope.listBank();
 
 });
