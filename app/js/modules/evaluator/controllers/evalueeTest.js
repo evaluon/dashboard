@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('evaluon.evaluator').controller(
-    'EvalueeTestCtrl', function($scope, $stateParams, $state, Test){
+    'EvalueeTestCtrl', function($scope, $stateParams, $state, Test, $filter){
 
         $scope.groupId = $stateParams.group;
         $scope.testId = $stateParams.id;
@@ -34,6 +34,7 @@ angular.module('evaluon.evaluator').controller(
                 if($scope.evaluees.length > 0) {
                     $scope.headers = Object.keys($scope.evaluees_es[0]);
                 }
+                console.log($scope.evaluees_es, $scope.headers);
             }).catch(function(error){
                 console.error(error);
             });
