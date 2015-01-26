@@ -13,6 +13,7 @@ angular.module('evaluon').factory(
 
                 var errors = {
                     400: {
+                        already_set_period: 'El grupo ya está en un periodo activo'
                         missing_fields: 'Solicitud incompleta'
                     },
                     403: {
