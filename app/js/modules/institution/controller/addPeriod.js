@@ -2,7 +2,13 @@ angular.module('evaluon.institution').controller(
     'InstitutionAddPeriodCtrl',
     function($scope, $mdDialog, Period, institution, toast){
 
+        var date = new Date();
+        date.setMilliseconds(0);
+        date.setSeconds(0);
 
+        $scope.data = {};
+        $scope.data.start_date = date;
+        $scope.data.end_date = date;
 
         $scope.validate = function(form, data){
             var actualDate = new Date();
