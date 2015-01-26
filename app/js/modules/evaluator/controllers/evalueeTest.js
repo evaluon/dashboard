@@ -26,15 +26,8 @@ angular.module('evaluon.evaluator').controller(
                         "Primer nombre": evaluee.first_name,
                         "Segundo nombre": evaluee.middle_name,
                         "Apellidos": evaluee.last_name,
-                        "Fecha de nacimiento": evaluee.birth_date,
-                        "Correo Electrónico": evaluee.mail,
-                        "Número Telefónico": evaluee.phone_number,
-                        "Fecha de Registro": evaluee.register_date,
                         "Tipo de discapacidad": evaluee.disability,
-                        "Tipo de usuario": evaluee.type,
-                        "Nivel de estudios": evaluee.level,
-                        "Sexo": (evaluee.gender == "male" ? "Hombre" : "Mujer"),
-                        "Nota": evaluee.average,
+                        "Nota": $filter('number')(evaluee.average, 2),
                         "Calificado": (evaluee.checked ? "Si" : "No")
                     };
                 });
