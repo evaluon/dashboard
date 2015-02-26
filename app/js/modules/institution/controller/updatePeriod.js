@@ -4,10 +4,13 @@ angular.module('evaluon.institution').controller('InstitutionUpdatePeriodCtrl',
         $scope.data = item;
 
         $scope.update = function($event, data){
-            console.log($scope.data);
-            Period.updatePeriod($scope.data).then(function(success){
+            Period.updatePeriod(
+                _.omit($scope.data, 'end_date')
+            ).then(function(success){
                 console.log(success);
             });
+
         };
+
     }
 );
