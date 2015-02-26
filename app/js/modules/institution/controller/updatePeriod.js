@@ -1,5 +1,4 @@
-angular.module('evaluon.institution').controller(
-    'InstitutionUpdatePeriodCtrl',
+angular.module('evaluon.institution').controller('InstitutionUpdatePeriodCtrl',
     function($scope, $mdDialog, Period, institution, item){
 
         $scope.data = item;
@@ -10,4 +9,5 @@ angular.module('evaluon.institution').controller(
                 console.log(success);
             });
         };
-    });
+    }
+);
