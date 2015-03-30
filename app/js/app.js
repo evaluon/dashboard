@@ -2,6 +2,7 @@
 
 angular.module('evaluon', [
 'ngMaterial', 'ui.router', 'LocalStorageModule', 'angularFileUpload',
+'ngAnimate',
 
 'evaluon.auth', 'evaluon.entity', 'evaluon.evaluator',
 'evaluon.institution', 'evaluon.templates', 'blockUI',

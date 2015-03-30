@@ -17,8 +17,8 @@
                             <h5 tabindex="0">Fecha de inicio:</h5>
                             <md-text-float  ng-model="data.start_date" type="date" name="start_date" class="medium" required> </md-text-float>
                             <h5 tabindex="0">Fecha final:</h5>
-                            <md-text-float  ng-model="data.end_date" type="date" name="end_date" class="medium" required> </md-text-float>
-                            <md-button type="submit" aria-label="Actualizar periodo" class="md-fab md-primary md-fab-bottom-right" md-theme="red" ng-disabled="addPeriodForm.$invalid || data.start_date >= data.end_date" >
+                            <md-text-float  ng-model="data.stop_date" type="date" name="stop_date" class="medium" required> </md-text-float>
+                            <md-button type="submit" aria-label="Actualizar periodo" class="md-fab md-primary md-fab-bottom-right" md-theme="red" ng-disabled="addPeriodForm.$invalid || data.start_date >= data.stop_date" >
                                 <md-tooltip>
                                     Actualizar
                                 </md-tooltip>
