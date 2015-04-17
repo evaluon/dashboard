@@ -3,11 +3,11 @@
 var apiRouter = {
 
     images: function(container, path){
-        return 'http://cdn.boolinc.co/{0}/{1}'.format(container, path);
+        return 'http://cdn.gentebool.com/{0}/{1}'.format(container, path);
     },
     url: {
         protocol: 'http',
-        host: 'evaluon.boolinc.co'
+        host: 'evaluon.gentebool.com'
     },
     route: function(path){
         var url = this.url;
