@@ -5,6 +5,7 @@
             <div class="md-toolbar-tools">
                 <span>Banco de preguntas</span>
                 <span flex></span>
+                <md-text-float label="Busqueda" ng-model="search"> </md-text-float>
                 <md-button class="md-fab md-primary button-toolbar" aria-label="Recargar" ng-click="getInstitutions()">
                     <md-tooltip>
                         Recargar
@@ -19,7 +20,7 @@
                     <md-subheader class="md-primary"><h3 tabindex="0">{{area.id}}</h3></md-subheader>
                     <md-list>
                         <md-item>
-                            <md-card ng-repeat="question in questionBank | filter: {knowledge_area_id: area.id} ">
+                            <md-card ng-repeat="question in questionBank | filter: {knowledge_area_id: area.id, description_text: search} ">
                                 <md-item-content>
                                     <div class="md-tile-left"><h3 tabindex="0">{{question.id}}</h3></div>
                                     <div class="md-tile-content">
