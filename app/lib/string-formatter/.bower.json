@@ -5,7 +5,8 @@
   "license": "MIT",
   "ignore": [
     "*.md",
-    "README"
+    "README",
+    "LICENSE"
   ],
   "keywords": [
     "string",
@@ -17,7 +18,7 @@
   "_resolution": {
     "type": "version",
     "tag": "0.0.2",
-    "commit": "7e232545180690d45eb92e9e5e2a70612d5af016"
+    "commit": "72bdf46b1b889efcb7d74029c53edaac2650d3d6"
   },
   "_source": "git://github.com/pandres95/string-formatter.git",
   "_target": "~0.0.2",
