@@ -26,7 +26,7 @@
                                         <h3 tabindex="0">{{question.description_text}}</h3>
                                         <p tabindex="0">Dificultad: {{question.difficulty}}</p>
                                         <div ng-if="question.image" style="text-align: center;">
-                                            <img tabindex="0" ng-if="question.image" ng-src="http://cdn.boolinc.co/evaluon/{{question.image.location}}" alt="{{question.image.description}}">
+                                            <img tabindex="0" ng-if="question.image" ng-src="http://cdn.gentebool.com/evaluon/{{question.image.location}}" alt="{{question.image.description}}">
                                             <p tabindex="0"><b>Descripción</b> {{question.image.description}}</p>
                                         </div>
                                         <p tabindex="0" ng-repeat="answer in question.answers" ng-class="{'correct': answer.right == 1}">{{$index + 1}}. {{answer.description_text}}</p>
