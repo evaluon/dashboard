@@ -1,7 +1,9 @@
 'use strict';
 
 angular.module('evaluon.evaluator').controller(
-    'TestCtrl', function($scope, $stateParams, $mdDialog, $state, GroupTest){
+    'TestCtrl', function(
+        $scope, $stateParams, $mdDialog, $state, GroupTest, toast
+        ){
 
         $scope.includeInstitution = $state.includes('institution.test');
         $scope.includeEvaluator = $state.includes('evaluator.test');
@@ -15,6 +17,9 @@ angular.module('evaluon.evaluator').controller(
             GroupTest.groupTests($stateParams.id).then(function(success){
                 $scope.tests = success;
             }).catch(function(response){
+
+                toast.show(response.error);
+
                 if(response.status == 404){
                     $scope.noActivePeriod = true;
                 }
