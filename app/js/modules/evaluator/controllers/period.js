@@ -7,7 +7,6 @@ angular.module('evaluon.evaluator').controller(
             Period.setPeriod(groupId, [id]).then(function(){
                 $scope.getEvaluees();
             });
-
         };
 
     });
