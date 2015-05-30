@@ -24,7 +24,6 @@ angular.module('evaluon.institution').controller(
         };
 
         $scope.updatePeriod = function($event, item){
-            console.log(item);
             $mdDialog.show({
                 targetEvent: $event,
                 templateUrl: 'views/institution/updatePeriod.tpl.html',

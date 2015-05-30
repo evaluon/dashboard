@@ -8,7 +8,6 @@ angular.module('evaluon.evaluator').controller(
 
         $scope.getQuestionBank = function(){
             Question.listBank().then(function(success){
-                console.log(success);
                 $scope.questionBank = success;
             });
         };

@@ -10,7 +10,6 @@ angular.module('evaluon.institution').controller('GroupByEvaluatorCtrl',
             Group.findEvaluatorGroups($stateParams.id).then(function(groups){
                 $scope.groups = groups;
             }).catch(function(response){
-                console.log(response);
                 toast.show(response.error);
             });
 

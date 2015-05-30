@@ -34,7 +34,6 @@ angular.module('evaluon.evaluator').controller(
                 if($scope.evaluees.length > 0) {
                     $scope.headers = Object.keys($scope.evaluees_es[0]);
                 }
-                console.log($scope.evaluees_es, $scope.headers);
             }).catch(function(error){
                 console.error(error);
             });

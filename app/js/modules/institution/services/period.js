@@ -85,8 +85,6 @@ angular.module('evaluon.institution').factory(
 
             updatePeriod: function(period){
 
-                console.log(period);
-
                 var user = Auth.userLogged(),
                     tokenType = user.token_type,
                     token = user.access_token;
