@@ -9,8 +9,6 @@ angular.module('evaluon').factory(
 
                 var message;
 
-                console.log(response);
-
                 var errors = {
                     400: {
                         missing_fields: 'Solicitud incompleta'
