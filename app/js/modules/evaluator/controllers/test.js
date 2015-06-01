@@ -2,7 +2,7 @@
 
 angular.module('evaluon.evaluator').controller(
     'TestCtrl', function(
-        $scope, $stateParams, $mdDialog, $state, GroupTest, toast
+        $scope, $stateParams, $mdDialog, $state, GroupTest, toast, $timeout
         ){
 
         $scope.includeInstitution = $state.includes('institution.test');
@@ -12,6 +12,8 @@ angular.module('evaluon.evaluator').controller(
         $scope.institutionId = $stateParams.institution;
         $scope.tests = [];
         $scope.noActivePeriod = false;
+        $scope.currentDate;
+        currentDate();
 
         $scope.getTests = function(){
             GroupTest.groupTests($stateParams.id).then(function(success){
@@ -34,6 +36,19 @@ angular.module('evaluon.evaluator').controller(
                 escapeToClose: true,
                 locals: { item: item}
             });
+        };
+
+        $scope.validateUpdate = function(date){
+
+            var date = new Date(date);
+
+            return date > $scope.currentDate;
+        };
+
+        function currentDate(){
+            $scope.currentDate = new Date();
+
+            $timeout(currentDate, 1000);
         };
 
         $scope.getTests();

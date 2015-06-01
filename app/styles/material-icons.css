@@ -242,3 +242,6 @@
 .mi-arrow_back:before{
     content: url(/styles/material-icons/arrow_back.svg)
 }
+.mi-replay:before{
+    content: url(/styles/material-icons/replay.svg)
+}
