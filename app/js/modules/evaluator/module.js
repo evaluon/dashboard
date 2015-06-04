@@ -1,6 +1,6 @@
  'use strict';
 
-angular.module('evaluon.evaluator',['ui.router']).config(
+angular.module('evaluon.evaluator',['ui.router', 'contenteditable']).config(
     function($stateProvider, authorizationProvider ){
 
         $stateProvider
@@ -32,6 +32,11 @@ angular.module('evaluon.evaluator',['ui.router']).config(
                 controller: 'AddTestCtrl'
             }
         ).state(
+            'evaluator.updateTest', {
+                url: '/test/add/:institution/:id/:test/edit',
+                templateUrl: 'views/evaluator/updateTest.tpl.html',
+                controller: 'UpdateTestCtrl'
+        }).state(
             'evaluator.evalueeTest', {
                 url: '/test/:group/evaluee/:id',
                 templateUrl: 'views/evaluator/evalueeInTest.tpl.html',

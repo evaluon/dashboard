@@ -5,6 +5,28 @@ angular.module('evaluon.evaluator').factory(
 
         return {
 
+
+            getList: function(test){
+
+                var user = Auth.userLogged()
+                ,   tokenType = user.token_type
+                ,   token = user.access_token;
+
+                return $http({
+                    method: 'get',
+                    url: '{0}{1}'.format(
+                        api.id(api.test, test), '/question'
+                    ),
+                    headers: {
+                        Authorization: headers.authorization(tokenType, token),
+                        'Content-Type': headers.json
+                    }
+                }).then(function(data){
+                    return data.data.data;
+                });
+
+            },
+
             listBank: function(){
 
                 var user = Auth.userLogged(),
