@@ -6,28 +6,31 @@ angular.module('evaluon.evaluator').controller(
         $scope.test = {};
         $scope.params = $state.params;
 
-        $scope.updateQuetion = function(question){
+        $scope.updateQuetion = function(question){ /* jshint camelcase: false */
             console.log(question);
             var qs = [];
 
             for(var answer in question.answers){
+                answer = question.answers[answer];
 
-                (function(answer){
-                    qs.push(Answer.editAnswer(
-                        answer.id, {
-                            description_text: answer.description_text,
-                            right: answer.right
-                        }
-                    ));
-                })(question.answers[answer]);
+                qs.push(Answer.editAnswer(
+                    answer.id, {
+                        description_text: answer.description_text,
+                        right: answer.right
+                    }
+                ));
 
             }
 
             Question.editQuestion(question.id, {
                 description_text: question.description_text
+            }).then(function(){
+                return $q.all(qs);
+            }).then(function(){
+                toast.show('Pregunta editada exitosamente');
             });
 
-            $q.all(qs);
+
         };
 
 
