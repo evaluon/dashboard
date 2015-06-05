@@ -23,11 +23,11 @@ angular.module('evaluon.evaluator').controller(
 
             }
 
-            $q.all(qs).then(function(){
-                console.log("Cool");
-            }, function(err){
-                toast.show(err);
+            Question.editQuestion(question.id, {
+                description_text: question.description_text
             });
+
+            $q.all(qs);
         };
 
 

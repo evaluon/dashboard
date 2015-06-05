@@ -66,6 +66,26 @@ angular.module('evaluon.evaluator').factory(
 
             },
 
+            editQuestion: function(id, question){
+
+                var user = Auth.userLogged(),
+                    tokenType = user.token_type,
+                    token = user.access_token;
+
+                return $http({
+                    method: 'put',
+                    url: api.editQuestion(id),
+                    headers: {
+                        Authorization: headers.authorization(tokenType, token),
+                        'Content-Type': headers.json
+                    },
+                    data: question
+                }).then(function(data){
+                    return data.data.data;
+                });
+
+            },
+
             uploadQuestionImage: function(question, image){
 
                 var user = Auth.userLogged(),
