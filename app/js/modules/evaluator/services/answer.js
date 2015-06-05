@@ -25,6 +25,26 @@ angular.module('evaluon.evaluator').factory(
 
             },
 
+            editAnswer: function(id, answer){ /*jshint camelcase: false */
+
+                var user = Auth.userLogged(),
+                    tokenType = user.token_type,
+                    token = user.access_token;
+
+                return $http({
+                    method: 'put',
+                    url: api.answerId(id),
+                    headers: {
+                        Authorization: headers.authorization(tokenType, token),
+                        'Content-Type': headers.json
+                    },
+                    data: answer
+                }).then(function(data){
+                    return data.data.data;
+                });
+
+            },
+
             addToQuestion: function(question, answer){
                 /*jshint camelcase: false */
 
