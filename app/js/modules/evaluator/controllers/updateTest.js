@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('evaluon.evaluator').controller(
-    'UpdateTestCtrl', function($q, $scope, $state, Question, Answer){
+    'UpdateTestCtrl', function($q, $scope, $state, Question, Answer, toast){
 
         $scope.test = {};
         $scope.params = $state.params;
@@ -24,7 +24,9 @@ angular.module('evaluon.evaluator').controller(
             }
 
             $q.all(qs).then(function(){
-                
+                console.log("Cool");
+            }, function(err){
+                toast.show(err);
             });
         };
 
