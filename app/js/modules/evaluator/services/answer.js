@@ -5,7 +5,7 @@ angular.module('evaluon.evaluator').factory(
 
         return {
 
-            registerAnswers: function(answers){
+            registerAnswers: function(answers){ /*jshint camelcase: false */
 
                 var user = Auth.userLogged(),
                     tokenType = user.token_type,
@@ -26,6 +26,7 @@ angular.module('evaluon.evaluator').factory(
             },
 
             addToQuestion: function(question, answer){
+                /*jshint camelcase: false */
 
                 var user = Auth.userLogged(),
                     tokenType = user.token_type,
@@ -44,6 +45,7 @@ angular.module('evaluon.evaluator').factory(
             },
 
             score: function(answer, mark){
+                /*jshint camelcase: false */
 
                 var user = Auth.userLogged(),
                     tokenType = user.token_type,
@@ -60,11 +62,11 @@ angular.module('evaluon.evaluator').factory(
                     data: {
                         mark: mark
                     }
-                })
+                });
 
             }
 
-        }
+        };
 
     }
-)
+);
