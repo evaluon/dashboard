@@ -14,7 +14,7 @@ var apiRouter = {
         return '{0}://{1}/{2}'.format(url.protocol, url.host, path);
     },
     id: function(url, id){
-        return '{0}/{1}'.format(url, id)
+        return '{0}/{1}'.format(url, id);
     }
 };
 
@@ -59,11 +59,11 @@ angular.module('evaluon').constant(
         test: apiRouter.route('test'),
         testGroup: apiRouter.route('test/group'),
         evalueesInTest: apiRouter.route('evaluee/test'),
-        testQuestion: '/question',
 
         // Answers Module
         knowledgeArea: apiRouter.route('knowledgearea'),
         answer: apiRouter.route('answer'),
+        
         addToQuestion: function(q, a){
             return apiRouter.route('question/{0}/answer/{1}'.format(q, a));
         },
