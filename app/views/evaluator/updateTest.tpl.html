@@ -9,52 +9,64 @@
         <md-content flex layout="vertical" class="md-default-theme md-whiteframe-z1" style="height: 480px;">
             <md-list>
                     <md-list>
-                        <md-item ng-repeat="question in test">
-                            <md-card>
-                                <div class="md-tile-left">
-                                    <h3>{{question.id}}</h3>
-                                </div>
-                                <div class="md-tile-content">
-                                    <h3 contenteditable="true"
-                                    ng-model="question.description_text"
-                                    strip-br="true"
-                                    select-non-editable="true">
-                                        </h3>
-                                        Dificultad:
-                                        <span contenteditable="false"
-                                            ng-model="question.difficulty"
-                                            strip-br="true"
-                                            select-non-editable="true" >
-                                        {{question.difficulty}}
-                                        </span>
-                                    <div ng-if="question.image" style="text-align: center;">
-                                        <img tabindex="0" ng-if="question.image" ng-src="http://cdn.gentebool.com/evaluon/{{question.image.location}}" alt="{{question.image.description}}">
-                                        <p tabindex="0"><b>Descripción</b> {{question.image.description}}</p>
-                                    </div>
-                                    <br><br>
-                                    <div ng-repeat="answer in question.answers">
-                                        {{$index + 1}}.
-                                        <span ng-class="{'correct': answer.right == 1}"
-                                            contenteditable="true"
-                                            ng-model="answer.description_text"
-                                            strip-br="true"
-                                            select-non-editable="true">
-                                        </span>
-                                        <br><br>
-                                    </div>
+                        <md-item ng-repeat="($iq, question) in test"
+                        ng-if="question.public == 0">
+                            <form name="updateQuestion{{$iq}}" ng-submit="updateQuetion(question)">
+                                <md-card>
+                                    <md-item-content>
+                                        <div class="md-tile-left">
+                                            <h3>{{question.id}}</h3>
+                                        </div>
+                                        <div class="md-tile-content">
+                                            <md-text-float
+                                            ng-model="question.description_text" type="text" name="descriptionText{{$iq}}"
+                                            label="Descripción" class="medium" required
+                                            ng-class="{
+                                            'invalid': updateQuestion{{$iq}}.descriptionText{{$iq}}.$invalid,
+                                            'valid': updateQuestion{{$iq}}.descriptionText{{$iq}}.$valid
+                                            }"
+                                            >
+                                            </md-text-float>
+                                            <h3>
+                                                Dificultad: <b>{{question.difficulty}}</b>
+                                            </h3>
+                                            <div ng-if="question.image" style="text-align: center;">
+                                                <img tabindex="0" ng-if="question.image" ng-src="http://cdn.gentebool.com/evaluon/{{question.image.location}}" alt="{{question.image.description}}">
+                                                <p tabindex="0"><b>Descripción</b> {{question.image.description}}</p>
+                                            </div>
+                                            <br><br>
+                                            <div ng-repeat="($ia, answer) in question.answers">
+                                                <small ng-class="{'correct': answer.right == 1}" ng-if="answer.right == 1">
+                                                    Correcta:
+                                                </small>
+                                                <md-text-float  ng-model="answer.description_text" type="text" name="answerDescription{{$iq}}{{$ia}}" class="medium"
+                                                ng-class="{
+                                                'invalid': updateQuestion{{$iq}}.answerDescription{{$iq}}{{$ia}}.$invalid,
+                                                'valid': updateQuestion{{$iq}}.answerDescription{{$iq}}{{$ia}}.$valid
+                                                }"
+                                                required>
+                                                </md-text-float>
+                                                <br>
+                                            </div>
 
-                                    <md-button ng-if="question.public == 0"
-                                    ng-click="updateQuetion(question)"
-                                    class="md-fab md-fab-top-right" md-theme="red"
-                                    aria-label="Actualizar">
-                                        <md-tooltip>
-                                            Actualizar
-                                        </md-tooltip>
-                                        <i class="mi mi-done"></i>
-                                    </md-button>
+                                            <div class="md-tile-right">
+                                                <md-button md-theme="red"
+                                                ng-if="question.public == 0"
+                                                class="md-primary md-fab md-fab-top-right"
+                                                aria-label="Actualizar"
+                                                ng-disabled="updateQuestion{{$iq}}.$invalid">
+                                                    <md-tooltip>
+                                                        Actualizar
+                                                    </md-tooltip>
+                                                    <i class="mi mi-done"></i>
+                                                </md-button>
+                                            </div>
 
-                                </div>
-                            </md-card>
+
+                                        </div>
+                                    </md-item-content>
+                                </md-card>
+                            </form>
                         </md-item>
                     </md-list>
             </md-list>
