@@ -73,6 +73,9 @@ angular.module('evaluon').constant(
             return apiRouter.route('test/{0}/question'.format(id));
         },
         question: apiRouter.route('question'),
+        editQuestion: function (question) {
+            return apiRouter.route('questions/{0}'.format(question));
+        },
         questionImage: function(id){
             return apiRouter.route('question/{0}/image'.format(id));
         },
