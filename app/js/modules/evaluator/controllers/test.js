@@ -12,8 +12,7 @@ angular.module('evaluon.evaluator').controller(
         $scope.institutionId = $stateParams.institution;
         $scope.tests = [];
         $scope.noActivePeriod = false;
-        $scope.currentDate;
-        currentDate();
+
 
         $scope.getTests = function(){
             GroupTest.groupTests($stateParams.id).then(function(success){
@@ -22,7 +21,7 @@ angular.module('evaluon.evaluator').controller(
 
                 toast.show(response.error);
 
-                if(response.status == 404){
+                if(response.status === 404){
                     $scope.noActivePeriod = true;
                 }
             });
@@ -38,18 +37,19 @@ angular.module('evaluon.evaluator').controller(
             });
         };
 
-        $scope.validateUpdate = function(date){
+        $scope.validateUpdate = function(date, editable){
+            date = new Date(date);
 
-            var date = new Date(date);
-
-            return date > $scope.currentDate;
+            return editable && date > $scope.currentDate;
         };
 
         function currentDate(){
             $scope.currentDate = new Date();
 
             $timeout(currentDate, 1000);
-        };
+        }
+
+        currentDate();
 
         $scope.getTests();
 

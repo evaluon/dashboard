@@ -36,14 +36,14 @@
                                     <i class="mi mi-restore"></i>
                                 </md-button>
 
-                                <md-button ng-if="validateUpdate(item.start_date)"
+                                <md-button ng-if="validateUpdate(item.start_date, item.editable)"
                                     ui-sref="evaluator.updateTest({test: item.id})">
                                     <md-tooltip>
                                         Editar
                                     </md-tooltip>
                                     <i class="mi mi-create"></i>
                                 </md-button>
-                                
+
                                 <md-button ng-if="includeInstitution" ui-sref="institution.evalueeTest({group: groupId, id: item.id})">
                                     <md-tooltip>
                                         Supervisar
