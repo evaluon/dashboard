@@ -13,8 +13,13 @@ angular.module('evaluon.evaluator').controller(
         $scope.tests = [];
         $scope.noActivePeriod = false;
 
+        getTests();
+        currentDate();
 
-        $scope.getTests = function(){
+        $scope.getTests = getTests;
+
+        function getTests(){
+
             GroupTest.groupTests($stateParams.id).then(function(success){
                 $scope.tests = success;
             }).catch(function(response){
@@ -33,7 +38,10 @@ angular.module('evaluon.evaluator').controller(
                 templateUrl: 'views/evaluator/updateTestPeriod.tpl.html',
                 controller: 'InstitutionUpdateTestPeriodCtrl',
                 escapeToClose: true,
-                locals: { item: item}
+                locals: { item: item},
+                onComplete: function(){
+                    console.log('complete');
+                }
             });
         };
 
@@ -48,10 +56,5 @@ angular.module('evaluon.evaluator').controller(
 
             $timeout(currentDate, 1000);
         }
-
-        currentDate();
-
-        $scope.getTests();
-
     }
 );
