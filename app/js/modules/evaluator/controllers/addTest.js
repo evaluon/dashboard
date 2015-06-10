@@ -116,8 +116,17 @@ function(
     };
 
     // Add test
+
     $scope.addTest = function($event){
         $event.preventDefault();
+
+        if(confirm('Desea agregar el examen?')){
+            addTestAction();
+        }
+    };
+
+
+    function addTestAction(){
 
         var bankQuestions = _.filter($scope.test, function(question){
             return !question.new;
