@@ -33,14 +33,14 @@
                                 <p tabindex="0">Area: {{item.administrator.area}}</p>
                                 <p tabindex="0">{{item.administrator.mail}}</p>
                                 <p tabindex="0">Tel: {{item.administrator.phone_number}}</p>
-                                <md-text-float label="Observaciones" class="long" ng-model="item.denial_reason"></md-text-float>
+                                <md-text-float label="Observaciones *" class="long" ng-model="item.denial_reason"></md-text-float>
                                 <md-button class="" aria-label="Aceptar Institucion" ng-click="approve(item.id)">
                                     <md-tooltip>
                                         Aceptar
                                     </md-tooltip>
                                     <i class="mi mi-done"></i>
                                 </md-button>
-                                <md-button class="" aria-label="Denegar Institucion" ng-click="reject(item.id, item.denial_reason)">
+                                <md-button class="" ng-disabled="!item.denial_reason" aria-label="Denegar Institucion" ng-click="reject(item.id, item.denial_reason)">
                                     <md-tooltip>
                                         Denegar
                                     </md-tooltip>
