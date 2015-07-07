@@ -3,11 +3,11 @@
 var apiRouter = {
 
     images: function(container, path){
-        return 'http://cdn.gentebool.com/{0}/{1}'.format(container, path);
+        return 'http://186.154.240.187:1045/{1}'.format(container, path);
     },
     url: {
         protocol: 'http',
-        host: 'evaluon.gentebool.com'
+        host: '186.154.240.187:3004'
     },
     route: function(path){
         var url = this.url;
