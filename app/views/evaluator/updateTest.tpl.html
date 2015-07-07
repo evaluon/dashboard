@@ -31,7 +31,7 @@
                                                 Dificultad: <b>{{question.difficulty}}</b>
                                             </h3>
                                             <div ng-if="question.image" style="text-align: center;">
-                                                <img tabindex="0" ng-if="question.image" ng-src="http://186.154.240.187:1045/{{question.image.location}}" alt="{{question.image.description}}">
+                                                <img tabindex="0" ng-if="question.image" ng-src="{{question.image.location | image}}" alt="{{question.image.description}}">
                                                 <p tabindex="0"><b>Descripción</b> {{question.image.description}}</p>
                                             </div>
                                             <br><br>
